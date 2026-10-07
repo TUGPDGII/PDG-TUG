@@ -1,0 +1,24 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{Lista de Acrónimos}{ii}{Doc-Start}%
+\contentsline {section}{Glosario de Términos}{iii}{Doc-Start}%
+\contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Planteamiento del problema}{1}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Objetivos}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Objetivo general}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Objetivos específicos}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Alcance}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Límites del proyecto}{3}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Antecedentes del proyecto}{3}{section.3}%
+\contentsline {section}{\numberline {4}Marco teórico}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Enfermedad de Parkinson (EP)}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Análisis biomecánico motor}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Prueba de \emph {Timed Up and Go} (TUG)}{5}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Unidad de Medición Inercial (IMU)}{6}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Cámaras de Profundidad RGB-D}{7}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Estado del arte}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Del TUG convencional al TUG instrumentado}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}IMU: segmentación y características}{8}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}RGB-D y análisis no invasivo}{8}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Severidad y biomarcadores}{9}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Variables espaciotemporales prioritarias y modelado cinemático mediante IMU}{9}{subsection.5.5}%
+\contentsline {section}{Referencias}{15}{table.1}%
