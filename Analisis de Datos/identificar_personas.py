@@ -13,6 +13,7 @@ Salida:
     - Evidencia en consola (pasos 1 a 5).
     - personas.csv con participantes, metadatos y trazabilidad.
 """
+import argparse
 import csv
 import datetime
 import glob
@@ -118,8 +119,17 @@ def cargar_registros(carpeta):
 
 
 def main():
-    print(f"Carpeta de datos crudos: {CARPETA}")
-    R = cargar_registros(CARPETA)
+    # Argumentos de CLI
+    parser = argparse.ArgumentParser(description="Identificación y auditoría de personas en el dataset TUG.")
+    parser.add_argument("carpeta", nargs="?", default=None, help="Ruta de la carpeta con archivos JSON crudos.")
+    parser.add_argument("--descarte", action="store_true", help="Aplica criterios metodológicos de descarte (Reunión #6).")
+    parser.add_argument("--incluir-doble-tarea", action="store_true", help="No descarta grabaciones de doble tarea.")
+    parser.add_argument("-o", "--salida", default=None, help="Ruta del archivo CSV de salida.")
+    args = parser.parse_args()
+
+    carpeta = resolver_carpeta_datos(args.carpeta)
+    print(f"Carpeta de datos crudos: {carpeta}")
+    R = cargar_registros(carpeta)
     print(f"Archivos analizados: {len(R)}\n")
 
     if not R:
@@ -190,7 +200,7 @@ def main():
         if not es_duplicado:
             vistos_md5[r["md5"]] = r["archivo"]
 
-        filas.append({
+        fila = {
             "archivo": r["archivo"],
             "codigo": r["codigo"],
             "persona_id": ids[llave],
@@ -213,12 +223,26 @@ def main():
             "obs_paciente": r["obs_paciente"] or "Sin observaciones",
             "obs_prueba": r["obs_prueba"] or "Sin observaciones",
             "md5": r["md5"],
-        })
+        }
+        filas.append(fila)
+
+    # Evaluación de criterios metodológicos de descarte si se solicita o por defecto en consola
+    descartar_dual = not args.incluir_doble_tarea
+    evaluados = aplicar_criterios_descarte(filas, descartar_doble_tarea=descartar_dual)
+
+    # Si se pide --descarte, agregar columnas de estado metodológico al CSV
+    if args.descarte:
+        for f, ev in zip(filas, evaluados):
+            f["estado_metodologico"] = ev["estado"]
+            f["motivo_descarte"] = ev["motivo_principal"]
 
     # Exportar archivo CSV en la misma carpeta que el script o directorio actual
-    ruta_salida = "personas.csv"
-    if os.path.exists("Analisis de Datos") and os.path.isdir("Analisis de Datos"):
-        ruta_salida = os.path.join("Analisis de Datos", "personas.csv")
+    ruta_salida = args.salida
+    if not ruta_salida:
+        if os.path.exists("Analisis de Datos") and os.path.isdir("Analisis de Datos"):
+            ruta_salida = os.path.join("Analisis de Datos", "personas.csv")
+        else:
+            ruta_salida = "personas.csv"
 
     with open(ruta_salida, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=list(filas[0].keys()))
@@ -229,7 +253,7 @@ def main():
     for f in filas:
         personas[f["tipo"]].add(f["persona_id"])
 
-    print("\nPASO 5. Resumen")
+    print("\nPASO 5. Resumen General de Identificación")
     print(f"   Archivos analizados:  {len(filas)}")
     print(f"   Duplicados exactos:   {sum(f['duplicado_exacto'] for f in filas)}")
     participantes_reales = {f["persona_id"] for f in filas if f["persona_id"] != "PRUEBA_TECNICA"}
@@ -242,7 +266,88 @@ def main():
         cant_p = len(ps_filtradas) if tipo != "SIN_ETIQUETA" else "N/A (Prueba técnica)"
         print(f"   • {tipo:<15} archivos={n_arch:2}  sujetos_únicos={cant_p}")
 
+    # Cuadro resumen metodológico de la Reunión #6
+    imprimir_resumen_descarte(evaluados)
+
     print(f"\nTabla escrita en: {ruta_salida}")
+
+
+def aplicar_criterios_descarte(filas, descartar_doble_tarea=True):
+    """
+    Aplica los criterios metodológicos de descarte de la Reunión #6 (Prof. Domiciano Rincón):
+    1. Duplicados exactos por red (MD5).
+    2. Pruebas técnicas sin etiqueta clínica.
+    3. Sensores mínimos requeridos (L5 + ambos tobillos).
+    4. Fallas técnicas (warning de desconexión) o duración < 5s.
+    5. Doble tarea (dual task) cognitiva (si descartar_doble_tarea=True).
+    """
+    evaluados = []
+    for f in filas:
+        motivos = []
+
+        if f.get("duplicado_exacto", False):
+            motivos.append("Duplicado exacto de red (MD5 idéntico)")
+
+        if f.get("tipo") == "SIN_ETIQUETA" or f.get("persona_id") == "PRUEBA_TECNICA":
+            motivos.append("Prueba técnica interna (sin etiqueta clínica)")
+
+        if not f.get("min_sensores_ok", True):
+            motivos.append(f"Faltan sensores críticos ({f.get('num_sensores')} sensores; requiere espina + 2 tobillos)")
+
+        if f.get("tiene_warning", False) and "desconectado" in str(f.get("motivo_warning", "")).lower():
+            motivos.append(f"Falla técnica: {f.get('motivo_warning')}")
+
+        if f.get("duracion_s", 0) < 5.0:
+            motivos.append(f"Duración anómala insuficiente ({f.get('duracion_s')} s < 5.0 s)")
+
+        if descartar_doble_tarea and f.get("es_doble_tarea", False):
+            motivos.append("Condición experimental de Doble Tarea (Dual Task cognitiva)")
+
+        estado = "DESCARTADO" if motivos else "ACEPTADO"
+        motivo_principal = motivos[0] if motivos else "Cumple todos los criterios de validez"
+
+        evaluados.append({
+            "archivo": f["archivo"],
+            "codigo": f["codigo"],
+            "persona_id": f["persona_id"],
+            "tipo": f["tipo"],
+            "estado": estado,
+            "motivo_principal": motivo_principal,
+            "motivos": motivos,
+        })
+    return evaluados
+
+
+def imprimir_resumen_descarte(evaluados):
+    """Imprime el cuadro resumen ejecutivo acordado en la Reunión #6."""
+    total = len(evaluados)
+    aceptados = sum(1 for e in evaluados if e["estado"] == "ACEPTADO")
+    descartados = sum(1 for e in evaluados if e["estado"] == "DESCARTADO")
+
+    print("\n" + "=" * 80)
+    print("📋 CUADRO RESUMEN METODOLÓGICO DE DESCARTE (REUNIÓN #6 - TUTOR DOMICIANO RINCÓN)")
+    print("=" * 80)
+    print(f"Total grabaciones evaluadas:       {total}")
+    print(f"✅ Grabaciones ACEPTADAS:            {aceptados} ({aceptados/total*100:.1f}%)")
+    print(f"❌ Grabaciones DESCARTADAS:          {descartados} ({descartados/total*100:.1f}%)")
+    print("-" * 80)
+    print("Desglose por Motivo Principal de Descarte:")
+    conteo_motivos = defaultdict(int)
+    for e in evaluados:
+        if e["estado"] == "DESCARTADO":
+            conteo_motivos[e["motivo_principal"]] += 1
+    for mot, c in sorted(conteo_motivos.items(), key=lambda x: -x[1]):
+        print(f"   • {mot:<60}: {c} archivo(s)")
+
+    print("-" * 80)
+    print("Distribución de Clases en Grabaciones Aceptadas:")
+    clases_aceptadas = defaultdict(int)
+    for e in evaluados:
+        if e["estado"] == "ACEPTADO":
+            clases_aceptadas[e["tipo"]] += 1
+    for cls, c in sorted(clases_aceptadas.items()):
+        print(f"   • {cls:<25}: {c} grabaciones")
+    print("=" * 80)
 
 
 if __name__ == "__main__":
