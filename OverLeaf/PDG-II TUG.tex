@@ -220,12 +220,10 @@ Desarrollar un algoritmo de clasificación para diferenciar pacientes con enferm
 \subsection{Objetivos específicos}\label{sec:objetivos-especificos}
 
 \begin{itemize}[itemsep=4pt]
-\item Realizar la exploración del conjunto de datos bimodal (señales inerciales IMU y video RGB-D) conformado por aproximadamente 70 muestras de diferentes participantes adquiridas en brigadas de la prueba TUG, identificando patrones motores y variables biomecánicas relevantes de acuerdo con la literatura científica.
+  \item Realizar la exploración del conjunto de datos bimodal (señales inerciales IMU y video RGB-D) conformado por aproximadamente 70 muestras de diferentes participantes adquiridas en brigadas de la prueba TUG, identificando patrones motores y variables biomecánicas relevantes de acuerdo con la literatura científica.
   \item Validar el algoritmo de segmentación de fases del proyecto predecesor sobre el conjunto de datos adquiridos en brigadas, ajustándolo a la última versión de los sistemas de adquisición de datos.
-  \item Desarrollar un algoritmo de clasificación que diferencie los patrones motores de pacientes con Parkinson y sujetos de control, extrayendo para cada fase las variables biomecánicas priorizadas en la exploración de datos.
-  \item Integrar los algoritmos de segmentación y clasificación de la prueba TUG en la plataforma VIMOV,  facilitando la ingesta, ejecución computacional y persistencia de las métricas obtenidas.
-
-
+  \item Desarrollar un algoritmo de clasificación que diferencie los patrones motores entre pacientes con Parkinson y sujetos de control a partir de las variables biomecánicas de cada fase, integrándolo en la plataforma VIMOV para la ingesta y persistencia de las métricas obtenidas.
+  \item Validar el desempeño del algoritmo de clasificación mediante esquemas de evaluación a nivel de grupos de pacientes y controles, verificando su capacidad de discriminación a través de las métricas de exactitud, sensibilidad, puntaje F1 y matriz de confusión.
 \end{itemize}
 
 \subsection{Alcance}\label{sec:alcance}
@@ -550,10 +548,10 @@ El cronograma del proyecto abarca desde el \textbf{01/08/2026} hasta el \textbf{
 \multicolumn{4}{l}{\textbf{Fase II: Proyecto de Grado II \hfill 01/02/2027 -- 31/05/2027}} \\
 \midrule
 10 & Desarrollo y ajuste de modelos de clasificación supervisada: SVM, Random Forest, Reg. Logística & \emph{Modeling} & OE3 \\
-11 & Validación cruzada agrupada a nivel de paciente (GroupKFold) y contraste bimodal con video & \emph{Evaluation} & OE3 \\
-12 & Evaluación de métricas clínicas: exactitud, sensibilidad, especificidad, F1 y matriz de confusión & \emph{Evaluation} & OE3 \\
-13 & Sprint 1: Arquitectura modular, endpoints de ingesta e integración con MinIO en BIMOP/VIMOV & \emph{Deployment} (Sp. 1) & OE4 \\
-14 & Sprint 2: Persistencia en PostgreSQL, pruebas end-to-end y validación en plataforma VIMOV & \emph{Deployment} (Sp. 2) & OE4 \\
+11 & Validación cruzada agrupada a nivel de paciente (GroupKFold) y contraste bimodal con video & \emph{Evaluation} & OE4 \\
+12 & Evaluación de métricas clínicas: exactitud, sensibilidad, especificidad, F1 y matriz de confusión & \emph{Evaluation} & OE4 \\
+13 & Sprint 1: Arquitectura modular, endpoints de ingesta e integración con MinIO en BIMOP/VIMOV & \emph{Deployment} (Sp. 1) & OE3 \\
+14 & Sprint 2: Persistencia en PostgreSQL, pruebas end-to-end y validación en plataforma VIMOV & \emph{Deployment} (Sp. 2) & OE3 \\
 15 & Redacción de la monografía definitiva y preparación/sustentación pública de grado & Cierre PDG II & -- \\
 \bottomrule
 \end{tabular}
@@ -654,10 +652,10 @@ El cronograma del proyecto abarca desde el \textbf{01/08/2026} hasta el \textbf{
 \multicolumn{5}{l}{\textbf{Fase II: Proyecto de Grado II (01/02/2027 -- 31/05/2027, 4 meses de trabajo)}} \\
 \midrule
 10 & Desarrollo y ajuste formal de modelos de clasificación supervisada: SVM, RF, Reg. Logística (OE3)  & 01/02/2027 -- 28/02/2027 & \emph{Modeling}              & Modelos entrenados con hiperparámetros optimizados. \\
-11 & Validación cruzada agrupada a nivel de paciente (GroupKFold) y contraste bimodal con video (OE3)   & 15/02/2027 -- 15/03/2027 & \emph{Evaluation}            & Validación libre de data leakage y verificación visual en plataforma. \\
-12 & Evaluación formal de métricas clínicas: exactitud, sensibilidad, especificidad, F1 y conf. (OE3)  & 01/03/2027 -- 31/03/2027 & \emph{Evaluation}            & Informe estadístico exhaustivo con métricas ante desbalance severo. \\
-13 & Sprint 1: Arquitectura modular, endpoints de ingesta e integración con MinIO en BIMOP (OE4)        & 16/03/2027 -- 15/04/2027 & \emph{Deployment} (Sprint 1) & Módulo analítico integrado a MinIO y endpoints de ingesta funcionales. \\
-14 & Sprint 2: Persistencia en PostgreSQL, pruebas end-to-end y validación en VIMOV (OE4)              & 01/04/2027 -- 30/04/2027 & \emph{Deployment} (Sprint 2) & Pipeline en producción con persistencia en base de datos PostgreSQL. \\
+11 & Validación cruzada agrupada a nivel de paciente (GroupKFold) y contraste bimodal con video (OE4)   & 15/02/2027 -- 15/03/2027 & \emph{Evaluation}            & Validación libre de data leakage y verificación visual en plataforma. \\
+12 & Evaluación formal de métricas clínicas: exactitud, sensibilidad, especificidad, F1 y conf. (OE4)  & 01/03/2027 -- 31/03/2027 & \emph{Evaluation}            & Informe estadístico exhaustivo con métricas ante desbalance severo. \\
+13 & Sprint 1: Arquitectura modular, endpoints de ingesta e integración con MinIO en BIMOP (OE3)        & 16/03/2027 -- 15/04/2027 & \emph{Deployment} (Sprint 1) & Módulo analítico integrado a MinIO y endpoints de ingesta funcionales. \\
+14 & Sprint 2: Persistencia en PostgreSQL, pruebas end-to-end y validación en VIMOV (OE3)              & 01/04/2027 -- 30/04/2027 & \emph{Deployment} (Sprint 2) & Pipeline en producción con persistencia en base de datos PostgreSQL. \\
 15 & Redacción de la monografía de grado definitiva y preparación de sustentación pública              & 15/04/2027 -- 31/05/2027 & Cierre PDG II / Sustentación & \textbf{Monografía aprobada y sustentación pública de grado (Hito 2: 31/05/2027)}. \\
 \end{longtable}
 {\small\emph{Nota.} Cada fila detalla las fechas exactas de ejecución y el OE al que contribuye. La Fase I abarca seis meses continuos (agosto de 2026 a enero de 2027), incluyendo el receso de fin de año como tiempo activo; la Fase II comprende cuatro meses lectivos (febrero a mayo de 2027), culminando con la sustentación final el 31 de mayo de 2027.}
