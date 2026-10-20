@@ -416,48 +416,6 @@ El proyecto adopta un enfoque metodológico mixto que combina la rigurosidad ana
 
 Esta articulación responde a las demandas específicas del proyecto: antes de concebir el desarrollo e integración de software, resulta indispensable auditar, limpiar y comprender a profundidad las señales biomédicas capturadas en brigadas de salud, refinando progresivamente los modelos antes de transferirlos a un entorno de producción médica.
 
-La Figura~\ref{fig:crispdm} ilustra la interacción entre los bucles analíticos de CRISP-DM durante Proyecto de Grado I y la transición al despliegue iterativo incremental programado para Proyecto de Grado II.
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[
-    node distance=0.65cm and 0.9cm,
-    box/.style={draw=black!80, rounded corners=3pt, align=center, fill=gray!8, text width=3.3cm, minimum height=0.95cm, font=\scriptsize, inner sep=4pt},
-    databox/.style={draw=black!90, rounded corners=3pt, align=center, fill=gray!20, text width=3.3cm, minimum height=0.95cm, font=\scriptsize\bfseries, inner sep=4pt},
-    depbox/.style={draw=black, rounded corners=3pt, align=center, fill=gray!30, text width=7.7cm, minimum height=1.0cm, font=\scriptsize\bfseries, inner sep=5pt},
-    arrow/.style={-Stealth, thick},
-    dashedarrow/.style={-Stealth, dashed, thick}
-  ]
-  % CRISP-DM layout in portrait
-  \node[box] (bu) {\textbf{1. Comprensión del problema}\\ \scriptsize Marco teórico y delimitación};
-  \node[box, right=of bu] (du) {\textbf{2. Comprensión de los datos}\\ \scriptsize Auditoría bimodal IMU/RGB-D};
-  \node[databox, below=of du] (dp) {\textbf{3. Preparación de datos}\\ \scriptsize Limpieza, FFT y segmentación};
-  \node[box, below=of bu] (mo) {\textbf{4. Modelado}\\ \scriptsize Extracción y clasificadores};
-  \node[box, below=0.8cm of $(mo)!0.5!(dp)$] (ev) {\textbf{5. Evaluación estadística}\\ \scriptsize GroupKFold y métricas clínicas};
-
-  % Deployment
-  \node[depbox, below=0.9cm of ev] (dep) {6. Despliegue modular en plataforma BIMOP / VIMOV\\ \normalfont\scriptsize(Metodología iterativa incremental por \emph{sprints} durante Proyecto de Grado II)};
-
-  % Direct arrows
-  \draw[arrow] (bu) -- (du);
-  \draw[arrow] (du) -- (dp);
-  \draw[arrow] (dp) -- (mo);
-  \draw[arrow] (mo) -- (ev);
-  \draw[arrow] (dp.south) -- (ev.north);
-
-  % Feedback loops
-  \draw[dashedarrow] (ev.east) -- ++(0.7,0) |- (dp.east)
-    node[pos=0.25, right, font=\tiny\itshape] {Refinamiento de señales y variables};
-  \draw[dashedarrow] (ev.west) -- ++(-0.7,0) |- (mo.west)
-    node[pos=0.25, left, font=\tiny\itshape] {Reentrenamiento y ajuste};
-
-  % Transition to Deployment
-  \draw[arrow, line width=1.1pt] (ev) -- (dep)
-    node[midway, right, font=\scriptsize\itshape] {Algoritmos validados};
-\end{tikzpicture}
-\caption{Metodología mixta del proyecto: ciclos iterativos de CRISP-DM para exploración, modelado y validación cinemática (Proyecto de Grado I), articulados con la metodología iterativa incremental para la integración y despliegue en la plataforma BIMOP / VIMOV (Proyecto de Grado II).}\label{fig:crispdm}
-\end{figure}
-
 \subsection{Comprensión del problema}\label{sec:met-problema}
 
 Esta fase inicial contextualiza el problema desde las perspectivas clínica y de ingeniería: superar la insuficiencia diagnóstica del tiempo cronometrado total del TUG mediante la cuantificación biomecánica objetiva de sus fases constitutivas (Secciones~\ref{sec:problema} y~\ref{sec:antecedentes}). Como resultado formal de esta etapa se consolidó el marco teórico, el estado del arte y la selección fundamentada de quince variables espaciotemporales y cinemáticas priorizadas a partir de la literatura científica (Tabla~\ref{tab:variables}).

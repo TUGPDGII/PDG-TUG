@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.7)  19 OCT 2026 07:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.10.7)  20 OCT 2026 08:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -866,18 +866,18 @@ Package rerunfilecheck Info: File `"PDG-II TUG".out' has not changed.
 (rerunfilecheck)             Checksum: 443BB4B87AA5E8470650F92B838599A7;5902.
  ) 
 Here is how much of TeX's memory you used:
- 28806 strings out of 476120
- 541690 string characters out of 5793657
+ 28708 strings out of 476120
+ 540134 string characters out of 5793657
  1957975 words of memory out of 5000000
- 49935 multiletter control sequences out of 15000+600000
- 669223 words of font info for 241 fonts, out of 8000000 for 9000
+ 49848 multiletter control sequences out of 15000+600000
+ 660159 words of font info for 235 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 99i,13n,101p,1374b,1002s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
-Output written on "PDG-II TUG.pdf" (33 pages, 525489 bytes).
+ 99i,13n,101p,1374b,1004s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
+Output written on "PDG-II TUG.pdf" (33 pages, 481777 bytes).
 PDF statistics:
- 493 PDF objects out of 1000 (max. 8388607)
- 402 compressed objects within 5 object streams
- 73 named destinations out of 1000 (max. 500000)
- 56581 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 478 PDF objects out of 1000 (max. 8388607)
+ 392 compressed objects within 4 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 52485 words of extra memory for PDF output out of 61914 (max. 10000000)
 
