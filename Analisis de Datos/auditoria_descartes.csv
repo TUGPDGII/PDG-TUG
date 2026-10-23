@@ -1,0 +1,79 @@
+archivo,codigo,persona_id,tipo,estado,motivo_principal,duracion_s,sensores_count,min_sensores_ok,kit,es_dual_task,es_duplicado_md5,sexo,nacimiento,talla,motivos_todos
+20260208022404_temp_BV.json,BV,PRUEBA_TECNICA,SIN_ETIQUETA,DESCARTADO,Prueba técnica interna (sin etiqueta clínica),18.56,1,False,base,False,False,N/A,05/02/2026,N/A,Prueba técnica interna (sin etiqueta clínica); Faltan sensores críticos (1 sensores)
+20260303043120_temp_N.json,N,PRUEBA_TECNICA,SIN_ETIQUETA,DESCARTADO,Prueba técnica interna (sin etiqueta clínica),5.01,5,True,base,False,False,N/A,02/03/2026,155,Prueba técnica interna (sin etiqueta clínica)
+20260303043532_temp_BO.json,BO,PRUEBA_TECNICA,SIN_ETIQUETA,DESCARTADO,Prueba técnica interna (sin etiqueta clínica),3.74,5,True,base,False,False,N/A,02/03/2026,155,Prueba técnica interna (sin etiqueta clínica); Duración anómala insuficiente (3.7s < 5.0s)
+20260303044505_temp_BX.json,BX,PRUEBA_TECNICA,SIN_ETIQUETA,DESCARTADO,Prueba técnica interna (sin etiqueta clínica),2.54,3,False,base,False,False,N/A,02/03/2026,155,Prueba técnica interna (sin etiqueta clínica); Faltan sensores críticos (3 sensores); Duración anómala insuficiente (2.5s < 5.0s)
+20260303134630_temp_BJ.json,BJ,PRUEBA_TECNICA,SIN_ETIQUETA,DESCARTADO,Prueba técnica interna (sin etiqueta clínica),6.71,3,False,base,False,False,N/A,02/03/2026,155,Prueba técnica interna (sin etiqueta clínica); Faltan sensores críticos (3 sensores)
+20260307234249_temp_F.json,F,PRUEBA_TECNICA,SIN_ETIQUETA,DESCARTADO,Prueba técnica interna (sin etiqueta clínica),14.97,5,True,base,False,False,N/A,02/12/2004,183,Prueba técnica interna (sin etiqueta clínica)
+20260308232420_temp_AX.json,AX,PRUEBA_TECNICA,SIN_ETIQUETA,DESCARTADO,Prueba técnica interna (sin etiqueta clínica),30.44,4,False,base,False,False,N/A,28/11/2019,155,Prueba técnica interna (sin etiqueta clínica); Faltan sensores críticos (4 sensores)
+20260611235032_temp_AL.json,AL,P16,CONTROL,ACEPTADO,Cumple criterios de validez,22.42,5,True,base,False,False,FEMALE,10/02/2003,155,Ninguno
+20260618075259_temp_BC.json,BC,P16,CONTROL,ACEPTADO,Cumple criterios de validez,13.08,5,True,K1,False,False,FEMALE,10/02/2003,156,Ninguno
+20260625140746_temp_BF.json,BF,P22,PATIENT,ACEPTADO,Cumple criterios de validez,22.83,5,True,base,False,False,MALE,12/09/1955,173,Ninguno
+20260625140851_temp_AR.json,AR,P22,PATIENT,ACEPTADO,Cumple criterios de validez,41.63,5,True,base,False,False,MALE,12/09/1955,173,Ninguno
+20260625144044_temp_D.json,D,P45,PATIENT,ACEPTADO,Cumple criterios de validez,89.28,5,True,base,False,False,MALE,25/12/1965,160,Ninguno
+20260625145018_temp_AB.json,AB,P21,PATIENT,ACEPTADO,Cumple criterios de validez,44.94,5,True,base,False,False,MALE,12/02/2026,180,Ninguno
+20260625150353_temp_AK.json,AK,P36,PATIENT,ACEPTADO,Cumple criterios de validez,73.67,5,True,base,False,False,MALE,22/12/1948,166,Ninguno
+20260625152019_temp_AA.json,AA,P42,PATIENT,ACEPTADO,Cumple criterios de validez,41.41,5,True,base,False,False,MALE,24/10/1963,175,Ninguno
+20260625153756_temp_V.json,V,P48,PATIENT,ACEPTADO,Cumple criterios de validez,69.15,5,True,base,False,False,MALE,26/10/1960,177,Ninguno
+20260625164351_temp_A.json,A,P25,PATIENT,ACEPTADO,Cumple criterios de validez,81.4,5,True,base,False,False,FEMALE,16/11/1962,153,Ninguno
+20260625171352_temp_BW.json,BW,P06,PATIENT,ACEPTADO,Cumple criterios de validez,60.18,5,True,base,False,False,MALE,03/08/1960,170,Ninguno
+20260625180613_temp_AG.json,AG,P19,CONTROL,ACEPTADO,Cumple criterios de validez,70.62,5,True,base,False,False,MALE,11/11/1955,165,Ninguno
+20260625183434_temp_BK.json,BK,P59,PATIENT,ACEPTADO,Cumple criterios de validez,66.79,5,True,base,False,False,MALE,30/12/1957,160,Ninguno
+20260625193811_temp_BD.json,BD,P24,PATIENT,ACEPTADO,Cumple criterios de validez,60.79,5,True,base,False,False,MALE,16/09/1949,185,Ninguno
+20260625195406_temp_BR.json,BR,P55,PATIENT,ACEPTADO,Cumple criterios de validez,50.61,5,True,base,False,False,MALE,29/03/1958,150,Ninguno
+20260625195426_temp_AP.json,AP,P55,PATIENT,ACEPTADO,Cumple criterios de validez,12.17,5,True,base,False,False,MALE,29/03/1958,150,Ninguno
+20260625204358_temp_BN.json,BN,P61,PATIENT,ACEPTADO,Cumple criterios de validez,54.65,5,True,base,False,False,MALE,31/01/1964,170,Ninguno
+20260625212453_temp_G.json,G,P49,PATIENT,ACEPTADO,Cumple criterios de validez,63.86,5,True,base,False,False,MALE,27/03/1954,165,Ninguno
+20260625214451_temp_BH.json,BH,P58,PATIENT,ACEPTADO,Cumple criterios de validez,66.01,5,True,K1,False,False,MALE,30/11/1969,173,Ninguno
+20260625214518_temp_S.json,S,P58,PATIENT,ACEPTADO,Cumple criterios de validez,101.82,5,True,K1,False,False,MALE,30/11/1969,173,Ninguno
+20260625215046_temp_X.json,X,P32,PATIENT,ACEPTADO,Cumple criterios de validez,53.94,5,True,K1,False,False,MALE,21/01/1962,168,Ninguno
+20260626133915_temp_BA.json,BA,P01,PATIENT,ACEPTADO,Cumple criterios de validez,50.15,5,True,K1,False,False,MALE,01/05/1953,167,Ninguno
+20260626133916_temp_BA.json,BA,P01,PATIENT,DESCARTADO,Duplicado exacto de red (MD5 idéntico),50.15,5,True,K1,False,True,MALE,01/05/1953,167,Duplicado exacto de red (MD5 idéntico)
+20260626141246_temp_AC.json,AC,P15,PATIENT,ACEPTADO,Cumple criterios de validez,53.84,5,True,base,False,False,FEMALE,09/04/1952,148,Ninguno
+20260626144433_temp_AV.json,AV,P09,PATIENT,ACEPTADO,Cumple criterios de validez,73.25,5,True,base,False,False,MALE,04/06/1947,165,Ninguno
+20260626145512_temp_AO.json,AO,P41,PATIENT,ACEPTADO,Cumple criterios de validez,76.48,5,True,K1,False,False,FEMALE,24/07/1953,166,Ninguno
+20260626150532_temp_M.json,M,P60,PATIENT,ACEPTADO,Cumple criterios de validez,82.05,5,True,base,False,False,FEMALE,31/01/1946,172,Ninguno
+20260626151711_temp_BQ.json,BQ,P20,PATIENT,ACEPTADO,Cumple criterios de validez,70.9,5,True,K1,False,False,FEMALE,12/02/1976,154,Ninguno
+20260626152553_temp_U.json,U,P05,PATIENT,ACEPTADO,Cumple criterios de validez,41.58,5,True,base,False,False,MALE,03/07/1979,170,Ninguno
+20260626153637_temp_AJ.json,AJ,P35,PATIENT,ACEPTADO,Cumple criterios de validez,49.21,5,True,base,False,False,FEMALE,22/11/1961,162,Ninguno
+20260626154758_temp_O.json,O,P31,PATIENT,ACEPTADO,Cumple criterios de validez,63.27,5,True,base,False,False,FEMALE,20/10/1953,163,Ninguno
+20260626160554_temp_BU.json,BU,P37,PATIENT,ACEPTADO,Cumple criterios de validez,62.5,5,True,base,False,False,FEMALE,23/05/1959,158,Ninguno
+20260626160620_temp_K.json,K,P37,PATIENT,ACEPTADO,Cumple criterios de validez,19.59,5,True,base,False,False,FEMALE,23/05/1959,158,Ninguno
+20260626170623_temp_BT.json,BT,P38,PATIENT,ACEPTADO,Cumple criterios de validez,89.69,5,True,K1,False,False,MALE,23/06/1955,166,Ninguno
+20260626170733_temp_AZ.json,AZ,P38,PATIENT,DESCARTADO,Condición experimental de Doble Tarea (Dual Task),31.52,5,True,K1,True,False,MALE,23/06/1955,166,Condición experimental de Doble Tarea (Dual Task)
+20260626170919_temp_J.json,J,P38,PATIENT,DESCARTADO,Condición experimental de Doble Tarea (Dual Task),14.42,5,True,K1,True,False,MALE,23/06/1955,166,Condición experimental de Doble Tarea (Dual Task)
+20260626170956_temp_AQ.json,AQ,P38,PATIENT,DESCARTADO,Condición experimental de Doble Tarea (Dual Task),15.61,5,True,K1,True,False,MALE,23/06/1955,166,Condición experimental de Doble Tarea (Dual Task)
+20260626194407_temp_BM.json,BM,P11,PATIENT,ACEPTADO,Cumple criterios de validez,49.3,5,True,K1,False,False,FEMALE,05/10/1949,150,Ninguno
+20260626202515_temp_BS.json,BS,P33,PATIENT,ACEPTADO,Cumple criterios de validez,133.67,5,True,K1,False,False,MALE,21/02/1957,157,Ninguno
+20260626204728_temp_AW.json,AW,P54,PATIENT,ACEPTADO,Cumple criterios de validez,38.44,5,True,K1,False,False,MALE,28/09/1960,171,Ninguno
+20260626211937_temp_AH.json,AH,P57,PATIENT,ACEPTADO,Cumple criterios de validez,51.02,5,True,K1,False,False,MALE,30/09/1958,165,Ninguno
+20260626213214_temp_AT.json,AT,P13,PATIENT,ACEPTADO,Cumple criterios de validez,47.36,5,True,K1,False,False,FEMALE,06/12/1963,163,Ninguno
+20260626215053_temp_AE.json,AE,P12,PATIENT,ACEPTADO,Cumple criterios de validez,46.02,5,True,K1,False,False,FEMALE,06/01/1969,157,Ninguno
+20260626222007_temp_BL.json,BL,P43,PATIENT,ACEPTADO,Cumple criterios de validez,66.84,5,True,K1,False,False,MALE,24/12/1966,173,Ninguno
+20260627133637_temp_AS.json,AS,P53,PATIENT,ACEPTADO,Cumple criterios de validez,48.46,5,True,K1,False,False,MALE,28/06/1950,167,Ninguno
+20260627135010_temp_BP.json,BP,P51,PATIENT,ACEPTADO,Cumple criterios de validez,64.77,5,True,base,False,False,MALE,28/03/1982,170,Ninguno
+20260627135720_temp_AD.json,AD,P44,PATIENT,ACEPTADO,Cumple criterios de validez,73.67,5,True,K1,False,False,MALE,24/12/1972,165,Ninguno
+20260627143518_temp_BB.json,BB,P03,PATIENT,ACEPTADO,Cumple criterios de validez,48.38,5,True,K1,False,False,MALE,03/05/1958,175,Ninguno
+20260627150939_temp_R.json,R,P56,PATIENT,ACEPTADO,Cumple criterios de validez,43.86,5,True,K1,False,False,FEMALE,30/01/1974,160,Ninguno
+20260627152358_temp_W.json,W,P28,PATIENT,ACEPTADO,Cumple criterios de validez,47.09,5,True,K1,False,False,MALE,18/01/1968,170,Ninguno
+20260627155804_temp_I.json,I,P47,PATIENT,ACEPTADO,Cumple criterios de validez,41.09,5,True,K1,False,False,MALE,26/07/1967,175,Ninguno
+20260627161148_temp_Q.json,Q,P46,PATIENT,ACEPTADO,Cumple criterios de validez,58.21,5,True,base,False,False,MALE,25/12/1971,165,Ninguno
+20260627162118_temp_AU.json,AU,P07,PATIENT,ACEPTADO,Cumple criterios de validez,77.11,5,True,K1,False,False,MALE,04/04/1954,182,Ninguno
+20260627163836_temp_L.json,L,P40,PATIENT,ACEPTADO,Cumple criterios de validez,56.54,5,True,base,False,False,MALE,23/08/1954,179,Ninguno
+20260627171353_temp_H.json,H,P18,PATIENT,ACEPTADO,Cumple criterios de validez,39.42,5,True,K1,False,False,MALE,11/10/1976,175,Ninguno
+20260627180847_temp_AI.json,AI,P10,PATIENT,ACEPTADO,Cumple criterios de validez,102.21,5,True,K1,False,False,FEMALE,04/12/1954,153,Ninguno
+20260627205326_temp_C.json,C,P26,PATIENT,ACEPTADO,Cumple criterios de validez,43.23,5,True,K1,False,False,FEMALE,17/02/1979,153,Ninguno
+20260704154505_temp_AF.json,AF,P50,PATIENT,ACEPTADO,Cumple criterios de validez,44.24,5,True,base,False,False,MALE,28/03/1963,173,Ninguno
+20260704155929_temp_BE.json,BE,P52,PATIENT,ACEPTADO,Cumple criterios de validez,40.53,5,True,base,False,False,MALE,28/05/1963,163,Ninguno
+20260704165749_temp_E.json,E,P27,PATIENT,ACEPTADO,Cumple criterios de validez,39.27,5,True,base,False,False,MALE,17/12/1985,180,Ninguno
+20260704172020_temp_Y.json,Y,P34,PATIENT,ACEPTADO,Cumple criterios de validez,42.01,5,True,base,False,False,MALE,21/09/1968,170,Ninguno
+20260704194015_temp_AY.json,AY,P39,CONTROL,ACEPTADO,Cumple criterios de validez,31.34,5,True,base,False,False,FEMALE,23/06/1965,165,Ninguno
+20260704194635_temp_BG.json,BG,P30,PATIENT,ACEPTADO,Cumple criterios de validez,68.08,5,True,base,False,False,MALE,19/10/1971,175,Ninguno
+20260715052203_temp_B.json,B,P04,CONTROL,ACEPTADO,Cumple criterios de validez,25.97,5,True,K1,False,False,FEMALE,03/07/1962,147,Ninguno
+20260820141830_temp_AM.json,AM,P08,PATIENT,ACEPTADO,Cumple criterios de validez,43.34,5,True,K1,False,False,MALE,04/04/1960,158,Ninguno
+20260820141849_temp_P.json,P,P02,CONTROL,ACEPTADO,Cumple criterios de validez,46.34,5,True,K1,False,False,FEMALE,03/02/1962,159,Ninguno
+20260820141919_temp_BI.json,BI,P29,PATIENT,ACEPTADO,Cumple criterios de validez,54.46,5,True,K1,False,False,FEMALE,18/04/1964,160,Ninguno
+20260820142005_temp_Z.json,Z,P23,PATIENT,ACEPTADO,Cumple criterios de validez,57.19,5,True,K1,False,False,MALE,14/01/1943,160,Ninguno
+20260820142006_temp_Z.json,Z,P23,PATIENT,DESCARTADO,Duplicado exacto de red (MD5 idéntico),57.19,5,True,K1,False,True,MALE,14/01/1943,160,Duplicado exacto de red (MD5 idéntico)
+20260820142037_temp_T.json,T,P17,CONTROL,ACEPTADO,Cumple criterios de validez,24.57,5,True,K1,False,False,FEMALE,11/08/1956,150,Ninguno
+20260820142101_temp_AN.json,AN,P14,CONTROL,ACEPTADO,Cumple criterios de validez,65.32,5,True,K1,False,False,FEMALE,08/11/1963,158,Ninguno
