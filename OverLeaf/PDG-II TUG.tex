@@ -26,8 +26,6 @@
 \usepackage{pdflscape}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{pgfgantt}
-\usetikzlibrary{arrows.meta,positioning,calc}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{xurl}
@@ -243,7 +241,7 @@ El producto de este proyecto funcionará exclusivamente como un componente de ap
 
 El grupo I2T mantiene colaboración con el servicio de neurología de la Fundación Valle del Lili desde 2010 y ha desarrollado herramientas para el análisis de marcha, movilidad y deterioro cognitivo. El macroproyecto busca construir tecnologías de apoyo para el diagnóstico, seguimiento y estudio de enfermedades neurodegenerativas y envejecimiento, articulando personal clínico, investigadores y estudiantes de pregrado y posgrado.
 
-El proyecto predecesor directo, <<Timed Up and Go con unidades inerciales>>, implementó una arquitectura para procesamiento asíncrono y persistencia de señales, integrada a componentes como MinIO, PostgreSQL y la plataforma Vimov. En la dimensión analítica, desarrolló un \emph{pipeline} para segmentar fases del TUG a partir de IMU ubicadas en L5 y ambos tobillos. El procedimiento combinó filtrado pasabajas Butterworth, detección de picos, umbrales sobre energía espectral y análisis FFT para reconocer las transiciones entre levantarse, marcha de ida, giro, marcha de regreso y sentarse.
+El proyecto predecesor directo, <<Timed Up and Go con unidades inerciales>>, implementó una arquitectura para procesamiento asíncrono y persistencia de señales, integrada a componentes como MinIO, PostgreSQL y la plataforma VIMOV. En la dimensión analítica, desarrolló un \emph{pipeline} para segmentar fases del TUG a partir de IMU ubicadas en L5 y ambos tobillos. El procedimiento combinó filtrado pasabajas Butterworth, detección de picos, umbrales sobre energía espectral y análisis FFT para reconocer las transiciones entre levantarse, marcha de ida, giro, marcha de regreso y sentarse.
 
 La principal brecha que deja el proyecto predecesor es el uso sistemático de las fases segmentadas para extraer características, contrastarlas con información clínica y construir modelos de análisis o clasificación. TUG 2 responde a esa brecha y añade el análisis de datos provenientes de cámara RGB-D. Esta continuidad permite concentrar el esfuerzo en la validación y la generación de evidencia sobre el desempeño del sistema, en lugar de reiniciar la infraestructura de adquisición y segmentación.
 
@@ -414,7 +412,7 @@ La Tabla~\ref{tab:variables} sintetiza las quince variables cinemáticas y biome
 %============================================================
 \section{Metodología}\label{sec:metodologia}
 
-El proyecto adopta un enfoque metodológico mixto que combina la rigurosidad analítica de la minería de datos con la flexibilidad de la ingeniería de software. Para las fases de exploración, preprocesamiento, segmentación biomecánica y desarrollo del algoritmo de clasificación se emplea el marco \textbf{CRISP-DM} (\emph{Cross-Industry Standard Process for Data Mining}; Chapman et al., 2000), concebido como un proceso cíclico iterativo estructurado en cinco bloques funcionales con retroalimentación continua: comprensión del problema, comprensión de los datos, preparación de los datos, modelado y evaluación. Posteriormente, una vez que los modelos algorítmicos y las variables cinemáticas se encuentren validados estadísticamente, la fase de despliegue (\emph{deployment}) se ejecuta mediante una \textbf{metodología iterativa incremental} basada en \emph{sprints} modulares para su integración en la plataforma institucional BIMOP / VIMOV.
+El proyecto adopta un enfoque metodológico mixto que combina la rigurosidad analítica de la minería de datos con la flexibilidad de la ingeniería de software. Para las fases de exploración, preprocesamiento, segmentación biomecánica y desarrollo del algoritmo de clasificación se emplea el marco \textbf{CRISP-DM} (\emph{Cross-Industry Standard Process for Data Mining}; Chapman et al., 2000), concebido como un proceso cíclico iterativo estructurado en cinco bloques funcionales con retroalimentación continua: comprensión del problema, comprensión de los datos, preparación de los datos, modelado y evaluación. Posteriormente, una vez que los modelos algorítmicos y las variables cinemáticas se encuentren validados estadísticamente, la fase de despliegue (\emph{deployment}) se ejecuta mediante una \textbf{metodología iterativa incremental} basada en \emph{sprints} modulares para su integración en la plataforma institucional VIMOV.
 
 Esta articulación responde a las demandas específicas del proyecto: antes de concebir el desarrollo e integración de software, resulta indispensable auditar, limpiar y comprender a profundidad las señales biomédicas capturadas en brigadas de salud, refinando progresivamente los modelos antes de transferirlos a un entorno de producción médica.
 
@@ -441,7 +439,7 @@ La exploración y auditoría técnica del conjunto de datos reveló 63 tomas eti
   \item \textbf{Registros duplicados por fallas de conectividad:} La inestabilidad de la red inalámbrica durante las brigadas en campo provocó reintentos automáticos de sincronización hacia el servidor MinIO, generando archivos con códigos distintos pero contenidos idénticos, detectados mediante sumas de verificación criptográfica MD5.
   \item \textbf{Desincronización temporal y latencia basal:} Los relojes internos de los sensores inician con desfases temporales relativos de hasta 1000~ms entre sí, exigiendo una sincronización basada en la marca de tiempo absoluta (\emph{timestamp}) y no en el índice de muestra.
   \item \textbf{Desbalance severo de clases:} La marcada desproporción entre pacientes y controles requiere estrategias algorítmicas de balanceo y esquemas de validación especializados.
-  \item \textbf{Ecosistema bimodal:} El flujo de señales inerciales se complementa cualitativamente con las grabaciones de video de cámaras de profundidad (RGB-D) alojadas en los servicios de la plataforma institucional BIMOP / VIMOV, utilizadas para verificar visualmente la veracidad de los eventos cinemáticos.
+  \item \textbf{Ecosistema bimodal:} El flujo de señales inerciales se complementa cualitativamente con las grabaciones de video de cámaras de profundidad (RGB-D) alojadas en los servicios de la plataforma institucional VIMOV, utilizadas para verificar visualmente la veracidad de los eventos cinemáticos.
 \end{itemize}
 
 \subsection{Preparación de los datos}\label{sec:met-preparacion}
@@ -474,14 +472,14 @@ Dado el desbalance de clases, el rendimiento no se mide únicamente por la exact
 
 \subsection{Despliegue}\label{sec:met-despliegue}
 
-Una vez consolidados los algoritmos y la selección final de características, la fase de despliegue se lleva a cabo durante Proyecto de Grado II bajo una metodología iterativa incremental organizada en \emph{sprints} de desarrollo. Los modelos validados se empaquetan en módulos de cómputo asíncrono e ingesta orientada a servicios en la plataforma BIMOP / VIMOV, articulando el acceso a archivos en MinIO, el cómputo automático de las métricas biomecánicas por fase y la persistencia relacional en PostgreSQL / PostGIS.
+Una vez consolidados los algoritmos y la selección final de características, la fase de despliegue se lleva a cabo durante Proyecto de Grado II bajo una metodología iterativa incremental organizada en \emph{sprints} de desarrollo. Los modelos validados se empaquetan en módulos de cómputo asíncrono e ingesta orientada a servicios en la plataforma VIMOV, articulando el acceso a archivos en MinIO, el cómputo automático de las métricas biomecánicas por fase y la persistencia relacional en PostgreSQL / PostGIS.
 
 %============================================================
 % CRONOGRAMA
 %============================================================
 \section{Cronograma}\label{sec:cronograma}
 
-El cronograma del proyecto abarca desde el \textbf{01/08/2026} hasta el \textbf{31/05/2027}, estructurado en dos fases de ejecución continua sobre diez meses. El período de receso institucional de fin de año (diciembre--enero) se mantiene activo como tiempo de procesamiento computacional de señales. La Figura~\ref{fig:gantt} presenta la distribución temporal en el diagrama de Gantt; la numeración de cada barra corresponde a la actividad descrita en la Tabla~\ref{tab:descripciones}. La Tabla~\ref{tab:actividades} detalla las fechas exactas y los entregables verificables de cada actividad.
+El cronograma del proyecto abarca desde el \textbf{01/08/2026} hasta el \textbf{25/05/2027}, estructurado en dos fases de ejecución continua sobre diez meses. Todas las fases, actividades e hitos finalizan en martes, día de la reunión semanal con el profesor Domiciano Rincón, tutor del proyecto, en la que se verifica lo que ya está terminado y se define el trabajo siguiente. El período de receso institucional de fin de año (diciembre--enero) se mantiene activo como tiempo de procesamiento computacional de señales. La Figura~\ref{fig:gantt} presenta la distribución temporal en el diagrama de Gantt; la numeración de cada barra corresponde a la actividad descrita en la Tabla~\ref{tab:descripciones}. La Tabla~\ref{tab:actividades} detalla las fechas exactas y los entregables verificables de cada actividad.
 
 %------------------------------------------------------------
 \subsection*{Descripción de actividades por fase}
@@ -500,7 +498,7 @@ El cronograma del proyecto abarca desde el \textbf{01/08/2026} hasta el \textbf{
 \toprule
 \textbf{No.} & \textbf{Actividad} & \textbf{Fase CRISP-DM} & \textbf{OE} \\
 \midrule
-\multicolumn{4}{l}{\textbf{Fase I: Proyecto de Grado I \hfill 01/08/2026 -- 31/01/2027}} \\
+\multicolumn{4}{l}{\textbf{Fase I: Proyecto de Grado I \hfill 01/08/2026 -- 26/01/2027}} \\
 \midrule
 1 & Comprensión del problema, marco teórico del iTUG en EP y revisión bibliográfica & \emph{Business understanding} & -- \\
 2 & Redacción formal de la propuesta: introducción, objetivos, alcance, metodología y cronograma & Gestión académica & -- \\
@@ -512,12 +510,12 @@ El cronograma del proyecto abarca desde el \textbf{01/08/2026} hasta el \textbf{
 8 & Extracción de variables cinemáticas (foco en giro $180^\circ$, F3) y análisis estadístico basal & \emph{Modeling} (prel.) & OE3 \\
 9 & Consolidación final del documento e informe de cierre de PDG I & Cierre PDG I & -- \\
 \midrule
-\multicolumn{4}{l}{\textbf{Fase II: Proyecto de Grado II \hfill 01/02/2027 -- 31/05/2027}} \\
+\multicolumn{4}{l}{\textbf{Fase II: Proyecto de Grado II \hfill 01/02/2027 -- 25/05/2027}} \\
 \midrule
 10 & Desarrollo y ajuste de modelos de clasificación supervisada: SVM, Random Forest, Reg. Logística & \emph{Modeling} & OE3 \\
 11 & Validación cruzada agrupada a nivel de paciente (GroupKFold) y contraste bimodal con video & \emph{Evaluation} & OE4 \\
 12 & Evaluación de métricas clínicas: exactitud, sensibilidad, especificidad, F1 y matriz de confusión & \emph{Evaluation} & OE4 \\
-13 & Sprint 1: Arquitectura modular, endpoints de ingesta e integración con MinIO en BIMOP/VIMOV & \emph{Deployment} (Sp. 1) & OE3 \\
+13 & Sprint 1: Arquitectura modular, endpoints de ingesta e integración con MinIO en VIMOV & \emph{Deployment} (Sp. 1) & OE3 \\
 14 & Sprint 2: Persistencia en PostgreSQL, pruebas end-to-end y validación en plataforma VIMOV & \emph{Deployment} (Sp. 2) & OE3 \\
 15 & Redacción de la monografía definitiva y preparación/sustentación pública de grado & Cierre PDG II & -- \\
 \bottomrule
@@ -526,63 +524,15 @@ El cronograma del proyecto abarca desde el \textbf{01/08/2026} hasta el \textbf{
 
 \clearpage
 
-\begin{landscape}
-\begin{figure}[p]
+\begin{figure}[H]
 \centering
-\small
-\begin{ganttchart}[
-    hgrid,
-    vgrid=dotted,
-    x unit=1.85cm,
-    y unit title=0.70cm,
-    y unit chart=0.72cm,
-    title height=1,
-    title label font=\small\bfseries,
-    bar label font=\normalsize\bfseries,
-    group label font=\normalsize\bfseries,
-    milestone label font=\normalsize\bfseries,
-    bar height=0.62,
-    group height=0.38,
-    group left shift=0,
-    group right shift=0,
-    bar/.append style={fill=gray!25, draw=black!80},
-    group/.append style={fill=black},
-    milestone/.append style={fill=black},
-    bar label node/.append style={align=right, anchor=east},
-    group label node/.append style={align=right, anchor=east},
-    milestone label node/.append style={align=right, anchor=east},
-    bar progress label font=\scriptsize\bfseries,
-    bar progress label anchor=center,
-    bar progress label node/.append style={anchor=center, inner sep=0pt},
-    include title in canvas=false
-  ]{1}{10}
-  \gantttitle{2026}{5}
-  \gantttitle{2027}{5} \\
-  \gantttitle{Fase I: Proyecto de Grado I}{6}
-  \gantttitle{Fase II: Proyecto de Grado II}{4} \\
-  \gantttitle{Ago}{1} \gantttitle{Sep}{1} \gantttitle{Oct}{1} \gantttitle{Nov}{1} \gantttitle{Dic}{1} \gantttitle{Ene}{1}
-  \gantttitle{Feb}{1} \gantttitle{Mar}{1} \gantttitle{Abr}{1} \gantttitle{May}{1} \\
-
-  \ganttgroup{Fase I}{1}{6} \\
-  \ganttbar[progress=100, progress label text={01/08 -- 31/10}]{Act. 1 y 2}{1}{3} \\
-  \ganttbar[progress=100, progress label text={21/09 -- 15/10}]{Act. 3 y 4}{2}{3} \\
-  \ganttbar[progress=100, progress label text={16/10 -- 15/11}]{Act. 5}{3}{4} \\
-  \ganttbar[progress=100, progress label text={01/11 -- 15/12}]{Act. 6}{4}{5} \\
-  \ganttbar[progress=100, progress label text={01/12 -- 31/01}]{Act. 7}{5}{6} \\
-  \ganttbar[progress=100, progress label text={15/12 -- 31/01}]{Act. 8 y 9}{5}{6} \\
-  \ganttmilestone{Hito 1 (31/01/27)}{6} \\
-
-  \ganttgroup{Fase II}{7}{10} \\
-  \ganttbar[progress=100, progress label text={01/02 -- 31/03}]{Act. 10}{7}{8} \\
-  \ganttbar[progress=100, progress label text={15/02 -- 31/03}]{Act. 11 y 12}{8}{9} \\
-  \ganttbar[progress=100, progress label text={16/03 -- 15/04}]{Act. 13}{8}{9} \\
-  \ganttbar[progress=100, progress label text={01/04 -- 30/04}]{Act. 14}{9}{10} \\
-  \ganttbar[progress=100, progress label text={15/04 -- 31/05}]{Act. 15}{9}{10} \\
-  \ganttmilestone[milestone left shift=0, milestone right shift=0]{Hito 2 (31/05/27)}{10}
-\end{ganttchart}
-\caption{Diagrama de Gantt del proyecto (agosto 2026 -- mayo 2027). Las etiquetas \textbf{Act.\,\#} corresponden a las actividades numeradas en la Tabla~\ref{tab:descripciones}. Hito\,1: entrega y evaluación de PDG I (31/01/2027). Hito\,2: sustentación pública de grado (31/05/2027).}\label{fig:gantt}
+\IfFileExists{Imagenes/Cronograma.png}{%
+  \includegraphics[width=\textwidth,height=0.9\textheight,keepaspectratio]{Imagenes/Cronograma}%
+}{%
+  \fbox{\parbox[c][0.9\textheight][c]{\textwidth}{\centering\textbf{Imagen no disponible}\par\smallskip Cronograma}}%
+}%
+\caption{Diagrama de Gantt del proyecto (agosto de 2026 -- mayo de 2027). Las etiquetas \textbf{Act.\,\#} corresponden a las actividades numeradas en la Tabla~\ref{tab:descripciones}.}\label{fig:gantt}
 \end{figure}
-\end{landscape}
 
 \begin{landscape}
 \small
@@ -604,28 +554,28 @@ El cronograma del proyecto abarca desde el \textbf{01/08/2026} hasta el \textbf{
 \bottomrule
 \endlastfoot
 
-\multicolumn{5}{l}{\textbf{Fase I: Proyecto de Grado I (01/08/2026 -- 31/01/2027, 6 meses continuos de trabajo)}} \\
+\multicolumn{5}{l}{\textbf{Fase I: Proyecto de Grado I (01/08/2026 -- 26/01/2027, 6 meses continuos de trabajo)}} \\
 \midrule
-1  & Comprensión del problema clínico, marco teórico del iTUG en EP y revisión bibliográfica        & 01/08/2026 -- 15/10/2026 & \emph{Business understanding} & Introducción, Estado del arte y Marco teórico redactados en Overleaf. \\
-2  & Redacción formal de la propuesta: objetivos, alcance, límites y metodología mixta (CRISP-DM)   & 01/08/2026 -- 31/10/2026 & Gestión académica           & Documento de PDG I completo (Introducción, Metodología y Cronograma). \\
-3  & Recepción del dataset, diagnóstico bimodal y descarte de registros inválidos (MD5 y 3 IMUs)    & 21/09/2026 -- 15/10/2026 & \emph{Data understanding}   & Catálogo de 78 archivos JSON; registros duplicados eliminados vía hash MD5. \\
+1  & Comprensión del problema clínico, marco teórico del iTUG en EP y revisión bibliográfica        & 01/08/2026 -- 13/10/2026 & \emph{Business understanding} & Introducción, Estado del arte y Marco teórico redactados en Overleaf. \\
+2  & Redacción formal de la propuesta: objetivos, alcance, límites y metodología mixta (CRISP-DM)   & 01/08/2026 -- 27/10/2026 & Gestión académica           & Documento de PDG I completo (Introducción, Metodología y Cronograma). \\
+3  & Recepción del dataset, diagnóstico bimodal y descarte de registros inválidos (MD5 y 3 IMUs)    & 21/09/2026 -- 13/10/2026 & \emph{Data understanding}   & Catálogo de 78 archivos JSON; registros duplicados eliminados vía hash MD5. \\
 4  & Verificación de validez por energía FFT (sliding window), anonimización GHGIS 2 y ficha técnica & 01/10/2026 -- 20/10/2026 & \emph{Data preparation}     & Ficha técnica con muestras válidas ($\geq$3 IMU: L5 y tobillos) e inválidas. \\
-5  & Auditoría de orientación de ejes inerciales y ajuste del algoritmo de segmentación (OE2)        & 16/10/2026 -- 15/11/2026 & \emph{Data preparation}     & Algoritmo de segmentación ajustado al nuevo hardware; diagrama de pipeline. \\
+5  & Auditoría de orientación de ejes inerciales y ajuste del algoritmo de segmentación (OE2)        & 16/10/2026 -- 10/11/2026 & \emph{Data preparation}     & Algoritmo de segmentación ajustado al nuevo hardware; diagrama de pipeline. \\
 6  & Protocolo y recolección de $\approx$20 sujetos de control sanos para mitigar desbalance (OE1)  & 01/11/2026 -- 15/12/2026 & \emph{Data understanding}   & Señales IMU de controles sanos incorporadas al conjunto de datos. \\
-7  & Preprocesamiento integral, remuestreo e interpolación de series temporales en receso (OE1, OE2) & 01/12/2026 -- 31/12/2026 & \emph{Data preparation}     & Series temporales sincronizadas y acondicionadas sin ruido de sensor. \\
-8  & Extracción de variables cinemáticas (foco en giro de $180^\circ$, F3) y análisis estadístico basal (OE3) & 15/12/2026 -- 31/01/2027 & \emph{Modeling} (preliminar) & Matriz de características biomecánicas y tests de normalidad/diferencia. \\
-9  & Consolidación final del informe y cierre de PDG I                                               & 01/01/2027 -- 31/01/2027 & Cierre PDG I                & \textbf{Documento de Proyecto de Grado I evaluado (Hito 1: 31/01/2027)}. \\
+7  & Preprocesamiento integral, remuestreo e interpolación de series temporales en receso (OE1, OE2) & 01/12/2026 -- 29/12/2026 & \emph{Data preparation}     & Series temporales sincronizadas y acondicionadas sin ruido de sensor. \\
+8  & Extracción de variables cinemáticas (foco en giro de $180^\circ$, F3) y análisis estadístico basal (OE3) & 15/12/2026 -- 26/01/2027 & \emph{Modeling} (preliminar) & Matriz de características biomecánicas y tests de normalidad/diferencia. \\
+9  & Consolidación final del informe y cierre de PDG I                                               & 01/01/2027 -- 26/01/2027 & Cierre PDG I                & \textbf{Documento de Proyecto de Grado I evaluado (Hito 1: 26/01/2027)}. \\
 \midrule
-\multicolumn{5}{l}{\textbf{Fase II: Proyecto de Grado II (01/02/2027 -- 31/05/2027, 4 meses de trabajo)}} \\
+\multicolumn{5}{l}{\textbf{Fase II: Proyecto de Grado II (01/02/2027 -- 25/05/2027, 4 meses de trabajo)}} \\
 \midrule
-10 & Desarrollo y ajuste formal de modelos de clasificación supervisada: SVM, RF, Reg. Logística (OE3)  & 01/02/2027 -- 28/02/2027 & \emph{Modeling}              & Modelos entrenados con hiperparámetros optimizados. \\
-11 & Validación cruzada agrupada a nivel de paciente (GroupKFold) y contraste bimodal con video (OE4)   & 15/02/2027 -- 15/03/2027 & \emph{Evaluation}            & Validación libre de data leakage y verificación visual en plataforma. \\
-12 & Evaluación formal de métricas clínicas: exactitud, sensibilidad, especificidad, F1 y conf. (OE4)  & 01/03/2027 -- 31/03/2027 & \emph{Evaluation}            & Informe estadístico exhaustivo con métricas ante desbalance severo. \\
-13 & Sprint 1: Arquitectura modular, endpoints de ingesta e integración con MinIO en BIMOP (OE3)        & 16/03/2027 -- 15/04/2027 & \emph{Deployment} (Sprint 1) & Módulo analítico integrado a MinIO y endpoints de ingesta funcionales. \\
-14 & Sprint 2: Persistencia en PostgreSQL, pruebas end-to-end y validación en VIMOV (OE3)              & 01/04/2027 -- 30/04/2027 & \emph{Deployment} (Sprint 2) & Pipeline en producción con persistencia en base de datos PostgreSQL. \\
-15 & Redacción de la monografía de grado definitiva y preparación de sustentación pública              & 15/04/2027 -- 31/05/2027 & Cierre PDG II / Sustentación & \textbf{Monografía aprobada y sustentación pública de grado (Hito 2: 31/05/2027)}. \\
+10 & Desarrollo y ajuste formal de modelos de clasificación supervisada: SVM, RF, Reg. Logística (OE3)  & 01/02/2027 -- 23/02/2027 & \emph{Modeling}              & Modelos entrenados con hiperparámetros optimizados. \\
+11 & Validación cruzada agrupada a nivel de paciente (GroupKFold) y contraste bimodal con video (OE4)   & 15/02/2027 -- 09/03/2027 & \emph{Evaluation}            & Validación libre de data leakage y verificación visual en plataforma. \\
+12 & Evaluación formal de métricas clínicas: exactitud, sensibilidad, especificidad, F1 y conf. (OE4)  & 01/03/2027 -- 30/03/2027 & \emph{Evaluation}            & Informe estadístico exhaustivo con métricas ante desbalance severo. \\
+13 & Sprint 1: Arquitectura modular, endpoints de ingesta e integración con MinIO en VIMOV (OE3)        & 16/03/2027 -- 13/04/2027 & \emph{Deployment} (Sprint 1) & Módulo analítico integrado a MinIO y endpoints de ingesta funcionales. \\
+14 & Sprint 2: Persistencia en PostgreSQL, pruebas end-to-end y validación en VIMOV (OE3)              & 01/04/2027 -- 27/04/2027 & \emph{Deployment} (Sprint 2) & Pipeline en producción con persistencia en base de datos PostgreSQL. \\
+15 & Redacción de la monografía de grado definitiva y preparación de sustentación pública              & 15/04/2027 -- 25/05/2027 & Cierre PDG II / Sustentación & \textbf{Monografía aprobada y sustentación pública de grado (Hito 2: 25/05/2027)}. \\
 \end{longtable}
-{\small\emph{Nota.} Cada fila detalla las fechas exactas de ejecución y el OE al que contribuye. La Fase I abarca seis meses continuos (agosto de 2026 a enero de 2027), incluyendo el receso de fin de año como tiempo activo; la Fase II comprende cuatro meses lectivos (febrero a mayo de 2027), culminando con la sustentación final el 31 de mayo de 2027.}
+{\small\emph{Nota.} Cada fila detalla las fechas exactas de ejecución y el OE al que contribuye. La Fase I abarca seis meses continuos (agosto de 2026 a enero de 2027), incluyendo el receso de fin de año como tiempo activo; la Fase II comprende cuatro meses lectivos (febrero a mayo de 2027), culminando con la sustentación final el 25 de mayo de 2027. Todas las fechas de finalización corresponden a martes, día de reunión con el tutor.}
 \end{landscape}
 
 %============================================================
