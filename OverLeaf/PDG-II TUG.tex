@@ -24,6 +24,8 @@
 \usepackage{array}
 \usepackage{colortbl}
 \usepackage{pdflscape}
+\usepackage{graphicx}
+\usepackage{float}
 \usepackage{pgfgantt}
 \usetikzlibrary{arrows.meta,positioning,calc}
 \usepackage{fancyhdr}
@@ -415,6 +417,13 @@ La Tabla~\ref{tab:variables} sintetiza las quince variables cinemáticas y biome
 El proyecto adopta un enfoque metodológico mixto que combina la rigurosidad analítica de la minería de datos con la flexibilidad de la ingeniería de software. Para las fases de exploración, preprocesamiento, segmentación biomecánica y desarrollo del algoritmo de clasificación se emplea el marco \textbf{CRISP-DM} (\emph{Cross-Industry Standard Process for Data Mining}; Chapman et al., 2000), concebido como un proceso cíclico iterativo estructurado en cinco bloques funcionales con retroalimentación continua: comprensión del problema, comprensión de los datos, preparación de los datos, modelado y evaluación. Posteriormente, una vez que los modelos algorítmicos y las variables cinemáticas se encuentren validados estadísticamente, la fase de despliegue (\emph{deployment}) se ejecuta mediante una \textbf{metodología iterativa incremental} basada en \emph{sprints} modulares para su integración en la plataforma institucional BIMOP / VIMOV.
 
 Esta articulación responde a las demandas específicas del proyecto: antes de concebir el desarrollo e integración de software, resulta indispensable auditar, limpiar y comprender a profundidad las señales biomédicas capturadas en brigadas de salud, refinando progresivamente los modelos antes de transferirlos a un entorno de producción médica.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth,height=0.42\textheight,keepaspectratio]{Imagenes/CRISP-DM_Diagram}
+  \caption{Diagrama del proceso CRISP-DM aplicado al proyecto.}
+  \label{fig:crisp-dm}
+\end{figure}
 
 \subsection{Comprensión del problema}\label{sec:met-problema}
 
