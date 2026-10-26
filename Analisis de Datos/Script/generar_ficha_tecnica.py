@@ -11,11 +11,11 @@ import hashlib
 import csv
 from collections import defaultdict, Counter
 
-def procesar_auditoria(carpeta_datos="Datos Crudos"):
+def procesar_auditoria(carpeta_datos="Datos IMUs"):
     archivos = sorted(glob.glob(os.path.join(carpeta_datos, "*.json")))
     if not archivos:
         # Fallback si se ejecuta desde subcarpeta
-        carpeta_datos = os.path.join("..", "Datos Crudos")
+        carpeta_datos = os.path.join("..", "Datos IMUs")
         archivos = sorted(glob.glob(os.path.join(carpeta_datos, "*.json")))
 
     vistos_md5 = {}

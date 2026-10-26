@@ -13,23 +13,23 @@
 
 ### BLOQUE A — Preprocesamiento Masivo de Señales IMU
 
-- [ ] **A1. Ejecutar el Módulo 1 del notebook sobre los 78 archivos reales de `Datos Crudos/`**
+- [x] **A1. Ejecutar el Módulo 1 del notebook sobre los 78 archivos reales de `Datos IMUs/`**
   - El módulo ya detecta la carpeta local automáticamente
   - Verificar que cargue los 78 JSON correctamente
   - **Estado actual:** La función `detectar_entorno()` existe pero el notebook solo tiene 7 celdas ejecutadas de 30 — **NO está corriendo sobre todos los datos**
 
-- [ ] **A2. Ejecutar el Módulo 2 (Identificación de Personas) y comparar con `personas.csv`**
+- [x] **A2. Ejecutar el Módulo 2 (Identificación de Personas) y comparar con `personas.csv`**
   - `personas.csv` ya existe con 78 filas (79 contando el header)
   - Confirmar que `persona_id` esté bien asignado en todos los casos
   - Cruzar resultado con el resumen de Reunión #6: 61 PATIENT + 7 CONTROL + 7 SIN_ETIQUETA
   - **Estado actual:** El CSV fue generado con `identificar_personas.py` — ✅ base lista, pero no está integrada en el flujo del notebook
 
-- [ ] **A3. Ejecutar el Módulo 3 (Criterios de Descarte) sobre todos los archivos**
+- [x] **A3. Ejecutar el Módulo 3 (Criterios de Descarte) sobre todos los archivos**
   - Los 5 criterios están implementados en `evaluar_criterios_descarte()`
   - Generar el cuadro de auditoría final con columnas: `archivo`, `persona_id`, `tipo`, `estado` (ACEPTADO / DESCARTADO), `motivo_principal`, `duracion_s`, `min_sensores_ok`, `tiene_warning`
   - **Estado actual:** La función existe en el código pero **NO se ha ejecutado sobre el dataset completo**
 
-- [ ] **A4. Ejecutar el Módulo 4 (Mapeo IMU a 50 Hz) sobre todas las muestras aceptadas**
+- [x] **A4. Ejecutar el Módulo 4 (Mapeo IMU a 50 Hz) sobre todas las muestras aceptadas**
   - Remuestreo a 50 Hz por interpolación lineal
   - Estandarización de nombres de sensores (`BASE-SPINE`, `LEFT-ANKLE`, `RIGHT-ANKLE`)
   - **Estado actual:** Función `_clave_sensor()` lista, pendiente ejecución masiva
@@ -86,20 +86,22 @@
 
 > ℹ️ **Decisión clave acordada en Reunión #7:** Si existe correspondencia temporal entre IMU y cámara, se puede hacer análisis conjunto (y la segmentación por cámara será más sencilla). Si no, son dos análisis independientes.
 
-- [ ] **C1. Acceder a la plataforma/repositorio de datos de cámara RGB-D (brigada Santa Marta 24–28 julio)**
+- [x] **C1. Acceder a la plataforma/repositorio de datos de cámara RGB-D (brigada Santa Marta 24–28 julio)**
   - Domi envió acceso por WhatsApp al grupo
-  - Verificar qué archivos de cámara existen y su formato
+  - Inventario local: 30 archivos `*_raw.json`; 29 declaran TUG y uno `Gait Analysis`. Hay 25 archivos Intel RealSense y 5 Orbbec Astra 2.
+  - Los RAW disponibles del 4 de julio incluyen cinco capturas TUG Orbbec y una captura `Gait Analysis`; no hay RAW fechado entre el 24 y el 28 de julio. La atribución a Santa Marta no se puede comprobar con los metadatos locales.
 
-- [ ] **C2. Comparar timestamps entre archivos JSON (IMU) y grabaciones de cámara**
-  - Para los JSON de julio 2026 (`temp_AF`, `temp_BE`, `temp_E`, `temp_Y`, `temp_AY`, `temp_BG`), verificar si existe un video de cámara con timestamp superpuesto
-  - Si coinciden dentro de un margen (p.ej. ±60 segundos): análisis conjunto posible ✅
-  - Si no coinciden: dos pipelines independientes ❌
+- [x] **C2. Comparar timestamps entre archivos JSON (IMU) y grabaciones de cámara**
+  - Se compararon `timestamp`/`endTimestamp` de los seis IMU (`temp_AF`, `temp_BE`, `temp_E`, `temp_Y`, `temp_AY`, `temp_BG`) con `CaptureTest.Date` y el intervalo de `SkeletonLocation` de los RAW. Se asumió hora local Colombia para la cámara porque el RAW no declara zona horaria; falta confirmar la configuración de su reloj.
+  - Los timestamps Unix de IMU se convirtieron de UTC a hora de Colombia (UTC-5). Resultado: solo `temp_BE` y `4849da67-9862-4f1a-b960-165cfa5306e7_raw.json` quedan dentro de ±60 s (diferencia entre inicios: +22.536 s); las ventanas observadas se solapan unos 18 s.
+  - La coincidencia temporal identifica un candidato, no prueba identidad de persona ni equivalencia de ejecución. No integrar todavía ambas fuentes sin confirmar la correspondencia por una clave o evidencia adicional.
 
-- [ ] **C3. Documentar el resultado de la verificación**
-  - Crear tabla: `archivo_json | timestamp_imus | timestamp_camara | ¿coincide?`
-  - Este resultado determina la estrategia para el resto del semestre
+- [x] **C3. Documentar el resultado de la verificación**
+  - Tabla de los seis pares y metodología de conversión: `Analisis de Datos/ANALISIS_EMOTION.md`, sección “Bloque C”.
+  - La lista IMU corresponde al 4 de julio de 2026; la fecha de brigada indicada aquí es 24–28 de julio. No hay RAW de cámara local de esos días, así que los archivos disponibles no verifican la brigada descrita.
+  - Decisión provisional: tratar las fuentes como pipelines independientes; revisar el candidato `temp_BE` únicamente después de confirmar que pertenece a la misma persona y ejecución.
 
-> 💡 **Sugerencia:** Antes de revisar video a video, intentar comparar los metadatos de los JSON (campos `timestamp` y `endTimestamp`) con los nombres/metadatos de los archivos de cámara. Puede ahorrar mucho tiempo.
+> 💡 **Alcance:** Una coincidencia de timestamps dentro de ±60 s sirve para priorizar una revisión; por sí sola no acredita una muestra pareada.
 
 ---
 
@@ -117,11 +119,11 @@
 ### BLOQUE E — Diagrama de Metodología en el Documento LaTeX
 
 - [x] **E1.** SVG del diagrama CRISP-DM generado ✅ (`OverLeaf/crispdm_metodologia.svg`)
-- [ ] **E2. Convertir el SVG a PDF o PNG para compatibilidad con `pdflatex`**
+- [x] **E2. Convertir el SVG a PDF o PNG para compatibilidad con `pdflatex`**
   - `pdflatex` **no soporta SVG nativo** — usar Inkscape o abrirlo en el navegador y exportar como PDF
   - Guardar en `OverLeaf/figures/crispdm_metodologia.pdf` (o `.png` a 300 DPI)
-- [ ] **E3. Agregar paquete `graphicx` al preámbulo del `.tex` si no existe**
-- [ ] **E4. Insertar la figura en la sección de Metodología del documento**
+- [x] **E3. Agregar paquete `graphicx` al preámbulo del `.tex` si no existe**
+- [x] **E4. Insertar la figura en la sección de Metodología del documento**
   ```latex
   \begin{figure}[htbp]
     \centering
@@ -138,12 +140,12 @@
 
 > ℹ️ **Domi en Reunión #7:** El Gantt actual con `pgfgantt` muestra rombitos/líneas raras. Generar la imagen por fuera e importarla.
 
-- [ ] **F1. Generar el diagrama de Gantt como imagen externa**
+- [x] **F1. Generar el diagrama de Gantt como imagen externa**
   - Herramientas: draw.io, GanttProject, Mermaid JS, o Python con `matplotlib.patches`
   - Basarse en las fechas exactas ya definidas en la Tabla 2 del documento LaTeX
-- [ ] **F2. Exportar el Gantt como PNG de alta resolución (300 DPI mínimo) o PDF**
-- [ ] **F3. Reemplazar el bloque `pgfgantt` en el documento por `\includegraphics{figures/cronograma}`**
-- [ ] **F4. Recompilar y hacer commit**
+- [x] **F2. Exportar el Gantt como PNG de alta resolución (300 DPI mínimo) o PDF**
+- [x] **F3. Reemplazar el bloque `pgfgantt` en el documento por `\includegraphics{figures/cronograma}`**
+- [x] **F4. Recompilar y hacer commit**
 
 ---
 
@@ -292,7 +294,7 @@ PDG-TUG-V2/
 │   ├── RESUMEN_DATOS.md           ✅ completo
 │   ├── identificar_personas.py    ✅ completo
 │   └── personas.csv               ✅ 78 filas
-├── Datos Crudos/
+├── Datos IMUs/
 │   └── [78 archivos .json]        ✅ Dataset completo disponible localmente
 ├── Notas_Reuniones/
 │   └── Reunion3.md–Reunion7.md    ✅ Documentadas
@@ -310,4 +312,3 @@ PDG-TUG-V2/
 
 *Documento de gestión temporal — actualizar en cada reunión o al completar ítems.*
 *Última actualización: 22 octubre 2026.*
-

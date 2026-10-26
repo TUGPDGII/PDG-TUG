@@ -23,7 +23,7 @@ PDG-TUG-V2/
 │   ├── identificar_personas.py   # Script de identificación y agrupación de pacientes
 │   ├── RESUMEN_DATOS.md          # Documentación detallada del estado de los datos recabados
 │   └── personas.csv              # Dataset de pacientes anonimizados y metadatos
-├── Datos Crudos/                 # Grabaciones en formato JSON de las sesiones de pruebas TUG
+├── Datos IMUs/                   # Grabaciones en formato JSON de las sesiones de pruebas TUG
 │   └── *.json                    # Lecturas de acelerometría y giroscopio (~50 Hz) de 5 sensores IMU
 ├── Notas_Reuniones/              # Minutas y notas de avance de las reuniones de seguimiento
 ├── OverLeaf/                     # Fuentes LaTeX y compilación del documento académico (PDFs, .tex)
@@ -51,4 +51,3 @@ PDG-TUG-V2/
 ### Tutores
 * Domiciano Rincón
 * Andrés Navarro
-
