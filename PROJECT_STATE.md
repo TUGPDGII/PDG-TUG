@@ -21,11 +21,14 @@
 - **Nuevos módulos de análisis (Reunión #8):** Se incorporaron en `Analisis de Datos/PDGI_Colab copy.ipynb` la gráfica compuesta superpuesta de las 5 fases TUG (Módulo 7), la detección de fases de paso (`SWING` / `STANCE`) en ambos tobillos con clasificación de fase TUG `fase_tug` y conteo de pasos en giro (Módulo 8), y la extracción masiva de biomarcadores con contraste estadístico mediante prueba *t* de Welch y *U* de Mann-Whitney (Módulo 9).
 
 ### B. Sistema de Cámaras e-Motion (VIMOV)
-- **Dataset local estrictamente TUG (132 capturas en carpeta principal):**
-  - **Brigada Santa Marta (`SMR_`):** **103 grabaciones TUG (100% de las pruebas TUG de la brigada)** descargadas de VIMOV correspondientes al 25, 26 y 27 de junio de 2026.
-  - **Brigada CST / La Victoria (`CST_`):** **5 grabaciones TUG** capturadas con la cámara Orbbec Astra 2.
-  - **Laboratorio y Calibración (`LAB_`):** **24 grabaciones TUG** históricas de validación técnica (octubre de 2024 y 2026).
-  - **Segregación de pruebas No-TUG:** 137 archivos correspondientes a protocolos de caminata continua (`Gait Analysis` y `GAIT_COMPLETE`) fueron trasladados a `Datos e-Motion/No_TUG_Gait_Analysis/` para no contaminar el pipeline de segmentación y clasificación TUG.
+- **Dataset local auditado y estructurado (269 capturas en total):**
+  - **Pruebas estrictamente TUG (`Datos e-Motion/`, 132 capturas):**
+    - **Brigada Santa Marta (`SMR_`):** **103 grabaciones TUG (100% de las pruebas TUG de la brigada)** descargadas de VIMOV correspondientes al 25, 26 y 27 de junio de 2026.
+    - **Brigada CST / La Victoria (`CST_`):** **6 grabaciones TUG** capturadas con la cámara Orbbec Astra 2.
+    - **Laboratorio y Calibración (`LAB_`):** **23 grabaciones TUG** históricas de validación técnica (octubre de 2024 y 2026).
+  - **Pruebas de Marcha Continua (`Datos e-Motion/No_TUG_Gait_Analysis/`, 137 capturas):**
+    - 122 grabaciones de marcha en línea recta (10 metros) de Santa Marta, 14 de CST (12 raw + 2 métricas comparativas) y 1 de Laboratorio, preservadas aparte para monitoreo espaciotemporal puro sin sesgo de giro.
+  - **Auditoría de Integridad y Duplicados:** **0 archivos duplicados** (269 hashes SHA-256 únicos), **0 archivos corruptos**, **0 capturas vacías (<3s o 0 frames)**. Tasa de seguimiento articular promedio > 89.2%.
 - **Estandarización global de nomenclatura (100% completada):** Todo el repositorio de `Datos e-Motion/` sigue la convención formal:
   - Bimodales con IMU: `SMR_{FECHA}_{PERSONA_ID}_{CODIGO}_{VIMOV_TEST_ID_SHORT}_raw.json` o `CST_...`
   - Brigada sin IMU: `SMR_{FECHA}_NO_IMU_{VIMOV_TEST_ID_SHORT}_raw.json` o `CST_...`

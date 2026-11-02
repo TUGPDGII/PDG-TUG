@@ -41,7 +41,7 @@
 - [x] **B1. Ficha Técnica Oficial de Datos IMU**
   - Generada y disponible en `Analisis de Datos/FichaTecnica_IMUs.md`.
 - [x] **B2. Ficha Técnica Oficial de Cámaras e-Motion (VIMOV)**
-  - Generada y disponible en `Analisis de Datos/FichaTecnica_eMotion.md`. Documenta 30 capturas RAW (25 Intel RealSense, 5 Orbbec Astra), su aptitud para distancias/velocidades y su limitación intrínseca en giros.
+  - Generada y actualizada en `Analisis de Datos/FichaTecnica_eMotion.md`. Documenta exhaustivamente las 269 capturas (132 TUG y 137 Marcha Continua), 0 duplicados (SHA-256), 0 corruptos, su aptitud para distancias/velocidades lineales (fases 1 y 2) y su delimitación metodológica formal respecto a giros y sentado acordada con el tutor en R#8.
 
 ---
 
