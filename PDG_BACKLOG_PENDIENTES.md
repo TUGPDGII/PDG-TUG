@@ -45,19 +45,21 @@
 
 ---
 
-### BLOQUE C — Correspondencia y Trazabilidad IMU ↔ e-Motion (Cámara)
+### BLOQUE C — Correspondencia y Trazabilidad IMU ↔ e-Motion (✅ COMPLETADO)
 
 > ℹ️ **Requerimiento expreso de Reunión #8:** Auditar las fechas de los 78 archivos IMU y cruzarlas con e-Motion / VIMOV para verificar quiénes cuentan con su versión e-Motion.
 
-- [x] **C1. Documento de Correspondencia y Trazabilidad Temporal**
-  - Creado en `Analisis de Datos/Correspondencia_IMU&EMOTION.md`.
+- [x] **C1. Documento de Correspondencia y Trazabilidad Temporal:**
+  - Creado y actualizado en `Analisis de Datos/Correspondencia_IMU&EMOTION.md`.
   - Contiene la tabla auditora de las **78 grabaciones IMU**.
-- [x] **C2. Hallazgo Clave del Cruce:**
-  - Se identificaron **6 grabaciones IMU con correspondencia exacta ($\le 60$ s)** con capturas Orbbec Astra 2 del 04 de julio de 2026 (`temp_BE`, `temp_AM`, `temp_P`, `temp_Z` x2, `temp_AN`).
-  - Siete archivos nombrados con prefijo `20260820...` corresponden en realidad al 04 de julio en su estampa Unix interna.
-  - Las 72 grabaciones restantes no poseen par de cámara en los archivos RAW locales actuales.
-- [ ] **C3. Descarga / Consulta de Datos Faltantes de Brigada (con Leonardo / Bod):**
-  - Esteban y Domi consultaron a Leonardo por qué en el filtro 24–28 de julio de Santa Marta solo salían 2 datos. Pendiente respuesta o descarga complementaria para todo el mes de julio.
+- [x] **C2. Resolución de Fechas de la Brigada Santa Marta:**
+  - Se descubrió que la brigada en Santa Marta se realizó entre el **25 y el 27 de junio de 2026** (no a finales de julio).
+- [x] **C3. Descarga Masiva, Anonimización y Pareo Bimodal (VIMOV):**
+  - **100% de la Brigada Santa Marta descargada:** 225 grabaciones de pose 3D de Santa Marta integradas al repositorio en `Datos e-Motion/`.
+  - **Regla Estricta de Género:** Descartados 3 candidatos por discrepancia de sexo (`temp_BR` y `temp_AP` de P17, y `temp_G` de P19), consolidando **64 pares bimodales únicos con 100% de sexo coincidente** (+ 2 duplicados IMU vinculados).
+  - **Estandarización Global de Nombres:** 269 archivos en `Datos e-Motion/` renombrados bajo los prefijos `SMR_`, `CST_` y `LAB_`.
+  - Aplicada anonimización estricta (limpieza de nombres propios y cédulas).
+  - Validación multivariable confirmada y documentada en `Analisis de Datos/Correspondencia_IMU&EMOTION.md`.
 
 ---
 

@@ -1,5 +1,8 @@
 # Inventario y revisión de datos e-Motion
 
+> [!NOTE]
+> **Documento Histórico de Exploración Inicial:** Este archivo registra el análisis preliminar realizado sobre el lote exploratorio inicial de 30 capturas. La documentación técnica consolidada, exhaustiva y estandarizada del dataset completo (132 registros estrictamente TUG, 42 pares bimodales validados y segregación de marcha continua) se encuentra en [FichaTecnica_eMotion.md](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/FichaTecnica_eMotion.md), [Correspondencia_IMU&EMOTION.md](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/Correspondencia_IMU&EMOTION.md) y [Datos_eMotion.csv](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/Datos_eMotion.csv).
+
 ## 1. Resumen actual
 
 La carpeta `Datos e-Motion/` contiene **30 archivos `*_raw.json`**, correspondientes a 30 capturas. No se encontraron duplicados exactos por SHA-256. **29** registros declaran una prueba TUG en `TypeTest` (28 usan `TIMED_UP_AND_GO` y uno `Timed up and Go`); el registro restante declara `Gait Analysis`, por lo que no debe tratarse como TUG.
