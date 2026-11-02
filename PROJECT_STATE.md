@@ -12,13 +12,14 @@
 - **OE3:** Extracción de variables espaciotemporales biomecánicas.
 - **OE4:** Evaluación preliminar de discriminación entre pacientes y controles mediante estadística inferencial (prueba t de Welch) y clasificadores supervisados (sin prometer umbrales fijos como >80%).
 
-## 3. Estado Actual de los Componentes (Punto de Control: 01 de Noviembre de 2026)
+## 3. Estado Actual de los Componentes (Punto de Control: 02 de Noviembre de 2026)
 
 ### A. Datos y Sensores IMU
 - **Dataset local:** 78 grabaciones JSON en `Datos IMUs/`.
 - **Criterios de descarte aplicados:** 66 grabaciones aceptadas (58 pacientes con EP, 8 controles sanos) y 12 descartadas (7 pruebas técnicas sin etiqueta, 2 duplicados MD5, 3 registros de doble tarea cognitiva).
 - **Segmentación de fases y equivalencia con código predecesor:** Completada exitosamente en **63 de las 66 grabaciones válidas** (95.5% de efectividad). En `Analisis de Datos/PDGI_Colab copy.ipynb` se auditó y restableció la equivalencia matemática y gráfica al 100% respecto al código del proyecto predecesor (filtro Butterworth orden 20 a 3 Hz, umbral de duración mínima de 0.5 s e indexación exacta por `np.diff`), verificada mediante el adaptador `exportar_json_formato_predecesor` con diferencia numérica de `0.000000e+00`.
 - **Nuevos módulos de análisis (Reunión #8):** Se incorporaron en `Analisis de Datos/PDGI_Colab copy.ipynb` la gráfica compuesta superpuesta de las 5 fases TUG (Módulo 7), la detección de fases de paso (`SWING` / `STANCE`) en ambos tobillos con clasificación de fase TUG `fase_tug` y conteo de pasos en giro (Módulo 8), y la extracción masiva de biomarcadores con contraste estadístico mediante prueba *t* de Welch y *U* de Mann-Whitney (Módulo 9).
+- **Resultados estadísticos basales (Módulo 9):** Procesamiento sobre las 66 muestras válidas extrajo biomarcadores preliminares donde los pacientes con EP exhiben una duración efectiva del TUG mayor ($18.20 \pm 11.27$ s vs $13.37 \pm 3.12$ s en controles, $+36.2\%$), un tiempo total de marcha superior ($10.44 \pm 8.82$ s vs $7.10 \pm 4.30$ s, $+47.0\%$) y mayor duración de balanceo de tobillo ($0.50 \pm 0.58$ s vs $0.36 \pm 0.18$ s, $+38.1\%$), cumpliendo la meta fijada por el tutor en R#8 de evidenciar contraste preliminar antes del cierre de semestre.
 
 ### B. Sistema de Cámaras e-Motion (VIMOV)
 - **Dataset local auditado y estructurado (269 capturas en total):**
