@@ -19,12 +19,19 @@ La prueba **TUG** consiste en evaluar el tiempo y la cinemática de un individuo
 ```text
 PDG-TUG-V2/
 ├── Analisis de Datos/            # Código de exploración, clasificación y procesamiento
-│   ├── PDGI_Clasificación.ipynb  # Notebook con modelos de clasificación y pipeline de datos
-│   ├── identificar_personas.py   # Script de identificación y agrupación de pacientes
-│   ├── RESUMEN_DATOS.md          # Documentación detallada del estado de los datos recabados
-│   └── personas.csv              # Dataset de pacientes anonimizados y metadatos
+│   ├── PDGI_Colab.ipynb          # Notebook de análisis con pipeline de procesamiento de señales
+│   ├── PDGI_Colab copy.ipynb     # Cuaderno actualizado con equivalencia al predecesor y módulos 1 a 9
+│   ├── Datos_IMUs.csv            # Metadatos clínicos y anonimización de las 78 grabaciones IMU
+│   ├── Datos_eMotion.csv         # Metadatos del dataset de cámaras y pose esquelética
+│   ├── df_variables_tug.csv      # Biomarcadores cinemáticos y temporales calculados (66 válidos)
+│   ├── Analisis_IMUs.md          # Auditoría técnica exhaustiva de datos inerciales
+│   ├── Analisis_eMotion.md       # Evaluación de capturas de video y pose esquelética
+│   ├── FichaTecnica_IMUs.md      # Ficha técnica oficial de control de calidad IMU (descartes y aceptados)
+│   ├── FichaTecnica_eMotion.md   # Ficha técnica y delimitación de alcance de cámaras
+│   └── Correspondencia_IMU&EMOTION.md # Trazabilidad temporal IMU frente a e-Motion
 ├── Datos IMUs/                   # Grabaciones en formato JSON de las sesiones de pruebas TUG
 │   └── *.json                    # Lecturas de acelerometría y giroscopio (~50 Hz) de 5 sensores IMU
+├── Datos e-Motion/               # Grabaciones de cámaras RGB-D y articulaciones esqueléticas
 ├── Notas_Reuniones/              # Minutas y notas de avance de las reuniones de seguimiento
 ├── OverLeaf/                     # Fuentes LaTeX y compilación del documento académico (PDFs, .tex)
 └── README.md                     # Este archivo
