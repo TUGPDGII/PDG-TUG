@@ -11,8 +11,8 @@
 | Indicador Metodológico | Valor Total | Observación y Respaldo Técnico |
 |:---|:---:|:---|
 | **Total Grabaciones JSON en el Dataset** | **269** | Totalidad de capturas descargadas, auditadas y anonimizadas de VIMOV |
-| **Grabaciones Protocolo TUG (`Datos e-Motion/`)** | **132** | Evaluaciones Timed Up and Go estándar con silla y giro a 3 metros |
-| **Grabaciones Protocolo Marcha (`No_TUG_Gait_Analysis/`)** | **137** | Pruebas de marcha continua lineal (10 metros) + 2 archivos de métricas comparativas |
+| **Grabaciones Protocolo TUG (`Datos e-Motion/TUG/`)** | **132** | Evaluaciones Timed Up and Go estándar con silla y giro a 3 metros |
+| **Grabaciones Protocolo Marcha (`Datos e-Motion/No_TUG_Gait_Analysis/`)** | **137** | Pruebas de marcha continua lineal (10 metros) + 2 archivos de métricas comparativas |
 | **Capturas Brigada Santa Marta (`SMR_`)** | **225** | **100% de la brigada descargada** (103 TUG + 122 Marcha Continua) |
 | **Capturas Brigada CST / La Victoria (`CST_`)** | **21** | 6 TUG + 13 Marcha Continua + 2 comparativas Orbbec vs Intel |
 | **Capturas de Laboratorio / Pilotos (`LAB_`)** | **23** | 23 TUG de calibración en laboratorio Icesi (octubre 2024 / 2026) |
@@ -81,7 +81,7 @@ En concordancia con las conclusiones acordadas con el tutor metodológico **Prof
 
 ---
 
-## 6. Auditoría Detallada de Grabaciones TUG (`Datos e-Motion/`, 132 Archivos)
+## 6. Auditoría Detallada de Grabaciones TUG (`Datos e-Motion/TUG/`, 132 Archivos)
 
 | # | Archivo JSON | Brigada | Bimodal IMU | Sujeto ID | Clase Clínica | Sensor | Duración | Frames | FPS | Utilidad Biomecánica |
 |---:|---|:---:|:---:|:---:|:---:|---|:---:|:---:|:---:|---|

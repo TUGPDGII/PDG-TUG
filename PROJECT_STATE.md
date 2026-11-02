@@ -22,7 +22,7 @@
 
 ### B. Sistema de Cámaras e-Motion (VIMOV)
 - **Dataset local auditado y estructurado (269 capturas en total):**
-  - **Pruebas estrictamente TUG (`Datos e-Motion/`, 132 capturas):**
+  - **Pruebas estrictamente TUG (`Datos e-Motion/TUG/`, 132 capturas):**
     - **Brigada Santa Marta (`SMR_`):** **103 grabaciones TUG (100% de las pruebas TUG de la brigada)** descargadas de VIMOV correspondientes al 25, 26 y 27 de junio de 2026.
     - **Brigada CST / La Victoria (`CST_`):** **6 grabaciones TUG** capturadas con la cámara Orbbec Astra 2.
     - **Laboratorio y Calibración (`LAB_`):** **23 grabaciones TUG** históricas de validación técnica (octubre de 2024 y 2026).

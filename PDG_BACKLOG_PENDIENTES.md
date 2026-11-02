@@ -55,7 +55,7 @@
 - [x] **C2. Resolución de Fechas de la Brigada Santa Marta:**
   - Se descubrió que la brigada en Santa Marta se realizó entre el **25 y el 27 de junio de 2026** (no a finales de julio).
 - [x] **C3. Descarga Masiva, Anonimización y Pareo Bimodal (VIMOV):**
-  - **Dataset e-Motion estrictamente TUG:** 132 grabaciones TUG consolidadas en `Datos e-Motion/` (103 Santa Marta, 5 CST, 24 Lab).
+  - **Dataset e-Motion estrictamente TUG:** 132 grabaciones TUG consolidadas en `Datos e-Motion/TUG/` (103 Santa Marta, 5 CST, 24 Lab).
   - **Segregación de pruebas No-TUG:** 137 grabaciones de marcha continua libre segregadas en `Datos e-Motion/No_TUG_Gait_Analysis/`.
   - **Regla Estricta de Género:** Descartados formalmente 5 candidatos por discrepancia de sexo (`P17`, `P19`, `P23`, `P29`), consolidando **42 pares bimodales estrictamente TUG con 100% de sexo coincidente** vinculados a las grabaciones IMU.
   - **Estandarización Global de Nombres:** 100% de los archivos renombrados formalmente bajo los prefijos `SMR_`, `CST_` y `LAB_`.

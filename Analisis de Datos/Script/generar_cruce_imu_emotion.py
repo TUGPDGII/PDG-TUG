@@ -23,7 +23,14 @@ if '20260626133916_temp_BA.json' in bimodal_map and '20260626133915_temp_BA.json
 
 bimodal_details = {}
 for imu_file, em_row in bimodal_map.items():
-    em_path = os.path.join(em_dir, em_row['archivo'])
+    sub = em_row.get('subcarpeta', 'TUG')
+    if sub == 'Datos e-Motion':
+        sub = 'TUG'
+    em_path = os.path.join(em_dir, sub, em_row['archivo'])
+    if not os.path.exists(em_path):
+        em_path = os.path.join(em_dir, 'TUG', em_row['archivo'])
+    if not os.path.exists(em_path):
+        em_path = os.path.join(em_dir, em_row['archivo'])
     if os.path.exists(em_path):
         with open(em_path) as jf:
             d = json.load(jf)
