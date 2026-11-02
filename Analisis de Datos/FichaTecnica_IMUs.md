@@ -35,7 +35,7 @@ Total Grabaciones: 78
     ├── Duplicados exactos por colisión MD5 de red:       2 grabaciones
     │   └── (temp_BA_2, temp_Z_2)
     └── Pruebas de Doble Tarea (Dual Task cognitiva):     3 grabaciones
-        └── (temp_AZ, temp_J, temp_AQ — Paciente P17)
+        └── (temp_AZ, temp_J, temp_AQ — Paciente P32)
 ```
 
 ### Tabla Resumen de Descartes por Motivo Principal:
