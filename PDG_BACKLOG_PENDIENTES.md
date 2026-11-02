@@ -73,8 +73,8 @@
   - Ajustado conforme a la instrucción de no prometer exactitud superior al 80%.
 - [x] **D2. Diagramas Metodológico y Cronograma**
   - Metodología CRISP-DM y Gantt externo insertados como figuras en LaTeX.
-- [ ] **D3. Integración de Conclusiones de Cámaras en el Documento:**
-  - Redactar en el capítulo metodológico la delimitación formal: *"las cámaras se emplean para longitud de zancada y velocidad lineal; los IMUs asumen la segmentación temporal completa y la dinámica de giro"*.
+- [x] **D3. Integración de Conclusiones de Cámaras en el Documento:**
+  - Redactado e integrado en la Sección 3.2 de `OverLeaf/PDG-II TUG.tex`: *"las cámaras se emplean para longitud de zancada y velocidad lineal de desplazamiento del centro de masa (Hip Center); las IMUs asumen la segmentación temporal completa, la dinámica de giro de 180° y las transiciones posturales"*.
 
 ---
 

@@ -49,14 +49,14 @@
 
 ### D. Documento Académico (LaTeX en `OverLeaf/`)
 - Compilando sin errores (33 páginas).
-- OE4 simplificado de acuerdo a las observaciones del tutor.
+- OE4 simplificado de acuerdo a las observaciones del tutor (sin umbrales artificiales como >80%).
 - Diagrama metodológico CRISP-DM y cronograma Gantt externo integrados como figuras.
+- Formalizada la delimitación funcional bimodal en la Sección 3.2: cámaras RGB-D para longitud de zancada y velocidad lineal en marcha continua; IMUs para giros, pasos en giro y transiciones posturales.
 
 ## 4. Trabajos Pendientes Inmediatos (Entrega de Martes / Próximos Pasos)
 1. Ejecutar en el entorno de Google Colab el cuaderno actualizado `Analisis de Datos/PDGI_Colab copy.ipynb` para exportar las figuras definitivas y la tabla `df_variables_tug.csv`.
-2. Fusionar la rama `refactor` hacia `main`.
+2. Fusionar la rama `refactor` hacia `main` en el repositorio remoto.
 3. Consultar con Leonardo / Bod la disponibilidad de datos de video para las fechas restantes de julio.
-4. Integrar las conclusiones de la delimitación funcional de cámaras e IMUs en el documento LaTeX (`OverLeaf/PDG-II TUG.tex`).
 
 ## 5. Control de Fechas
 - **Última revisión integral:** 01 de noviembre de 2026.
