@@ -55,9 +55,11 @@
 - [x] **C2. Resolución de Fechas de la Brigada Santa Marta:**
   - Se descubrió que la brigada en Santa Marta se realizó entre el **25 y el 27 de junio de 2026** (no a finales de julio).
 - [x] **C3. Descarga Masiva, Anonimización y Pareo Bimodal (VIMOV):**
-  - **100% de la Brigada Santa Marta descargada:** 225 grabaciones de pose 3D de Santa Marta integradas al repositorio en `Datos e-Motion/`.
-  - **Regla Estricta de Género:** Descartados 3 candidatos por discrepancia de sexo (`temp_BR` y `temp_AP` de P17, y `temp_G` de P19), consolidando **64 pares bimodales únicos con 100% de sexo coincidente** (+ 2 duplicados IMU vinculados).
-  - **Estandarización Global de Nombres:** 269 archivos en `Datos e-Motion/` renombrados bajo los prefijos `SMR_`, `CST_` y `LAB_`.
+  - **Dataset e-Motion estrictamente TUG:** 132 grabaciones TUG consolidadas en `Datos e-Motion/` (103 Santa Marta, 5 CST, 24 Lab).
+  - **Segregación de pruebas No-TUG:** 137 grabaciones de marcha continua libre segregadas en `Datos e-Motion/No_TUG_Gait_Analysis/`.
+  - **Regla Estricta de Género:** Descartados formalmente 5 candidatos por discrepancia de sexo (`P17`, `P19`, `P23`, `P29`), consolidando **42 pares bimodales estrictamente TUG con 100% de sexo coincidente** vinculados a las grabaciones IMU.
+  - **Estandarización Global de Nombres:** 100% de los archivos renombrados formalmente bajo los prefijos `SMR_`, `CST_` y `LAB_`.
+  - **Sincronización en Cuaderno:** Actualizado el Módulo 2 de `Analisis de Datos/PDGI_Colab copy.ipynb` para consumir `Datos_eMotion.csv` y reportar la correspondencia bimodal auditada.
   - Aplicada anonimización estricta (limpieza de nombres propios y cédulas).
   - Validación multivariable confirmada y documentada en `Analisis de Datos/Correspondencia_IMU&EMOTION.md`.
 
