@@ -30,7 +30,7 @@ PDG-TUG/
 │   ├── df_variables_emotion.csv  # Matriz de 53 variables biomecánicas y clínicas ópticas (223 series)
 │   ├── Analisis_IMUs.md          # Auditoría técnica e inferencial detallada del sistema inercial
 │   ├── Analisis_eMotion.md       # Evaluación de calidad, segmentación y análisis biomecánico 3D
-│   ├── Guia_Maestra_Pipeline_eMotion.md # Guía metodológica y conceptual del procesamiento óptico
+│   ├── Guia_Pipeline_eMotion.md  # Guía metodológica y conceptual del procesamiento óptico
 │   ├── FichaTecnica_IMUs.md      # Ficha técnica oficial de control de calidad inercial
 │   ├── FichaTecnica_eMotion.md   # Ficha técnica oficial del conjunto de datos ópticos (225 archivos)
 │   ├── Correlacion.md            # Trazabilidad y validación bimodal (42 pares TUG confirmados)

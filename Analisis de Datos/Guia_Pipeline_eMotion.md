@@ -1,4 +1,4 @@
-# GUÍA MAESTRA PEDAGÓGICA Y CLÍNICA: PIPELINE ÓPTICO e-MOTION (VIMOV)
+# GUIA: PIPELINE ÓPTICO e-MOTION (VIMOV)
 > **Proyecto de Grado:** Caracterización Cinemática y Clasificación del Test *Timed Up and Go* (TUG) en la Enfermedad de Parkinson Mediante Sensores Inerciales y Cámaras de Profundidad RGB-D
 > **Propósito del Documento:** Explicar paso a paso, con lenguaje claro, riguroso y didáctico, qué hace cada componente del pipeline óptico, qué significa cada variable biomecánica, cómo interpretar los gráficos y tablas, y qué implicaciones clínicas se deducen cuando un valor es mayor o menor entre un paciente y una persona sana.
 > **Fecha de Actualización:** 02 de Noviembre de 2026
