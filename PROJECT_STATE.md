@@ -21,21 +21,33 @@
 - **Nuevos módulos de análisis (Reunión #8):** Se incorporaron en `Analisis de Datos/PDGI_Colab copy.ipynb` la gráfica compuesta superpuesta de las 5 fases TUG (Módulo 7), la detección de fases de paso (`SWING` / `STANCE`) en ambos tobillos con clasificación de fase TUG `fase_tug` y conteo de pasos en giro (Módulo 8), y la extracción masiva de biomarcadores con contraste estadístico mediante prueba *t* de Welch y *U* de Mann-Whitney (Módulo 9).
 - **Resultados estadísticos basales (Módulo 9):** Procesamiento sobre las 66 muestras válidas extrajo biomarcadores preliminares donde los pacientes con EP exhiben una duración efectiva del TUG mayor ($18.20 \pm 11.27$ s vs $13.37 \pm 3.12$ s en controles, $+36.2\%$), un tiempo total de marcha superior ($10.44 \pm 8.82$ s vs $7.10 \pm 4.30$ s, $+47.0\%$) y mayor duración de balanceo de tobillo ($0.50 \pm 0.58$ s vs $0.36 \pm 0.18$ s, $+38.1\%$), cumpliendo la meta fijada por el tutor en R#8 de evidenciar contraste preliminar antes del cierre de semestre.
 
-### B. Sistema de Cámaras e-Motion (VIMOV)
-- **Dataset local auditado y estructurado (269 capturas en total):**
-  - **Pruebas estrictamente TUG (`Datos e-Motion/TUG/`, 132 capturas):**
-    - **Brigada Santa Marta (`SMR_`):** **103 grabaciones TUG (100% de las pruebas TUG de la brigada)** descargadas de VIMOV correspondientes al 25, 26 y 27 de junio de 2026.
-    - **Brigada CST / La Victoria (`CST_`):** **6 grabaciones TUG** capturadas con la cámara Orbbec Astra 2.
-    - **Laboratorio y Calibración (`LAB_`):** **23 grabaciones TUG** históricas de validación técnica (octubre de 2024 y 2026).
-  - **Pruebas de Marcha Continua (`Datos e-Motion/No_TUG_Gait_Analysis/`, 137 capturas):**
-    - 122 grabaciones de marcha en línea recta (10 metros) de Santa Marta, 14 de CST (12 raw + 2 métricas comparativas) y 1 de Laboratorio, preservadas aparte para monitoreo espaciotemporal puro sin sesgo de giro.
-  - **Auditoría de Integridad y Duplicados:** **0 archivos duplicados** (269 hashes SHA-256 únicos), **0 archivos corruptos**, **0 capturas vacías (<3s o 0 frames)**. Tasa de seguimiento articular promedio > 89.2%.
-- **Estandarización global de nomenclatura (100% completada):** Todo el repositorio de `Datos e-Motion/` sigue la convención formal:
-  - Bimodales con IMU: `SMR_{FECHA}_{PERSONA_ID}_{CODIGO}_{VIMOV_TEST_ID_SHORT}_raw.json` o `CST_...`
-  - Brigada sin IMU: `SMR_{FECHA}_NO_IMU_{VIMOV_TEST_ID_SHORT}_raw.json` o `CST_...`
-  - Laboratorio: `LAB_{FECHA}_INTEL_{VIMOV_TEST_ID_SHORT}_raw.json`
-- **Anonimización integral y ética:** Limpieza rigurosa de nombres propios y documentos de identidad (`Name`, `Lastname`, `NumberId`), inyectando el bloque `AnonymizedMetadata` con variables demográficas (`Age`, `Genre`, `Height`, `Weight`), sensor utilizado y etiquetas diagnósticas de VIMOV (`Paciente`, `Control`, `Hoehn & Yahr`, `DBS`, etc.).
-- **Delimitación de alcance (Acuerdo Reunión #8):** Las cámaras pierden el seguimiento esquelético durante los giros de 180° y en la aproximación de sentado; **no se usarán para segmentar el giro ni para el conteo de pasos en el giro**. Se destinarán exclusivamente a medir la **longitud de zancada** y la **velocidad lineal de desplazamiento** en las fases de marcha recta (ida y vuelta).
+### B. Sistema de Cámaras e-Motion (VIMOV) — Pipeline Óptico y Segmentación Adaptada
+- **Dataset local auditado y estandarizado (225 grabaciones físicas en disco $\to$ 223 series clínicas analizadas):**
+  - **Pruebas TUG (`Datos e-Motion/TUG/`, 130 archivos):**
+    - **Santa Marta (`SMR_`):** 101 grabaciones clínicas únicas.
+    - **CST / La Victoria (`CST_`):** 6 grabaciones válidas (Orbbec Astra 2).
+    - **Laboratorio Icesi (`LAB_`):** 23 grabaciones de calibración y validación técnica.
+  - **Pruebas de Marcha Continua (`Datos e-Motion/GAIT/`, 95 archivos):**
+    - **Santa Marta (`SMR_`):** 81 grabaciones clínicas (77 pacientes con EP, 4 controles).
+    - **CST / La Victoria (`CST_`):** 15 grabaciones (13 cinemáticas: 8 pacientes con EP, 5 controles de brigada, más 2 archivos de métricas precalculadas excluidos del análisis cinemático articular).
+  - **Estandarización y Depuración de Nomenclatura:** Se renombraron los 225 archivos de e-Motion siguiendo el estándar formal `{ORIGEN}_{ID_EMOTION}_eMotion_{IMU_MATCH}_{TIPO}.json` (ej. `LAB_ID1_eMotion_NO_TUG.json`, `SMR_ID1_eMotion_P06_TUG.json`, `CST_ID1_eMotion_P54_TUG.json`, `SMR_ID1_eMotion_P06_GAIT.json`, `CST_M1_eMotion_NO_GAIT.json`), eliminando fechas y asignando identificador secuencial propio y correspondencia unívoca (`NO` o `P#` del IMU pareado).
+  - **Depuración Física de Duplicados y Pruebas Internas:** Se eliminaron físicamente del disco los 44 archivos descartados (2 pruebas de personal interno y 42 réplicas exactas de sincronización en nube), consolidando el inventario en 225 archivos y depurando íntegramente `Analisis de Datos/Analisis_eMotion.md`.
+  - **Trazabilidad de Sujetos y Pareo Intra-Sujeto:** Se identificaron **71 sujetos únicos en VIMOV** (cohortes `LARGE_PD` y `GEOREF`), de los cuales **48 pacientes cuentan simultáneamente con prueba TUG y prueba de Marcha Continua de 10 m**.
+  - **Dos Generaciones de Esquema Articular:**
+    - `v1.2.0` (75 archivos en disco): 19 articulaciones (sin nodo `BodyCenter`).
+    - `v1.3.0` / `v0.3.6` (148 archivos en disco): 15 articulaciones (con `BodyCenter`).
+    - `SpineBase` presente en el 100% de las 223 grabaciones esqueléticas como nodo pélvico universal (`Hip Center`).
+- **Cobertura Empírica Real de las 5 Fases TUG en Cámara ($n=130$):**
+  - **Fase 1 (`Levantamiento`):** Capturada en el 96.9% de los archivos (88.5% completa con $\Delta Y \ge 0.18\text{ m}$ y 8.5% parcial).
+  - **Fases 2 y 4 (`Marcha 1 Ida` y `Marcha 2 Regreso`):** Capturadas en el 100.0% de los archivos.
+  - **Fase 3 (`Giro de 180°`):** Intervalo temporal $[t_{\text{fin\_ida}}, t_{\text{ini\_vuelta}}]$ 100% delimitable por inversión de signo de $v_z$, con oclusión transitoria de tobillos a $<1.2\text{ m}$, manteniendo el conteo de pasos en giro en los IMUs.
+  - **Fase 5 (`Sentado`):** Capturada en el 100.0% de los archivos (84.6% completa y 15.4% parcial).
+- **Algoritmo de Segmentación Adaptado e Implementación en Colab (`Módulos 10 a 13` de `Analisis de Datos/PDGI_Colab copy.ipynb`):**
+  - Incorpora interpolación PCHIP a 30.0 Hz, validación espectral FFT (1.0–2.2 Hz), filtrado Butterworth paso bajas a 3.0 Hz (`filtfilt`), macro-segmentación de las 5 fases TUG ($E_z$, $E_y$), y micro-segmentación en tobillos (CWT Ricker 1.0–2.5 Hz, eventos `SWING`/`STANCE`, Doble Apoyo, longitud de paso/zancada, velocidad lineal y amplitud/asimetría de braceo).
+- **Hallazgos Estadísticos Significativos en e-Motion (Prueba *t* de Welch):**
+  - **En TUG ($n=130$):** Diferencias estadísticamente significativas entre pacientes con EP ($n=102$) y controles ($n=26$) en Longitud de Zancada ($0.839 \pm 0.167\text{ m}$ vs. $0.949 \pm 0.172\text{ m}$, $p = 0.0032$), Longitud de Paso vs. Controles de Brigada ($0.353\text{ m}$ vs. $0.422\text{ m}$, $p = 0.0034$), Amplitud de Braceo ($0.270\text{ m}$ vs. $0.315\text{ m}$, $p = 0.0065$), Duración Activa TUG ($15.91\text{ s}$ vs. $13.26\text{ s}$, $p = 0.0082$) y Asimetría de Braceo ($22.74\%$ vs. $16.71\%$, $p = 0.0347$).
+  - **En Marcha Continua de 10 m (`GAIT`, $n=93$):** Incremento estadísticamente significativo en el Porcentaje de Doble Apoyo (`pct_doble_apoyo`) en pacientes con EP ($25.07 \pm 7.32\%$) frente a controles sanos ($18.23 \pm 6.96\%$, $t = +2.31, p = 0.0206$), además de mayor duración activa ($19.30\text{ s}$ vs. $14.27\text{ s}$, $p = 0.0099$).
+- **Documentación y Matrices Actualizadas:** Consolidados `Analisis de Datos/Analisis_eMotion.md` (purgado de descartes), `Analisis de Datos/FichaTecnica_eMotion.md`, `Analisis de Datos/Datos_eMotion.csv` (inventario y catálogo simplificado de 12 metadatos clave para los 225 archivos físicos) y `Analisis de Datos/df_variables_emotion.csv` (matriz exhaustiva de 53 columnas con biomarcadores biomecánicos, variables clínicas y demográficas de 223 grabaciones).
 
 ### C. Correspondencia IMU ↔ e-Motion (Bimodalidad Confirmada y Reglas Estrictas)
 - **Filtro Estricto de Protocolo TUG y Género:** Para certificar un par bimodal como genuino, se exige:
@@ -46,7 +58,7 @@
   - **41 pares en Santa Marta (`SMR`)** correspondientes al 25, 26 y 27 de junio de 2026.
   - **1 par en CST / La Victoria (`CST`)** (`temp_BE`, P54) con la cámara Orbbec Astra 2.
   - Las grabaciones restantes de IMU se ejecutaron mientras la cámara registraba marcha continua de 10 m (`Gait Analysis`) o sin activación de cámara.
-- **Auditoría Documentada:** Actualizados `Analisis de Datos/Correspondencia_IMU&EMOTION.md`, `Analisis de Datos/Datos_eMotion.csv` y `Analisis de Datos/FichaTecnica_eMotion.md`.
+- **Auditoría Documentada:** Actualizados `Analisis de Datos/Correlacion.md`, `Analisis de Datos/Datos_eMotion.csv` y `Analisis de Datos/FichaTecnica_eMotion.md`.
 
 ### D. Documento Académico (LaTeX en `OverLeaf/`)
 - Compilando sin errores (33 páginas).
@@ -61,5 +73,5 @@
 
 ## 5. Control de Fechas
 - **Última revisión integral:** 01 de noviembre de 2026.
-- **Último punto de control:** 02 de noviembre de 2026 (Descarga masiva, anonimización y pareo bimodal VIMOV completado).
+- **Último punto de control:** 02 de noviembre de 2026 (Estandarización de nomenclatura e-Motion, purga física de archivos descartados, renombramiento a GAIT y actualización integral de matrices y documentación).
 

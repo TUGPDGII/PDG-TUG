@@ -28,7 +28,7 @@ PDG-TUG-V2/
 │   ├── Analisis_eMotion.md       # Evaluación de capturas de video y pose esquelética
 │   ├── FichaTecnica_IMUs.md      # Ficha técnica oficial de control de calidad IMU (descartes y aceptados)
 │   ├── FichaTecnica_eMotion.md   # Ficha técnica y delimitación de alcance de cámaras
-│   └── Correspondencia_IMU&EMOTION.md # Trazabilidad temporal IMU frente a e-Motion
+│   └── Correlacion.md                 # Trazabilidad temporal IMU frente a e-Motion
 ├── Datos IMUs/                   # Grabaciones en formato JSON de las sesiones de pruebas TUG
 │   └── *.json                    # Lecturas de acelerometría y giroscopio (~50 Hz) de 5 sensores IMU
 ├── Datos e-Motion/               # Grabaciones de cámaras RGB-D y articulaciones esqueléticas

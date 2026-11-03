@@ -1,373 +1,288 @@
-# FICHA TÉCNICA OFICIAL DEL DATASET ÓPTICO (e-Motion / VIMOV) — PROYECTO TUG-V2
-> **Documento Oficial de Auditoría, Control de Calidad y Caracterización Biomecánica**
-> **Fecha de Consolidación:** 02 de Noviembre de 2026
-> **Metodología:** CRISP-DM (Fases de Comprensión y Preparación de Datos)
-> **Directrices Metodológicas y Clínicas:** Tutor Prof. Domiciano Rincón (Reunión #8 y actas previas)
+# 📄 FICHA TÉCNICA OFICIAL DEL DATASET ÓPTICO (e-Motion / VIMOV) — PROYECTO TUG-V2
+> **Documento Oficial de Auditoría y Control de Calidad**
+> **Fecha de Consolidación:** Noviembre 2026
+> **Metodología:** CRISP-DM (Fases de Data Understanding y Data Preparation)
 
 ---
 
 ## 1. Resumen Ejecutivo del Conjunto de Datos Ópticos
 
-| Indicador Metodológico | Valor Total | Observación y Respaldo Técnico |
-|:---|:---:|:---|
-| **Total Grabaciones JSON en el Dataset** | **269** | Totalidad de capturas descargadas, auditadas y anonimizadas de VIMOV |
-| **Grabaciones Protocolo TUG (`Datos e-Motion/TUG/`)** | **132** | Evaluaciones Timed Up and Go estándar con silla y giro a 3 metros |
-| **Grabaciones Protocolo Marcha (`Datos e-Motion/No_TUG_Gait_Analysis/`)** | **137** | Pruebas de marcha continua lineal (10 metros) + 2 archivos de métricas comparativas |
-| **Capturas Brigada Santa Marta (`SMR_`)** | **225** | **100% de la brigada descargada** (103 TUG + 122 Marcha Continua) |
-| **Capturas Brigada CST / La Victoria (`CST_`)** | **21** | 6 TUG + 13 Marcha Continua + 2 comparativas Orbbec vs Intel |
-| **Capturas de Laboratorio / Pilotos (`LAB_`)** | **23** | 23 TUG de calibración en laboratorio Icesi (octubre 2024 / 2026) |
-| **Pares Bimodales IMU ↔ e-Motion Confirmados** | **42** | Coincidencia temporal estricta (<180s), protocolo TUG y validación de sexo |
-| **Integridad de Archivos (Corrupción / Vacíos)** | **0 colisiones / 0 vacíos** | 100% archivos JSON válidos con secuencias esqueléticas tridimensionales |
-| **Anonimización Ética** | **100% Verificada** | Despersonalización según estándar GHGIS 2 (sin nombres ni identificaciones) |
+| Indicador | Valor Bruto Descargado | Valor Vigente en Disco | Observación y Respaldo Técnico |
+|:---|:---:|:---:|---|
+| **Total Grabaciones JSON** | **269** | **225** | **100% de archivos vigentes en el repositorio local** |
+| **Protocolo TUG (`Datos e-Motion/TUG/`)** | 132 | **130** | 101 Santa Marta (`SMR`), 23 Laboratorio (`LAB`), 6 CST (`CST`) |
+| **Protocolo Marcha Continua (`Datos e-Motion/GAIT/`)** | 137 | **95** | 80 Santa Marta (`SMR`), 15 CST (`CST` [13 cinemáticos + 2 métricas]) |
+| **Grabaciones Cinemáticas Válidas en Pipeline** | 223 | **223** | 130 TUG + 93 Marcha Continua (excluye 2 métricas tabulares precalculadas) |
+| **Participantes Únicos Identificados** | 71 | **70** | Cohortes `LARGE_PD` y `GEOREF` (70 participantes clínicos + controles) |
+| **Participantes con Bimodalidad Intra-Sujeto (TUG + GAIT)** | 48 | **48** | Pacientes con prueba TUG y prueba de marcha continua de 10 m |
+| **Pares Bimodales Estrictos Confirmados (IMU ↔ e-Motion)** | 42 | **42** | Coincidencia temporal estricta ($|\Delta t| \le 360$ s), protocolo TUG y sexo 100% idéntico |
 
 ---
 
-## 2. Criterios de Descarte vs. Conservación (Directrices Reunión #8)
+## 2. Desglose Riguroso de Descartes Físicos (44 Archivos Eliminados)
 
-En concordancia con las conclusiones acordadas con el tutor metodológico **Prof. Domiciano Rincón** en la Reunión #8 (27 de octubre de 2026), se fijaron las siguientes directrices formales:
+Se auditaron y eliminaron físicamente del disco las 44 muestras que no correspondían a participantes reales o constituían duplicados exactos:
 
-### A. Conservación de Datos Externos a la Brigada
-* **Fundamento:** Esteban Guarín consultó expresamente sobre la pertinencia de descartar o eliminar grabaciones tomadas fuera de la Brigada Santa Marta (ej. Laboratorio Icesi o CST).
-* **Decisión Acordada:** **No descartar los datos externos**. Mientras compartan el diseño experimental básico (recorrido de 3 metros, cámara fija frontal a distancia estándar), constituyen un insumo válido para calibración, validación algorítmica y caracterización de variabilidad.
+```
+Total Grabaciones Iniciales Descargadas: 269
+├── Conservadas Físicamente en Disco: 225 (83.6%)
+│   ├── Pruebas TUG (Datos e-Motion/TUG/):       130 archivos (101 SMR + 23 LAB + 6 CST)
+│   └── Marcha Continua (Datos e-Motion/GAIT/):   95 archivos (80 SMR + 15 CST)
+│
+└── Eliminadas Físicamente del Disco: 44 (16.4%)
+    ├── Pruebas técnicas de personal interno (i2t_staff):   2 archivos
+    └── Réplicas exactas de re-sincronización en nube:     42 archivos
+```
 
-### B. Conservación de Muestras con Pérdida en Giro o Sentado (Delimitación Metodológica)
-* **Fundamento Clínico/Técnico:** Durante la prueba TUG, las cámaras ópticas pierden el rastreo esquelético durante la rotación de 180° (por salir de la cobertura angular o por oclusión corporal al cambiar de plano sagital a frontal) y en la fase sentado/levantado (debido a la lejanía a 4 metros y la posición flexionada contra la silla).
-* **Decisión Acordada:** **No descartar las muestras por este motivo**. Las cámaras se delimitan metodológicamente de manera exclusiva para medir el **tamaño de la zancada** (distancia euclidiana entre tobillos) y la **velocidad lineal de marcha** (pendiente de desplazamiento del `Hip Center` en el tiempo) durante las fases de marcha recta (Marcha 1 de ida y Marcha 2 de regreso). La segmentación de los giros, levantamiento y sentado se delega íntegramente a los sensores inerciales (IMUs).
+### Tabla de Justificación Metodológica de Descartes:
 
-### C. Integración y Conservación de Grabaciones de Marcha Continua (`No_TUG_Gait_Analysis/`)
-* **Fundamento:** Las grabaciones de marcha continua de 10 metros capturadas en Santa Marta permiten monitorear parámetros locomotores puros (cadencia, velocidad continua y zancada) sin la perturbación dinámica de las transiciones de postura ni el giro cerrado.
-* **Decisión Acordada:** Conservar y documentar las 137 grabaciones de marcha en su propia subcarpeta, permitiendo análisis espaciotemporales complementarios.
-
-### D. Criterio Estricto de Concordancia de Género en Bimodalidad
-* **Fundamento:** El emparejamiento entre sensores inerciales y cámaras no puede sustentarse únicamente en cercanía temporal. Cuando se detecta discrepancia de sexo (ej. IMU masculino vs e-Motion femenino), el registro se desvincula del pareo bimodal para evitar falsas correspondencias.
-
----
-
-## 3. Especificaciones Técnicas del Sistema Óptico (e-Motion / VIMOV)
-
-* **Dispositivos de Captura:** Cámaras de profundidad RGB-D Intel RealSense D455 / D455F y Orbbec Astra 2.
-* **Frecuencia de Muestreo:** Nominal 30.0 Hz (Efectiva: 29.8 ± 0.9 FPS). Los vectores de tiempo (`Timestamp` en ms) permiten interpolación temporal (*PCHIP*) cuando se requiere regularidad estricta para análisis frecuencial.
-* **Topología Esquelética (15 Articulaciones 3D):**
-  1. `SpineBase` / `BodyCenter`: Centro de masa pélvico, utilizado para calcular la velocidad de avance en el eje Z.
-  2. `AnkleLeft` / `AnkleRight`: Tobillo izquierdo y derecho, fundamentales para la detección de impacto de talón (*heel strike*) y cálculo de longitud de zancada.
-  3. `LeftHip` / `RightHip`, `LeftKnee` / `RightKnee`: Cinemática articular de miembros inferiores.
-  4. `Head`, `LeftShoulder` / `RightShoulder`: Alineación cefálica y estabilidad del tronco superior.
-  5. `LeftElbow` / `RightElbow`, `WristLeft` / `WristRight`: Balanceo de miembros superiores (*arm swing*).
-* **Rango Operativo en Profundidad (Eje Z):** 0.85 m (zona de proximidad máxima en giro) a 4.30 m (posición de la silla al inicio y final).
-* **Tasa Media de Seguimiento Articular Válido:** 95.9% en TUG y 89.2% en Marcha Continua.
+| Motivo de Descarte | Muestras | Justificación Metodológica |
+|---|:---:|---|
+| **Pruebas de Personal Interno (`i2t_staff`)** | 2 | Pruebas técnicas de ingenieros de soporte para calibrar la cámara al encender el equipo. No corresponden a pacientes ni controles. |
+| **Réplicas de Sincronización en Nube** | 42 | Reintentos automáticos generados por cortes de conectividad wifi en la brigada de Santa Marta. Contenían exactamente la misma secuencia esquelética que la prueba del día anterior. |
 
 ---
 
-## 4. Auditoría de Integridad y Ausencia de Pruebas Falsas
+## 3. Especificaciones Técnicas del Sistema Óptico
 
-| Parámetro de Control | Resultado Obtenido | Estado de Validación |
-|---|:---:|:---|
-| **Archivos duplicados (colisión SHA-256)** | **0 colisiones** | **Verificado:** Cada uno de los 269 archivos posee contenido binario único |
-| **Archivos corruptos o no parseables** | **0 archivos** | **Verificado:** 100% de archivos leídos y validados con parser JSON estricto |
-| **Pruebas técnicas abortadas (< 3.0 s o 0 frames)** | **0 archivos** | **Verificado:** Ninguna captura vacía; duración mínima 9.4 s en TUG y 6.4 s en Marcha |
-| **Tasa de frames por captura** | 281 a 2,382 frames | **Verificado:** Cobertura temporal íntegra para todas las pruebas |
-
----
-
-## 5. Matriz de Complementariedad Biomecánica: IMUs vs. Cámaras
-
-| Fase de la Prueba TUG | Aporte de Cámaras (e-Motion) | Aporte de Sensores IMU | Decisión Metodológica |
-|---|---|---|---|
-| **1. Levantamiento (Sit-to-Stand)** | Parcial / Limitado (distancia lejana a 4m) | **Óptimo:** Detección de energía en flexo-extensión (Canal B lumbar) | Segmentación por **IMU** |
-| **2. Marcha de Ida (Marcha 1)** | **Excelente:** Longitud de zancada y velocidad real en metros | Local: Tiempos de swing/stance y aceleración de impacto | **Bimodal:** Distancia por Cámara, Fases por IMU |
-| **3. Giro de 180°** | Deficiente: Pérdida de tracking por rotación fuera del plano | **Excelente:** Pico de velocidad angular en eje vertical (Canal L) | Segmentación y conteo por **IMU** |
-| **4. Marcha de Regreso (Marcha 2)** | **Excelente:** Longitud de zancada y velocidad en aproximación | Local: Tiempos de swing/stance y cadencia | **Bimodal:** Distancia por Cámara, Fases por IMU |
-| **5. Sentado (Stand-to-Sit)** | Parcial / Limitado (oclusión al flexionarse) | **Óptimo:** Potencia de desaceleración y flexión lumbar (Canal B) | Segmentación por **IMU** |
+* **Instrumentación:** Cámaras RGB-D de profundidad Intel RealSense D455 / D455F y Orbbec Astra 2.
+* **Frecuencia de Muestreo:** Nominal 30.0 Hz (remuestreada a rejilla equitemporal de 30.0 Hz mediante interpolación hermítica monótona PCHIP y filtrada con Butterworth paso bajas a 3.0 Hz).
+* **Esquemas Articulares:**
+  - **Versión `v1.2.0` (75 archivos en disco):** 19 articulaciones 3D.
+  - **Versión `v1.3.0` / `v0.3.6` (148 archivos en disco):** 15 articulaciones 3D.
+  - **Centro Pélvico Universal (`SpineBase`):** Presente en el 100% de las 223 series cinemáticas como equivalente biomecánico de `Hip Center`.
 
 ---
 
-## 6. Auditoría Detallada de Grabaciones TUG (`Datos e-Motion/TUG/`, 132 Archivos)
+## 4. Inventario Oficial de Grabaciones en Disco (225 Archivos)
 
-| # | Archivo JSON | Brigada | Bimodal IMU | Sujeto ID | Clase Clínica | Sensor | Duración | Frames | FPS | Utilidad Biomecánica |
-|---:|---|:---:|:---:|:---:|:---:|---|:---:|:---:|:---:|---|
-| 1 | `CST_20260704_NO_IMU_522b4991_raw.json` | CST | NO | - | SIN_ETIQUETA | Orbbec Orbbec Astra 2 | 17.3 s | 520 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 2 | `CST_20260704_NO_IMU_5f9ae035_raw.json` | CST | NO | - | SIN_ETIQUETA | Orbbec Orbbec Astra 2 | 18.53 s | 557 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 3 | `CST_20260704_NO_IMU_6d6ae96f_raw.json` | CST | NO | - | SIN_ETIQUETA | Orbbec Orbbec Astra 2 | 21.43 s | 644 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 4 | `CST_20260704_NO_IMU_76d99a7d_raw.json` | CST | NO | - | SIN_ETIQUETA | Orbbec Orbbec Astra 2 | 13.13 s | 395 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 5 | `CST_20260704_NO_IMU_94c36593_raw.json` | CST | NO | - | SIN_ETIQUETA | Orbbec Orbbec Astra 2 | 26.5 s | 796 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 6 | `CST_20260704_P54_BE_c1b8493f_raw.json` | CST | SÍ (BE) | P54 | PATIENT | Orbbec Orbbec Astra 2 | 15.47 s | 465 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 7 | `LAB_20241016_INTEL_70e0d22c_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel RealSense D455 | 18.07 s | 426 | 23.6 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 8 | `LAB_20261002_INTEL_2956b231_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 13.31 s | 400 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 9 | `LAB_20261002_INTEL_520b776a_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 11.8 s | 355 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 10 | `LAB_20261002_INTEL_a9cf4492_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.21 s | 427 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 11 | `LAB_20261002_INTEL_cc51de7a_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.21 s | 427 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 12 | `LAB_20261002_INTEL_f30efa85_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 16.74 s | 503 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 13 | `LAB_20261014_INTEL_121da856_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 12.77 s | 384 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 14 | `LAB_20261014_INTEL_16b33e8a_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.41 s | 433 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 15 | `LAB_20261014_INTEL_79040a90_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 13.01 s | 391 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 16 | `LAB_20261014_INTEL_7fc5835d_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 15.64 s | 469 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 17 | `LAB_20261014_INTEL_b9a45110_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 13.51 s | 406 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 18 | `LAB_20261014_INTEL_d32af61b_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 16.71 s | 502 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 19 | `LAB_20261014_INTEL_f15708bb_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 19.81 s | 594 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 20 | `LAB_20261015_INTEL_55d2638e_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 12.34 s | 370 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 21 | `LAB_20261015_INTEL_63b55b0a_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.24 s | 426 | 29.9 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 22 | `LAB_20261015_INTEL_6eaf8dc9_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 12.14 s | 365 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 23 | `LAB_20261015_INTEL_a08f5d5d_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.27 s | 429 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 24 | `LAB_20261015_INTEL_c811ed2b_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 13.67 s | 411 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 25 | `LAB_20261015_INTEL_cd0662f6_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.01 s | 419 | 29.9 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 26 | `LAB_20261015_INTEL_da9df617_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.81 s | 445 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 27 | `LAB_20261015_INTEL_ec8f8ef4_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 9.4 s | 281 | 29.9 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 28 | `LAB_20261016_INTEL_633d0b5c_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 20.64 s | 610 | 29.6 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 29 | `LAB_20261016_INTEL_7d2dcd48_raw.json` | LAB | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 23.28 s | 689 | 29.6 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 30 | `SMR_20260625_NO_IMU_009ef8c0_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 22.4 s | 673 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 31 | `SMR_20260625_NO_IMU_0f778525_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 16.77 s | 504 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 32 | `SMR_20260625_NO_IMU_15bfcaa6_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 11.9 s | 358 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 33 | `SMR_20260625_NO_IMU_288e95dc_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 24.31 s | 730 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 34 | `SMR_20260625_NO_IMU_3c28cd08_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.03 s | 422 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 35 | `SMR_20260625_NO_IMU_43c24bf0_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 12.8 s | 385 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 36 | `SMR_20260625_NO_IMU_447fcdb7_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel RealSense D455 | 11.93 s | 359 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 37 | `SMR_20260625_NO_IMU_4ed70428_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 24.6 s | 739 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 38 | `SMR_20260625_NO_IMU_4efdbb56_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 23.18 s | 696 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 39 | `SMR_20260625_NO_IMU_6c8f0a73_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 79.4 s | 2382 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 40 | `SMR_20260625_NO_IMU_6dc36ad3_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 15.43 s | 464 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 41 | `SMR_20260625_NO_IMU_6f0edb81_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 15.38 s | 462 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 42 | `SMR_20260625_NO_IMU_92c49963_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 20.87 s | 627 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 43 | `SMR_20260625_NO_IMU_9eabbeda_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 16.47 s | 495 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 44 | `SMR_20260625_NO_IMU_a5508452_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.01 s | 421 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 45 | `SMR_20260625_NO_IMU_ae0b301a_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 18.7 s | 562 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 46 | `SMR_20260625_NO_IMU_b193794c_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 11.27 s | 339 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 47 | `SMR_20260625_NO_IMU_b4540bcd_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 19.87 s | 597 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 48 | `SMR_20260625_NO_IMU_b969b991_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 26.31 s | 790 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 49 | `SMR_20260625_NO_IMU_c111bc5e_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 12.5 s | 376 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 50 | `SMR_20260625_NO_IMU_e50718e8_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 12.67 s | 381 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 51 | `SMR_20260625_NO_IMU_e6619a94_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.27 s | 429 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 52 | `SMR_20260625_NO_IMU_ed8ad33f_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 15.77 s | 474 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 53 | `SMR_20260625_NO_IMU_f1d4af72_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 19.73 s | 593 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 54 | `SMR_20260625_P06_BF_4cd523b7_raw.json` | SMR | SÍ (BF) | P06 | PATIENT | Intel Intel RealSense D45 | 21.94 s | 659 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 55 | `SMR_20260625_P07_D_c71c489e_raw.json` | SMR | SÍ (D) | P07 | PATIENT | Intel Intel RealSense D45 | 25.05 s | 752 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 56 | `SMR_20260625_P08_AB_ff5603a4_raw.json` | SMR | SÍ (AB) | P08 | PATIENT | Intel Intel RealSense D45 | 18.14 s | 545 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 57 | `SMR_20260625_P09_AK_2adb11ee_raw.json` | SMR | SÍ (AK) | P09 | PATIENT | Intel Intel RealSense D45 | 24.37 s | 732 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 58 | `SMR_20260625_P10_AA_bf709abb_raw.json` | SMR | SÍ (AA) | P10 | PATIENT | Intel Intel RealSense D45 | 13.63 s | 410 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 59 | `SMR_20260625_P11_V_7ed2f2de_raw.json` | SMR | SÍ (V) | P11 | PATIENT | Intel Intel RealSense D45 | 15.24 s | 458 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 60 | `SMR_20260625_P13_BW_5eeb5a37_raw.json` | SMR | SÍ (BW) | P13 | PATIENT | Intel Intel RealSense D45 | 17.57 s | 528 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 61 | `SMR_20260625_P15_BK_b8317644_raw.json` | SMR | SÍ (BK) | P15 | PATIENT | Intel Intel RealSense D45 | 10.94 s | 329 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 62 | `SMR_20260625_P16_BD_f16693f6_raw.json` | SMR | SÍ (BD) | P16 | PATIENT | Intel Intel RealSense D45 | 16.5 s | 496 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 63 | `SMR_20260625_P18_BN_1f325d38_raw.json` | SMR | SÍ (BN) | P18 | PATIENT | Intel Intel RealSense D45 | 16.71 s | 502 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 64 | `SMR_20260625_P21_X_28ac951e_raw.json` | SMR | SÍ (X) | P21 | PATIENT | Intel Intel RealSense D45 | 21.77 s | 654 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 65 | `SMR_20260625_P22_BA_a22ff952_raw.json` | SMR | SÍ (BA) | P22 | PATIENT | Intel Intel RealSense D45 | 12.5 s | 376 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 66 | `SMR_20260626_NO_IMU_06d4e110_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 19.3 s | 580 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 67 | `SMR_20260626_NO_IMU_08f525af_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 13.4 s | 403 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 68 | `SMR_20260626_NO_IMU_270d9ce6_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.7 s | 442 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 69 | `SMR_20260626_NO_IMU_2e340220_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 18.27 s | 549 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 70 | `SMR_20260626_NO_IMU_39200f59_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.8 s | 445 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 71 | `SMR_20260626_NO_IMU_447fcdb7_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel RealSense D455 | 11.93 s | 359 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 72 | `SMR_20260626_NO_IMU_528dd3aa_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 21.6 s | 649 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 73 | `SMR_20260626_NO_IMU_65af5e95_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 20.1 s | 604 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 74 | `SMR_20260626_NO_IMU_67e1d010_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 21.44 s | 644 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 75 | `SMR_20260626_NO_IMU_6eea596c_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.17 s | 426 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 76 | `SMR_20260626_NO_IMU_73f8e2dd_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 18.57 s | 558 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 77 | `SMR_20260626_NO_IMU_77aab222_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 22.77 s | 684 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 78 | `SMR_20260626_NO_IMU_807435b0_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 17.87 s | 537 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 79 | `SMR_20260626_NO_IMU_97490f79_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 17.27 s | 519 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 80 | `SMR_20260626_NO_IMU_acb959ff_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 13.97 s | 420 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 81 | `SMR_20260626_NO_IMU_ae1bf11f_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 16.84 s | 506 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 82 | `SMR_20260626_NO_IMU_bb1a6ed3_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 30.93 s | 929 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 83 | `SMR_20260626_NO_IMU_c3cf78c7_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 13.8 s | 415 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 84 | `SMR_20260626_NO_IMU_d69fd999_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 21.53 s | 647 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 85 | `SMR_20260626_NO_IMU_db5953a4_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 12.3 s | 370 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 86 | `SMR_20260626_NO_IMU_dda03461_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 22.88 s | 687 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 87 | `SMR_20260626_NO_IMU_e5e1c5a8_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 18.8 s | 565 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 88 | `SMR_20260626_NO_IMU_fb6cfbf2_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 16.1 s | 484 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 89 | `SMR_20260626_P24_AV_fc8711e0_raw.json` | SMR | SÍ (AV) | P24 | PATIENT | Intel Intel RealSense D45 | 25.8 s | 775 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 90 | `SMR_20260626_P25_AO_ce5691b9_raw.json` | SMR | SÍ (AO) | P25 | PATIENT | Intel Intel RealSense D45 | 21.67 s | 651 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 91 | `SMR_20260626_P26_M_0ec82be7_raw.json` | SMR | SÍ (M) | P26 | PATIENT | Intel Intel RealSense D45 | 33.97 s | 1020 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 92 | `SMR_20260626_P27_BQ_156f5309_raw.json` | SMR | SÍ (BQ) | P27 | PATIENT | Intel Intel RealSense D45 | 20.57 s | 618 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 93 | `SMR_20260626_P30_O_5432070f_raw.json` | SMR | SÍ (O) | P30 | PATIENT | Intel Intel RealSense D45 | 17.73 s | 533 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 94 | `SMR_20260626_P31_BU_f89f97d0_raw.json` | SMR | SÍ (BU) | P31 | PATIENT | Intel Intel RealSense D45 | 17.67 s | 531 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 95 | `SMR_20260626_P31_K_4e5316e1_raw.json` | SMR | SÍ (K) | P31 | PATIENT | Intel Intel RealSense D45 | 16.27 s | 489 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 96 | `SMR_20260626_P32_AQ_22f0ff21_raw.json` | SMR | SÍ (AQ) | P32 | PATIENT | Intel Intel RealSense D45 | 13.86 s | 417 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 97 | `SMR_20260626_P32_AZ_fbe58f01_raw.json` | SMR | SÍ (AZ) | P32 | PATIENT | Intel Intel RealSense D45 | 18.93 s | 569 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 98 | `SMR_20260626_P32_J_dabe0112_raw.json` | SMR | SÍ (J) | P32 | PATIENT | Intel Intel RealSense D45 | 13.83 s | 416 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 99 | `SMR_20260626_P33_BM_ed61ac9f_raw.json` | SMR | SÍ (BM) | P33 | PATIENT | Intel Intel RealSense D45 | 17.61 s | 529 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 100 | `SMR_20260626_P34_BS_87a49c65_raw.json` | SMR | SÍ (BS) | P34 | PATIENT | Intel Intel RealSense D45 | 24.21 s | 727 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 101 | `SMR_20260626_P35_AW_452eaaa1_raw.json` | SMR | SÍ (AW) | P35 | PATIENT | Intel Intel RealSense D45 | 28.55 s | 857 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 102 | `SMR_20260626_P36_AH_b622b020_raw.json` | SMR | SÍ (AH) | P36 | PATIENT | Intel Intel RealSense D45 | 16.6 s | 499 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 103 | `SMR_20260626_P37_AT_0dcde044_raw.json` | SMR | SÍ (AT) | P37 | PATIENT | Intel Intel RealSense D45 | 14.9 s | 448 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 104 | `SMR_20260626_P38_AE_80c945b3_raw.json` | SMR | SÍ (AE) | P38 | PATIENT | Intel Intel RealSense D45 | 13.8 s | 415 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 105 | `SMR_20260626_P39_BL_294c3933_raw.json` | SMR | SÍ (BL) | P39 | PATIENT | Intel Intel RealSense D45 | 16.2 s | 487 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 106 | `SMR_20260627_NO_IMU_170b8f66_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.7 s | 442 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 107 | `SMR_20260627_NO_IMU_23b44cf6_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 12.97 s | 390 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 108 | `SMR_20260627_NO_IMU_527a2c9d_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.71 s | 442 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 109 | `SMR_20260627_NO_IMU_77ff8380_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 23.14 s | 695 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 110 | `SMR_20260627_NO_IMU_7819c5a8_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 13.93 s | 419 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 111 | `SMR_20260627_NO_IMU_78cca52a_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 12.0 s | 361 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 112 | `SMR_20260627_NO_IMU_7b1024d0_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.14 s | 425 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 113 | `SMR_20260627_NO_IMU_8f7ae2b1_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 14.9 s | 448 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 114 | `SMR_20260627_NO_IMU_c3777a40_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 16.16 s | 486 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 115 | `SMR_20260627_NO_IMU_c425b54e_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 18.43 s | 554 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 116 | `SMR_20260627_NO_IMU_d9ea79f2_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 13.94 s | 419 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 117 | `SMR_20260627_NO_IMU_eb67e769_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 15.81 s | 475 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 118 | `SMR_20260627_NO_IMU_f2b0f18f_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 13.7 s | 412 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 119 | `SMR_20260627_NO_IMU_f86c7503_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 20.74 s | 623 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 120 | `SMR_20260627_NO_IMU_fb596b7d_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 13.33 s | 401 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 121 | `SMR_20260627_NO_IMU_fe7cfb72_raw.json` | SMR | NO | - | SIN_ETIQUETA | Intel Intel RealSense D45 | 12.77 s | 384 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 122 | `SMR_20260627_P40_AS_4df833f1_raw.json` | SMR | SÍ (AS) | P40 | PATIENT | Intel Intel RealSense D45 | 15.14 s | 455 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 123 | `SMR_20260627_P42_AD_25f298d4_raw.json` | SMR | SÍ (AD) | P42 | PATIENT | Intel Intel RealSense D45 | 21.47 s | 645 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 124 | `SMR_20260627_P43_BB_580b902a_raw.json` | SMR | SÍ (BB) | P43 | PATIENT | Intel Intel RealSense D45 | 14.37 s | 432 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 125 | `SMR_20260627_P44_R_89d757d6_raw.json` | SMR | SÍ (R) | P44 | PATIENT | Intel Intel RealSense D45 | 15.7 s | 472 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 126 | `SMR_20260627_P46_I_ba2c6e63_raw.json` | SMR | SÍ (I) | P46 | PATIENT | Intel Intel RealSense D45 | 12.47 s | 375 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 127 | `SMR_20260627_P47_Q_907121bd_raw.json` | SMR | SÍ (Q) | P47 | PATIENT | Intel Intel RealSense D45 | 13.7 s | 412 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 128 | `SMR_20260627_P48_AU_4781f6d7_raw.json` | SMR | SÍ (AU) | P48 | PATIENT | Intel Intel RealSense D45 | 12.63 s | 380 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 129 | `SMR_20260627_P49_L_6943624b_raw.json` | SMR | SÍ (L) | P49 | PATIENT | Intel Intel RealSense D45 | 18.77 s | 564 | 30.0 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 130 | `SMR_20260627_P50_H_d3efbdfa_raw.json` | SMR | SÍ (H) | P50 | PATIENT | Intel Intel RealSense D45 | 13.17 s | 396 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 131 | `SMR_20260627_P51_AI_18c58989_raw.json` | SMR | SÍ (AI) | P51 | PATIENT | Intel Intel RealSense D45 | 19.53 s | 587 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
-| 132 | `SMR_20260627_P52_C_029c450a_raw.json` | SMR | SÍ (C) | P52 | PATIENT | Intel Intel RealSense D45 | 14.97 s | 450 | 30.1 | Marcha 1 & 2 (Zancada/Velocidad) |
+| # | Archivo | ID e-Motion | Fecha | Brigada | Protocolo | ¿Tiene IMU? | Sujeto IMU | Clase | Edad | Sexo | Sensor | ID VIMOV |
+|---:|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|---|---|
+| 1 | `CST_ID1_eMotion_P54_TUG.json` | ID1 | 2026-07-04 | CST | TUG | **SÍ** | P54 | PATIENT | 63 | MALE | Orbbec Orbbec Astra 2 | `LARGE_PD_902` |
+| 2 | `CST_ID2_eMotion_NO_TUG.json` | ID2 | 2026-07-04 | CST | TUG | NO | - | CONTROL | 64 | F | Orbbec Orbbec Astra 2 | `LARGE_PD_899` |
+| 3 | `CST_ID3_eMotion_NO_TUG.json` | ID3 | 2026-07-04 | CST | TUG | NO | - | PATIENT | 63 | M | Orbbec Orbbec Astra 2 | `LARGE_PD_901` |
+| 4 | `CST_ID4_eMotion_NO_TUG.json` | ID4 | 2026-07-04 | CST | TUG | NO | - | PATIENT | 66 | M | Orbbec Orbbec Astra 2 | `LARGE_PD_900` |
+| 5 | `CST_ID5_eMotion_NO_TUG.json` | ID5 | 2026-07-04 | CST | TUG | NO | - | CONTROL | 62 | F | Orbbec Orbbec Astra 2 | `a1a5bc1b-ca92-4c95-9a09-03b5a5638cb5` |
+| 6 | `CST_ID6_eMotion_NO_TUG.json` | ID6 | 2026-07-04 | CST | TUG | NO | - | SIN_ETIQUETA | 83 | - | Orbbec Orbbec Astra 2 | `4e68a4a8-0151-4f1c-aaa5-7902a1f23e7f` |
+| 7 | `LAB_ID10_eMotion_NO_TUG.json` | ID10 | 2026-10-14 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 8 | `LAB_ID11_eMotion_NO_TUG.json` | ID11 | 2026-10-14 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 9 | `LAB_ID12_eMotion_NO_TUG.json` | ID12 | 2026-10-14 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 10 | `LAB_ID13_eMotion_NO_TUG.json` | ID13 | 2026-10-14 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 11 | `LAB_ID14_eMotion_NO_TUG.json` | ID14 | 2026-10-15 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 12 | `LAB_ID15_eMotion_NO_TUG.json` | ID15 | 2026-10-15 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 13 | `LAB_ID16_eMotion_NO_TUG.json` | ID16 | 2026-10-15 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 14 | `LAB_ID17_eMotion_NO_TUG.json` | ID17 | 2026-10-15 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 15 | `LAB_ID18_eMotion_NO_TUG.json` | ID18 | 2026-10-15 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 16 | `LAB_ID19_eMotion_NO_TUG.json` | ID19 | 2026-10-15 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 17 | `LAB_ID1_eMotion_NO_TUG.json` | ID1 | 2024-10-16 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel RealSense D455 | `` |
+| 18 | `LAB_ID20_eMotion_NO_TUG.json` | ID20 | 2026-10-15 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 19 | `LAB_ID21_eMotion_NO_TUG.json` | ID21 | 2026-10-15 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 20 | `LAB_ID22_eMotion_NO_TUG.json` | ID22 | 2026-10-16 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455 | `` |
+| 21 | `LAB_ID23_eMotion_NO_TUG.json` | ID23 | 2026-10-16 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455 | `` |
+| 22 | `LAB_ID2_eMotion_NO_TUG.json` | ID2 | 2026-10-02 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 23 | `LAB_ID3_eMotion_NO_TUG.json` | ID3 | 2026-10-02 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 24 | `LAB_ID4_eMotion_NO_TUG.json` | ID4 | 2026-10-02 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 25 | `LAB_ID5_eMotion_NO_TUG.json` | ID5 | 2026-10-02 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 26 | `LAB_ID6_eMotion_NO_TUG.json` | ID6 | 2026-10-02 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 27 | `LAB_ID7_eMotion_NO_TUG.json` | ID7 | 2026-10-14 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 28 | `LAB_ID8_eMotion_NO_TUG.json` | ID8 | 2026-10-14 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 29 | `LAB_ID9_eMotion_NO_TUG.json` | ID9 | 2026-10-14 | LAB | TUG | NO | - | CONTROL_LAB | - | - | Intel Intel RealSense D455F | `` |
+| 30 | `SMR_ID100_eMotion_NO_TUG.json` | ID100 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 50 | M | Intel Intel RealSense D455F | `LARGE_PD_890` |
+| 31 | `SMR_ID101_eMotion_NO_TUG.json` | ID101 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 59 | M | Intel Intel RealSense D455F | `LARGE_PD_888` |
+| 32 | `SMR_ID10_eMotion_P18_TUG.json` | ID10 | 2026-06-25 | SMR | TUG | **SÍ** | P18 | PATIENT | 62 | MALE | Intel Intel RealSense D455F | `LARGE_PD_849` |
+| 33 | `SMR_ID11_eMotion_P21_TUG.json` | ID11 | 2026-06-25 | SMR | TUG | **SÍ** | P21 | PATIENT | 64 | MALE | Intel Intel RealSense D455F | `LARGE_PD_852` |
+| 34 | `SMR_ID12_eMotion_P22_TUG.json` | ID12 | 2026-06-25 | SMR | TUG | **SÍ** | P22 | PATIENT | 73 | MALE | Intel Intel RealSense D455F | `LARGE_PD_855` |
+| 35 | `SMR_ID13_eMotion_P24_TUG.json` | ID13 | 2026-06-26 | SMR | TUG | **SÍ** | P24 | PATIENT | -74 | MALE | Intel Intel RealSense D455F | `LARGE_PD_865` |
+| 36 | `SMR_ID14_eMotion_P25_TUG.json` | ID14 | 2026-06-26 | SMR | TUG | **SÍ** | P25 | PATIENT | 73 | FEMALE | Intel Intel RealSense D455F | `LARGE_PD_862` |
+| 37 | `SMR_ID15_eMotion_P26_TUG.json` | ID15 | 2026-06-26 | SMR | TUG | **SÍ** | P26 | PATIENT | 70 | FEMALE | Intel Intel RealSense D455F | `LARGE_PD_867` |
+| 38 | `SMR_ID16_eMotion_P27_TUG.json` | ID16 | 2026-06-26 | SMR | TUG | **SÍ** | P27 | PATIENT | 50 | FEMALE | Intel Intel RealSense D455F | `LARGE_PD_866` |
+| 39 | `SMR_ID17_eMotion_P30_TUG.json` | ID17 | 2026-06-26 | SMR | TUG | **SÍ** | P30 | PATIENT | 64 | FEMALE | Intel Intel RealSense D455F | `LARGE_PD_858` |
+| 40 | `SMR_ID18_eMotion_P31_TUG.json` | ID18 | 2026-06-26 | SMR | TUG | **SÍ** | P31 | PATIENT | 67 | FEMALE | Intel Intel RealSense D455F | `LARGE_PD_863` |
+| 41 | `SMR_ID19_eMotion_P31_TUG.json` | ID19 | 2026-06-26 | SMR | TUG | **SÍ** | P31 | PATIENT | 67 | FEMALE | Intel Intel RealSense D455F | `LARGE_PD_863` |
+| 42 | `SMR_ID1_eMotion_P06_TUG.json` | ID1 | 2026-06-25 | SMR | TUG | **SÍ** | P06 | PATIENT | 71 | MALE | Intel Intel RealSense D455F | `large_pd_839` |
+| 43 | `SMR_ID20_eMotion_P32_TUG.json` | ID20 | 2026-06-26 | SMR | TUG | **SÍ** | P32 | PATIENT | 71 | MALE | Intel Intel RealSense D455F | `LARGE_PD_861` |
+| 44 | `SMR_ID21_eMotion_P32_TUG.json` | ID21 | 2026-06-26 | SMR | TUG | **SÍ** | P32 | PATIENT | 71 | MALE | Intel Intel RealSense D455F | `LARGE_PD_861` |
+| 45 | `SMR_ID22_eMotion_P32_TUG.json` | ID22 | 2026-06-26 | SMR | TUG | **SÍ** | P32 | PATIENT | 71 | MALE | Intel Intel RealSense D455F | `LARGE_PD_861` |
+| 46 | `SMR_ID23_eMotion_P33_TUG.json` | ID23 | 2026-06-26 | SMR | TUG | **SÍ** | P33 | PATIENT | 55 | FEMALE | Intel Intel RealSense D455F | `LARGE_PD_868` |
+| 47 | `SMR_ID24_eMotion_P34_TUG.json` | ID24 | 2026-06-26 | SMR | TUG | **SÍ** | P34 | PATIENT | 69 | MALE | Intel Intel RealSense D455F | `LARGE_PD_869` |
+| 48 | `SMR_ID25_eMotion_P35_TUG.json` | ID25 | 2026-06-26 | SMR | TUG | **SÍ** | P35 | PATIENT | 66 | MALE | Intel Intel RealSense D455F | `LARGE_PD_870` |
+| 49 | `SMR_ID26_eMotion_P36_TUG.json` | ID26 | 2026-06-26 | SMR | TUG | **SÍ** | P36 | PATIENT | 68 | MALE | Intel Intel RealSense D455F | `LARGE_PD_873` |
+| 50 | `SMR_ID27_eMotion_P37_TUG.json` | ID27 | 2026-06-26 | SMR | TUG | **SÍ** | P37 | PATIENT | 62 | FEMALE | Intel Intel RealSense D455F | `LARGE_PD_875` |
+| 51 | `SMR_ID28_eMotion_P38_TUG.json` | ID28 | 2026-06-26 | SMR | TUG | **SÍ** | P38 | PATIENT | 57 | FEMALE | Intel Intel RealSense D455F | `LARGE_PD_878` |
+| 52 | `SMR_ID29_eMotion_P39_TUG.json` | ID29 | 2026-06-26 | SMR | TUG | **SÍ** | P39 | PATIENT | 59 | MALE | Intel Intel RealSense D455F | `LARGE_PD_871` |
+| 53 | `SMR_ID2_eMotion_P07_TUG.json` | ID2 | 2026-06-25 | SMR | TUG | **SÍ** | P07 | PATIENT | 60 | MALE | Intel Intel RealSense D455F | `LARGE_PD_836` |
+| 54 | `SMR_ID30_eMotion_P40_TUG.json` | ID30 | 2026-06-27 | SMR | TUG | **SÍ** | P40 | PATIENT | 76 | MALE | Intel Intel RealSense D455F | `LARGE_PD_880` |
+| 55 | `SMR_ID31_eMotion_P42_TUG.json` | ID31 | 2026-06-27 | SMR | TUG | **SÍ** | P42 | PATIENT | 44 | MALE | Intel Intel RealSense D455F | `LARGE_PD_883` |
+| 56 | `SMR_ID32_eMotion_P43_TUG.json` | ID32 | 2026-06-27 | SMR | TUG | **SÍ** | P43 | PATIENT | 68 | MALE | Intel Intel RealSense D455F | `LARGE_PD_882` |
+| 57 | `SMR_ID33_eMotion_P44_TUG.json` | ID33 | 2026-06-27 | SMR | TUG | **SÍ** | P44 | PATIENT | 52 | FEMALE | Intel Intel RealSense D455F | `LARGE_PD_885` |
+| 58 | `SMR_ID34_eMotion_P46_TUG.json` | ID34 | 2026-06-27 | SMR | TUG | **SÍ** | P46 | PATIENT | 59 | MALE | Intel Intel RealSense D455F | `LARGE_PD_888` |
+| 59 | `SMR_ID35_eMotion_P47_TUG.json` | ID35 | 2026-06-27 | SMR | TUG | **SÍ** | P47 | PATIENT | 54 | MALE | Intel Intel RealSense D455F | `LARGE_PD_884` |
+| 60 | `SMR_ID36_eMotion_P48_TUG.json` | ID36 | 2026-06-27 | SMR | TUG | **SÍ** | P48 | PATIENT | 72 | MALE | Intel Intel RealSense D455F | `ebc986d7-f6ae-4bda-8e7f-cbefbbdaf435` |
+| 61 | `SMR_ID37_eMotion_P49_TUG.json` | ID37 | 2026-06-27 | SMR | TUG | **SÍ** | P49 | PATIENT | 72 | MALE | Intel Intel RealSense D455F | `LARGE_PD_892` |
+| 62 | `SMR_ID38_eMotion_P50_TUG.json` | ID38 | 2026-06-27 | SMR | TUG | **SÍ** | P50 | PATIENT | 50 | MALE | Intel Intel RealSense D455F | `LARGE_PD_890` |
+| 63 | `SMR_ID39_eMotion_P51_TUG.json` | ID39 | 2026-06-27 | SMR | TUG | **SÍ** | P51 | PATIENT | 71 | FEMALE | Intel Intel RealSense D455F | `LARGE_PD_894` |
+| 64 | `SMR_ID3_eMotion_P08_TUG.json` | ID3 | 2026-06-25 | SMR | TUG | **SÍ** | P08 | PATIENT | 61 | MALE | Intel Intel RealSense D455F | `LARGE_PD_842` |
+| 65 | `SMR_ID40_eMotion_P52_TUG.json` | ID40 | 2026-06-27 | SMR | TUG | **SÍ** | P52 | PATIENT | 47 | FEMALE | Intel Intel RealSense D455F | `large_pd_896` |
+| 66 | `SMR_ID41_eMotion_NO_TUG.json` | ID41 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 62 | M | Intel Intel RealSense D455F | `LARGE_PD_849` |
+| 67 | `SMR_ID42_eMotion_NO_TUG.json` | ID42 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 72 | F | Intel Intel RealSense D455F | `LARGE_PD_854` |
+| 68 | `SMR_ID43_eMotion_NO_TUG.json` | ID43 | 2026-06-25 | SMR | TUG | NO | - | SIN_ETIQUETA | 39 | M | Intel Intel RealSense D455F | `i2t_staff` |
+| 69 | `SMR_ID44_eMotion_NO_TUG.json` | ID44 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 56 | M | Intel Intel RealSense D455F | `LARGE_PD_853` |
+| 70 | `SMR_ID45_eMotion_NO_TUG.json` | ID45 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 66 | M | Intel Intel RealSense D455F | `LARGE_PD_840` |
+| 71 | `SMR_ID46_eMotion_NO_TUG.json` | ID46 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 68 | F | Intel Intel RealSense D455F | `large_pd_848` |
+| 72 | `SMR_ID47_eMotion_NO_TUG.json` | ID47 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 60 | M | Intel Intel RealSense D455F | `LARGE_PD_836` |
+| 73 | `SMR_ID48_eMotion_NO_TUG.json` | ID48 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 77 | M | Intel Intel RealSense D455F | `LARGE_PD_837` |
+| 74 | `SMR_ID49_eMotion_NO_TUG.json` | ID49 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 63 | F | Intel Intel RealSense D455F | `LARGE_PD_844` |
+| 75 | `SMR_ID4_eMotion_P09_TUG.json` | ID4 | 2026-06-25 | SMR | TUG | **SÍ** | P09 | PATIENT | 77 | MALE | Intel Intel RealSense D455F | `LARGE_PD_837` |
+| 76 | `SMR_ID50_eMotion_NO_TUG.json` | ID50 | 2026-06-25 | SMR | TUG | NO | - | CONTROL | 70 | M | Intel Intel RealSense D455F | `93e09117-cee1-421d-93a2-4aab91930b43` |
+| 77 | `SMR_ID51_eMotion_NO_TUG.json` | ID51 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 72 | F | Intel Intel RealSense D455F | `LARGE_PD_854` |
+| 78 | `SMR_ID52_eMotion_NO_TUG.json` | ID52 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 64 | M | Intel Intel RealSense D455F | `LARGE_PD_852` |
+| 79 | `SMR_ID53_eMotion_NO_TUG.json` | ID53 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 68 | F | Intel Intel RealSense D455F | `LARGE_PD_846` |
+| 80 | `SMR_ID54_eMotion_NO_TUG.json` | ID54 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 66 | M | Intel Intel RealSense D455F | `LARGE_PD_840` |
+| 81 | `SMR_ID55_eMotion_NO_TUG.json` | ID55 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 61 | M | Intel Intel RealSense D455F | `LARGE_PD_842` |
+| 82 | `SMR_ID56_eMotion_NO_TUG.json` | ID56 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 68 | F | Intel Intel RealSense D455F | `large_pd_848` |
+| 83 | `SMR_ID57_eMotion_NO_TUG.json` | ID57 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 66 | M | Intel Intel RealSense D455F | `LARGE_PD_843` |
+| 84 | `SMR_ID58_eMotion_NO_TUG.json` | ID58 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 56 | M | Intel Intel RealSense D455F | `LARGE_PD_853` |
+| 85 | `SMR_ID59_eMotion_NO_TUG.json` | ID59 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 73 | M | Intel Intel RealSense D455F | `LARGE_PD_855` |
+| 86 | `SMR_ID5_eMotion_P10_TUG.json` | ID5 | 2026-06-25 | SMR | TUG | **SÍ** | P10 | PATIENT | 63 | MALE | Intel Intel RealSense D455F | `LARGE_PD_841` |
+| 87 | `SMR_ID60_eMotion_NO_TUG.json` | ID60 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 68 | F | Intel Intel RealSense D455F | `large_pd_848` |
+| 88 | `SMR_ID61_eMotion_NO_TUG.json` | ID61 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 68 | F | Intel Intel RealSense D455F | `LARGE_PD_846` |
+| 89 | `SMR_ID62_eMotion_NO_TUG.json` | ID62 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 63 | M | Intel Intel RealSense D455F | `LARGE_PD_841` |
+| 90 | `SMR_ID63_eMotion_NO_TUG.json` | ID63 | 2026-06-25 | SMR | TUG | NO | - | PATIENT | 77 | M | Intel Intel RealSense D455F | `LARGE_PD_850` |
+| 91 | `SMR_ID64_eMotion_NO_TUG.json` | ID64 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 74 | F | Intel Intel RealSense D455F | `LARGE_PD_864` |
+| 92 | `SMR_ID65_eMotion_NO_TUG.json` | ID65 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 47 | M | Intel Intel RealSense D455F | `LARGE_PD_857` |
+| 93 | `SMR_ID66_eMotion_NO_TUG.json` | ID66 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 55 | F | Intel Intel RealSense D455F | `LARGE_PD_868` |
+| 94 | `SMR_ID67_eMotion_NO_TUG.json` | ID67 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 64 | F | Intel Intel RealSense D455F | `LARGE_PD_858` |
+| 95 | `SMR_ID68_eMotion_NO_TUG.json` | ID68 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 57 | F | Intel Intel RealSense D455F | `LARGE_PD_878` |
+| 96 | `SMR_ID69_eMotion_NO_TUG.json` | ID69 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 73 | F | Intel Intel RealSense D455F | `LARGE_PD_860` |
+| 97 | `SMR_ID6_eMotion_P11_TUG.json` | ID6 | 2026-06-25 | SMR | TUG | **SÍ** | P11 | PATIENT | 66 | MALE | Intel Intel RealSense D455F | `LARGE_PD_840` |
+| 98 | `SMR_ID70_eMotion_NO_TUG.json` | ID70 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 50 | F | Intel Intel RealSense D455F | `LARGE_PD_866` |
+| 99 | `SMR_ID71_eMotion_NO_TUG.json` | ID71 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 73 | F | Intel Intel RealSense D455F | `LARGE_PD_862` |
+| 100 | `SMR_ID72_eMotion_NO_TUG.json` | ID72 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 67 | F | Intel Intel RealSense D455F | `LARGE_PD_863` |
+| 101 | `SMR_ID73_eMotion_NO_TUG.json` | ID73 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 74 | F | Intel Intel RealSense D455F | `LARGE_PD_864` |
+| 102 | `SMR_ID74_eMotion_NO_TUG.json` | ID74 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 73 | F | Intel Intel RealSense D455F | `LARGE_PD_860` |
+| 103 | `SMR_ID75_eMotion_NO_TUG.json` | ID75 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 71 | M | Intel Intel RealSense D455F | `LARGE_PD_861` |
+| 104 | `SMR_ID76_eMotion_NO_TUG.json` | ID76 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 71 | M | Intel Intel RealSense D455F | `LARGE_PD_861` |
+| 105 | `SMR_ID77_eMotion_NO_TUG.json` | ID77 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 62 | F | Intel Intel RealSense D455F | `LARGE_PD_875` |
+| 106 | `SMR_ID78_eMotion_NO_TUG.json` | ID78 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 71 | M | Intel Intel RealSense D455F | `LARGE_PD_861` |
+| 107 | `SMR_ID79_eMotion_NO_TUG.json` | ID79 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 70 | F | Intel Intel RealSense D455F | `LARGE_PD_867` |
+| 108 | `SMR_ID7_eMotion_P13_TUG.json` | ID7 | 2026-06-25 | SMR | TUG | **SÍ** | P13 | PATIENT | 66 | MALE | Intel Intel RealSense D455F | `LARGE_PD_843` |
+| 109 | `SMR_ID80_eMotion_NO_TUG.json` | ID80 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 47 | M | Intel Intel RealSense D455F | `LARGE_PD_857` |
+| 110 | `SMR_ID81_eMotion_NO_TUG.json` | ID81 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | -74 | M | Intel Intel RealSense D455F | `LARGE_PD_865` |
+| 111 | `SMR_ID82_eMotion_NO_TUG.json` | ID82 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 66 | M | Intel Intel RealSense D455F | `LARGE_PD_870` |
+| 112 | `SMR_ID83_eMotion_NO_TUG.json` | ID83 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 69 | M | Intel Intel RealSense D455F | `LARGE_PD_869` |
+| 113 | `SMR_ID84_eMotion_NO_TUG.json` | ID84 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 59 | M | Intel Intel RealSense D455F | `LARGE_PD_871` |
+| 114 | `SMR_ID85_eMotion_NO_TUG.json` | ID85 | 2026-06-26 | SMR | TUG | NO | - | PATIENT | 68 | M | Intel Intel RealSense D455F | `LARGE_PD_873` |
+| 115 | `SMR_ID86_eMotion_NO_TUG.json` | ID86 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 52 | F | Intel Intel RealSense D455F | `LARGE_PD_885` |
+| 116 | `SMR_ID87_eMotion_NO_TUG.json` | ID87 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 47 | F | Intel Intel RealSense D455F | `large_pd_896` |
+| 117 | `SMR_ID88_eMotion_NO_TUG.json` | ID88 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 68 | M | Intel Intel RealSense D455F | `LARGE_PD_882` |
+| 118 | `SMR_ID89_eMotion_NO_TUG.json` | ID89 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 71 | F | Intel Intel RealSense D455F | `LARGE_PD_894` |
+| 119 | `SMR_ID8_eMotion_P15_TUG.json` | ID8 | 2026-06-25 | SMR | TUG | **SÍ** | P15 | PATIENT | 70 | MALE | Intel Intel RealSense D455F | `93e09117-cee1-421d-93a2-4aab91930b43` |
+| 120 | `SMR_ID90_eMotion_NO_TUG.json` | ID90 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 58 | M | Intel Intel RealSense D455F | `LARGE_PD_891` |
+| 121 | `SMR_ID91_eMotion_NO_TUG.json` | ID91 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 76 | M | Intel Intel RealSense D455F | `LARGE_PD_880` |
+| 122 | `SMR_ID92_eMotion_NO_TUG.json` | ID92 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 54 | M | Intel Intel RealSense D455F | `LARGE_PD_884` |
+| 123 | `SMR_ID93_eMotion_NO_TUG.json` | ID93 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 72 | M | Intel Intel RealSense D455F | `ebc986d7-f6ae-4bda-8e7f-cbefbbdaf435` |
+| 124 | `SMR_ID94_eMotion_NO_TUG.json` | ID94 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 53 | M | Intel Intel RealSense D455F | `LARGE_PD_879` |
+| 125 | `SMR_ID95_eMotion_NO_TUG.json` | ID95 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 72 | M | Intel Intel RealSense D455F | `LARGE_PD_892` |
+| 126 | `SMR_ID96_eMotion_NO_TUG.json` | ID96 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 53 | M | Intel Intel RealSense D455F | `LARGE_PD_879` |
+| 127 | `SMR_ID97_eMotion_NO_TUG.json` | ID97 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 58 | M | Intel Intel RealSense D455F | `LARGE_PD_891` |
+| 128 | `SMR_ID98_eMotion_NO_TUG.json` | ID98 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 72 | M | Intel Intel RealSense D455F | `ebc986d7-f6ae-4bda-8e7f-cbefbbdaf435` |
+| 129 | `SMR_ID99_eMotion_NO_TUG.json` | ID99 | 2026-06-27 | SMR | TUG | NO | - | PATIENT | 44 | M | Intel Intel RealSense D455F | `LARGE_PD_883` |
+| 130 | `SMR_ID9_eMotion_P16_TUG.json` | ID9 | 2026-06-25 | SMR | TUG | **SÍ** | P16 | PATIENT | 77 | MALE | Intel Intel RealSense D455F | `LARGE_PD_850` |
+| 131 | `CST_ID10_eMotion_P64_GAIT.json` | ID10 | 2026-07-04 | CST | GAIT | NO | P64 | CONTROL | 70 | F | Intel RealSense D455 | `LARGE_PD_904` |
+| 132 | `CST_ID11_eMotion_P65_GAIT.json` | ID11 | 2026-07-04 | CST | GAIT | NO | P65 | CONTROL | 62 | F | Intel RealSense D455 | `a1a5bc1b-ca92-4c95-9a09-03b5a5638cb5` |
+| 133 | `CST_ID12_eMotion_P57_GAIT.json` | ID12 | 2026-07-04 | CST | GAIT | NO | P57 | CONTROL | 61 | F | Intel RealSense D455 | `64bc7d94-bf67-4cbc-ba25-55bcc222a8fb` |
+| 134 | `CST_ID13_eMotion_P58_GAIT.json` | ID13 | 2026-07-04 | CST | GAIT | NO | P58 | PATIENT | 55 | M | Intel RealSense D455 | `2e1ac92b-ef7d-4acd-b39d-70b2ceac6798` |
+| 135 | `CST_ID1_eMotion_NO_GAIT.json` | ID1 | 2026-07-04 | CST | GAIT | NO | - | PATIENT | 69 | M | Intel RealSense D455 | `LARGE_PD_903` |
+| 136 | `CST_ID2_eMotion_P59_GAIT.json` | ID2 | 2026-07-04 | CST | GAIT | NO | P59 | CONTROL | 64 | F | Intel RealSense D455 | `large_pd_898` |
+| 137 | `CST_ID3_eMotion_P53_GAIT.json` | ID3 | 2026-07-04 | CST | GAIT | NO | P53 | PATIENT | 63 | M | Intel RealSense D455 | `LARGE_PD_902` |
+| 138 | `CST_ID4_eMotion_P60_GAIT.json` | ID4 | 2026-07-04 | CST | GAIT | NO | P60 | PATIENT | 66 | M | Intel RealSense D455 | `LARGE_PD_900` |
+| 139 | `CST_ID5_eMotion_P61_GAIT.json` | ID5 | 2026-07-04 | CST | GAIT | NO | P61 | CONTROL | 64 | F | Intel RealSense D455 | `LARGE_PD_899` |
+| 140 | `CST_ID6_eMotion_P62_GAIT.json` | ID6 | 2026-07-04 | CST | GAIT | NO | P62 | PATIENT | 62 | U | Intel RealSense D455 | `large_pd_914` |
+| 141 | `CST_ID7_eMotion_P55_GAIT.json` | ID7 | 2026-07-04 | CST | GAIT | NO | P55 | PATIENT | 40 | M | Intel RealSense D455 | `LARGE_PD_911` |
+| 142 | `CST_ID8_eMotion_P56_GAIT.json` | ID8 | 2026-07-04 | CST | GAIT | NO | P56 | PATIENT | 58 | M | Intel RealSense D455 | `62843ff4-c9bc-4513-a152-1d414091b270` |
+| 143 | `CST_ID9_eMotion_P63_GAIT.json` | ID9 | 2026-07-04 | CST | GAIT | NO | P63 | PATIENT | 83 | M | Intel RealSense D455 | `LARGE_PD_909` |
+| 144 | `CST_M1_eMotion_NO_GAIT.json` | M1 | 2026-07-04 | CST | GAIT | NO | - | SIN_ETIQUETA | - | - | Intel RealSense vs Orbbec Astra 2 | `` |
+| 145 | `CST_M2_eMotion_NO_GAIT.json` | M2 | 2026-07-04 | CST | GAIT | NO | - | SIN_ETIQUETA | - | - | Intel RealSense vs Orbbec Astra 2 | `` |
+| 146 | `SMR_ID10_eMotion_NO_GAIT.json` | ID10 | 2026-06-25 | SMR | GAIT | NO | - | PATIENT | 68 | F | Intel RealSense D455 | `large_pd_848` |
+| 147 | `SMR_ID11_eMotion_P20_GAIT.json` | ID11 | 2026-06-25 | SMR | GAIT | NO | P20 | PATIENT | 56 | M | Intel RealSense D455 | `LARGE_PD_853` |
+| 148 | `SMR_ID12_eMotion_P18_GAIT.json` | ID12 | 2026-06-25 | SMR | GAIT | NO | P18 | PATIENT | 62 | M | Intel RealSense D455 | `LARGE_PD_849` |
+| 149 | `SMR_ID13_eMotion_NO_GAIT.json` | ID13 | 2026-06-25 | SMR | GAIT | NO | - | PATIENT | 72 | F | Intel RealSense D455 | `LARGE_PD_854` |
+| 150 | `SMR_ID14_eMotion_P21_GAIT.json` | ID14 | 2026-06-25 | SMR | GAIT | NO | P21 | PATIENT | 64 | M | Intel Intel RealSense D455F | `LARGE_PD_852` |
+| 151 | `SMR_ID15_eMotion_P22_GAIT.json` | ID15 | 2026-06-25 | SMR | GAIT | NO | P22 | PATIENT | 73 | M | Intel RealSense D455 | `LARGE_PD_855` |
+| 152 | `SMR_ID16_eMotion_P24_GAIT.json` | ID16 | 2026-06-26 | SMR | GAIT | NO | P24 | PATIENT | -74 | M | Intel Intel RealSense D455F | `LARGE_PD_865` |
+| 153 | `SMR_ID17_eMotion_P25_GAIT.json` | ID17 | 2026-06-26 | SMR | GAIT | NO | P25 | PATIENT | 73 | F | Intel Intel RealSense D455F | `LARGE_PD_862` |
+| 154 | `SMR_ID18_eMotion_P26_GAIT.json` | ID18 | 2026-06-26 | SMR | GAIT | NO | P26 | PATIENT | 70 | F | Intel Intel RealSense D455F | `LARGE_PD_867` |
+| 155 | `SMR_ID19_eMotion_P31_GAIT.json` | ID19 | 2026-06-26 | SMR | GAIT | NO | P31 | PATIENT | 67 | F | Intel Intel RealSense D455F | `LARGE_PD_863` |
+| 156 | `SMR_ID1_eMotion_P06_GAIT.json` | ID1 | 2026-06-25 | SMR | GAIT | NO | P06 | PATIENT | 71 | M | Intel RealSense D455 | `large_pd_839` |
+| 157 | `SMR_ID20_eMotion_P32_GAIT.json` | ID20 | 2026-06-26 | SMR | GAIT | NO | P32 | PATIENT | 71 | M | Intel Intel RealSense D455F | `LARGE_PD_861` |
+| 158 | `SMR_ID21_eMotion_P35_GAIT.json` | ID21 | 2026-06-26 | SMR | GAIT | NO | P35 | PATIENT | 66 | M | Intel Intel RealSense D455F | `LARGE_PD_870` |
+| 159 | `SMR_ID22_eMotion_P39_GAIT.json` | ID22 | 2026-06-26 | SMR | GAIT | NO | P39 | PATIENT | 59 | M | Intel Intel RealSense D455F | `LARGE_PD_871` |
+| 160 | `SMR_ID23_eMotion_P43_GAIT.json` | ID23 | 2026-06-27 | SMR | GAIT | NO | P43 | PATIENT | 68 | M | Intel Intel RealSense D455F | `LARGE_PD_882` |
+| 161 | `SMR_ID24_eMotion_P44_GAIT.json` | ID24 | 2026-06-27 | SMR | GAIT | NO | P44 | PATIENT | 52 | F | Intel Intel RealSense D455F | `LARGE_PD_885` |
+| 162 | `SMR_ID25_eMotion_P47_GAIT.json` | ID25 | 2026-06-27 | SMR | GAIT | NO | P47 | PATIENT | 54 | M | Intel RealSense D455 | `LARGE_PD_884` |
+| 163 | `SMR_ID26_eMotion_P52_GAIT.json` | ID26 | 2026-06-27 | SMR | GAIT | NO | P52 | PATIENT | 47 | F | Intel RealSense D455 | `large_pd_896` |
+| 164 | `SMR_ID27_eMotion_NO_GAIT.json` | ID27 | 2026-06-25 | SMR | GAIT | NO | - | PATIENT | 66 | F | Intel Intel RealSense D455F | `GEOREF409` |
+| 165 | `SMR_ID28_eMotion_NO_GAIT.json` | ID28 | 2026-06-25 | SMR | GAIT | NO | - | SIN_ETIQUETA | 21 | M | Intel RealSense D455F | `7f8d3734-9ccf-4a82-8f2b-76b18d82aef0` |
+| 166 | `SMR_ID29_eMotion_NO_GAIT.json` | ID29 | 2026-06-25 | SMR | GAIT | NO | - | SIN_ETIQUETA | 21 | M | Intel RealSense D455F | `7f8d3734-9ccf-4a82-8f2b-76b18d82aef0` |
+| 167 | `SMR_ID2_eMotion_P08_GAIT.json` | ID2 | 2026-06-25 | SMR | GAIT | NO | P08 | PATIENT | 61 | M | Intel RealSense D455 | `LARGE_PD_842` |
+| 168 | `SMR_ID30_eMotion_NO_GAIT.json` | ID30 | 2026-06-25 | SMR | GAIT | NO | - | PATIENT | 66 | M | Intel RealSense D455 | `GEOREF404` |
+| 169 | `SMR_ID31_eMotion_NO_GAIT.json` | ID31 | 2026-06-25 | SMR | GAIT | NO | - | PATIENT | 66 | F | Intel RealSense D455 | `GEOREF409` |
+| 170 | `SMR_ID32_eMotion_NO_GAIT.json` | ID32 | 2026-06-25 | SMR | GAIT | NO | - | PATIENT | 73 | M | Intel Intel RealSense D455F | `GEOREF_418` |
+| 171 | `SMR_ID33_eMotion_NO_GAIT.json` | ID33 | 2026-06-25 | SMR | GAIT | NO | - | PATIENT | 72 | F | Intel Intel RealSense D455F | `GEOREF417` |
+| 172 | `SMR_ID34_eMotion_P20_GAIT.json` | ID34 | 2026-06-25 | SMR | GAIT | **SÍ** | P20 | PATIENT | 56 | M | Intel Intel RealSense D455F | `GEOREF_416` |
+| 173 | `SMR_ID35_eMotion_NO_GAIT.json` | ID35 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 74 | F | Intel RealSense D455 | `LARGE_PD_864` |
+| 174 | `SMR_ID36_eMotion_NO_GAIT.json` | ID36 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 55 | F | Intel Intel RealSense D455F | `LARGE_PD_868` |
+| 175 | `SMR_ID37_eMotion_NO_GAIT.json` | ID37 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 55 | F | Intel RealSense D455 | `LARGE_PD_868` |
+| 176 | `SMR_ID38_eMotion_NO_GAIT.json` | ID38 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 62 | F | Intel RealSense D455 | `LARGE_PD_875` |
+| 177 | `SMR_ID39_eMotion_NO_GAIT.json` | ID39 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 69 | F | Intel RealSense D455 | `LARGE_PD_874` |
+| 178 | `SMR_ID3_eMotion_P09_GAIT.json` | ID3 | 2026-06-25 | SMR | GAIT | NO | P09 | PATIENT | 77 | M | Intel RealSense D455 | `LARGE_PD_837` |
+| 179 | `SMR_ID40_eMotion_NO_GAIT.json` | ID40 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 57 | F | Intel RealSense D455 | `LARGE_PD_878` |
+| 180 | `SMR_ID41_eMotion_NO_GAIT.json` | ID41 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 69 | M | Intel Intel RealSense D455F | `LARGE_PD_869` |
+| 181 | `SMR_ID42_eMotion_NO_GAIT.json` | ID42 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 69 | F | Intel Intel RealSense D455F | `LARGE_PD_874` |
+| 182 | `SMR_ID43_eMotion_NO_GAIT.json` | ID43 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 71 | M | Intel RealSense D455 | `LARGE_PD_861` |
+| 183 | `SMR_ID44_eMotion_NO_GAIT.json` | ID44 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 50 | F | Intel Intel RealSense D455F | `LARGE_PD_866` |
+| 184 | `SMR_ID45_eMotion_NO_GAIT.json` | ID45 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 47 | M | Intel RealSense D455 | `GEOREF420` |
+| 185 | `SMR_ID46_eMotion_NO_GAIT.json` | ID46 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 73 | F | Intel Intel RealSense D455F | `LARGE_PD_860` |
+| 186 | `SMR_ID47_eMotion_NO_GAIT.json` | ID47 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 66 | M | Intel RealSense D455 | `LARGE_PD_870` |
+| 187 | `SMR_ID48_eMotion_NO_GAIT.json` | ID48 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 47 | M | Intel Intel RealSense D455F | `GEOREF420` |
+| 188 | `SMR_ID49_eMotion_NO_GAIT.json` | ID49 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 46 | U | Intel RealSense D455 | `5e33b641-8ae3-43fe-a74c-539a4d38b829` |
+| 189 | `SMR_ID4_eMotion_P10_GAIT.json` | ID4 | 2026-06-25 | SMR | GAIT | NO | P10 | PATIENT | 63 | M | Intel RealSense D455 | `LARGE_PD_841` |
+| 190 | `SMR_ID50_eMotion_NO_GAIT.json` | ID50 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 74 | F | Intel Intel RealSense D455F | `LARGE_PD_864` |
+| 191 | `SMR_ID51_eMotion_NO_GAIT.json` | ID51 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 73 | F | Intel RealSense D455 | `LARGE_PD_860` |
+| 192 | `SMR_ID52_eMotion_NO_GAIT.json` | ID52 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 67 | F | Intel Intel RealSense D455F | `LARGE_PD_863` |
+| 193 | `SMR_ID53_eMotion_NO_GAIT.json` | ID53 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 57 | F | Intel Intel RealSense D455F | `LARGE_PD_878` |
+| 194 | `SMR_ID54_eMotion_NO_GAIT.json` | ID54 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 64 | F | Intel Intel RealSense D455F | `GEOREF421` |
+| 195 | `SMR_ID55_eMotion_NO_GAIT.json` | ID55 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 64 | F | Intel RealSense D455 | `GEOREF421` |
+| 196 | `SMR_ID56_eMotion_NO_GAIT.json` | ID56 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 68 | M | Intel RealSense D455 | `LARGE_PD_873` |
+| 197 | `SMR_ID57_eMotion_NO_GAIT.json` | ID57 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 68 | M | Intel Intel RealSense D455F | `LARGE_PD_873` |
+| 198 | `SMR_ID58_eMotion_NO_GAIT.json` | ID58 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 62 | F | Intel Intel RealSense D455F | `LARGE_PD_875` |
+| 199 | `SMR_ID59_eMotion_NO_GAIT.json` | ID59 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 67 | F | Intel RealSense D455 | `LARGE_PD_863` |
+| 200 | `SMR_ID5_eMotion_P12_GAIT.json` | ID5 | 2026-06-25 | SMR | GAIT | NO | P12 | PATIENT | 63 | F | Intel RealSense D455 | `LARGE_PD_844` |
+| 201 | `SMR_ID60_eMotion_NO_GAIT.json` | ID60 | 2026-06-26 | SMR | GAIT | NO | - | PATIENT | 50 | F | Intel RealSense D455 | `LARGE_PD_866` |
+| 202 | `SMR_ID61_eMotion_NO_GAIT.json` | ID61 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 53 | M | Intel RealSense D455 | `LARGE_PD_879` |
+| 203 | `SMR_ID62_eMotion_NO_GAIT.json` | ID62 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 76 | M | Intel RealSense D455 | `LARGE_PD_880` |
+| 204 | `SMR_ID63_eMotion_NO_GAIT.json` | ID63 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 44 | M | Intel Intel RealSense D455F | `LARGE_PD_883` |
+| 205 | `SMR_ID64_eMotion_NO_GAIT.json` | ID64 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 59 | M | Intel Intel RealSense D455F | `LARGE_PD_888` |
+| 206 | `SMR_ID65_eMotion_NO_GAIT.json` | ID65 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 72 | M | Intel Intel RealSense D455F | `ebc986d7-f6ae-4bda-8e7f-cbefbbdaf435` |
+| 207 | `SMR_ID66_eMotion_NO_GAIT.json` | ID66 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 44 | M | Intel RealSense D455 | `LARGE_PD_883` |
+| 208 | `SMR_ID67_eMotion_NO_GAIT.json` | ID67 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 62 | M | Intel Intel RealSense D455F | `LARGE_PD_886` |
+| 209 | `SMR_ID68_eMotion_NO_GAIT.json` | ID68 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 44 | M | Intel RealSense D455 | `LARGE_PD_883` |
+| 210 | `SMR_ID69_eMotion_NO_GAIT.json` | ID69 | 2026-06-27 | SMR | GAIT | NO | - | SIN_ETIQUETA | 91 | M | Intel RealSense D455 | `488d71ce-4448-488d-bf7c-a638f8e9f299` |
+| 211 | `SMR_ID6_eMotion_P13_GAIT.json` | ID6 | 2026-06-25 | SMR | GAIT | NO | P13 | PATIENT | 66 | M | Intel RealSense D455 | `LARGE_PD_843` |
+| 212 | `SMR_ID70_eMotion_NO_GAIT.json` | ID70 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 44 | M | Intel Intel RealSense D455F | `LARGE_PD_883` |
+| 213 | `SMR_ID71_eMotion_NO_GAIT.json` | ID71 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 72 | M | Intel RealSense D455 | `LARGE_PD_892` |
+| 214 | `SMR_ID72_eMotion_NO_GAIT.json` | ID72 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 62 | M | Intel RealSense D455 | `LARGE_PD_886` |
+| 215 | `SMR_ID73_eMotion_NO_GAIT.json` | ID73 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 62 | M | Intel Intel RealSense D455F | `LARGE_PD_886` |
+| 216 | `SMR_ID74_eMotion_NO_GAIT.json` | ID74 | 2026-06-27 | SMR | GAIT | NO | - | SIN_ETIQUETA | 91 | M | Intel Intel RealSense D455F | `488d71ce-4448-488d-bf7c-a638f8e9f299` |
+| 217 | `SMR_ID75_eMotion_NO_GAIT.json` | ID75 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 72 | M | Intel Intel RealSense D455F | `LARGE_PD_892` |
+| 218 | `SMR_ID76_eMotion_NO_GAIT.json` | ID76 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 58 | M | Intel RealSense D455 | `LARGE_PD_891` |
+| 219 | `SMR_ID77_eMotion_NO_GAIT.json` | ID77 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 59 | U | Intel RealSense D455 | `9f0538b6-a833-46e9-955c-d77f70d33d82` |
+| 220 | `SMR_ID78_eMotion_NO_GAIT.json` | ID78 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 76 | M | Intel Intel RealSense D455F | `LARGE_PD_880` |
+| 221 | `SMR_ID79_eMotion_NO_GAIT.json` | ID79 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 58 | M | Intel Intel RealSense D455F | `LARGE_PD_891` |
+| 222 | `SMR_ID7_eMotion_P14_GAIT.json` | ID7 | 2026-06-25 | SMR | GAIT | NO | P14 | CONTROL | 70 | M | Intel RealSense D455 | `93e09117-cee1-421d-93a2-4aab91930b43` |
+| 223 | `SMR_ID80_eMotion_NO_GAIT.json` | ID80 | 2026-06-27 | SMR | GAIT | NO | - | PATIENT | 47 | F | Intel Intel RealSense D455F | `large_pd_896` |
+| 224 | `SMR_ID8_eMotion_P15_GAIT.json` | ID8 | 2026-06-25 | SMR | GAIT | NO | P15 | PATIENT | 45 | U | Intel RealSense D455 | `3e142b0a-9c60-476d-9588-ef96ce9c080c` |
+| 225 | `SMR_ID9_eMotion_P16_GAIT.json` | ID9 | 2026-06-25 | SMR | GAIT | NO | P16 | PATIENT | 77 | M | Intel RealSense D455 | `LARGE_PD_850` |
 
 ---
-
-## 7. Resumen de Grabaciones de Marcha Continua (`No_TUG_Gait_Analysis/`, 137 Archivos)
-
-El subconjunto de marcha continua alberga 137 registros dedicados al monitoreo de marcha lineal pura (10 metros en línea recta):
-
-- **Total Capturas Santa Marta (`SMR_`):** 122 grabaciones de marcha.
-- **Total Capturas CST / La Victoria (`CST_`):** 14 grabaciones (12 pruebas esqueléticas en formato Orbbec/Intel + 2 archivos de métricas comparativas precalculadas: `CST_20260704_METRICS_49196b62.json` y `CST_20260704_METRICS_fa5aaa78.json`).
-- **Total Capturas Laboratorio (`LAB_`):** 1 grabación de validación técnica.
-- **Duración Media:** 27.0 ± 14.8 segundos (Rango: 6.4 s a 146.5 s).
-- **Frames Promedio:** 789.2 cuadros por toma.
-- **Utilidad Biomecánica Primaria:** Caracterización de la longitud de zancada en marcha sostenida, cadencia media y velocidad media sin influencia de transiciones posturales.
-
-| # | Archivo JSON | Brigada | Protocolo | Frames | Duración | Calidad Tracking | Observación |
-|---:|---|:---:|:---:|:---:|:---:|:---:|---|
-| 1 | `CST_20260704_METRICS_49196b62.json` | CST | METRICS_COMPARISON | 0 | 0.0 s | 100.0% | Marcha continua lineal validada |
-| 2 | `CST_20260704_METRICS_fa5aaa78.json` | CST | METRICS_COMPARISON | 0 | 0.0 s | 100.0% | Marcha continua lineal validada |
-| 3 | `CST_20260704_NO_IMU_6f6fd032_raw.json` | CST | GAIT_COMPLETE | 195 | 6.38 s | 87.6% | Marcha continua lineal validada |
-| 4 | `CST_20260704_P53_AF_2337aee0_raw.json` | CST | GAIT_COMPLETE | 504 | 16.68 s | 87.2% | Marcha continua lineal validada |
-| 5 | `CST_20260704_P55_E_dc68dbc6_raw.json` | CST | GAIT_COMPLETE | 376 | 12.5 s | 86.2% | Marcha continua lineal validada |
-| 6 | `CST_20260704_P56_Y_081dd40b_raw.json` | CST | GAIT_COMPLETE | 526 | 17.4 s | 86.0% | Marcha continua lineal validada |
-| 7 | `CST_20260704_P57_AY_d48689ef_raw.json` | CST | GAIT_COMPLETE | 543 | 18.15 s | 87.7% | Marcha continua lineal validada |
-| 8 | `CST_20260704_P58_BG_c4300982_raw.json` | CST | GAIT_COMPLETE | 503 | 16.88 s | 85.5% | Marcha continua lineal validada |
-| 9 | `CST_20260704_P59_B_a5f5f669_raw.json` | CST | GAIT_COMPLETE | 702 | 23.55 s | 87.7% | Marcha continua lineal validada |
-| 10 | `CST_20260704_P60_AM_8fe2ed6b_raw.json` | CST | GAIT_COMPLETE | 537 | 17.81 s | 87.0% | Marcha continua lineal validada |
-| 11 | `CST_20260704_P61_P_4f9d38a1_raw.json` | CST | GAIT_COMPLETE | 580 | 19.92 s | 88.4% | Marcha continua lineal validada |
-| 12 | `CST_20260704_P62_BI_cb6b1535_raw.json` | CST | GAIT_COMPLETE | 547 | 18.25 s | 88.7% | Marcha continua lineal validada |
-| 13 | `CST_20260704_P63_Z_773a51d3_raw.json` | CST | GAIT_COMPLETE | 775 | 25.93 s | 87.5% | Marcha continua lineal validada |
-| 14 | `CST_20260704_P64_T_f31bbc49_raw.json` | CST | GAIT_COMPLETE | 545 | 18.13 s | 83.5% | Marcha continua lineal validada |
-| 15 | `CST_20260704_P65_AN_91f0fb23_raw.json` | CST | GAIT_COMPLETE | 337 | 11.22 s | 84.4% | Marcha continua lineal validada |
-| 16 | `SMR_20260625_NO_IMU_0e409a32_raw.json` | SMR | GAIT_COMPLETE | 1483 | 49.42 s | 94.7% | Marcha continua lineal validada |
-| 17 | `SMR_20260625_NO_IMU_10ea6b0a_raw.json` | SMR | GAIT_COMPLETE | 249 | 9.58 s | 88.5% | Marcha continua lineal validada |
-| 18 | `SMR_20260625_NO_IMU_1f3d9243_raw.json` | SMR | GAIT_COMPLETE | 673 | 22.62 s | 82.0% | Marcha continua lineal validada |
-| 19 | `SMR_20260625_NO_IMU_395edfb9_raw.json` | SMR | GAIT_COMPLETE | 382 | 14.1 s | 82.5% | Marcha continua lineal validada |
-| 20 | `SMR_20260625_NO_IMU_a08a083b_raw.json` | SMR | GAIT_COMPLETE | 549 | 18.21 s | 88.2% | Marcha continua lineal validada |
-| 21 | `SMR_20260625_NO_IMU_a7bcca1d_raw.json` | SMR | GAIT_COMPLETE | 488 | 16.21 s | 87.0% | Marcha continua lineal validada |
-| 22 | `SMR_20260625_NO_IMU_a9046855_raw.json` | SMR | GAIT_COMPLETE | 1460 | 48.65 s | 98.3% | Marcha continua lineal validada |
-| 23 | `SMR_20260625_NO_IMU_c86c4bff_raw.json` | SMR | GAIT_COMPLETE | 1371 | 45.69 s | 97.1% | Marcha continua lineal validada |
-| 24 | `SMR_20260625_NO_IMU_c8ce4ec2_raw.json` | SMR | GAIT_COMPLETE | 531 | 17.9 s | 85.5% | Marcha continua lineal validada |
-| 25 | `SMR_20260625_NO_IMU_f8632d2f_raw.json` | SMR | GAIT_COMPLETE | 412 | 13.68 s | 86.2% | Marcha continua lineal validada |
-| 26 | `SMR_20260625_P06_AR_7639eee3_raw.json` | SMR | GAIT_COMPLETE | 689 | 22.85 s | 85.7% | Marcha continua lineal validada |
-| 27 | `SMR_20260625_P08_AB_4b2ab6b4_raw.json` | SMR | GAIT_COMPLETE | 455 | 15.39 s | 88.2% | Marcha continua lineal validada |
-| 28 | `SMR_20260625_P09_AK_34480359_raw.json` | SMR | GAIT_COMPLETE | 529 | 17.59 s | 88.5% | Marcha continua lineal validada |
-| 29 | `SMR_20260625_P10_AA_95436a8a_raw.json` | SMR | GAIT_COMPLETE | 624 | 20.78 s | 86.7% | Marcha continua lineal validada |
-| 30 | `SMR_20260625_P12_A_92dcbfca_raw.json` | SMR | GAIT_COMPLETE | 552 | 18.24 s | 88.5% | Marcha continua lineal validada |
-| 31 | `SMR_20260625_P13_BW_66c8ba46_raw.json` | SMR | GAIT_COMPLETE | 541 | 17.96 s | 87.5% | Marcha continua lineal validada |
-| 32 | `SMR_20260625_P14_AG_e6bce349_raw.json` | SMR | GAIT_COMPLETE | 489 | 16.17 s | 82.5% | Marcha continua lineal validada |
-| 33 | `SMR_20260625_P15_BK_f2d38bdb_raw.json` | SMR | GAIT_COMPLETE | 659 | 22.12 s | 85.5% | Marcha continua lineal validada |
-| 34 | `SMR_20260625_P16_BD_3583831d_raw.json` | SMR | GAIT_COMPLETE | 836 | 27.75 s | 87.0% | Marcha continua lineal validada |
-| 35 | `SMR_20260625_P18_BN_ed8cb966_raw.json` | SMR | GAIT_COMPLETE | 468 | 15.81 s | 85.7% | Marcha continua lineal validada |
-| 36 | `SMR_20260625_P20_BH_11f23d05_raw.json` | SMR | GAIT_COMPLETE | 628 | 20.9 s | 88.5% | Marcha continua lineal validada |
-| 37 | `SMR_20260625_P20_S_dde1028c_raw.json` | SMR | GAIT_COMPLETE | 1707 | 56.87 s | 88.6% | Marcha continua lineal validada |
-| 38 | `SMR_20260625_P21_X_78bc1d98_raw.json` | SMR | GAIT_COMPLETE | 1608 | 53.59 s | 90.3% | Marcha continua lineal validada |
-| 39 | `SMR_20260625_P22_BA_548926c5_raw.json` | SMR | GAIT_COMPLETE | 583 | 19.58 s | 83.2% | Marcha continua lineal validada |
-| 40 | `SMR_20260626_NO_IMU_041d3765_raw.json` | SMR | GAIT_COMPLETE | 655 | 21.79 s | 89.0% | Marcha continua lineal validada |
-| 41 | `SMR_20260626_NO_IMU_05b76765_raw.json` | SMR | GAIT_COMPLETE | 1633 | 54.42 s | 94.8% | Marcha continua lineal validada |
-| 42 | `SMR_20260626_NO_IMU_0bb39bc0_raw.json` | SMR | GAIT_COMPLETE | 412 | 13.68 s | 86.2% | Marcha continua lineal validada |
-| 43 | `SMR_20260626_NO_IMU_12e2ca22_raw.json` | SMR | GAIT_COMPLETE | 668 | 22.63 s | 86.2% | Marcha continua lineal validada |
-| 44 | `SMR_20260626_NO_IMU_14fbacd4_raw.json` | SMR | GAIT_COMPLETE | 443 | 15.34 s | 86.7% | Marcha continua lineal validada |
-| 45 | `SMR_20260626_NO_IMU_21a7e236_raw.json` | SMR | GAIT_COMPLETE | 310 | 10.5 s | 89.2% | Marcha continua lineal validada |
-| 46 | `SMR_20260626_NO_IMU_22dd97ba_raw.json` | SMR | GAIT_COMPLETE | 529 | 17.59 s | 88.5% | Marcha continua lineal validada |
-| 47 | `SMR_20260626_NO_IMU_2f19de60_raw.json` | SMR | GAIT_COMPLETE | 453 | 15.59 s | 89.0% | Marcha continua lineal validada |
-| 48 | `SMR_20260626_NO_IMU_40364e38_raw.json` | SMR | GAIT_COMPLETE | 1637 | 54.56 s | 97.5% | Marcha continua lineal validada |
-| 49 | `SMR_20260626_NO_IMU_4514952a_raw.json` | SMR | GAIT_COMPLETE | 836 | 27.85 s | 97.5% | Marcha continua lineal validada |
-| 50 | `SMR_20260626_NO_IMU_48d3537f_raw.json` | SMR | GAIT_COMPLETE | 689 | 22.85 s | 85.7% | Marcha continua lineal validada |
-| 51 | `SMR_20260626_NO_IMU_4a7c71c4_raw.json` | SMR | GAIT_COMPLETE | 538 | 18.46 s | 87.5% | Marcha continua lineal validada |
-| 52 | `SMR_20260626_NO_IMU_4e8e3df8_raw.json` | SMR | GAIT_COMPLETE | 583 | 19.58 s | 83.2% | Marcha continua lineal validada |
-| 53 | `SMR_20260626_NO_IMU_5d4b160b_raw.json` | SMR | GAIT_COMPLETE | 1623 | 54.09 s | 98.3% | Marcha continua lineal validada |
-| 54 | `SMR_20260626_NO_IMU_609d5059_raw.json` | SMR | GAIT_COMPLETE | 396 | 13.17 s | 88.0% | Marcha continua lineal validada |
-| 55 | `SMR_20260626_NO_IMU_7381b7e6_raw.json` | SMR | GAIT_COMPLETE | 541 | 17.96 s | 87.5% | Marcha continua lineal validada |
-| 56 | `SMR_20260626_NO_IMU_855fa26d_raw.json` | SMR | GAIT_COMPLETE | 1804 | 60.13 s | 96.5% | Marcha continua lineal validada |
-| 57 | `SMR_20260626_NO_IMU_866f499c_raw.json` | SMR | GAIT_COMPLETE | 455 | 15.39 s | 88.2% | Marcha continua lineal validada |
-| 58 | `SMR_20260626_NO_IMU_8b76c66f_raw.json` | SMR | GAIT_COMPLETE | 504 | 17.23 s | 87.7% | Marcha continua lineal validada |
-| 59 | `SMR_20260626_NO_IMU_8f13944e_raw.json` | SMR | GAIT_COMPLETE | 1120 | 37.32 s | 95.5% | Marcha continua lineal validada |
-| 60 | `SMR_20260626_NO_IMU_92686d86_raw.json` | SMR | GAIT_COMPLETE | 514 | 17.47 s | 87.0% | Marcha continua lineal validada |
-| 61 | `SMR_20260626_NO_IMU_95b50d47_raw.json` | SMR | GAIT_COMPLETE | 531 | 17.9 s | 85.5% | Marcha continua lineal validada |
-| 62 | `SMR_20260626_NO_IMU_98184b25_raw.json` | SMR | GAIT_COMPLETE | 659 | 22.12 s | 85.5% | Marcha continua lineal validada |
-| 63 | `SMR_20260626_NO_IMU_9a8d8781_raw.json` | SMR | GAIT_COMPLETE | 549 | 18.21 s | 88.2% | Marcha continua lineal validada |
-| 64 | `SMR_20260626_NO_IMU_9d0680ef_raw.json` | SMR | GAIT_COMPLETE | 1957 | 146.48 s | 95.9% | Marcha continua lineal validada |
-| 65 | `SMR_20260626_NO_IMU_a22cdc34_raw.json` | SMR | GAIT_COMPLETE | 644 | 21.7 s | 87.7% | Marcha continua lineal validada |
-| 66 | `SMR_20260626_NO_IMU_ab67edea_raw.json` | SMR | GAIT_COMPLETE | 1255 | 41.8 s | 99.0% | Marcha continua lineal validada |
-| 67 | `SMR_20260626_NO_IMU_ad4866d3_raw.json` | SMR | GAIT_COMPLETE | 1144 | 38.12 s | 96.5% | Marcha continua lineal validada |
-| 68 | `SMR_20260626_NO_IMU_b052040a_raw.json` | SMR | GAIT_COMPLETE | 488 | 16.21 s | 87.0% | Marcha continua lineal validada |
-| 69 | `SMR_20260626_NO_IMU_b152ceff_raw.json` | SMR | GAIT_COMPLETE | 1805 | 60.16 s | 94.4% | Marcha continua lineal validada |
-| 70 | `SMR_20260626_NO_IMU_b2d46fa4_raw.json` | SMR | GAIT_COMPLETE | 468 | 15.81 s | 85.7% | Marcha continua lineal validada |
-| 71 | `SMR_20260626_NO_IMU_b4a3f987_raw.json` | SMR | GAIT_COMPLETE | 685 | 22.93 s | 86.7% | Marcha continua lineal validada |
-| 72 | `SMR_20260626_NO_IMU_b54cb03a_raw.json` | SMR | GAIT_COMPLETE | 483 | 16.57 s | 86.5% | Marcha continua lineal validada |
-| 73 | `SMR_20260626_NO_IMU_b9296c26_raw.json` | SMR | GAIT_COMPLETE | 624 | 20.78 s | 86.7% | Marcha continua lineal validada |
-| 74 | `SMR_20260626_NO_IMU_bbb60c6f_raw.json` | SMR | GAIT_COMPLETE | 628 | 20.9 s | 88.5% | Marcha continua lineal validada |
-| 75 | `SMR_20260626_NO_IMU_bc15f52a_raw.json` | SMR | GAIT_COMPLETE | 483 | 16.57 s | 86.5% | Marcha continua lineal validada |
-| 76 | `SMR_20260626_NO_IMU_bd4fcb3a_raw.json` | SMR | GAIT_COMPLETE | 1362 | 45.39 s | 97.0% | Marcha continua lineal validada |
-| 77 | `SMR_20260626_NO_IMU_c293dc31_raw.json` | SMR | GAIT_COMPLETE | 1318 | 43.92 s | 95.1% | Marcha continua lineal validada |
-| 78 | `SMR_20260626_NO_IMU_dce3bc73_raw.json` | SMR | GAIT_COMPLETE | 673 | 22.62 s | 82.0% | Marcha continua lineal validada |
-| 79 | `SMR_20260626_NO_IMU_e0b89e59_raw.json` | SMR | GAIT_COMPLETE | 459 | 15.7 s | 86.2% | Marcha continua lineal validada |
-| 80 | `SMR_20260626_NO_IMU_e998adc9_raw.json` | SMR | GAIT_COMPLETE | 310 | 10.5 s | 89.2% | Marcha continua lineal validada |
-| 81 | `SMR_20260626_NO_IMU_ef1d26a2_raw.json` | SMR | GAIT_COMPLETE | 595 | 20.61 s | 87.0% | Marcha continua lineal validada |
-| 82 | `SMR_20260626_NO_IMU_f18f1bb8_raw.json` | SMR | GAIT_COMPLETE | 552 | 18.24 s | 88.5% | Marcha continua lineal validada |
-| 83 | `SMR_20260626_NO_IMU_fb9ec0a6_raw.json` | SMR | GAIT_COMPLETE | 489 | 16.17 s | 82.5% | Marcha continua lineal validada |
-| 84 | `SMR_20260626_NO_IMU_ff12f3b9_raw.json` | SMR | GAIT_COMPLETE | 836 | 27.75 s | 87.0% | Marcha continua lineal validada |
-| 85 | `SMR_20260626_P23_AC_5106035d_raw.json` | SMR | GAIT_COMPLETE | 655 | 21.79 s | 89.0% | Marcha continua lineal validada |
-| 86 | `SMR_20260626_P24_AV_d57ba7a5_raw.json` | SMR | GAIT_COMPLETE | 1877 | 62.56 s | 93.7% | Marcha continua lineal validada |
-| 87 | `SMR_20260626_P25_AO_fe8d3176_raw.json` | SMR | GAIT_COMPLETE | 1773 | 59.09 s | 95.7% | Marcha continua lineal validada |
-| 88 | `SMR_20260626_P26_M_023b8c9b_raw.json` | SMR | GAIT_COMPLETE | 2199 | 73.28 s | 97.2% | Marcha continua lineal validada |
-| 89 | `SMR_20260626_P27_BQ_a2fa578b_raw.json` | SMR | GAIT_COMPLETE | 595 | 20.61 s | 87.0% | Marcha continua lineal validada |
-| 90 | `SMR_20260626_P28_U_3f8afb20_raw.json` | SMR | GAIT_COMPLETE | 396 | 13.17 s | 88.0% | Marcha continua lineal validada |
-| 91 | `SMR_20260626_P29_AJ_c86d30f1_raw.json` | SMR | GAIT_COMPLETE | 685 | 22.93 s | 86.7% | Marcha continua lineal validada |
-| 92 | `SMR_20260626_P30_O_e00dfee7_raw.json` | SMR | GAIT_COMPLETE | 644 | 21.7 s | 87.7% | Marcha continua lineal validada |
-| 93 | `SMR_20260626_P31_BU_ebb1a945_raw.json` | SMR | GAIT_COMPLETE | 459 | 15.7 s | 86.2% | Marcha continua lineal validada |
-| 94 | `SMR_20260626_P31_K_e7bf509c_raw.json` | SMR | GAIT_COMPLETE | 879 | 29.28 s | 97.6% | Marcha continua lineal validada |
-| 95 | `SMR_20260626_P32_AZ_898d2089_raw.json` | SMR | GAIT_COMPLETE | 1484 | 49.46 s | 94.0% | Marcha continua lineal validada |
-| 96 | `SMR_20260626_P32_BT_d6e7fbaa_raw.json` | SMR | GAIT_COMPLETE | 538 | 18.46 s | 87.5% | Marcha continua lineal validada |
-| 97 | `SMR_20260626_P33_BM_00d7dc00_raw.json` | SMR | GAIT_COMPLETE | 668 | 22.63 s | 86.2% | Marcha continua lineal validada |
-| 98 | `SMR_20260626_P34_BS_e5bc268a_raw.json` | SMR | GAIT_COMPLETE | 514 | 17.47 s | 87.0% | Marcha continua lineal validada |
-| 99 | `SMR_20260626_P35_AW_6eff50a6_raw.json` | SMR | GAIT_COMPLETE | 1392 | 46.39 s | 96.5% | Marcha continua lineal validada |
-| 100 | `SMR_20260626_P36_AH_8fc3f6de_raw.json` | SMR | GAIT_COMPLETE | 504 | 17.23 s | 87.7% | Marcha continua lineal validada |
-| 101 | `SMR_20260626_P37_AT_ea1720a7_raw.json` | SMR | GAIT_COMPLETE | 443 | 15.34 s | 86.7% | Marcha continua lineal validada |
-| 102 | `SMR_20260626_P38_AE_abea9085_raw.json` | SMR | GAIT_COMPLETE | 453 | 15.59 s | 89.0% | Marcha continua lineal validada |
-| 103 | `SMR_20260626_P39_BL_cda48534_raw.json` | SMR | GAIT_COMPLETE | 1634 | 54.44 s | 96.2% | Marcha continua lineal validada |
-| 104 | `SMR_20260627_NO_IMU_04c0f4f2_raw.json` | SMR | GAIT_COMPLETE | 487 | 16.08 s | 86.5% | Marcha continua lineal validada |
-| 105 | `SMR_20260627_NO_IMU_12b50c3b_raw.json` | SMR | GAIT_COMPLETE | 709 | 23.34 s | 86.5% | Marcha continua lineal validada |
-| 106 | `SMR_20260627_NO_IMU_1b893ca6_raw.json` | SMR | GAIT_COMPLETE | 1115 | 37.15 s | 94.8% | Marcha continua lineal validada |
-| 107 | `SMR_20260627_NO_IMU_1d67416b_raw.json` | SMR | GAIT_COMPLETE | 1007 | 33.55 s | 93.4% | Marcha continua lineal validada |
-| 108 | `SMR_20260627_NO_IMU_266bbad9_raw.json` | SMR | GAIT_COMPLETE | 1244 | 41.45 s | 91.7% | Marcha continua lineal validada |
-| 109 | `SMR_20260627_NO_IMU_2a3e0319_raw.json` | SMR | GAIT_COMPLETE | 370 | 12.19 s | 87.2% | Marcha continua lineal validada |
-| 110 | `SMR_20260627_NO_IMU_37dd5945_raw.json` | SMR | GAIT_COMPLETE | 1147 | 38.22 s | 96.7% | Marcha continua lineal validada |
-| 111 | `SMR_20260627_NO_IMU_4110d539_raw.json` | SMR | GAIT_COMPLETE | 594 | 19.67 s | 87.2% | Marcha continua lineal validada |
-| 112 | `SMR_20260627_NO_IMU_42228267_raw.json` | SMR | GAIT_COMPLETE | 719 | 24.0 s | 86.7% | Marcha continua lineal validada |
-| 113 | `SMR_20260627_NO_IMU_5364306d_raw.json` | SMR | GAIT_COMPLETE | 1865 | 62.16 s | 90.4% | Marcha continua lineal validada |
-| 114 | `SMR_20260627_NO_IMU_597e52ed_raw.json` | SMR | GAIT_COMPLETE | 655 | 21.99 s | 87.7% | Marcha continua lineal validada |
-| 115 | `SMR_20260627_NO_IMU_59db65ca_raw.json` | SMR | GAIT_COMPLETE | 390 | 12.98 s | 86.2% | Marcha continua lineal validada |
-| 116 | `SMR_20260627_NO_IMU_925eff62_raw.json` | SMR | GAIT_COMPLETE | 1172 | 39.03 s | 96.9% | Marcha continua lineal validada |
-| 117 | `SMR_20260627_NO_IMU_92899a60_raw.json` | SMR | GAIT_COMPLETE | 370 | 12.19 s | 87.2% | Marcha continua lineal validada |
-| 118 | `SMR_20260627_NO_IMU_b475e9fe_raw.json` | SMR | GAIT_COMPLETE | 655 | 21.8 s | 100.0% | Marcha continua lineal validada |
-| 119 | `SMR_20260627_NO_IMU_c1a682ac_raw.json` | SMR | GAIT_COMPLETE | 1942 | 64.73 s | 96.0% | Marcha continua lineal validada |
-| 120 | `SMR_20260627_NO_IMU_c5a03517_raw.json` | SMR | GAIT_COMPLETE | 556 | 18.49 s | 85.7% | Marcha continua lineal validada |
-| 121 | `SMR_20260627_NO_IMU_de8fac34_raw.json` | SMR | GAIT_COMPLETE | 719 | 24.0 s | 86.7% | Marcha continua lineal validada |
-| 122 | `SMR_20260627_NO_IMU_df97753c_raw.json` | SMR | GAIT_COMPLETE | 412 | 13.73 s | 85.5% | Marcha continua lineal validada |
-| 123 | `SMR_20260627_NO_IMU_e27a033e_raw.json` | SMR | GAIT_COMPLETE | 2026 | 67.53 s | 93.4% | Marcha continua lineal validada |
-| 124 | `SMR_20260627_NO_IMU_e7696b05_raw.json` | SMR | GAIT_COMPLETE | 1432 | 47.72 s | 97.1% | Marcha continua lineal validada |
-| 125 | `SMR_20260627_NO_IMU_e80df38f_raw.json` | SMR | GAIT_COMPLETE | 1101 | 36.68 s | 96.6% | Marcha continua lineal validada |
-| 126 | `SMR_20260627_NO_IMU_ea337c30_raw.json` | SMR | GAIT_COMPLETE | 390 | 12.98 s | 86.2% | Marcha continua lineal validada |
-| 127 | `SMR_20260627_P40_AS_a5b26747_raw.json` | SMR | GAIT_COMPLETE | 709 | 23.34 s | 86.5% | Marcha continua lineal validada |
-| 128 | `SMR_20260627_P41_BP_adb07dac_raw.json` | SMR | GAIT_COMPLETE | 594 | 19.67 s | 87.2% | Marcha continua lineal validada |
-| 129 | `SMR_20260627_P42_AD_537cd466_raw.json` | SMR | GAIT_COMPLETE | 487 | 16.08 s | 86.5% | Marcha continua lineal validada |
-| 130 | `SMR_20260627_P43_BB_3ee0ecde_raw.json` | SMR | GAIT_COMPLETE | 1790 | 59.66 s | 94.0% | Marcha continua lineal validada |
-| 131 | `SMR_20260627_P44_R_f6f2191f_raw.json` | SMR | GAIT_COMPLETE | 1203 | 40.07 s | 96.4% | Marcha continua lineal validada |
-| 132 | `SMR_20260627_P45_W_c5eaec1e_raw.json` | SMR | GAIT_COMPLETE | 556 | 18.49 s | 85.7% | Marcha continua lineal validada |
-| 133 | `SMR_20260627_P46_I_ed550cc5_raw.json` | SMR | GAIT_COMPLETE | 412 | 13.73 s | 85.5% | Marcha continua lineal validada |
-| 134 | `SMR_20260627_P47_Q_120c1be5_raw.json` | SMR | GAIT_COMPLETE | 455 | 15.33 s | 87.7% | Marcha continua lineal validada |
-| 135 | `SMR_20260627_P48_AU_04316299_raw.json` | SMR | GAIT_COMPLETE | 455 | 15.33 s | 87.7% | Marcha continua lineal validada |
-| 136 | `SMR_20260627_P49_L_e0bbd4e9_raw.json` | SMR | GAIT_COMPLETE | 655 | 21.99 s | 87.7% | Marcha continua lineal validada |
-| 137 | `SMR_20260627_P52_C_b020da75_raw.json` | SMR | GAIT_COMPLETE | 379 | 13.0 s | 87.6% | Marcha continua lineal validada |
-
+*Ficha técnica oficial del dataset óptico (e-Motion / VIMOV) — Control de calidad y trazabilidad.*

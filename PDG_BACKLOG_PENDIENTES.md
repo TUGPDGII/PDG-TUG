@@ -50,18 +50,18 @@
 > ℹ️ **Requerimiento expreso de Reunión #8:** Auditar las fechas de los 78 archivos IMU y cruzarlas con e-Motion / VIMOV para verificar quiénes cuentan con su versión e-Motion.
 
 - [x] **C1. Documento de Correspondencia y Trazabilidad Temporal:**
-  - Creado y actualizado en `Analisis de Datos/Correspondencia_IMU&EMOTION.md`.
+  - Creado y actualizado en `Analisis de Datos/Correlacion.md`.
   - Contiene la tabla auditora de las **78 grabaciones IMU**.
 - [x] **C2. Resolución de Fechas de la Brigada Santa Marta:**
   - Se descubrió que la brigada en Santa Marta se realizó entre el **25 y el 27 de junio de 2026** (no a finales de julio).
 - [x] **C3. Descarga Masiva, Anonimización y Pareo Bimodal (VIMOV):**
-  - **Dataset e-Motion estrictamente TUG:** 132 grabaciones TUG consolidadas en `Datos e-Motion/TUG/` (103 Santa Marta, 5 CST, 24 Lab).
+  - **Dataset e-Motion estrictamente TUG:** 132 grabaciones TUG consolidadas en `Datos e-Motion/` (103 Santa Marta, 5 CST, 24 Lab).
   - **Segregación de pruebas No-TUG:** 137 grabaciones de marcha continua libre segregadas en `Datos e-Motion/No_TUG_Gait_Analysis/`.
   - **Regla Estricta de Género:** Descartados formalmente 5 candidatos por discrepancia de sexo (`P17`, `P19`, `P23`, `P29`), consolidando **42 pares bimodales estrictamente TUG con 100% de sexo coincidente** vinculados a las grabaciones IMU.
   - **Estandarización Global de Nombres:** 100% de los archivos renombrados formalmente bajo los prefijos `SMR_`, `CST_` y `LAB_`.
   - **Sincronización en Cuaderno:** Actualizado el Módulo 2 de `Analisis de Datos/PDGI_Colab copy.ipynb` para consumir `Datos_eMotion.csv` y reportar la correspondencia bimodal auditada.
   - Aplicada anonimización estricta (limpieza de nombres propios y cédulas).
-  - Validación multivariable confirmada y documentada en `Analisis de Datos/Correspondencia_IMU&EMOTION.md`.
+  - Validación multivariable confirmada y documentada en `Analisis de Datos/Correlacion.md`.
 
 ---
 
@@ -73,8 +73,8 @@
   - Ajustado conforme a la instrucción de no prometer exactitud superior al 80%.
 - [x] **D2. Diagramas Metodológico y Cronograma**
   - Metodología CRISP-DM y Gantt externo insertados como figuras en LaTeX.
-- [x] **D3. Integración de Conclusiones de Cámaras en el Documento:**
-  - Redactado e integrado en la Sección 3.2 de `OverLeaf/PDG-II TUG.tex`: *"las cámaras se emplean para longitud de zancada y velocidad lineal de desplazamiento del centro de masa (Hip Center); las IMUs asumen la segmentación temporal completa, la dinámica de giro de 180° y las transiciones posturales"*.
+- [ ] **D3. Integración de Conclusiones de Cámaras en el Documento:**
+  - Redactar en el capítulo metodológico la delimitación formal: *"las cámaras se emplean para longitud de zancada y velocidad lineal; los IMUs asumen la segmentación temporal completa y la dinámica de giro"*.
 
 ---
 
@@ -82,10 +82,10 @@
 
 > ℹ️ **Meta clave de fin de semestre (Domi R#8):** *"Lograr al menos un hallazgo estadístico con diferencia significativa entre pacientes y controles antes de cerrar PDG-I."*
 
-- [x] **G1. Extracción de Variables Biomecánicas Prioritarias (`Analisis de Datos/df_variables_tug.csv`):**
-  - Implementado el flujo de procesamiento masivo en el Módulo 9 (`procesar_pipeline_masivo_tug`) de `Analisis de Datos/PDGI_Colab copy.ipynb` sobre las 66 grabaciones válidas, corrigiendo el canal de extracción (`b` con filtro Butterworth orden 20 a 3 Hz) e incorporando variables de giro, marcha, transiciones y conteo de pasos en giro.
+- [x] **G1. Extracción de Variables Biomecánicas Prioritarias (`Analisis de Datos/df_variables_tug.csv` y `Analisis de Datos/df_variables_emotion.csv`):**
+  - Implementado el flujo de procesamiento masivo en el Módulo 9 (`procesar_pipeline_masivo_tug`) de `Analisis de Datos/PDGI_Colab copy.ipynb` sobre las 66 grabaciones IMU válidas, y en los Módulos 10 a 13 sobre las **223 grabaciones ópticas e-Motion únicas válidas** (130 TUG + 93 Marcha Continua), incorporando PCHIP a 30 Hz, FFT sin DC, filtro Butterworth a 3 Hz, CWT Ricker en la "escalerita" de tobillos, identificación de **Doble Apoyo**, longitud de paso/zancada, velocidad por pendiente de `SpineBase` y braceo.
 - [x] **G2. Aplicación de Pruebas Estadísticas para Grupos Desbalanceados:**
-  - Implementada la función `ejecutar_contraste_estadistico_tug` en el Módulo 9 de `Analisis de Datos/PDGI_Colab copy.ipynb` con prueba de normalidad de Shapiro-Wilk, prueba **t de Welch (`equal_var=False`)** y prueba **U de Mann-Whitney**, junto con paneles de diagramas de caja (*boxplots*) comparativos y partición estratificada por sujeto (`GroupKFold` por `persona_id`).
+  - Implementadas las funciones `ejecutar_contraste_estadistico_tug` (Módulo 9) y `ejecutar_contraste_estadistico_emotion` (Módulo 13) en `Analisis de Datos/PDGI_Colab copy.ipynb` con prueba **t de Welch (`equal_var=False`)** y **U de Mann-Whitney**, logrando diferencias estadísticamente significativas ($p < 0.05$) en longitud de zancada ($p=0.0032$), amplitud de braceo ($p=0.0065$), duración activa TUG ($p=0.0082$), doble apoyo en marcha continua ($p=0.0206$), asimetría de braceo ($p=0.0347$) y duración de marcha de regreso ($p=0.0378$).
 
 ---
 
@@ -105,7 +105,7 @@
 | Entregable / Tarea | Estado | Ubicación |
 |---|:---:|---|
 | Regla Maestra del Proyecto | ✅ | `GEMINI.md` |
-| Tabla de correspondencia IMU ↔ e-Motion (78 archivos) | ✅ | `Analisis de Datos/Correspondencia_IMU&EMOTION.md` |
+| Tabla de correspondencia IMU ↔ e-Motion (78 archivos) | ✅ | `Analisis de Datos/Correlacion.md` |
 | Ficha Técnica de Cámaras e-Motion | ✅ | `Analisis de Datos/FichaTecnica_eMotion.md` |
 | Ficha Técnica de Datos IMU | ✅ | `Analisis de Datos/FichaTecnica_IMUs.md` |
 | Segmentación IMU de 63/66 grabaciones | ✅ | Notebook / Scripts en `Analisis de Datos/` |

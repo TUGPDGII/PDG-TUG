@@ -1,0 +1,2250 @@
+{
+  "CST_20260704_P54_BE_c1b8493f_raw.json": {
+    "nuevo_nombre": "CST_ID1_eMotion_P54_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/CST_20260704_P54_BE_c1b8493f_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/CST_ID1_eMotion_P54_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "CST",
+    "imu_match": "P54",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "CST_20260704_NO_IMU_522b4991_raw.json": {
+    "nuevo_nombre": "CST_ID2_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/CST_20260704_NO_IMU_522b4991_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/CST_ID2_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "CST",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "CST_20260704_NO_IMU_5f9ae035_raw.json": {
+    "nuevo_nombre": "CST_ID3_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/CST_20260704_NO_IMU_5f9ae035_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/CST_ID3_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "CST",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "CST_20260704_NO_IMU_6d6ae96f_raw.json": {
+    "nuevo_nombre": "CST_ID4_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/CST_20260704_NO_IMU_6d6ae96f_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/CST_ID4_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "CST",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "CST_20260704_NO_IMU_76d99a7d_raw.json": {
+    "nuevo_nombre": "CST_ID5_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/CST_20260704_NO_IMU_76d99a7d_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/CST_ID5_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "CST",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "CST_20260704_NO_IMU_94c36593_raw.json": {
+    "nuevo_nombre": "CST_ID6_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/CST_20260704_NO_IMU_94c36593_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/CST_ID6_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "CST",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20241016_INTEL_70e0d22c_raw.json": {
+    "nuevo_nombre": "LAB_ID1_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20241016_INTEL_70e0d22c_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID1_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261002_INTEL_2956b231_raw.json": {
+    "nuevo_nombre": "LAB_ID2_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261002_INTEL_2956b231_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID2_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261002_INTEL_520b776a_raw.json": {
+    "nuevo_nombre": "LAB_ID3_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261002_INTEL_520b776a_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID3_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261002_INTEL_a9cf4492_raw.json": {
+    "nuevo_nombre": "LAB_ID4_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261002_INTEL_a9cf4492_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID4_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261002_INTEL_cc51de7a_raw.json": {
+    "nuevo_nombre": "LAB_ID5_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261002_INTEL_cc51de7a_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID5_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261002_INTEL_f30efa85_raw.json": {
+    "nuevo_nombre": "LAB_ID6_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261002_INTEL_f30efa85_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID6_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261014_INTEL_121da856_raw.json": {
+    "nuevo_nombre": "LAB_ID7_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261014_INTEL_121da856_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID7_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261014_INTEL_16b33e8a_raw.json": {
+    "nuevo_nombre": "LAB_ID8_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261014_INTEL_16b33e8a_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID8_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261014_INTEL_79040a90_raw.json": {
+    "nuevo_nombre": "LAB_ID9_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261014_INTEL_79040a90_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID9_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261014_INTEL_7fc5835d_raw.json": {
+    "nuevo_nombre": "LAB_ID10_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261014_INTEL_7fc5835d_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID10_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261014_INTEL_b9a45110_raw.json": {
+    "nuevo_nombre": "LAB_ID11_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261014_INTEL_b9a45110_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID11_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261014_INTEL_d32af61b_raw.json": {
+    "nuevo_nombre": "LAB_ID12_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261014_INTEL_d32af61b_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID12_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261014_INTEL_f15708bb_raw.json": {
+    "nuevo_nombre": "LAB_ID13_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261014_INTEL_f15708bb_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID13_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261015_INTEL_55d2638e_raw.json": {
+    "nuevo_nombre": "LAB_ID14_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261015_INTEL_55d2638e_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID14_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261015_INTEL_63b55b0a_raw.json": {
+    "nuevo_nombre": "LAB_ID15_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261015_INTEL_63b55b0a_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID15_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261015_INTEL_6eaf8dc9_raw.json": {
+    "nuevo_nombre": "LAB_ID16_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261015_INTEL_6eaf8dc9_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID16_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261015_INTEL_a08f5d5d_raw.json": {
+    "nuevo_nombre": "LAB_ID17_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261015_INTEL_a08f5d5d_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID17_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261015_INTEL_c811ed2b_raw.json": {
+    "nuevo_nombre": "LAB_ID18_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261015_INTEL_c811ed2b_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID18_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261015_INTEL_cd0662f6_raw.json": {
+    "nuevo_nombre": "LAB_ID19_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261015_INTEL_cd0662f6_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID19_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261015_INTEL_da9df617_raw.json": {
+    "nuevo_nombre": "LAB_ID20_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261015_INTEL_da9df617_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID20_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261015_INTEL_ec8f8ef4_raw.json": {
+    "nuevo_nombre": "LAB_ID21_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261015_INTEL_ec8f8ef4_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID21_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261016_INTEL_633d0b5c_raw.json": {
+    "nuevo_nombre": "LAB_ID22_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261016_INTEL_633d0b5c_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID22_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "LAB_20261016_INTEL_7d2dcd48_raw.json": {
+    "nuevo_nombre": "LAB_ID23_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/LAB_20261016_INTEL_7d2dcd48_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/LAB_ID23_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "LAB",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P06_BF_4cd523b7_raw.json": {
+    "nuevo_nombre": "SMR_ID1_eMotion_P06_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P06_BF_4cd523b7_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID1_eMotion_P06_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P06",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P07_D_c71c489e_raw.json": {
+    "nuevo_nombre": "SMR_ID2_eMotion_P07_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P07_D_c71c489e_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID2_eMotion_P07_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P07",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P08_AB_ff5603a4_raw.json": {
+    "nuevo_nombre": "SMR_ID3_eMotion_P08_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P08_AB_ff5603a4_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID3_eMotion_P08_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P08",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P09_AK_2adb11ee_raw.json": {
+    "nuevo_nombre": "SMR_ID4_eMotion_P09_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P09_AK_2adb11ee_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID4_eMotion_P09_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P09",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P10_AA_bf709abb_raw.json": {
+    "nuevo_nombre": "SMR_ID5_eMotion_P10_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P10_AA_bf709abb_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID5_eMotion_P10_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P10",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P11_V_7ed2f2de_raw.json": {
+    "nuevo_nombre": "SMR_ID6_eMotion_P11_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P11_V_7ed2f2de_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID6_eMotion_P11_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P11",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P13_BW_5eeb5a37_raw.json": {
+    "nuevo_nombre": "SMR_ID7_eMotion_P13_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P13_BW_5eeb5a37_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID7_eMotion_P13_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P13",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P15_BK_b8317644_raw.json": {
+    "nuevo_nombre": "SMR_ID8_eMotion_P15_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P15_BK_b8317644_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID8_eMotion_P15_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P15",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P16_BD_f16693f6_raw.json": {
+    "nuevo_nombre": "SMR_ID9_eMotion_P16_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P16_BD_f16693f6_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID9_eMotion_P16_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P16",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P18_BN_1f325d38_raw.json": {
+    "nuevo_nombre": "SMR_ID10_eMotion_P18_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P18_BN_1f325d38_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID10_eMotion_P18_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P18",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P21_X_28ac951e_raw.json": {
+    "nuevo_nombre": "SMR_ID11_eMotion_P21_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P21_X_28ac951e_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID11_eMotion_P21_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P21",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P22_BA_a22ff952_raw.json": {
+    "nuevo_nombre": "SMR_ID12_eMotion_P22_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_P22_BA_a22ff952_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID12_eMotion_P22_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P22",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P24_AV_fc8711e0_raw.json": {
+    "nuevo_nombre": "SMR_ID13_eMotion_P24_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P24_AV_fc8711e0_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID13_eMotion_P24_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P24",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P25_AO_ce5691b9_raw.json": {
+    "nuevo_nombre": "SMR_ID14_eMotion_P25_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P25_AO_ce5691b9_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID14_eMotion_P25_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P25",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P26_M_0ec82be7_raw.json": {
+    "nuevo_nombre": "SMR_ID15_eMotion_P26_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P26_M_0ec82be7_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID15_eMotion_P26_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P26",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P27_BQ_156f5309_raw.json": {
+    "nuevo_nombre": "SMR_ID16_eMotion_P27_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P27_BQ_156f5309_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID16_eMotion_P27_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P27",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P30_O_5432070f_raw.json": {
+    "nuevo_nombre": "SMR_ID17_eMotion_P30_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P30_O_5432070f_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID17_eMotion_P30_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P30",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P31_BU_f89f97d0_raw.json": {
+    "nuevo_nombre": "SMR_ID18_eMotion_P31_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P31_BU_f89f97d0_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID18_eMotion_P31_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P31",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P31_K_4e5316e1_raw.json": {
+    "nuevo_nombre": "SMR_ID19_eMotion_P31_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P31_K_4e5316e1_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID19_eMotion_P31_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P31",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P32_AZ_fbe58f01_raw.json": {
+    "nuevo_nombre": "SMR_ID20_eMotion_P32_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P32_AZ_fbe58f01_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID20_eMotion_P32_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P32",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P32_J_dabe0112_raw.json": {
+    "nuevo_nombre": "SMR_ID21_eMotion_P32_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P32_J_dabe0112_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID21_eMotion_P32_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P32",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P32_AQ_22f0ff21_raw.json": {
+    "nuevo_nombre": "SMR_ID22_eMotion_P32_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P32_AQ_22f0ff21_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID22_eMotion_P32_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P32",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P33_BM_ed61ac9f_raw.json": {
+    "nuevo_nombre": "SMR_ID23_eMotion_P33_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P33_BM_ed61ac9f_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID23_eMotion_P33_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P33",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P34_BS_87a49c65_raw.json": {
+    "nuevo_nombre": "SMR_ID24_eMotion_P34_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P34_BS_87a49c65_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID24_eMotion_P34_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P34",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P35_AW_452eaaa1_raw.json": {
+    "nuevo_nombre": "SMR_ID25_eMotion_P35_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P35_AW_452eaaa1_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID25_eMotion_P35_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P35",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P36_AH_b622b020_raw.json": {
+    "nuevo_nombre": "SMR_ID26_eMotion_P36_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P36_AH_b622b020_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID26_eMotion_P36_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P36",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P37_AT_0dcde044_raw.json": {
+    "nuevo_nombre": "SMR_ID27_eMotion_P37_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P37_AT_0dcde044_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID27_eMotion_P37_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P37",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P38_AE_80c945b3_raw.json": {
+    "nuevo_nombre": "SMR_ID28_eMotion_P38_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P38_AE_80c945b3_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID28_eMotion_P38_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P38",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P39_BL_294c3933_raw.json": {
+    "nuevo_nombre": "SMR_ID29_eMotion_P39_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_P39_BL_294c3933_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID29_eMotion_P39_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P39",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P40_AS_4df833f1_raw.json": {
+    "nuevo_nombre": "SMR_ID30_eMotion_P40_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_P40_AS_4df833f1_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID30_eMotion_P40_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P40",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P42_AD_25f298d4_raw.json": {
+    "nuevo_nombre": "SMR_ID31_eMotion_P42_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_P42_AD_25f298d4_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID31_eMotion_P42_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P42",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P43_BB_580b902a_raw.json": {
+    "nuevo_nombre": "SMR_ID32_eMotion_P43_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_P43_BB_580b902a_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID32_eMotion_P43_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P43",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P44_R_89d757d6_raw.json": {
+    "nuevo_nombre": "SMR_ID33_eMotion_P44_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_P44_R_89d757d6_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID33_eMotion_P44_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P44",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P46_I_ba2c6e63_raw.json": {
+    "nuevo_nombre": "SMR_ID34_eMotion_P46_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_P46_I_ba2c6e63_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID34_eMotion_P46_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P46",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P47_Q_907121bd_raw.json": {
+    "nuevo_nombre": "SMR_ID35_eMotion_P47_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_P47_Q_907121bd_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID35_eMotion_P47_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P47",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P48_AU_4781f6d7_raw.json": {
+    "nuevo_nombre": "SMR_ID36_eMotion_P48_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_P48_AU_4781f6d7_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID36_eMotion_P48_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P48",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P49_L_6943624b_raw.json": {
+    "nuevo_nombre": "SMR_ID37_eMotion_P49_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_P49_L_6943624b_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID37_eMotion_P49_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P49",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P50_H_d3efbdfa_raw.json": {
+    "nuevo_nombre": "SMR_ID38_eMotion_P50_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_P50_H_d3efbdfa_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID38_eMotion_P50_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P50",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P51_AI_18c58989_raw.json": {
+    "nuevo_nombre": "SMR_ID39_eMotion_P51_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_P51_AI_18c58989_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID39_eMotion_P51_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P51",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P52_C_029c450a_raw.json": {
+    "nuevo_nombre": "SMR_ID40_eMotion_P52_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_P52_C_029c450a_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID40_eMotion_P52_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "P52",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_009ef8c0_raw.json": {
+    "nuevo_nombre": "SMR_ID41_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_009ef8c0_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID41_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_0f778525_raw.json": {
+    "nuevo_nombre": "SMR_ID42_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_0f778525_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID42_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_15bfcaa6_raw.json": {
+    "nuevo_nombre": "SMR_ID43_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_15bfcaa6_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID43_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_288e95dc_raw.json": {
+    "nuevo_nombre": "SMR_ID44_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_288e95dc_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID44_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_3c28cd08_raw.json": {
+    "nuevo_nombre": "SMR_ID45_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_3c28cd08_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID45_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_43c24bf0_raw.json": {
+    "nuevo_nombre": "SMR_ID46_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_43c24bf0_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID46_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_4ed70428_raw.json": {
+    "nuevo_nombre": "SMR_ID47_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_4ed70428_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID47_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_4efdbb56_raw.json": {
+    "nuevo_nombre": "SMR_ID48_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_4efdbb56_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID48_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_6c8f0a73_raw.json": {
+    "nuevo_nombre": "SMR_ID49_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_6c8f0a73_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID49_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_6dc36ad3_raw.json": {
+    "nuevo_nombre": "SMR_ID50_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_6dc36ad3_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID50_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_6f0edb81_raw.json": {
+    "nuevo_nombre": "SMR_ID51_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_6f0edb81_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID51_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_92c49963_raw.json": {
+    "nuevo_nombre": "SMR_ID52_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_92c49963_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID52_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_9eabbeda_raw.json": {
+    "nuevo_nombre": "SMR_ID53_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_9eabbeda_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID53_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_a5508452_raw.json": {
+    "nuevo_nombre": "SMR_ID54_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_a5508452_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID54_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_ae0b301a_raw.json": {
+    "nuevo_nombre": "SMR_ID55_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_ae0b301a_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID55_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_b193794c_raw.json": {
+    "nuevo_nombre": "SMR_ID56_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_b193794c_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID56_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_b4540bcd_raw.json": {
+    "nuevo_nombre": "SMR_ID57_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_b4540bcd_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID57_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_b969b991_raw.json": {
+    "nuevo_nombre": "SMR_ID58_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_b969b991_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID58_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_c111bc5e_raw.json": {
+    "nuevo_nombre": "SMR_ID59_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_c111bc5e_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID59_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_e50718e8_raw.json": {
+    "nuevo_nombre": "SMR_ID60_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_e50718e8_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID60_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_e6619a94_raw.json": {
+    "nuevo_nombre": "SMR_ID61_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_e6619a94_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID61_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_ed8ad33f_raw.json": {
+    "nuevo_nombre": "SMR_ID62_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_ed8ad33f_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID62_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_f1d4af72_raw.json": {
+    "nuevo_nombre": "SMR_ID63_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260625_NO_IMU_f1d4af72_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID63_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_06d4e110_raw.json": {
+    "nuevo_nombre": "SMR_ID64_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_06d4e110_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID64_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_08f525af_raw.json": {
+    "nuevo_nombre": "SMR_ID65_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_08f525af_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID65_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_270d9ce6_raw.json": {
+    "nuevo_nombre": "SMR_ID66_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_270d9ce6_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID66_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_2e340220_raw.json": {
+    "nuevo_nombre": "SMR_ID67_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_2e340220_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID67_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_39200f59_raw.json": {
+    "nuevo_nombre": "SMR_ID68_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_39200f59_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID68_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_528dd3aa_raw.json": {
+    "nuevo_nombre": "SMR_ID69_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_528dd3aa_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID69_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_65af5e95_raw.json": {
+    "nuevo_nombre": "SMR_ID70_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_65af5e95_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID70_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_67e1d010_raw.json": {
+    "nuevo_nombre": "SMR_ID71_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_67e1d010_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID71_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_6eea596c_raw.json": {
+    "nuevo_nombre": "SMR_ID72_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_6eea596c_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID72_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_73f8e2dd_raw.json": {
+    "nuevo_nombre": "SMR_ID73_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_73f8e2dd_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID73_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_77aab222_raw.json": {
+    "nuevo_nombre": "SMR_ID74_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_77aab222_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID74_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_807435b0_raw.json": {
+    "nuevo_nombre": "SMR_ID75_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_807435b0_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID75_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_97490f79_raw.json": {
+    "nuevo_nombre": "SMR_ID76_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_97490f79_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID76_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_acb959ff_raw.json": {
+    "nuevo_nombre": "SMR_ID77_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_acb959ff_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID77_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_ae1bf11f_raw.json": {
+    "nuevo_nombre": "SMR_ID78_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_ae1bf11f_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID78_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_bb1a6ed3_raw.json": {
+    "nuevo_nombre": "SMR_ID79_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_bb1a6ed3_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID79_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_c3cf78c7_raw.json": {
+    "nuevo_nombre": "SMR_ID80_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_c3cf78c7_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID80_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_d69fd999_raw.json": {
+    "nuevo_nombre": "SMR_ID81_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_d69fd999_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID81_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_db5953a4_raw.json": {
+    "nuevo_nombre": "SMR_ID82_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_db5953a4_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID82_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_dda03461_raw.json": {
+    "nuevo_nombre": "SMR_ID83_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_dda03461_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID83_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_e5e1c5a8_raw.json": {
+    "nuevo_nombre": "SMR_ID84_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_e5e1c5a8_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID84_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_fb6cfbf2_raw.json": {
+    "nuevo_nombre": "SMR_ID85_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260626_NO_IMU_fb6cfbf2_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID85_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_170b8f66_raw.json": {
+    "nuevo_nombre": "SMR_ID86_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_170b8f66_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID86_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_23b44cf6_raw.json": {
+    "nuevo_nombre": "SMR_ID87_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_23b44cf6_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID87_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_527a2c9d_raw.json": {
+    "nuevo_nombre": "SMR_ID88_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_527a2c9d_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID88_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_77ff8380_raw.json": {
+    "nuevo_nombre": "SMR_ID89_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_77ff8380_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID89_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_7819c5a8_raw.json": {
+    "nuevo_nombre": "SMR_ID90_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_7819c5a8_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID90_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_78cca52a_raw.json": {
+    "nuevo_nombre": "SMR_ID91_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_78cca52a_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID91_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_7b1024d0_raw.json": {
+    "nuevo_nombre": "SMR_ID92_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_7b1024d0_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID92_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_8f7ae2b1_raw.json": {
+    "nuevo_nombre": "SMR_ID93_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_8f7ae2b1_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID93_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_c3777a40_raw.json": {
+    "nuevo_nombre": "SMR_ID94_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_c3777a40_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID94_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_c425b54e_raw.json": {
+    "nuevo_nombre": "SMR_ID95_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_c425b54e_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID95_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_d9ea79f2_raw.json": {
+    "nuevo_nombre": "SMR_ID96_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_d9ea79f2_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID96_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_eb67e769_raw.json": {
+    "nuevo_nombre": "SMR_ID97_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_eb67e769_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID97_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_f2b0f18f_raw.json": {
+    "nuevo_nombre": "SMR_ID98_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_f2b0f18f_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID98_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_f86c7503_raw.json": {
+    "nuevo_nombre": "SMR_ID99_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_f86c7503_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID99_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_fb596b7d_raw.json": {
+    "nuevo_nombre": "SMR_ID100_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_fb596b7d_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID100_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_fe7cfb72_raw.json": {
+    "nuevo_nombre": "SMR_ID101_eMotion_NO_TUG.json",
+    "ruta_antigua": "Datos e-Motion/TUG/SMR_20260627_NO_IMU_fe7cfb72_raw.json",
+    "ruta_nueva": "Datos e-Motion/TUG/SMR_ID101_eMotion_NO_TUG.json",
+    "subcarpeta": "TUG",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "TUG",
+    "id_emotion": ""
+  },
+  "CST_20260704_NO_IMU_6f6fd032_raw.json": {
+    "nuevo_nombre": "CST_ID1_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_NO_IMU_6f6fd032_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID1_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P59_B_a5f5f669_raw.json": {
+    "nuevo_nombre": "CST_ID2_eMotion_P59_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P59_B_a5f5f669_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID2_eMotion_P59_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P59",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P53_AF_2337aee0_raw.json": {
+    "nuevo_nombre": "CST_ID3_eMotion_P53_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P53_AF_2337aee0_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID3_eMotion_P53_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P53",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P60_AM_8fe2ed6b_raw.json": {
+    "nuevo_nombre": "CST_ID4_eMotion_P60_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P60_AM_8fe2ed6b_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID4_eMotion_P60_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P60",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P61_P_4f9d38a1_raw.json": {
+    "nuevo_nombre": "CST_ID5_eMotion_P61_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P61_P_4f9d38a1_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID5_eMotion_P61_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P61",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P62_BI_cb6b1535_raw.json": {
+    "nuevo_nombre": "CST_ID6_eMotion_P62_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P62_BI_cb6b1535_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID6_eMotion_P62_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P62",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P55_E_dc68dbc6_raw.json": {
+    "nuevo_nombre": "CST_ID7_eMotion_P55_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P55_E_dc68dbc6_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID7_eMotion_P55_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P55",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P56_Y_081dd40b_raw.json": {
+    "nuevo_nombre": "CST_ID8_eMotion_P56_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P56_Y_081dd40b_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID8_eMotion_P56_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P56",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P63_Z_773a51d3_raw.json": {
+    "nuevo_nombre": "CST_ID9_eMotion_P63_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P63_Z_773a51d3_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID9_eMotion_P63_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P63",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P64_T_f31bbc49_raw.json": {
+    "nuevo_nombre": "CST_ID10_eMotion_P64_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P64_T_f31bbc49_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID10_eMotion_P64_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P64",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P65_AN_91f0fb23_raw.json": {
+    "nuevo_nombre": "CST_ID11_eMotion_P65_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P65_AN_91f0fb23_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID11_eMotion_P65_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P65",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P57_AY_d48689ef_raw.json": {
+    "nuevo_nombre": "CST_ID12_eMotion_P57_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P57_AY_d48689ef_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID12_eMotion_P57_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P57",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_P58_BG_c4300982_raw.json": {
+    "nuevo_nombre": "CST_ID13_eMotion_P58_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_P58_BG_c4300982_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_ID13_eMotion_P58_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "P58",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "CST_20260704_METRICS_49196b62.json": {
+    "nuevo_nombre": "CST_M1_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_METRICS_49196b62.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_M1_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "NO",
+    "tipo": "GAIT"
+  },
+  "CST_20260704_METRICS_fa5aaa78.json": {
+    "nuevo_nombre": "CST_M2_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/CST_20260704_METRICS_fa5aaa78.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/CST_M2_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "CST",
+    "imu_match": "NO",
+    "tipo": "GAIT"
+  },
+  "SMR_20260625_P06_AR_7639eee3_raw.json": {
+    "nuevo_nombre": "SMR_ID1_eMotion_P06_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P06_AR_7639eee3_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID1_eMotion_P06_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P06",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P08_AB_4b2ab6b4_raw.json": {
+    "nuevo_nombre": "SMR_ID2_eMotion_P08_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P08_AB_4b2ab6b4_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID2_eMotion_P08_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P08",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P09_AK_34480359_raw.json": {
+    "nuevo_nombre": "SMR_ID3_eMotion_P09_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P09_AK_34480359_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID3_eMotion_P09_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P09",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P10_AA_95436a8a_raw.json": {
+    "nuevo_nombre": "SMR_ID4_eMotion_P10_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P10_AA_95436a8a_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID4_eMotion_P10_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P10",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P12_A_92dcbfca_raw.json": {
+    "nuevo_nombre": "SMR_ID5_eMotion_P12_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P12_A_92dcbfca_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID5_eMotion_P12_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P12",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P13_BW_66c8ba46_raw.json": {
+    "nuevo_nombre": "SMR_ID6_eMotion_P13_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P13_BW_66c8ba46_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID6_eMotion_P13_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P13",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P14_AG_e6bce349_raw.json": {
+    "nuevo_nombre": "SMR_ID7_eMotion_P14_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P14_AG_e6bce349_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID7_eMotion_P14_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P14",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P15_BK_f2d38bdb_raw.json": {
+    "nuevo_nombre": "SMR_ID8_eMotion_P15_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P15_BK_f2d38bdb_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID8_eMotion_P15_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P15",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P16_BD_3583831d_raw.json": {
+    "nuevo_nombre": "SMR_ID9_eMotion_P16_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P16_BD_3583831d_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID9_eMotion_P16_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P16",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_f8632d2f_raw.json": {
+    "nuevo_nombre": "SMR_ID10_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_NO_IMU_f8632d2f_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID10_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P20_BH_11f23d05_raw.json": {
+    "nuevo_nombre": "SMR_ID11_eMotion_P20_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P20_BH_11f23d05_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID11_eMotion_P20_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P20",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P18_BN_ed8cb966_raw.json": {
+    "nuevo_nombre": "SMR_ID12_eMotion_P18_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P18_BN_ed8cb966_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID12_eMotion_P18_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P18",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_1f3d9243_raw.json": {
+    "nuevo_nombre": "SMR_ID13_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_NO_IMU_1f3d9243_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID13_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P21_X_78bc1d98_raw.json": {
+    "nuevo_nombre": "SMR_ID14_eMotion_P21_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P21_X_78bc1d98_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID14_eMotion_P21_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P21",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P22_BA_548926c5_raw.json": {
+    "nuevo_nombre": "SMR_ID15_eMotion_P22_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P22_BA_548926c5_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID15_eMotion_P22_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P22",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P24_AV_d57ba7a5_raw.json": {
+    "nuevo_nombre": "SMR_ID16_eMotion_P24_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_P24_AV_d57ba7a5_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID16_eMotion_P24_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P24",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P25_AO_fe8d3176_raw.json": {
+    "nuevo_nombre": "SMR_ID17_eMotion_P25_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_P25_AO_fe8d3176_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID17_eMotion_P25_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P25",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P26_M_023b8c9b_raw.json": {
+    "nuevo_nombre": "SMR_ID18_eMotion_P26_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_P26_M_023b8c9b_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID18_eMotion_P26_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P26",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P31_K_e7bf509c_raw.json": {
+    "nuevo_nombre": "SMR_ID19_eMotion_P31_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_P31_K_e7bf509c_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID19_eMotion_P31_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P31",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P32_AZ_898d2089_raw.json": {
+    "nuevo_nombre": "SMR_ID20_eMotion_P32_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_P32_AZ_898d2089_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID20_eMotion_P32_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P32",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P35_AW_6eff50a6_raw.json": {
+    "nuevo_nombre": "SMR_ID21_eMotion_P35_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_P35_AW_6eff50a6_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID21_eMotion_P35_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P35",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_P39_BL_cda48534_raw.json": {
+    "nuevo_nombre": "SMR_ID22_eMotion_P39_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_P39_BL_cda48534_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID22_eMotion_P39_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P39",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P43_BB_3ee0ecde_raw.json": {
+    "nuevo_nombre": "SMR_ID23_eMotion_P43_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_P43_BB_3ee0ecde_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID23_eMotion_P43_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P43",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P44_R_f6f2191f_raw.json": {
+    "nuevo_nombre": "SMR_ID24_eMotion_P44_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_P44_R_f6f2191f_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID24_eMotion_P44_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P44",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P47_Q_120c1be5_raw.json": {
+    "nuevo_nombre": "SMR_ID25_eMotion_P47_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_P47_Q_120c1be5_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID25_eMotion_P47_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P47",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_P52_C_b020da75_raw.json": {
+    "nuevo_nombre": "SMR_ID26_eMotion_P52_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_P52_C_b020da75_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID26_eMotion_P52_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P52",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_0e409a32_raw.json": {
+    "nuevo_nombre": "SMR_ID27_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_NO_IMU_0e409a32_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID27_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_10ea6b0a_raw.json": {
+    "nuevo_nombre": "SMR_ID28_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_NO_IMU_10ea6b0a_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID28_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_395edfb9_raw.json": {
+    "nuevo_nombre": "SMR_ID29_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_NO_IMU_395edfb9_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID29_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_a08a083b_raw.json": {
+    "nuevo_nombre": "SMR_ID30_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_NO_IMU_a08a083b_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID30_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_a7bcca1d_raw.json": {
+    "nuevo_nombre": "SMR_ID31_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_NO_IMU_a7bcca1d_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID31_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_a9046855_raw.json": {
+    "nuevo_nombre": "SMR_ID32_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_NO_IMU_a9046855_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID32_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_NO_IMU_c86c4bff_raw.json": {
+    "nuevo_nombre": "SMR_ID33_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_NO_IMU_c86c4bff_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID33_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260625_P20_S_dde1028c_raw.json": {
+    "nuevo_nombre": "SMR_ID34_eMotion_P20_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260625_P20_S_dde1028c_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID34_eMotion_P20_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "P20",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_041d3765_raw.json": {
+    "nuevo_nombre": "SMR_ID35_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_041d3765_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID35_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_05b76765_raw.json": {
+    "nuevo_nombre": "SMR_ID36_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_05b76765_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID36_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_12e2ca22_raw.json": {
+    "nuevo_nombre": "SMR_ID37_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_12e2ca22_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID37_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_14fbacd4_raw.json": {
+    "nuevo_nombre": "SMR_ID38_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_14fbacd4_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID38_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_21a7e236_raw.json": {
+    "nuevo_nombre": "SMR_ID39_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_21a7e236_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID39_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_2f19de60_raw.json": {
+    "nuevo_nombre": "SMR_ID40_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_2f19de60_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID40_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_40364e38_raw.json": {
+    "nuevo_nombre": "SMR_ID41_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_40364e38_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID41_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_4514952a_raw.json": {
+    "nuevo_nombre": "SMR_ID42_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_4514952a_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID42_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_4a7c71c4_raw.json": {
+    "nuevo_nombre": "SMR_ID43_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_4a7c71c4_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID43_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_5d4b160b_raw.json": {
+    "nuevo_nombre": "SMR_ID44_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_5d4b160b_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID44_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_609d5059_raw.json": {
+    "nuevo_nombre": "SMR_ID45_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_609d5059_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID45_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_855fa26d_raw.json": {
+    "nuevo_nombre": "SMR_ID46_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_855fa26d_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID46_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_8b76c66f_raw.json": {
+    "nuevo_nombre": "SMR_ID47_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_8b76c66f_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID47_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_8f13944e_raw.json": {
+    "nuevo_nombre": "SMR_ID48_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_8f13944e_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID48_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_92686d86_raw.json": {
+    "nuevo_nombre": "SMR_ID49_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_92686d86_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID49_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_9d0680ef_raw.json": {
+    "nuevo_nombre": "SMR_ID50_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_9d0680ef_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID50_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_a22cdc34_raw.json": {
+    "nuevo_nombre": "SMR_ID51_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_a22cdc34_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID51_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_ab67edea_raw.json": {
+    "nuevo_nombre": "SMR_ID52_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_ab67edea_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID52_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_ad4866d3_raw.json": {
+    "nuevo_nombre": "SMR_ID53_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_ad4866d3_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID53_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_b152ceff_raw.json": {
+    "nuevo_nombre": "SMR_ID54_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_b152ceff_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID54_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_b4a3f987_raw.json": {
+    "nuevo_nombre": "SMR_ID55_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_b4a3f987_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID55_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_b54cb03a_raw.json": {
+    "nuevo_nombre": "SMR_ID56_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_b54cb03a_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID56_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_bd4fcb3a_raw.json": {
+    "nuevo_nombre": "SMR_ID57_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_bd4fcb3a_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID57_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_c293dc31_raw.json": {
+    "nuevo_nombre": "SMR_ID58_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_c293dc31_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID58_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_e0b89e59_raw.json": {
+    "nuevo_nombre": "SMR_ID59_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_e0b89e59_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID59_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260626_NO_IMU_ef1d26a2_raw.json": {
+    "nuevo_nombre": "SMR_ID60_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260626_NO_IMU_ef1d26a2_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID60_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_04c0f4f2_raw.json": {
+    "nuevo_nombre": "SMR_ID61_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_04c0f4f2_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID61_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_12b50c3b_raw.json": {
+    "nuevo_nombre": "SMR_ID62_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_12b50c3b_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID62_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_1b893ca6_raw.json": {
+    "nuevo_nombre": "SMR_ID63_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_1b893ca6_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID63_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_1d67416b_raw.json": {
+    "nuevo_nombre": "SMR_ID64_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_1d67416b_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID64_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_266bbad9_raw.json": {
+    "nuevo_nombre": "SMR_ID65_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_266bbad9_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID65_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_2a3e0319_raw.json": {
+    "nuevo_nombre": "SMR_ID66_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_2a3e0319_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID66_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_37dd5945_raw.json": {
+    "nuevo_nombre": "SMR_ID67_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_37dd5945_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID67_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_4110d539_raw.json": {
+    "nuevo_nombre": "SMR_ID68_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_4110d539_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID68_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_42228267_raw.json": {
+    "nuevo_nombre": "SMR_ID69_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_42228267_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID69_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_5364306d_raw.json": {
+    "nuevo_nombre": "SMR_ID70_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_5364306d_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID70_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_597e52ed_raw.json": {
+    "nuevo_nombre": "SMR_ID71_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_597e52ed_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID71_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_59db65ca_raw.json": {
+    "nuevo_nombre": "SMR_ID72_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_59db65ca_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID72_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_925eff62_raw.json": {
+    "nuevo_nombre": "SMR_ID73_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_925eff62_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID73_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_b475e9fe_raw.json": {
+    "nuevo_nombre": "SMR_ID74_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_b475e9fe_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID74_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_c1a682ac_raw.json": {
+    "nuevo_nombre": "SMR_ID75_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_c1a682ac_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID75_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_c5a03517_raw.json": {
+    "nuevo_nombre": "SMR_ID76_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_c5a03517_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID76_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_df97753c_raw.json": {
+    "nuevo_nombre": "SMR_ID77_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_df97753c_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID77_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_e27a033e_raw.json": {
+    "nuevo_nombre": "SMR_ID78_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_e27a033e_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID78_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_e7696b05_raw.json": {
+    "nuevo_nombre": "SMR_ID79_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_e7696b05_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID79_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  },
+  "SMR_20260627_NO_IMU_e80df38f_raw.json": {
+    "nuevo_nombre": "SMR_ID80_eMotion_NO_GAIT.json",
+    "ruta_antigua": "Datos e-Motion/GAIT/SMR_20260627_NO_IMU_e80df38f_raw.json",
+    "ruta_nueva": "Datos e-Motion/GAIT/SMR_ID80_eMotion_NO_GAIT.json",
+    "subcarpeta": "GAIT",
+    "origen": "SMR",
+    "imu_match": "NO",
+    "tipo": "GAIT",
+    "id_emotion": ""
+  }
+}

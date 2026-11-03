@@ -143,7 +143,7 @@ lines.append('- **63 grabaciones** corresponden a pruebas TUG de visión indepen
 lines.append('- Todas las grabaciones se encuentran 100% anonimizadas, sin nombres ni cédulas, listas para análisis de longitud de zancada y velocidad lineal en marcha recta.')
 lines.append('- Las 137 grabaciones de caminata continua (`Gait Analysis` y `GAIT_COMPLETE`) se encuentran preservadas en `Datos e-Motion/No_TUG_Gait_Analysis/`.\n')
 
-with open('Analisis de Datos/Correspondencia_IMU&EMOTION.md', 'w', encoding='utf-8') as out:
+with open('Analisis de Datos/Correlacion.md', 'w', encoding='utf-8') as out:
     out.write('\n'.join(lines))
 
-print('Analisis de Datos/Correspondencia_IMU&EMOTION.md regenerated successfully!')
+print('Analisis de Datos/Correlacion.md regenerated successfully!')
