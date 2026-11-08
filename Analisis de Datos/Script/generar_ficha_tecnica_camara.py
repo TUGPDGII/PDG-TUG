@@ -92,7 +92,7 @@ for r in records:
     lines.append(f"| {idx} | `{r['archivo']}` | {r['tipo_test']} | {r['camara']} | {dur_str} | {r['frames']} | **{r['util_marcha_distancia']}** | {r['util_segmentacion_completa']} |\n")
     idx += 1
 
-out_path = '/home/guarinve/Documentos/PDG-TUG/Analisis de Datos/FichaTecnica_eMotion.md'
+out_path = '/home/guarinve/Documentos/PDG-TUG/Datos e-Motion/FichaTecnica_eMotion.md'
 with open(out_path, 'w', encoding='utf-8') as out_f:
     out_f.writelines(lines)
 

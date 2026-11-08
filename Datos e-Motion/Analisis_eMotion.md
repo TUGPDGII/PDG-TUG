@@ -149,7 +149,7 @@ Se construye el interpolador hermítico cúbico por tramos (**PCHIP**) sobre una
 
 ## 6. Resultados Biomecánicos y Contraste Estadístico (Pacientes con EP vs. Controles)
 
-Al procesar las **223 grabaciones clínicas válidas** (almacenadas en [`Analisis de Datos/df_variables_emotion.csv`](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/df_variables_emotion.csv)), las pruebas **t de Welch** arrojaron diferencias estadísticas significativas:
+Al procesar las **223 grabaciones clínicas válidas** (almacenadas en [`Datos e-Motion/df_variables_emotion.csv`](file:///home/guarinve/Documentos/PDG-TUG/Datos%20e-Motion/df_variables_emotion.csv)), las pruebas **t de Welch** arrojaron diferencias estadísticas significativas:
 
 ### 6.1 Contraste Estadístico en Protocolo TUG (`n = 130` Capturas Válidas)
 

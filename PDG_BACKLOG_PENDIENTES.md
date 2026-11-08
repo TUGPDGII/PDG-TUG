@@ -21,8 +21,8 @@
 
 - [x] **A1. Carga masiva sobre los 78 archivos de `Datos IMUs/`**
   - Implementado y verificado en scripts del repositorio.
-- [x] **A2. Identificación de Personas (`Datos_IMUs.csv`)**
-  - Consolidado en `Analisis de Datos/Datos_IMUs.csv` (78 filas: 63 PAT, 8 CTRL, 7 SIN_ETIQUETA).
+- [x] **A2. Identificación de Personas (`Inventario_IMUs.csv`)**
+  - Consolidado en `Datos IMUs/Inventario_IMUs.csv` (78 filas: 63 PAT, 8 CTRL, 7 SIN_ETIQUETA).
 - [x] **A3. Ejecución de Criterios de Descarte Clínicos y Técnicos**
   - 66 muestras aceptadas (84.6% retención) y 12 descartadas (7 técnicas, 2 duplicados, 3 doble tarea).
 - [x] **A4. Mapeo y Normalización a 50 Hz**
@@ -30,8 +30,8 @@
 - [x] **A5. Ejecución del Algoritmo de Segmentación de Fases IMU Masivo**
   - **Avance presentado en R#8 por JJ Arias:** Segmentación completada con éxito en **63 de las 66 grabaciones válidas** (95.5% de éxito operativo). Las 3 muestras restantes presentaron ausencia de dinámica de tronco.
 - [ ] **A6. Implementar Tareas Específicas solicitadas en R#8:**
-  - [x] **A6.1. Gráfica Compuesta Superpuesta:** Implementada en el Módulo 7 (`segmentar_cinco_fases_tug` y `graficar_fases_superpuestas_tug`) de `Analisis de Datos/PDGI_Colab copy.ipynb`, superponiendo la señal de energía de flexo-extensión de tronco (`espina_base`, canal `b`) y la señal de energía de guiñada (`espina_base`, canal `a`) con líneas verticales discontinuas y franjas de delimitación de las 5 fases TUG.
-  - [x] **A6.2. Clasificación de Fases por Paso en el CSV:** Implementada en el Módulo 8 (`detectar_pasos_registro_completo` y `detectar_pasos_intervalo`) de `Analisis de Datos/PDGI_Colab copy.ipynb`, añadiendo la columna `fase_tug` a la tabla de eventos `STANCE`/`SWING` de ambos tobillos y cuantificando los eventos de paso ejecutados durante el giro de 180°.
+  - [x] **A6.1. Gráfica Compuesta Superpuesta:** Implementada en el Módulo 7 (`segmentar_cinco_fases_tug` y `graficar_fases_superpuestas_tug`) de `Analisis de Datos/PDGI_Colab.ipynb`, superponiendo la señal de energía de flexo-extensión de tronco (`espina_base`, canal `b`) y la señal de energía de guiñada (`espina_base`, canal `a`) con líneas verticales discontinuas y franjas de delimitación de las 5 fases TUG.
+  - [x] **A6.2. Clasificación de Fases por Paso en el CSV:** Implementada en el Módulo 8 (`detectar_pasos_registro_completo` y `detectar_pasos_intervalo`) de `Analisis de Datos/PDGI_Colab.ipynb`, añadiendo la columna `fase_tug` a la tabla de eventos `STANCE`/`SWING` de ambos tobillos y cuantificando los eventos de paso ejecutados durante el giro de 180°.
   - [ ] **A6.3. Fusión de Rama (`merge`):** Fusionar la rama `refactor` hacia `main` en el repositorio remoto.
 
 ---
@@ -39,9 +39,9 @@
 ### BLOQUE B — Fichas Técnicas Formales del Dataset (✅ COMPLETADO)
 
 - [x] **B1. Ficha Técnica Oficial de Datos IMU**
-  - Generada y disponible en `Analisis de Datos/FichaTecnica_IMUs.md`.
+  - Generada y disponible en `Datos IMUs/FichaTecnica_IMUs.md`.
 - [x] **B2. Ficha Técnica Oficial de Cámaras e-Motion (VIMOV)**
-  - Generada y actualizada en `Analisis de Datos/FichaTecnica_eMotion.md`. Documenta exhaustivamente las 269 capturas (132 TUG y 137 Marcha Continua), 0 duplicados (SHA-256), 0 corruptos, su aptitud para distancias/velocidades lineales (fases 1 y 2) y su delimitación metodológica formal respecto a giros y sentado acordada con el tutor en R#8.
+  - Generada y actualizada en `Datos e-Motion/FichaTecnica_eMotion.md`. Documenta exhaustivamente las 269 capturas (132 TUG y 137 Marcha Continua), 0 duplicados (SHA-256), 0 corruptos, su aptitud para distancias/velocidades lineales (fases 1 y 2) y su delimitación metodológica formal respecto a giros y sentado acordada con el tutor en R#8.
 
 ---
 
@@ -59,7 +59,7 @@
   - **Segregación de pruebas No-TUG:** 137 grabaciones de marcha continua libre segregadas en `Datos e-Motion/No_TUG_Gait_Analysis/`.
   - **Regla Estricta de Género:** Descartados formalmente 5 candidatos por discrepancia de sexo (`P17`, `P19`, `P23`, `P29`), consolidando **42 pares bimodales estrictamente TUG con 100% de sexo coincidente** vinculados a las grabaciones IMU.
   - **Estandarización Global de Nombres:** 100% de los archivos renombrados formalmente bajo los prefijos `SMR_`, `CST_` y `LAB_`.
-  - **Sincronización en Cuaderno:** Actualizado el Módulo 2 de `Analisis de Datos/PDGI_Colab copy.ipynb` para consumir `Datos_eMotion.csv` y reportar la correspondencia bimodal auditada.
+  - **Sincronización en Cuaderno:** Actualizado el Módulo 2 de `Analisis de Datos/PDGI_Colab.ipynb` para consumir `Inventario_eMotion.csv` y reportar la correspondencia bimodal auditada.
   - Aplicada anonimización estricta (limpieza de nombres propios y cédulas).
   - Validación multivariable confirmada y documentada en `Analisis de Datos/Correlacion.md`.
 
@@ -82,10 +82,10 @@
 
 > ℹ️ **Meta clave de fin de semestre (Domi R#8):** *"Lograr al menos un hallazgo estadístico con diferencia significativa entre pacientes y controles antes de cerrar PDG-I."*
 
-- [x] **G1. Extracción de Variables Biomecánicas Prioritarias (`Analisis de Datos/df_variables_tug.csv` y `Analisis de Datos/df_variables_emotion.csv`):**
-  - Implementado el flujo de procesamiento masivo en el Módulo 9 (`procesar_pipeline_masivo_tug`) de `Analisis de Datos/PDGI_Colab copy.ipynb` sobre las 66 grabaciones IMU válidas, y en los Módulos 10 a 13 sobre las **223 grabaciones ópticas e-Motion únicas válidas** (130 TUG + 93 Marcha Continua), incorporando PCHIP a 30 Hz, FFT sin DC, filtro Butterworth a 3 Hz, CWT Ricker en la "escalerita" de tobillos, identificación de **Doble Apoyo**, longitud de paso/zancada, velocidad por pendiente de `SpineBase` y braceo.
+- [x] **G1. Extracción de Variables Biomecánicas Prioritarias (`Datos IMUs/df_variables_IMUs.csv` y `Datos e-Motion/df_variables_emotion.csv`):**
+  - Implementado el flujo de procesamiento masivo en el Módulo 9 (`procesar_pipeline_masivo_tug`) de `Analisis de Datos/PDGI_Colab.ipynb` sobre las 66 grabaciones IMU válidas, y en los Módulos 10 a 13 sobre las **223 grabaciones ópticas e-Motion únicas válidas** (130 TUG + 93 Marcha Continua), incorporando PCHIP a 30 Hz, FFT sin DC, filtro Butterworth a 3 Hz, CWT Ricker en la "escalerita" de tobillos, identificación de **Doble Apoyo**, longitud de paso/zancada, velocidad por pendiente de `SpineBase` y braceo.
 - [x] **G2. Aplicación de Pruebas Estadísticas para Grupos Desbalanceados:**
-  - Implementadas las funciones `ejecutar_contraste_estadistico_tug` (Módulo 9) y `ejecutar_contraste_estadistico_emotion` (Módulo 13) en `Analisis de Datos/PDGI_Colab copy.ipynb` con prueba **t de Welch (`equal_var=False`)** y **U de Mann-Whitney**, logrando diferencias estadísticamente significativas ($p < 0.05$) en longitud de zancada ($p=0.0032$), amplitud de braceo ($p=0.0065$), duración activa TUG ($p=0.0082$), doble apoyo en marcha continua ($p=0.0206$), asimetría de braceo ($p=0.0347$) y duración de marcha de regreso ($p=0.0378$).
+  - Implementadas las funciones `ejecutar_contraste_estadistico_tug` (Módulo 9) y `ejecutar_contraste_estadistico_emotion` (Módulo 13) en `Analisis de Datos/PDGI_Colab.ipynb` con prueba **t de Welch (`equal_var=False`)** y **U de Mann-Whitney**, logrando diferencias estadísticamente significativas ($p < 0.05$) en longitud de zancada ($p=0.0032$), amplitud de braceo ($p=0.0065$), duración activa TUG ($p=0.0082$), doble apoyo en marcha continua ($p=0.0206$), asimetría de braceo ($p=0.0347$) y duración de marcha de regreso ($p=0.0378$).
 
 ---
 
@@ -106,10 +106,10 @@
 |---|:---:|---|
 | Regla Maestra del Proyecto | ✅ | `GEMINI.md` |
 | Tabla de correspondencia IMU ↔ e-Motion (78 archivos) | ✅ | `Analisis de Datos/Correlacion.md` |
-| Ficha Técnica de Cámaras e-Motion | ✅ | `Analisis de Datos/FichaTecnica_eMotion.md` |
-| Ficha Técnica de Datos IMU | ✅ | `Analisis de Datos/FichaTecnica_IMUs.md` |
+| Ficha Técnica de Cámaras e-Motion | ✅ | `Datos e-Motion/FichaTecnica_eMotion.md` |
+| Ficha Técnica de Datos IMU | ✅ | `Datos IMUs/FichaTecnica_IMUs.md` |
 | Segmentación IMU de 63/66 grabaciones | ✅ | Notebook / Scripts en `Analisis de Datos/` |
-| Limpieza y clasificación clínica de personas | ✅ | `Analisis de Datos/Datos_IMUs.csv` |
+| Limpieza y clasificación clínica de personas | ✅ | `Datos IMUs/Inventario_IMUs.csv` |
 | Documento LaTeX compilando (OE4 ajustado, figuras integradas) | ✅ | `OverLeaf/PDG-II TUG.pdf` |
 | Minuta completa de Reunión #8 | ✅ | `Notas_Reuniones/Reunion8.md` |
 

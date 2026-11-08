@@ -5,10 +5,10 @@ col_tz = timezone(timedelta(hours=-5))
 em_dir = 'Datos e-Motion'
 imu_dir = 'Datos IMUs'
 
-with open('Analisis de Datos/Datos_IMUs.csv') as f:
+with open('Datos IMUs/Inventario_IMUs.csv') as f:
     imu_meta = {r['archivo']: r for r in csv.DictReader(f)}
 
-with open('Analisis de Datos/Datos_eMotion.csv') as f:
+with open('Datos e-Motion/Inventario_eMotion.csv') as f:
     em_rows = list(csv.DictReader(f))
 
 bimodal_map = {}

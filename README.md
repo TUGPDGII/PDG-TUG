@@ -21,25 +21,29 @@ El sistema implementa una arquitectura de análisis bimodal:
 
 ```text
 PDG-TUG/
-├── Analisis de Datos/            # Pipeline de procesamiento, modelado cinemático y documentación
-│   ├── PDGI_Colab copy.ipynb     # Cuaderno principal interactivo en Google Colab (Módulos 1 a 13)
-│   ├── PDGI_Colab.ipynb          # Cuaderno base de análisis exploratorio inicial
-│   ├── Datos_IMUs.csv            # Inventario y metadatos clínicos de las 78 grabaciones IMU
-│   ├── Datos_eMotion.csv         # Catálogo maestro de 12 metadatos clave para las 225 tomas e-Motion
-│   ├── df_variables_tug.csv      # Matriz de biomarcadores cinemáticos inerciales (66 grabaciones válidas)
-│   ├── df_variables_emotion.csv  # Matriz de 53 variables biomecánicas y clínicas ópticas (223 series)
-│   ├── Analisis_IMUs.md          # Auditoría técnica e inferencial detallada del sistema inercial
-│   ├── Analisis_eMotion.md       # Evaluación de calidad, segmentación y análisis biomecánico 3D
-│   ├── Guia_Pipeline_eMotion.md  # Guía metodológica y conceptual del procesamiento óptico
+├── Analisis de Datos/            # Pipeline de procesamiento y modelado interactivo
+│   ├── PDGI_Colab.ipynb          # Cuaderno interactivo principal en Google Colab (Módulos 1 a 14)
+│   └── Script/                   # Scripts de soporte, mapeos de renombramiento y resúmenes
+├── Datos IMUs/                   # Conjunto de datos inerciales y documentación asociada
+│   ├── IMUS/                     # 78 grabaciones inerciales en formato JSON (~50 Hz)
+│   ├── Inventario_IMUs.csv       # Catálogo unificado de metadatos clínicos y trazabilidad
+│   ├── df_variables_IMUs.csv     # Matriz de biomarcadores cinemáticos inerciales (66 grabaciones válidas)
 │   ├── FichaTecnica_IMUs.md      # Ficha técnica oficial de control de calidad inercial
-│   ├── FichaTecnica_eMotion.md   # Ficha técnica oficial del conjunto de datos ópticos (225 archivos)
-│   ├── Correlacion.md            # Trazabilidad y validación bimodal (42 pares TUG confirmados)
-│   └── Script/                   # Scripts de soporte, mapeos de renombramiento y resúmenes JSON
-├── Datos IMUs/                   # Grabaciones inerciales en formato JSON (78 grabaciones)
-│   └── *.json                    # Acelerometría y giroscopio triaxial (~50 Hz)
+│   └── Analisis_IMUs.md          # Auditoría técnica e inferencial detallada del sistema inercial
 ├── Datos e-Motion/               # Grabaciones de cámaras RGB-D y secuencias esqueléticas (225 archivos)
 │   ├── TUG/                      # 130 grabaciones del protocolo Timed Up and Go (SMR, LAB, CST)
-│   └── GAIT/                     # 95 grabaciones del protocolo de marcha continua de 10 m (SMR, CST)
+│   ├── GAIT/                     # 95 grabaciones del protocolo de marcha continua de 10 m (SMR, CST)
+│   ├── Inventario_eMotion.csv    # Catálogo maestro de metadatos clave para las 225 tomas e-Motion
+│   ├── df_variables_emotion.csv  # Matriz de 53 variables biomecánicas y clínicas ópticas (223 series)
+│   ├── FichaTecnica_eMotion.md   # Ficha técnica oficial del conjunto de datos ópticos (225 archivos)
+│   ├── Analisis_eMotion.md       # Evaluación de calidad, segmentación y análisis biomecánico 3D
+│   └── Guia_Pipeline_eMotion.md  # Guía metodológica y conceptual del procesamiento óptico
+├── Datos IMU&eMotion/            # Dataset bimodal sincronizado 1:1 de brigada
+│   ├── IMU&eMotion/              # 53 pares de archivos JSON sincronizados (106 archivos en total)
+│   ├── Inventario_1a1.csv        # Inventario de pares bimodales con desfases temporales y metadatos
+│   ├── df_variables_1a1.csv      # Matriz comparativa de biomarcadores IMU y e-Motion lado a lado
+│   ├── FichaTecnica_1a1.md       # Ficha técnica oficial de correspondencia bimodal 1:1
+│   └── Analisis_1a1.md           # Análisis cinemático comparativo y concordancia temporal
 ├── Notas_Reuniones/              # Minutas de seguimiento técnico y metodológico
 ├── OverLeaf/                     # Manuscrito académico en LaTeX y figuras metodológicas
 └── README.md                     # Documento principal del repositorio

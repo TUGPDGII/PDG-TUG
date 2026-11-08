@@ -2,7 +2,7 @@
 > **Proyecto de Grado:** Caracterización Cinemática y Clasificación del Test *Timed Up and Go* (TUG) en la Enfermedad de Parkinson Mediante Sensores Inerciales y Cámaras de Profundidad RGB-D
 > **Propósito del Documento:** Explicar paso a paso, con lenguaje claro, riguroso y didáctico, qué hace cada componente del pipeline óptico, qué significa cada variable biomecánica, cómo interpretar los gráficos y tablas, y qué implicaciones clínicas se deducen cuando un valor es mayor o menor entre un paciente y una persona sana.
 > **Fecha de Actualización:** 02 de Noviembre de 2026
-> **Archivos de Respaldo:** [`Analisis de Datos/Analisis_eMotion.md`](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/Analisis_eMotion.md), [`Analisis de Datos/FichaTecnica_eMotion.md`](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/FichaTecnica_eMotion.md), [`Analisis de Datos/df_variables_emotion.csv`](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/df_variables_emotion.csv) y [`Analisis de Datos/PDGI_Colab copy.ipynb`](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/PDGI_Colab%20copy.ipynb).
+> **Archivos de Respaldo:** [`Datos e-Motion/Analisis_eMotion.md`](file:///home/guarinve/Documentos/PDG-TUG/Datos%20e-Motion/Analisis_eMotion.md), [`Datos e-Motion/FichaTecnica_eMotion.md`](file:///home/guarinve/Documentos/PDG-TUG/Datos%20e-Motion/FichaTecnica_eMotion.md), [`Datos e-Motion/df_variables_emotion.csv`](file:///home/guarinve/Documentos/PDG-TUG/Datos%20e-Motion/df_variables_emotion.csv) y [`Analisis de Datos/PDGI_Colab.ipynb`](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/PDGI_Colab.ipynb).
 
 ---
 
@@ -205,7 +205,7 @@ $$\%\text{DobleApoyo} = \frac{\text{Tiempo total con ambos pies en el suelo}}{\t
 
 ## 9. Diccionario Exhaustivo de Variables Biomecánicas: ¿Qué Significa Cada Dato?
 
-A continuación se detalla cada una de las variables que se extraen en [`df_variables_emotion.csv`](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/df_variables_emotion.csv), su unidad de medida y qué se deduce cuando el valor es mayor o menor:
+A continuación se detalla cada una de las variables que se extraen en [`df_variables_emotion.csv`](file:///home/guarinve/Documentos/PDG-TUG/Datos%20e-Motion/df_variables_emotion.csv), su unidad de medida y qué se deduce cuando el valor es mayor o menor:
 
 | Nombre de la Variable | Unidad | ¿Qué Mide Físicamente? | Si es MAYOR en el paciente... | Si es MENOR en el paciente... |
 |:---|:---:|:---|:---|:---|
@@ -254,7 +254,7 @@ Cuando retiramos la silla y el giro de $180^\circ$ y dejamos que la persona cami
 
 ## 11. Interpretación de los Gráficos del Cuaderno: ¿Cómo Explicar Cada Panel?
 
-Cuando abrimos [`Analisis de Datos/PDGI_Colab copy.ipynb`](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/PDGI_Colab%20copy.ipynb) y ejecutamos los Módulos 11, 12 y 13, se despliegan tres paneles gráficos fundamentales:
+Cuando abrimos [`Analisis de Datos/PDGI_Colab.ipynb`](file:///home/guarinve/Documentos/PDG-TUG/Analisis%20de%20Datos/PDGI_Colab.ipynb) y ejecutamos los Módulos 11, 12 y 13, se despliegan tres paneles gráficos fundamentales:
 
 ### 1. Panel de Macro-Segmentación (Módulo 11 — 3 Gráficos Verticales)
 * **Gráfico Superior (Curva Azul en forma de 'U' o 'V'):** Muestra la distancia $Z$ del centro del cuerpo a la cámara.
