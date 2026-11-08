@@ -1,0 +1,54 @@
+id_par,archivo_imu,archivo_emotion,duracion_imu_s,duracion_emotion_s,num_giros_detectados,instantes_giros_s,pausa_estatica_max_s,diagnostico
+IDB1,SMR_IDB1_I.json,SMR_IDB1_eM.json,41.11,21.97,0,[],11.5,Pausa estática (11.5 s); Asimetría duración (IMU 41.11s vs eMo 21.97s)
+IDB2,SMR_IDB2_I.json,SMR_IDB2_eM.json,87.82,25.07,0,[],14.1,Pausa estática (14.1 s); Asimetría duración (IMU 87.82s vs eMo 25.07s)
+IDB3,SMR_IDB3_I.json,SMR_IDB3_eM.json,44.0,18.17,1,[42.2],15.1,Pausa estática (15.1 s); Asimetría duración (IMU 44.0s vs eMo 18.17s)
+IDB4,SMR_IDB4_I.json,SMR_IDB4_eM.json,80.32,79.4,1,[77.5],4.6,"Registro TUG Regular (1 solo giro, sin pausas prolongadas)"
+IDB5,SMR_IDB5_I.json,SMR_IDB5_eM.json,69.71,10.97,2,"[16.6, 52.7]",21.7,"2 giros ([16.6, 52.7] s); Pausa estática (21.7 s); Asimetría duración (IMU 69.71s vs eMo 10.97s)"
+IDB6,SMR_IDB6_I.json,SMR_IDB6_eM.json,59.75,16.53,0,[],4.9,Asimetría duración (IMU 59.75s vs eMo 16.53s)
+IDB7,SMR_IDB7_I.json,SMR_IDB7_eM.json,11.94,12.7,2,"[1.2, 10.3]",1.0,"2 giros ([1.2, 10.3] s)"
+IDB8,SMR_IDB8_I.json,SMR_IDB8_eM.json,65.64,26.33,0,[],17.3,Pausa estática (17.3 s); Asimetría duración (IMU 65.64s vs eMo 26.33s)
+IDB9,SMR_IDB9_I.json,SMR_IDB9_eM.json,101.5,24.33,0,[],14.7,Pausa estática (14.7 s); Asimetría duración (IMU 101.5s vs eMo 24.33s)
+IDB10,SMR_IDB10_I.json,SMR_IDB10_eM.json,53.71,16.73,2,"[18.8, 51.8]",10.5,"2 giros ([18.8, 51.8] s); Pausa estática (10.5 s); Asimetría duración (IMU 53.71s vs eMo 16.73s)"
+IDB11,SMR_IDB11_I.json,SMR_IDB11_eM.json,62.32,16.8,0,[],35.6,Pausa estática (35.6 s); Asimetría duración (IMU 62.32s vs eMo 16.8s)
+IDB12,SMR_IDB12_I.json,SMR_IDB12_eM.json,53.69,21.8,0,[],16.9,Pausa estática (16.9 s); Asimetría duración (IMU 53.69s vs eMo 21.8s)
+IDB13,SMR_IDB13_I.json,SMR_IDB13_eM.json,49.98,12.53,0,[],17.5,Pausa estática (17.5 s); Asimetría duración (IMU 49.98s vs eMo 12.53s)
+IDB14,SMR_IDB14_I.json,SMR_IDB14_eM.json,53.06,18.6,0,[],14.1,Pausa estática (14.1 s); Asimetría duración (IMU 53.06s vs eMo 18.6s)
+IDB15,SMR_IDB15_I.json,SMR_IDB15_eM.json,72.19,25.83,0,[],15.4,Pausa estática (15.4 s); Asimetría duración (IMU 72.19s vs eMo 25.83s)
+IDB16,SMR_IDB16_I.json,SMR_IDB16_eM.json,76.28,21.7,1,[73.1],21.2,Pausa estática (21.2 s); Asimetría duración (IMU 76.28s vs eMo 21.7s)
+IDB17,SMR_IDB17_I.json,SMR_IDB17_eM.json,80.71,34.0,0,[],10.4,Pausa estática (10.4 s); Asimetría duración (IMU 80.71s vs eMo 34.0s)
+IDB18,SMR_IDB18_I.json,SMR_IDB18_eM.json,70.67,20.6,0,[],26.6,Pausa estática (26.6 s); Asimetría duración (IMU 70.67s vs eMo 20.6s)
+IDB19,SMR_IDB19_I.json,SMR_IDB19_eM.json,40.92,13.43,0,[],15.2,Pausa estática (15.2 s); Asimetría duración (IMU 40.92s vs eMo 13.43s)
+IDB20,SMR_IDB20_I.json,SMR_IDB20_eM.json,48.19,18.3,3,"[7.7, 38.0, 43.0]",13.8,"3 giros ([7.7, 38.0, 43.0] s); Pausa estática (13.8 s); Asimetría duración (IMU 48.19s vs eMo 18.3s)"
+IDB21,SMR_IDB21_I.json,SMR_IDB21_eM.json,62.3,21.63,0,[],9.8,Pausa estática (9.8 s); Asimetría duración (IMU 62.3s vs eMo 21.63s)
+IDB22,SMR_IDB22_I.json,SMR_IDB22_eM.json,61.07,17.7,0,[],24.6,Pausa estática (24.6 s); Asimetría duración (IMU 61.07s vs eMo 17.7s)
+IDB23,SMR_IDB23_I.json,SMR_IDB23_eM.json,19.31,14.2,0,[],5.8,"Registro TUG Regular (1 solo giro, sin pausas prolongadas)"
+IDB24,SMR_IDB24_I.json,SMR_IDB24_eM.json,89.4,18.97,0,[],20.1,Pausa estática (20.1 s); Asimetría duración (IMU 89.4s vs eMo 18.97s)
+IDB25,SMR_IDB25_I.json,SMR_IDB25_eM.json,31.32,17.9,0,[],15.0,Pausa estática (15.0 s)
+IDB26,SMR_IDB26_I.json,SMR_IDB26_eM.json,14.19,16.87,0,[],2.4,"Registro TUG Regular (1 solo giro, sin pausas prolongadas)"
+IDB27,SMR_IDB27_I.json,SMR_IDB27_eM.json,15.48,17.3,0,[],1.3,"Registro TUG Regular (1 solo giro, sin pausas prolongadas)"
+IDB28,SMR_IDB28_I.json,SMR_IDB28_eM.json,49.17,17.63,0,[],6.9,Asimetría duración (IMU 49.17s vs eMo 17.63s)
+IDB29,SMR_IDB29_I.json,SMR_IDB29_eM.json,133.22,24.23,0,[],41.9,Pausa estática (41.9 s); Asimetría duración (IMU 133.22s vs eMo 24.23s)
+IDB30,SMR_IDB30_I.json,SMR_IDB30_eM.json,38.33,28.57,2,"[11.5, 35.8]",13.2,"2 giros ([11.5, 35.8] s); Pausa estática (13.2 s)"
+IDB31,SMR_IDB31_I.json,SMR_IDB31_eM.json,50.82,16.63,0,[],16.1,Pausa estática (16.1 s); Asimetría duración (IMU 50.82s vs eMo 16.63s)
+IDB32,SMR_IDB32_I.json,SMR_IDB32_eM.json,47.23,14.93,0,[],15.8,Pausa estática (15.8 s); Asimetría duración (IMU 47.23s vs eMo 14.93s)
+IDB33,SMR_IDB33_I.json,SMR_IDB33_eM.json,45.84,13.83,0,[],13.1,Pausa estática (13.1 s); Asimetría duración (IMU 45.84s vs eMo 13.83s)
+IDB34,SMR_IDB34_I.json,SMR_IDB34_eM.json,66.67,16.23,0,[],20.4,Pausa estática (20.4 s); Asimetría duración (IMU 66.67s vs eMo 16.23s)
+IDB35,SMR_IDB35_I.json,SMR_IDB35_eM.json,48.29,15.17,1,[44.5],2.0,Asimetría duración (IMU 48.29s vs eMo 15.17s)
+IDB36,SMR_IDB36_I.json,SMR_IDB36_eM.json,63.73,21.5,0,[],14.9,Pausa estática (14.9 s); Asimetría duración (IMU 63.73s vs eMo 21.5s)
+IDB37,SMR_IDB37_I.json,SMR_IDB37_eM.json,73.5,16.2,1,[68.3],28.2,Pausa estática (28.2 s); Asimetría duración (IMU 73.5s vs eMo 16.2s)
+IDB38,SMR_IDB38_I.json,SMR_IDB38_eM.json,48.21,14.4,1,[15.5],11.8,Pausa estática (11.8 s); Asimetría duración (IMU 48.21s vs eMo 14.4s)
+IDB39,SMR_IDB39_I.json,SMR_IDB39_eM.json,43.67,15.73,1,[9.0],14.7,Pausa estática (14.7 s); Asimetría duración (IMU 43.67s vs eMo 15.73s)
+IDB40,SMR_IDB40_I.json,SMR_IDB40_eM.json,46.96,15.83,1,[15.0],14.4,Pausa estática (14.4 s); Asimetría duración (IMU 46.96s vs eMo 15.83s)
+IDB41,SMR_IDB41_I.json,SMR_IDB41_eM.json,40.98,12.5,0,[],13.5,Pausa estática (13.5 s); Asimetría duración (IMU 40.98s vs eMo 12.5s)
+IDB42,SMR_IDB42_I.json,SMR_IDB42_eM.json,57.25,13.73,0,[],18.6,Pausa estática (18.6 s); Asimetría duración (IMU 57.25s vs eMo 13.73s)
+IDB43,SMR_IDB43_I.json,SMR_IDB43_eM.json,76.83,12.67,0,[],24.4,Pausa estática (24.4 s); Asimetría duración (IMU 76.83s vs eMo 12.67s)
+IDB44,SMR_IDB44_I.json,SMR_IDB44_eM.json,55.25,18.8,0,[],13.4,Pausa estática (13.4 s); Asimetría duración (IMU 55.25s vs eMo 18.8s)
+IDB45,SMR_IDB45_I.json,SMR_IDB45_eM.json,39.33,13.2,0,[],14.7,Pausa estática (14.7 s); Asimetría duración (IMU 39.33s vs eMo 13.2s)
+IDB46,SMR_IDB46_I.json,SMR_IDB46_eM.json,101.9,19.57,0,[],23.8,Pausa estática (23.8 s); Asimetría duración (IMU 101.9s vs eMo 19.57s)
+IDB47,SMR_IDB47_I.json,SMR_IDB47_eM.json,43.06,15.0,1,[8.8],14.8,Pausa estática (14.8 s); Asimetría duración (IMU 43.06s vs eMo 15.0s)
+IDB48,CST_IDB48_I.json,CST_IDB48_eM.json,25.84,15.63,0,[],1.8,"Registro TUG Regular (1 solo giro, sin pausas prolongadas)"
+IDB49,CST_IDB49_I.json,CST_IDB49_eM.json,43.54,15.5,1,[16.4],10.4,Pausa estática (10.4 s); Asimetría duración (IMU 43.54s vs eMo 15.5s)
+IDB50,CST_IDB50_I.json,CST_IDB50_eM.json,39.84,18.23,1,[37.5],7.8,Asimetría duración (IMU 39.84s vs eMo 18.23s)
+IDB51,CST_IDB51_I.json,CST_IDB51_eM.json,38.71,11.97,0,[],7.2,Asimetría duración (IMU 38.71s vs eMo 11.97s)
+IDB52,CST_IDB52_I.json,CST_IDB52_eM.json,41.32,17.07,0,[],7.2,Asimetría duración (IMU 41.32s vs eMo 17.07s)
+IDB53,CST_IDB53_I.json,CST_IDB53_eM.json,30.65,13.9,0,[],7.5,Asimetría duración (IMU 30.65s vs eMo 13.9s)

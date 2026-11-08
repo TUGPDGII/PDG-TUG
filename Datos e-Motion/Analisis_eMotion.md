@@ -49,11 +49,11 @@ Donde:
 * **`{TIPO}`:** Protocolo biomecánico evaluado: **`TUG`** (en `Datos e-Motion/TUG/`) o **`GAIT`** (en `Datos e-Motion/GAIT/`).
 
 **Ejemplos Reales del Repositorio:**
-* `LAB_ID1_eMotion_NO_TUG.json`: Primera prueba TUG en laboratorio, sin sensor IMU.
-* `SMR_ID1_eMotion_P06_TUG.json`: Prueba TUG en Santa Marta del paciente e-Motion P1, con concordancia con el sensor IMU del sujeto P06.
-* `SMR_ID1_eMotion_P06_GAIT.json`: Prueba de marcha continua 10m en Santa Marta correspondiente al mismo sujeto P06.
-* `CST_ID1_eMotion_P54_TUG.json`: Prueba TUG en CST con cámara Orbbec Astra 2, correspondiente al sujeto IMU P54.
-* `CST_M1_eMotion_NO_GAIT.json`: Archivo de métricas comparativas tabulares en marcha continua.
+* `LAB_IDE1_TUG_NO.json`: Primera prueba TUG en laboratorio, sin sensor IMU.
+* `SMR_IDE1_TUG_P06.json`: Prueba TUG en Santa Marta del paciente e-Motion P1, con concordancia con el sensor IMU del sujeto P06.
+* `SMR_IDE1_GAIT_P06.json`: Prueba de marcha continua 10m en Santa Marta correspondiente al mismo sujeto P06.
+* `CST_IDE1_TUG_P54.json`: Prueba TUG en CST con cámara Orbbec Astra 2, correspondiente al sujeto IMU P54.
+* `CST_IDEM1_GAIT_NO.json`: Archivo de métricas comparativas tabulares en marcha continua.
 
 ---
 

@@ -29,7 +29,7 @@ El conjunto de datos almacenado en la carpeta `Datos IMUs` constituye el reposit
 Conforme a las directrices metodológicas establecidas con el tutor Domiciano Rincón, se aplicó un filtro estricto de control de calidad sobre los 78 archivos, resultando en el descarte formal de **12 grabaciones (15.4%)**:
 
 1. **Pruebas Técnicas de Calibración Interna (7 archivos):** Archivos `temp_BV`, `temp_N`, `temp_BO`, `temp_BX`, `temp_BJ`, `temp_F` y `temp_AX`. Se ejecutaron entre febrero y marzo de 2026 como pruebas internas de conexión y sincronización sin presencia de pacientes clínicos (`patientType` vacío). Cuatro de ellas carecen de los sensores mínimos indispensables y dos sufrieron desconexiones prematuras de hardware.
-2. **Duplicados Exactos Byte a Byte por Falla de Red (2 archivos):** Archivos `20260626133916_temp_BA.json` y `20260820142006_temp_Z.json`. Presentan sumas de verificación criptográfica MD5 idénticas a sus pares grabados un segundo antes. Fueron generados por reintentos automáticos de sincronización hacia el almacenamiento central ante intermitencias de la red wifi en campo.
+2. **Duplicados Exactos Byte a Byte por Falla de Red (2 archivos):** Archivos `SMR_IDI21_BA.json` y `CST_IDI12_Z.json`. Presentan sumas de verificación criptográfica MD5 idénticas a sus pares grabados un segundo antes. Fueron generados por reintentos automáticos de sincronización hacia el almacenamiento central ante intermitencias de la red wifi en campo.
 3. **Pruebas Experimentales de Doble Tarea (*Dual Task*) (3 archivos):** Archivos `temp_AZ`, `temp_J` y `temp_AQ` (todas pertenecientes al paciente `P32`). Corresponden a variaciones experimentales con interferencia cognitiva (resta continua desde 30, resta de 3 en 3 y nombrar ciudades). Al existir únicamente 3 tomas con esta condición, carecen de significancia estadística como clase independiente y alterarían la distribución de la marcha basal del TUG.
 
 ---
@@ -57,65 +57,65 @@ Se identificaron **8 grupos demográficos** que contienen más de un archivo gra
 * **Demográficos:** Nacimiento: `12/09/1955` | Sexo: `MALE` | Talla: `173 cm` | Clase: `PATIENT`
 * **Kit:** `Base` | **Observaciones clínicas:** *'paciente DBS'*
 * **Tomas registradas (2):**
-  - `20260625140746_temp_BF.json` (BF): Inicio: `2026-06-25 14:06:19 UTC` | Duración: 22.83 s | Muestras: 5,429 | **Válido**.
-  - `20260625140851_temp_AR.json` (AR): Inicio: `2026-06-25 14:07:54 UTC` | Duración: 41.63 s | Muestras: 10,234 | **Válido**.
+  - `SMR_IDI1_BF.json` (BF): Inicio: `2026-06-25 14:06:19 UTC` | Duración: 22.83 s | Muestras: 5,429 | **Válido**.
+  - `SMR_IDI2_AR.json` (AR): Inicio: `2026-06-25 14:07:54 UTC` | Duración: 41.63 s | Muestras: 10,234 | **Válido**.
 * **Análisis clínico/técnico:** El paciente ejecutó dos intentos continuos de TUG separados por 95 segundos. La segunda toma refleja un tiempo casi duplicado (41.6s vs 22.8s), evidenciando fatiga motora o dificultad biomecánica en el segundo intento.
 
 #### Grupo 2: Paciente P08 — Estimulación Cerebral Profunda con Pausa en Test
 * **Demográficos:** Nacimiento: `29/03/1958` | Sexo: `MALE` | Talla: `150 cm` | Clase: `PATIENT`
 * **Kit:** `Base` | **Observaciones clínicas:** *'DBS'*
 * **Tomas registradas (2):**
-  - `20260625195406_temp_BR.json` (BR): Inicio: `2026-06-25 19:51:46 UTC` | Duración efectiva: 50.61 s | Pausa: 30,907 ms | Muestras: 12,482 | **Válido**.
-  - `20260625195426_temp_AP.json` (AP): Inicio: `2026-06-25 19:54:10 UTC` | Duración efectiva: 12.17 s | Pausa: 0 ms | Muestras: 2,981 | **Válido**.
+  - `SMR_IDI13_BR.json` (BR): Inicio: `2026-06-25 19:51:46 UTC` | Duración efectiva: 50.61 s | Pausa: 30,907 ms | Muestras: 12,482 | **Válido**.
+  - `SMR_IDI14_AP.json` (AP): Inicio: `2026-06-25 19:54:10 UTC` | Duración efectiva: 12.17 s | Pausa: 0 ms | Muestras: 2,981 | **Válido**.
 * **Análisis clínico/técnico:** En la primera toma (`BR`) el evaluador activó una pausa de 30.9 segundos durante el recorrido. Tras recuperarse, se ejecutó la toma `AP` con un tiempo rápido y fluido de 12.2s.
 
 #### Grupo 3: Paciente P10 — Marcha Lenta y Medicación con Amantadina
 * **Demográficos:** Nacimiento: `30/11/1969` | Sexo: `MALE` | Talla: `173 cm` | Clase: `PATIENT`
 * **Kit:** `K1` | **Observaciones clínicas:** *'paciente amantadina.'*
 * **Tomas registradas (2):**
-  - `20260625214451_temp_BH.json` (BH): Inicio: `2026-06-25 20:13:35 UTC` | Duración efectiva: 66.01 s | Pausa: 17,020 ms | Muestras: 16,247 | **Válido**.
-  - `20260625214518_temp_S.json` (S): Inicio: `2026-06-25 20:16:06 UTC` | Duración efectiva: 101.82 s | Pausa: 0 ms | Muestras: 25,000 | **Válido**.
+  - `SMR_IDI17_BH.json` (BH): Inicio: `2026-06-25 20:13:35 UTC` | Duración efectiva: 66.01 s | Pausa: 17,020 ms | Muestras: 16,247 | **Válido**.
+  - `SMR_IDI18_S.json` (S): Inicio: `2026-06-25 20:16:06 UTC` | Duración efectiva: 101.82 s | Pausa: 0 ms | Muestras: 25,000 | **Válido**.
 * **Análisis clínico/técnico:** Paciente con compromiso motor avanzado. Ambas tomas superan el minuto de duración (66s y 101.8s). Corresponde al registro más prolongado del dataset.
 
 #### Grupo 4: Paciente P12 — Colisión por Duplicado de Sincronización (MD5)
 * **Demográficos:** Nacimiento: `01/05/1953` | Sexo: `MALE` | Talla: `167 cm` | Clase: `PATIENT`
 * **Kit:** `K1` | **Observaciones clínicas:** *'paciente levodopa 5pm'*
 * **Tomas registradas (2):**
-  - `20260626133915_temp_BA.json` (BA): Inicio: `2026-06-25 22:55:59 UTC` | MD5: `07fbe1a39c4956b1d30f7da7190d1b1e` | **Válido**.
-  - `20260626133916_temp_BA.json` (BA): Inicio: `2026-06-25 22:55:59 UTC` | MD5: `07fbe1a39c4956b1d30f7da7190d1b1e` | **Descartado (Duplicado exacto)**.
+  - `SMR_IDI20_BA.json` (BA): Inicio: `2026-06-25 22:55:59 UTC` | MD5: `07fbe1a39c4956b1d30f7da7190d1b1e` | **Válido**.
+  - `SMR_IDI21_BA.json` (BA): Inicio: `2026-06-25 22:55:59 UTC` | MD5: `07fbe1a39c4956b1d30f7da7190d1b1e` | **Descartado (Duplicado exacto)**.
 * **Análisis técnico:** Ambos archivos son idénticos bit a bit. Se conserva la primera instancia y se purga la réplica para evitar sobreponderar al sujeto.
 
 #### Grupo 5: Paciente P18 — Paciente Femenina con DBS y Levodopa
 * **Demográficos:** Nacimiento: `23/05/1959` | Sexo: `FEMALE` | Talla: `158 cm` | Clase: `PATIENT`
 * **Kit:** `Base` | **Observaciones clínicas:** *'Dbs, paciente. levodopa 9am.'*
 * **Tomas registradas (2):**
-  - `20260626160554_temp_BU.json` (BU): Inicio: `2026-06-26 16:04:24 UTC` | Duración: 62.50 s | Muestras: 15,220 | **Válido**.
-  - `20260626160620_temp_K.json` (K): Inicio: `2026-06-26 16:05:55 UTC` | Duración: 19.59 s | Muestras: 4,809 | **Válido**.
+  - `SMR_IDI30_BU.json` (BU): Inicio: `2026-06-26 16:04:24 UTC` | Duración: 62.50 s | Muestras: 15,220 | **Válido**.
+  - `SMR_IDI31_K.json` (K): Inicio: `2026-06-26 16:05:55 UTC` | Duración: 19.59 s | Muestras: 4,809 | **Válido**.
 * **Análisis clínico/técnico:** Registros consecutivos donde la primera toma tardó 62.5s (presentando titubeos en giros) y la segunda 19.6s, mostrando el efecto de aprendizaje o reanudación motora.
 
 #### Grupo 6: Paciente P23 — Protocolo Clínico Bimodal con Doble Tarea (*Dual Task*)
 * **Demográficos:** Nacimiento: `23/06/1955` | Sexo: `MALE` | Talla: `166 cm` | Clase: `PATIENT`
 * **Kit:** `K1` | **Observaciones clínicas:** *'paciente. No medicado'*
 * **Tomas registradas (4):**
-  - `20260626170623_temp_BT.json` (BT): Inicio: `2026-06-26 17:04:37 UTC` | Condición: **TUG Normal (Línea Base)** | Duración: 89.69 s | Muestras: 22,024 | **Válido**.
-  - `20260626170733_temp_AZ.json` (AZ): Inicio: `2026-06-26 17:06:53 UTC` | Condición: **Dual Task (resta continua de 30)** | Duración: 31.52 s | Muestras: 7,703 | **Descartado**.
-  - `20260626170919_temp_J.json` (J): Inicio: `2026-06-26 17:08:58 UTC` | Condición: **Dual Task (resta de 3 en 3)** | Duración: 14.42 s | Muestras: 3,457 | **Descartado**.
-  - `20260626170956_temp_AQ.json` (AQ): Inicio: `2026-06-26 17:09:37 UTC` | Condición: **Dual Task (nombrar ciudades)** | Duración: 15.61 s | Muestras: 3,818 | **Descartado**.
+  - `SMR_IDI32_BT.json` (BT): Inicio: `2026-06-26 17:04:37 UTC` | Condición: **TUG Normal (Línea Base)** | Duración: 89.69 s | Muestras: 22,024 | **Válido**.
+  - `SMR_IDI33_AZ.json` (AZ): Inicio: `2026-06-26 17:06:53 UTC` | Condición: **Dual Task (resta continua de 30)** | Duración: 31.52 s | Muestras: 7,703 | **Descartado**.
+  - `SMR_IDI34_J.json` (J): Inicio: `2026-06-26 17:08:58 UTC` | Condición: **Dual Task (resta de 3 en 3)** | Duración: 14.42 s | Muestras: 3,457 | **Descartado**.
+  - `SMR_IDI35_AQ.json` (AQ): Inicio: `2026-06-26 17:09:37 UTC` | Condición: **Dual Task (nombrar ciudades)** | Duración: 15.61 s | Muestras: 3,818 | **Descartado**.
 * **Análisis metodológico:** Es el único paciente sometido a un experimento multimodal de estrés cognitivo. Siguiendo las directrices del tutor, la toma basal `BT` se conserva para el clasificador estándar de EP, mientras que las tres variantes cognitivas se aíslan para no introducir ruido heterogéneo.
 
 #### Grupo 7: Paciente P51 — Colisión por Duplicado de Sincronización (MD5)
 * **Demográficos:** Nacimiento: `14/01/1943` | Sexo: `MALE` | Talla: `160 cm` | Clase: `PATIENT`
 * **Kit:** `K1` | **Observaciones clínicas:** *'Levodopa Día anterior 12 pm'*
 * **Tomas registradas (2):**
-  - `20260820142005_temp_Z.json` (Z): Inicio: `2026-07-04 17:49:13 UTC` | MD5: `f54c9df430b3a2d9ebeb78e12c045309` | **Válido**.
-  - `20260820142006_temp_Z.json` (Z): Inicio: `2026-07-04 17:49:13 UTC` | MD5: `f54c9df430b3a2d9ebeb78e12c045309` | **Descartado (Duplicado exacto)**.
+  - `CST_IDI11_Z.json` (Z): Inicio: `2026-07-04 17:49:13 UTC` | MD5: `f54c9df430b3a2d9ebeb78e12c045309` | **Válido**.
+  - `CST_IDI12_Z.json` (Z): Inicio: `2026-07-04 17:49:13 UTC` | MD5: `f54c9df430b3a2d9ebeb78e12c045309` | **Descartado (Duplicado exacto)**.
 * **Análisis técnico:** Réplica exacta generada en la sincronización de agosto de 2026. Se purga la segunda instancia.
 
 #### Grupo 8: Sujeto Control C01 — Mismo Sujeto Control con Intervalo de 7 Días
 * **Demográficos:** Nacimiento: `10/02/2003` | Sexo: `FEMALE` | Talla: `155 cm` (toma 1) / `156 cm` (toma 2) | Clase: `CONTROL`
 * **Tomas registradas (2):**
-  - `20260611235032_temp_AL.json` (AL): Inicio: `2026-06-11 23:50:03 UTC` | Kit: `Base` | Duración: 22.42 s | Muestras: 5,539 | **Válido**.
-  - `20260618075259_temp_BC.json` (BC): Inicio: `2026-06-18 07:52:44 UTC` | Kit: `K1` | Duración: 13.08 s | Muestras: 3,218 | **Válido**.
+  - `LAB_IDI8_AL.json` (AL): Inicio: `2026-06-11 23:50:03 UTC` | Kit: `Base` | Duración: 22.42 s | Muestras: 5,539 | **Válido**.
+  - `LAB_IDI9_BC.json` (BC): Inicio: `2026-06-18 07:52:44 UTC` | Kit: `K1` | Duración: 13.08 s | Muestras: 3,218 | **Válido**.
 * **Análisis biomecánico/técnico:** Corresponde a la misma persona sana evaluada en dos momentos distintos para validar la transición del Kit Base al Kit K1. La variación de 1 cm en talla (155 vs 156 cm) es atribuible al error instrumental del tallímetro. Ambas tomas son válidas pero **deben permanecer estrictamente agrupadas bajo el mismo identificador de participante (`C01`)** en el GroupKFold.
 
 ---
@@ -182,11 +182,11 @@ El protocolo biomecánico original contemplaba 3 sensores indispensables (espald
 ### 3.5 Pausas Registradas (`pausedDurationMs`)
 
 En 11 grabaciones, el evaluador médico pausó temporalmente la adquisición durante el TUG (por dudas del paciente, acomodación o descanso). Las pausas más notables son:
-* `20260625171352_temp_BW.json` (BW): Pausa de **55,642 ms** (55.6 s).
-* `20260625195406_temp_BR.json` (BR): Pausa de **30,907 ms** (30.9 s).
-* `20260625183434_temp_BK.json` (BK): Pausa de **28,564 ms** (28.6 s).
-* `20260715052203_temp_B.json` (B): Pausa de **27,550 ms** (27.6 s).
-* `20260625214451_temp_BH.json` (BH): Pausa de **17,020 ms** (17.0 s).
+* `SMR_IDI9_BW.json` (BW): Pausa de **55,642 ms** (55.6 s).
+* `SMR_IDI13_BR.json` (BR): Pausa de **30,907 ms** (30.9 s).
+* `SMR_IDI11_BK.json` (BK): Pausa de **28,564 ms** (28.6 s).
+* `CST_IDI7_B.json` (B): Pausa de **27,550 ms** (27.6 s).
+* `SMR_IDI17_BH.json` (BH): Pausa de **17,020 ms** (17.0 s).
 
 > [!NOTE] **Tratamiento en Preprocesamiento:**
 > El tiempo de pausa queda registrado en la cabecera, pero las muestras inerciales dejan de emitirse o se desfasan durante la pausa. Al calcular la duración del TUG para variables biomecánicas, se debe restar `pausedDurationMs` o basar la duración exclusivamente en el espectro cinemático de movimiento activo.
@@ -201,99 +201,99 @@ A continuación se presenta el catálogo estructurado de la totalidad de las 78 
 
 | Código | Archivo JSON | Sujeto | Fecha UTC | Nacimiento | Sexo | Talla | Kit | Sensores | Muestras | Duración | Obs. Clínicas |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---|
-| `D` | `20260625144044_temp_D.json` | **P02** | 2026-06-25 14:38:59 | 25/12/1965 | MALE | 160 cm | Base | 5 | 21,885 | 89.28 s | -- |
-| `AB` | `20260625145018_temp_AB.json` | **P03** | 2026-06-25 14:49:24 | 12/02/2026 | MALE | 180 cm | Base | 5 | 10,995 | 44.94 s | Paciente |
-| `AK` | `20260625150353_temp_AK.json` | **P04** | 2026-06-25 15:02:19 | 22/12/1948 | MALE | 166 cm | Base | 5 | 17,988 | 73.67 s | paciente amantadina 7am |
-| `AA` | `20260625152019_temp_AA.json` | **P05** | 2026-06-25 15:19:18 | 24/10/1963 | MALE | 175 cm | Base | 5 | 10,195 | 41.41 s | paciente 2016, levodopa y amantadina 6am |
-| `V` | `20260625153756_temp_V.json` | **P06** | 2026-06-25 15:36:33 | 26/10/1960 | MALE | 177 cm | Base | 5 | 16,985 | 69.15 s | Paciente levodopa 8am |
-| `A` | `20260625164351_temp_A.json` | **P07** | 2026-06-25 16:42:13 | 16/11/1962 | FEMALE | 153 cm | Base | 5 | 19,982 | 81.4 s | paciente |
-| `BK` | `20260625183434_temp_BK.json` | **P09** | 2026-06-25 18:32:43 | 30/12/1957 | MALE | 160 cm | Base | 5 | 16,491 | 66.79 s | paciente levodopa 2pm |
-| `BR` | `20260625195406_temp_BR.json` | **P11** | 2026-06-25 19:51:46 | 29/03/1958 | MALE | 150 cm | Base | 5 | 12,482 | 50.61 s | DBS dbs |
-| `AP` | `20260625195426_temp_AP.json` | **P11** | 2026-06-25 19:54:10 | 29/03/1958 | MALE | 150 cm | Base | 5 | 2,981 | 12.17 s | DBS |
-| `BN` | `20260625204358_temp_BN.json` | **P13** | 2026-06-25 20:42:52 | 31/01/1964 | MALE | 170 cm | Base | 5 | 13,393 | 54.65 s | paciente, levodopa. estado off. toma a las 3pm |
-| `G` | `20260625212453_temp_G.json` | **P14** | 2026-06-25 21:23:38 | 27/03/1954 | MALE | 165 cm | Base | 5 | 15,592 | 63.86 s | paciente levodopa, dosis a las 3pm. estado on |
-| `X` | `20260625215046_temp_X.json` | **P15** | 2026-06-25 21:49:31 | 21/01/1962 | MALE | 168 cm | K1 | 5 | 13,222 | 53.94 s | levodopa. 10am, estado on |
-| `BA` | `20260626133915_temp_BA.json` | **P16** | 2026-06-25 22:55:59 | 01/05/1953 | MALE | 167 cm | K1 | 5 | 12,302 | 50.15 s | paciente levodopa 5pm |
-| `BA` | `20260626133916_temp_BA.json` | **P16** | 2026-06-25 22:55:59 | 01/05/1953 | MALE | 167 cm | K1 | 5 | 12,302 | 50.15 s | paciente levodopa 5pm |
-| `AC` | `20260626141246_temp_AC.json` | **P17** | 2026-06-26 14:11:42 | 09/04/1952 | FEMALE | 148 cm | Base | 5 | 13,224 | 53.84 s | paciente. amantadina, 4.30am |
-| `AO` | `20260626145512_temp_AO.json` | **P19** | 2026-06-26 14:53:43 | 24/07/1953 | FEMALE | 166 cm | K1 | 5 | 18,807 | 76.48 s | levodopa. 7am |
-| `M` | `20260626150532_temp_M.json` | **P20** | 2026-06-26 15:03:48 | 31/01/1946 | FEMALE | 172 cm | Base | 5 | 20,127 | 82.05 s | levodopa. 9pm día anterior |
-| `BQ` | `20260626151711_temp_BQ.json` | **P21** | 2026-06-26 15:15:48 | 12/02/1976 | FEMALE | 154 cm | K1 | 5 | 17,419 | 70.9 s | levodopa, 8am |
-| `U` | `20260626152553_temp_U.json` | **P22** | 2026-06-26 15:25:04 | 03/07/1979 | MALE | 170 cm | Base | 5 | 10,191 | 41.58 s | paciente, diagnosticado ayer |
-| `O` | `20260626154758_temp_O.json` | **P24** | 2026-06-26 15:46:43 | 20/10/1953 | FEMALE | 163 cm | Base | 5 | 15,557 | 63.27 s | paciente, levodopa. 10am |
-| `BU` | `20260626160554_temp_BU.json` | **P25** | 2026-06-26 16:04:24 | 23/05/1959 | FEMALE | 158 cm | Base | 5 | 15,220 | 62.5 s | Dbs, paciente. levodopa 9am. |
-| `K` | `20260626160620_temp_K.json` | **P25** | 2026-06-26 16:05:55 | 23/05/1959 | FEMALE | 158 cm | Base | 5 | 4,809 | 19.59 s | Dbs, paciente. levodopa 9am. |
-| `BT` | `20260626170623_temp_BT.json` | **P26** | 2026-06-26 17:04:37 | 23/06/1955 | MALE | 166 cm | K1 | 5 | 22,024 | 89.69 s | paciente. No medicado |
-| `AZ` | `20260626170733_temp_AZ.json` | **P26** | 2026-06-26 17:06:53 | 23/06/1955 | MALE | 166 cm | K1 | 5 | 7,703 | 31.52 s | paciente. No medicado dual task resta de 30 |
-| `J` | `20260626170919_temp_J.json` | **P26** | 2026-06-26 17:08:58 | 23/06/1955 | MALE | 166 cm | K1 | 5 | 3,457 | 14.42 s | paciente. No medicado dual task desde 30 menos 3 |
-| `AQ` | `20260626170956_temp_AQ.json` | **P26** | 2026-06-26 17:09:37 | 23/06/1955 | MALE | 166 cm | K1 | 5 | 3,818 | 15.61 s | paciente. No medicado ciudades dual task |
-| `BM` | `20260626194407_temp_BM.json` | **P27** | 2026-06-26 19:43:07 | 05/10/1949 | FEMALE | 150 cm | K1 | 5 | 12,121 | 49.3 s | paciente, no toma levodopa. |
-| `BS` | `20260626202515_temp_BS.json` | **P28** | 2026-06-26 20:22:35 | 21/02/1957 | MALE | 157 cm | K1 | 5 | 32,816 | 133.67 s | paciente, levodopa, amantadina. 10am levo |
-| `AW` | `20260626204728_temp_AW.json` | **P29** | 2026-06-26 20:46:42 | 28/09/1960 | MALE | 171 cm | K1 | 5 | 9,430 | 38.44 s | levodopa, 10am, siguiente 4pm |
-| `AH` | `20260626211937_temp_AH.json` | **P30** | 2026-06-26 21:18:37 | 30/09/1958 | MALE | 165 cm | K1 | 5 | 12,522 | 51.02 s | paciente, amantadina, viperidel. tomado 12m |
-| `AT` | `20260626213214_temp_AT.json` | **P31** | 2026-06-26 21:31:18 | 06/12/1963 | FEMALE | 163 cm | K1 | 5 | 11,629 | 47.36 s | levodopa, 3pm, media de 250mg |
-| `AE` | `20260626215053_temp_AE.json` | **P32** | 2026-06-26 21:49:58 | 06/01/1969 | FEMALE | 157 cm | K1 | 5 | 11,291 | 46.02 s | paciente. no toma levodopa, tenía stalevo y amantadina. |
-| `BL` | `20260626222007_temp_BL.json` | **P33** | 2026-06-26 22:18:47 | 24/12/1966 | MALE | 173 cm | K1 | 5 | 16,410 | 66.84 s | levodopa, amantadina, mirapex. 2pm levo |
-| `AS` | `20260627133637_temp_AS.json` | **P34** | 2026-06-27 13:35:40 | 28/06/1950 | MALE | 167 cm | K1 | 5 | 11,916 | 48.46 s | paciente, levodopa 7am |
-| `BP` | `20260627135010_temp_BP.json` | **P35** | 2026-06-27 13:47:37 | 28/03/1982 | MALE | 170 cm | Base | 5 | 15,890 | 64.77 s | paciente levodopa, amantadina. 9am |
-| `AD` | `20260627135720_temp_AD.json` | **P36** | 2026-06-27 13:55:54 | 24/12/1972 | MALE | 165 cm | K1 | 5 | 18,114 | 73.67 s | paciente, levodopa 6am. |
-| `BB` | `20260627143518_temp_BB.json` | **P37** | 2026-06-27 14:34:21 | 03/05/1958 | MALE | 175 cm | K1 | 5 | 11,882 | 48.38 s | paciente, no medicado. |
-| `R` | `20260627150939_temp_R.json` | **P38** | 2026-06-27 15:08:47 | 30/01/1974 | FEMALE | 160 cm | K1 | 5 | 10,739 | 43.86 s | paciente. levodopa 6am |
-| `W` | `20260627152358_temp_W.json` | **P39** | 2026-06-27 15:23:02 | 18/01/1968 | MALE | 170 cm | K1 | 5 | 11,578 | 47.09 s | amantadina, vipiridene. 5am, 9am |
-| `I` | `20260627155804_temp_I.json` | **P40** | 2026-06-27 15:57:15 | 26/07/1967 | MALE | 175 cm | K1 | 5 | 10,051 | 41.09 s | paciente, levodopa 8am |
-| `Q` | `20260627161148_temp_Q.json` | **P41** | 2026-06-27 16:10:39 | 25/12/1971 | MALE | 165 cm | Base | 5 | 14,274 | 58.21 s | levodopa, 8am |
-| `AU` | `20260627162118_temp_AU.json` | **P42** | 2026-06-27 16:19:41 | 04/04/1954 | MALE | 182 cm | K1 | 5 | 18,991 | 77.11 s | paciente, levodopa 125, 10am dbs activo |
-| `L` | `20260627163836_temp_L.json` | **P43** | 2026-06-27 16:37:29 | 23/08/1954 | MALE | 179 cm | Base | 5 | 13,816 | 56.54 s | paciente, no levodopa. DBS dos electrodos |
-| `H` | `20260627171353_temp_H.json` | **P44** | 2026-06-27 17:13:05 | 11/10/1976 | MALE | 175 cm | K1 | 5 | 9,690 | 39.42 s | levodopa, 10am |
-| `AI` | `20260627180847_temp_AI.json` | **P45** | 2026-06-27 18:06:45 | 04/12/1954 | FEMALE | 153 cm | K1 | 5 | 25,113 | 102.21 s | levodopa, 11am |
-| `C` | `20260627205326_temp_C.json` | **P46** | 2026-06-27 20:52:35 | 17/02/1979 | FEMALE | 153 cm | K1 | 5 | 10,621 | 43.23 s | paciente, 3:30pm |
-| `AF` | `20260704154505_temp_AF.json` | **P47** | 2026-07-04 15:44:08 | 28/03/1963 | MALE | 173 cm | Base | 5 | 10,833 | 44.24 s | paciente, levodopa 6:30am |
-| `AM` | `20260820141830_temp_AM.json` | **P48** | 2026-07-04 15:50:31 | 04/04/1960 | MALE | 158 cm | K1 | 5 | 10,700 | 43.34 s | -- |
-| `BE` | `20260704155929_temp_BE.json` | **P49** | 2026-07-04 15:58:15 | 28/05/1963 | MALE | 163 cm | Base | 5 | 9,905 | 40.53 s | paciente, levodopa, 6am |
-| `BI` | `20260820141919_temp_BI.json` | **P50** | 2026-07-04 16:50:45 | 18/04/1964 | FEMALE | 160 cm | K1 | 5 | 13,414 | 54.46 s | Por confirmar |
-| `Y` | `20260704172020_temp_Y.json` | **P52** | 2026-07-04 17:19:11 | 21/09/1968 | MALE | 170 cm | Base | 5 | 10,321 | 42.01 s | Por confirmar |
-| `Z` | `20260820142005_temp_Z.json` | **P53** | 2026-07-04 17:49:13 | 14/01/1943 | MALE | 160 cm | K1 | 5 | 14,082 | 57.19 s | Levodopa Día anterior 12 pm |
-| `Z` | `20260820142006_temp_Z.json` | **P53** | 2026-07-04 17:49:13 | 14/01/1943 | MALE | 160 cm | K1 | 5 | 14,082 | 57.19 s | Levodopa Día anterior 12 pm |
-| `BG` | `20260704194635_temp_BG.json` | **P54** | 2026-07-04 19:44:43 | 19/10/1971 | MALE | 175 cm | Base | 5 | 16,707 | 68.08 s | paciente, levodopa 6am |
+| `D` | `SMR_IDI3_D.json` | **P02** | 2026-06-25 14:38:59 | 25/12/1965 | MALE | 160 cm | Base | 5 | 21,885 | 89.28 s | -- |
+| `AB` | `SMR_IDI4_AB.json` | **P03** | 2026-06-25 14:49:24 | 12/02/2026 | MALE | 180 cm | Base | 5 | 10,995 | 44.94 s | Paciente |
+| `AK` | `SMR_IDI5_AK.json` | **P04** | 2026-06-25 15:02:19 | 22/12/1948 | MALE | 166 cm | Base | 5 | 17,988 | 73.67 s | paciente amantadina 7am |
+| `AA` | `SMR_IDI6_AA.json` | **P05** | 2026-06-25 15:19:18 | 24/10/1963 | MALE | 175 cm | Base | 5 | 10,195 | 41.41 s | paciente 2016, levodopa y amantadina 6am |
+| `V` | `SMR_IDI7_V.json` | **P06** | 2026-06-25 15:36:33 | 26/10/1960 | MALE | 177 cm | Base | 5 | 16,985 | 69.15 s | Paciente levodopa 8am |
+| `A` | `SMR_IDI8_A.json` | **P07** | 2026-06-25 16:42:13 | 16/11/1962 | FEMALE | 153 cm | Base | 5 | 19,982 | 81.4 s | paciente |
+| `BK` | `SMR_IDI11_BK.json` | **P09** | 2026-06-25 18:32:43 | 30/12/1957 | MALE | 160 cm | Base | 5 | 16,491 | 66.79 s | paciente levodopa 2pm |
+| `BR` | `SMR_IDI13_BR.json` | **P11** | 2026-06-25 19:51:46 | 29/03/1958 | MALE | 150 cm | Base | 5 | 12,482 | 50.61 s | DBS dbs |
+| `AP` | `SMR_IDI14_AP.json` | **P11** | 2026-06-25 19:54:10 | 29/03/1958 | MALE | 150 cm | Base | 5 | 2,981 | 12.17 s | DBS |
+| `BN` | `SMR_IDI15_BN.json` | **P13** | 2026-06-25 20:42:52 | 31/01/1964 | MALE | 170 cm | Base | 5 | 13,393 | 54.65 s | paciente, levodopa. estado off. toma a las 3pm |
+| `G` | `SMR_IDI16_G.json` | **P14** | 2026-06-25 21:23:38 | 27/03/1954 | MALE | 165 cm | Base | 5 | 15,592 | 63.86 s | paciente levodopa, dosis a las 3pm. estado on |
+| `X` | `SMR_IDI19_X.json` | **P15** | 2026-06-25 21:49:31 | 21/01/1962 | MALE | 168 cm | K1 | 5 | 13,222 | 53.94 s | levodopa. 10am, estado on |
+| `BA` | `SMR_IDI20_BA.json` | **P16** | 2026-06-25 22:55:59 | 01/05/1953 | MALE | 167 cm | K1 | 5 | 12,302 | 50.15 s | paciente levodopa 5pm |
+| `BA` | `SMR_IDI21_BA.json` | **P16** | 2026-06-25 22:55:59 | 01/05/1953 | MALE | 167 cm | K1 | 5 | 12,302 | 50.15 s | paciente levodopa 5pm |
+| `AC` | `SMR_IDI22_AC.json` | **P17** | 2026-06-26 14:11:42 | 09/04/1952 | FEMALE | 148 cm | Base | 5 | 13,224 | 53.84 s | paciente. amantadina, 4.30am |
+| `AO` | `SMR_IDI24_AO.json` | **P19** | 2026-06-26 14:53:43 | 24/07/1953 | FEMALE | 166 cm | K1 | 5 | 18,807 | 76.48 s | levodopa. 7am |
+| `M` | `SMR_IDI25_M.json` | **P20** | 2026-06-26 15:03:48 | 31/01/1946 | FEMALE | 172 cm | Base | 5 | 20,127 | 82.05 s | levodopa. 9pm día anterior |
+| `BQ` | `SMR_IDI26_BQ.json` | **P21** | 2026-06-26 15:15:48 | 12/02/1976 | FEMALE | 154 cm | K1 | 5 | 17,419 | 70.9 s | levodopa, 8am |
+| `U` | `SMR_IDI27_U.json` | **P22** | 2026-06-26 15:25:04 | 03/07/1979 | MALE | 170 cm | Base | 5 | 10,191 | 41.58 s | paciente, diagnosticado ayer |
+| `O` | `SMR_IDI29_O.json` | **P24** | 2026-06-26 15:46:43 | 20/10/1953 | FEMALE | 163 cm | Base | 5 | 15,557 | 63.27 s | paciente, levodopa. 10am |
+| `BU` | `SMR_IDI30_BU.json` | **P25** | 2026-06-26 16:04:24 | 23/05/1959 | FEMALE | 158 cm | Base | 5 | 15,220 | 62.5 s | Dbs, paciente. levodopa 9am. |
+| `K` | `SMR_IDI31_K.json` | **P25** | 2026-06-26 16:05:55 | 23/05/1959 | FEMALE | 158 cm | Base | 5 | 4,809 | 19.59 s | Dbs, paciente. levodopa 9am. |
+| `BT` | `SMR_IDI32_BT.json` | **P26** | 2026-06-26 17:04:37 | 23/06/1955 | MALE | 166 cm | K1 | 5 | 22,024 | 89.69 s | paciente. No medicado |
+| `AZ` | `SMR_IDI33_AZ.json` | **P26** | 2026-06-26 17:06:53 | 23/06/1955 | MALE | 166 cm | K1 | 5 | 7,703 | 31.52 s | paciente. No medicado dual task resta de 30 |
+| `J` | `SMR_IDI34_J.json` | **P26** | 2026-06-26 17:08:58 | 23/06/1955 | MALE | 166 cm | K1 | 5 | 3,457 | 14.42 s | paciente. No medicado dual task desde 30 menos 3 |
+| `AQ` | `SMR_IDI35_AQ.json` | **P26** | 2026-06-26 17:09:37 | 23/06/1955 | MALE | 166 cm | K1 | 5 | 3,818 | 15.61 s | paciente. No medicado ciudades dual task |
+| `BM` | `SMR_IDI36_BM.json` | **P27** | 2026-06-26 19:43:07 | 05/10/1949 | FEMALE | 150 cm | K1 | 5 | 12,121 | 49.3 s | paciente, no toma levodopa. |
+| `BS` | `SMR_IDI37_BS.json` | **P28** | 2026-06-26 20:22:35 | 21/02/1957 | MALE | 157 cm | K1 | 5 | 32,816 | 133.67 s | paciente, levodopa, amantadina. 10am levo |
+| `AW` | `SMR_IDI38_AW.json` | **P29** | 2026-06-26 20:46:42 | 28/09/1960 | MALE | 171 cm | K1 | 5 | 9,430 | 38.44 s | levodopa, 10am, siguiente 4pm |
+| `AH` | `SMR_IDI39_AH.json` | **P30** | 2026-06-26 21:18:37 | 30/09/1958 | MALE | 165 cm | K1 | 5 | 12,522 | 51.02 s | paciente, amantadina, viperidel. tomado 12m |
+| `AT` | `SMR_IDI40_AT.json` | **P31** | 2026-06-26 21:31:18 | 06/12/1963 | FEMALE | 163 cm | K1 | 5 | 11,629 | 47.36 s | levodopa, 3pm, media de 250mg |
+| `AE` | `SMR_IDI41_AE.json` | **P32** | 2026-06-26 21:49:58 | 06/01/1969 | FEMALE | 157 cm | K1 | 5 | 11,291 | 46.02 s | paciente. no toma levodopa, tenía stalevo y amantadina. |
+| `BL` | `SMR_IDI42_BL.json` | **P33** | 2026-06-26 22:18:47 | 24/12/1966 | MALE | 173 cm | K1 | 5 | 16,410 | 66.84 s | levodopa, amantadina, mirapex. 2pm levo |
+| `AS` | `SMR_IDI43_AS.json` | **P34** | 2026-06-27 13:35:40 | 28/06/1950 | MALE | 167 cm | K1 | 5 | 11,916 | 48.46 s | paciente, levodopa 7am |
+| `BP` | `SMR_IDI44_BP.json` | **P35** | 2026-06-27 13:47:37 | 28/03/1982 | MALE | 170 cm | Base | 5 | 15,890 | 64.77 s | paciente levodopa, amantadina. 9am |
+| `AD` | `SMR_IDI45_AD.json` | **P36** | 2026-06-27 13:55:54 | 24/12/1972 | MALE | 165 cm | K1 | 5 | 18,114 | 73.67 s | paciente, levodopa 6am. |
+| `BB` | `SMR_IDI46_BB.json` | **P37** | 2026-06-27 14:34:21 | 03/05/1958 | MALE | 175 cm | K1 | 5 | 11,882 | 48.38 s | paciente, no medicado. |
+| `R` | `SMR_IDI47_R.json` | **P38** | 2026-06-27 15:08:47 | 30/01/1974 | FEMALE | 160 cm | K1 | 5 | 10,739 | 43.86 s | paciente. levodopa 6am |
+| `W` | `SMR_IDI48_W.json` | **P39** | 2026-06-27 15:23:02 | 18/01/1968 | MALE | 170 cm | K1 | 5 | 11,578 | 47.09 s | amantadina, vipiridene. 5am, 9am |
+| `I` | `SMR_IDI49_I.json` | **P40** | 2026-06-27 15:57:15 | 26/07/1967 | MALE | 175 cm | K1 | 5 | 10,051 | 41.09 s | paciente, levodopa 8am |
+| `Q` | `SMR_IDI50_Q.json` | **P41** | 2026-06-27 16:10:39 | 25/12/1971 | MALE | 165 cm | Base | 5 | 14,274 | 58.21 s | levodopa, 8am |
+| `AU` | `SMR_IDI51_AU.json` | **P42** | 2026-06-27 16:19:41 | 04/04/1954 | MALE | 182 cm | K1 | 5 | 18,991 | 77.11 s | paciente, levodopa 125, 10am dbs activo |
+| `L` | `SMR_IDI52_L.json` | **P43** | 2026-06-27 16:37:29 | 23/08/1954 | MALE | 179 cm | Base | 5 | 13,816 | 56.54 s | paciente, no levodopa. DBS dos electrodos |
+| `H` | `SMR_IDI53_H.json` | **P44** | 2026-06-27 17:13:05 | 11/10/1976 | MALE | 175 cm | K1 | 5 | 9,690 | 39.42 s | levodopa, 10am |
+| `AI` | `SMR_IDI54_AI.json` | **P45** | 2026-06-27 18:06:45 | 04/12/1954 | FEMALE | 153 cm | K1 | 5 | 25,113 | 102.21 s | levodopa, 11am |
+| `C` | `SMR_IDI55_C.json` | **P46** | 2026-06-27 20:52:35 | 17/02/1979 | FEMALE | 153 cm | K1 | 5 | 10,621 | 43.23 s | paciente, 3:30pm |
+| `AF` | `CST_IDI1_AF.json` | **P47** | 2026-07-04 15:44:08 | 28/03/1963 | MALE | 173 cm | Base | 5 | 10,833 | 44.24 s | paciente, levodopa 6:30am |
+| `AM` | `CST_IDI8_AM.json` | **P48** | 2026-07-04 15:50:31 | 04/04/1960 | MALE | 158 cm | K1 | 5 | 10,700 | 43.34 s | -- |
+| `BE` | `CST_IDI2_BE.json` | **P49** | 2026-07-04 15:58:15 | 28/05/1963 | MALE | 163 cm | Base | 5 | 9,905 | 40.53 s | paciente, levodopa, 6am |
+| `BI` | `CST_IDI10_BI.json` | **P50** | 2026-07-04 16:50:45 | 18/04/1964 | FEMALE | 160 cm | K1 | 5 | 13,414 | 54.46 s | Por confirmar |
+| `Y` | `CST_IDI4_Y.json` | **P52** | 2026-07-04 17:19:11 | 21/09/1968 | MALE | 170 cm | Base | 5 | 10,321 | 42.01 s | Por confirmar |
+| `Z` | `CST_IDI11_Z.json` | **P53** | 2026-07-04 17:49:13 | 14/01/1943 | MALE | 160 cm | K1 | 5 | 14,082 | 57.19 s | Levodopa Día anterior 12 pm |
+| `Z` | `CST_IDI12_Z.json` | **P53** | 2026-07-04 17:49:13 | 14/01/1943 | MALE | 160 cm | K1 | 5 | 14,082 | 57.19 s | Levodopa Día anterior 12 pm |
+| `BG` | `CST_IDI6_BG.json` | **P54** | 2026-07-04 19:44:43 | 19/10/1971 | MALE | 175 cm | Base | 5 | 16,707 | 68.08 s | paciente, levodopa 6am |
 
 ### 4.2 Pacientes Parkinson con Tomas Múltiples (9 grabaciones de 7 participantes)
 
 | Código | Archivo JSON | Sujeto | Fecha UTC | Kit | Duración | Pausa | Veredicto | Motivo / Condición Experimental |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---|
-| `BF` | `20260625140746_temp_BF.json` | **P01** | 2026-06-25 14:06:19 | Base | 22.83 s | -- | **VÁLIDO** | Cumple criterios mínimos |
-| `AR` | `20260625140851_temp_AR.json` | **P01** | 2026-06-25 14:07:54 | Base | 41.63 s | -- | **VÁLIDO** | Cumple criterios mínimos |
-| `BW` | `20260625171352_temp_BW.json` | **P08** | 2026-06-25 17:11:39 | Base | 60.18 s | 55.6 s | **VÁLIDO** | Cumple criterios mínimos |
-| `BD` | `20260625193811_temp_BD.json` | **P10** | 2026-06-25 19:36:58 | Base | 60.79 s | -- | **VÁLIDO** | Cumple criterios mínimos |
-| `BH` | `20260625214451_temp_BH.json` | **P12** | 2026-06-25 20:13:35 | K1 | 66.01 s | 17.0 s | **VÁLIDO** | Cumple criterios mínimos |
-| `S` | `20260625214518_temp_S.json` | **P12** | 2026-06-25 20:16:06 | K1 | 101.82 s | -- | **VÁLIDO** | Cumple criterios mínimos |
-| `AV` | `20260626144433_temp_AV.json` | **P18** | 2026-06-26 14:43:00 | Base | 73.25 s | -- | **VÁLIDO** | Cumple criterios mínimos |
-| `AJ` | `20260626153637_temp_AJ.json` | **P23** | 2026-06-26 15:35:39 | Base | 49.21 s | -- | **VÁLIDO** | Cumple criterios mínimos |
-| `E` | `20260704165749_temp_E.json` | **P51** | 2026-07-04 16:56:59 | Base | 39.27 s | -- | **VÁLIDO** | Cumple criterios mínimos |
+| `BF` | `SMR_IDI1_BF.json` | **P01** | 2026-06-25 14:06:19 | Base | 22.83 s | -- | **VÁLIDO** | Cumple criterios mínimos |
+| `AR` | `SMR_IDI2_AR.json` | **P01** | 2026-06-25 14:07:54 | Base | 41.63 s | -- | **VÁLIDO** | Cumple criterios mínimos |
+| `BW` | `SMR_IDI9_BW.json` | **P08** | 2026-06-25 17:11:39 | Base | 60.18 s | 55.6 s | **VÁLIDO** | Cumple criterios mínimos |
+| `BD` | `SMR_IDI12_BD.json` | **P10** | 2026-06-25 19:36:58 | Base | 60.79 s | -- | **VÁLIDO** | Cumple criterios mínimos |
+| `BH` | `SMR_IDI17_BH.json` | **P12** | 2026-06-25 20:13:35 | K1 | 66.01 s | 17.0 s | **VÁLIDO** | Cumple criterios mínimos |
+| `S` | `SMR_IDI18_S.json` | **P12** | 2026-06-25 20:16:06 | K1 | 101.82 s | -- | **VÁLIDO** | Cumple criterios mínimos |
+| `AV` | `SMR_IDI23_AV.json` | **P18** | 2026-06-26 14:43:00 | Base | 73.25 s | -- | **VÁLIDO** | Cumple criterios mínimos |
+| `AJ` | `SMR_IDI28_AJ.json` | **P23** | 2026-06-26 15:35:39 | Base | 49.21 s | -- | **VÁLIDO** | Cumple criterios mínimos |
+| `E` | `CST_IDI3_E.json` | **P51** | 2026-07-04 16:56:59 | Base | 39.27 s | -- | **VÁLIDO** | Cumple criterios mínimos |
 
 ### 4.3 Sujetos de Control Sanos (8 grabaciones de 7 personas únicas)
 
 | Código | Archivo JSON | Sujeto | Fecha UTC | Nacimiento | Sexo | Talla | Kit | Muestras | Duración | Observaciones |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---|
-| `AL` | `20260611235032_temp_AL.json` | **C01** | 2026-06-11 23:50:03 | 10/02/2003 | FEMALE | 155 cm | Base | 5,539 | 22.42 s | -- |
-| `BC` | `20260618075259_temp_BC.json` | **C01** | 2026-06-18 07:52:44 | 10/02/2003 | FEMALE | 156 cm | K1 | 3,218 | 13.08 s | control |
-| `AG` | `20260625180613_temp_AG.json` | **C02** | 2026-06-25 18:04:44 | 11/11/1955 | MALE | 165 cm | Base | 17,348 | 70.62 s | -- |
-| `AY` | `20260704194015_temp_AY.json` | **C03** | 2026-07-04 19:00:00 | 23/06/1965 | FEMALE | 165 cm | Base | 7,671 | 31.34 s | -- |
-| `B` | `20260715052203_temp_B.json` | **C04** | 2026-07-04 14:50:22 | 03/07/1962 | FEMALE | 147 cm | K1 | 6,494 | 25.97 s | Control |
-| `P` | `20260820141849_temp_P.json` | **C05** | 2026-07-04 16:14:25 | 03/02/1962 | FEMALE | 159 cm | K1 | 11,413 | 46.34 s | -- |
-| `T` | `20260820142037_temp_T.json` | **C06** | 2026-07-04 18:08:52 | 11/08/1956 | FEMALE | 150 cm | K1 | 6,044 | 24.57 s | -- |
-| `AN` | `20260820142101_temp_AN.json` | **C07** | 2026-07-04 18:49:43 | 08/11/1963 | FEMALE | 158 cm | K1 | 16,085 | 65.32 s | Por confirmar diagnóstico |
+| `AL` | `LAB_IDI8_AL.json` | **C01** | 2026-06-11 23:50:03 | 10/02/2003 | FEMALE | 155 cm | Base | 5,539 | 22.42 s | -- |
+| `BC` | `LAB_IDI9_BC.json` | **C01** | 2026-06-18 07:52:44 | 10/02/2003 | FEMALE | 156 cm | K1 | 3,218 | 13.08 s | control |
+| `AG` | `SMR_IDI10_AG.json` | **C02** | 2026-06-25 18:04:44 | 11/11/1955 | MALE | 165 cm | Base | 17,348 | 70.62 s | -- |
+| `AY` | `CST_IDI5_AY.json` | **C03** | 2026-07-04 19:00:00 | 23/06/1965 | FEMALE | 165 cm | Base | 7,671 | 31.34 s | -- |
+| `B` | `CST_IDI7_B.json` | **C04** | 2026-07-04 14:50:22 | 03/07/1962 | FEMALE | 147 cm | K1 | 6,494 | 25.97 s | Control |
+| `P` | `CST_IDI9_P.json` | **C05** | 2026-07-04 16:14:25 | 03/02/1962 | FEMALE | 159 cm | K1 | 11,413 | 46.34 s | -- |
+| `T` | `CST_IDI13_T.json` | **C06** | 2026-07-04 18:08:52 | 11/08/1956 | FEMALE | 150 cm | K1 | 6,044 | 24.57 s | -- |
+| `AN` | `CST_IDI14_AN.json` | **C07** | 2026-07-04 18:49:43 | 08/11/1963 | FEMALE | 158 cm | K1 | 16,085 | 65.32 s | Por confirmar diagnóstico |
 
 ### 4.4 Pruebas Técnicas Internas Descartadas (7 archivos)
 
 | Código | Archivo JSON | Sesión | Fecha UTC | Kit | Sensores Presentes | Muestras | Duración | Causa de Descarte |
 |:---:|:---|:---:|:---:|:---:|:---|:---:|:---:|:---|
-| `BV` | `20260208022404_temp_BV.json` | **T02 (Test 08/02)** | 2026-02-08 02:24:03 | Base | RIGHT-HAND | 1,640 | 18.56 s | Prueba técnica sin etiqueta diagnóstica |
-| `N` | `20260303043120_temp_N.json` | **T01 (Calib. 03/03)** | 2026-03-03 04:31:19 | Base | BASE-SPINE, LEFT-ANKLE, LEFT-HAND, RIGHT-ANKLE, RIGHT-HAND | 2,265 | 5.01 s | Prueba técnica sin etiqueta diagnóstica |
-| `BO` | `20260303043532_temp_BO.json` | **T01 (Calib. 03/03)** | 2026-03-03 04:35:31 | Base | BASE-SPINE, LEFT-ANKLE, LEFT-HAND, RIGHT-ANKLE, RIGHT-HAND | 1,698 | 3.74 s | Prueba técnica sin etiqueta diagnóstica |
-| `BX` | `20260303044505_temp_BX.json` | **T01 (Calib. 03/03)** | 2026-03-03 04:45:05 | Base | BASE-SPINE, LEFT-ANKLE, LEFT-HAND | 687 | 2.54 s | Prueba técnica sin etiqueta diagnóstica |
-| `BJ` | `20260303134630_temp_BJ.json` | **T01 (Calib. 03/03)** | 2026-03-03 13:46:28 | Base | BASE-SPINE, LEFT-ANKLE, LEFT-HAND | 2,154 | 6.71 s | Prueba técnica sin etiqueta diagnóstica |
-| `F` | `20260307234249_temp_F.json` | **T03 (Test 07/03)** | 2026-03-07 23:42:30 | Base | BASE-SPINE, LEFT-ANKLE, LEFT-HAND, RIGHT-ANKLE, RIGHT-HAND | 3,682 | 14.97 s | Prueba técnica sin etiqueta diagnóstica |
-| `AX` | `20260308232420_temp_AX.json` | **T04 (Test 08/03)** | 2026-03-08 23:23:46 | Base | BASE-SPINE, LEFT-HAND, RIGHT-ANKLE, RIGHT-HAND | 6,006 | 30.44 s | Prueba técnica sin etiqueta diagnóstica |
+| `BV` | `LAB_IDI1_BV.json` | **T02 (Test 08/02)** | 2026-02-08 02:24:03 | Base | RIGHT-HAND | 1,640 | 18.56 s | Prueba técnica sin etiqueta diagnóstica |
+| `N` | `LAB_IDI2_N.json` | **T01 (Calib. 03/03)** | 2026-03-03 04:31:19 | Base | BASE-SPINE, LEFT-ANKLE, LEFT-HAND, RIGHT-ANKLE, RIGHT-HAND | 2,265 | 5.01 s | Prueba técnica sin etiqueta diagnóstica |
+| `BO` | `LAB_IDI3_BO.json` | **T01 (Calib. 03/03)** | 2026-03-03 04:35:31 | Base | BASE-SPINE, LEFT-ANKLE, LEFT-HAND, RIGHT-ANKLE, RIGHT-HAND | 1,698 | 3.74 s | Prueba técnica sin etiqueta diagnóstica |
+| `BX` | `LAB_IDI4_BX.json` | **T01 (Calib. 03/03)** | 2026-03-03 04:45:05 | Base | BASE-SPINE, LEFT-ANKLE, LEFT-HAND | 687 | 2.54 s | Prueba técnica sin etiqueta diagnóstica |
+| `BJ` | `LAB_IDI5_BJ.json` | **T01 (Calib. 03/03)** | 2026-03-03 13:46:28 | Base | BASE-SPINE, LEFT-ANKLE, LEFT-HAND | 2,154 | 6.71 s | Prueba técnica sin etiqueta diagnóstica |
+| `F` | `LAB_IDI6_F.json` | **T03 (Test 07/03)** | 2026-03-07 23:42:30 | Base | BASE-SPINE, LEFT-ANKLE, LEFT-HAND, RIGHT-ANKLE, RIGHT-HAND | 3,682 | 14.97 s | Prueba técnica sin etiqueta diagnóstica |
+| `AX` | `LAB_IDI7_AX.json` | **T04 (Test 08/03)** | 2026-03-08 23:23:46 | Base | BASE-SPINE, LEFT-HAND, RIGHT-ANKLE, RIGHT-HAND | 6,006 | 30.44 s | Prueba técnica sin etiqueta diagnóstica |
 
 ---
 

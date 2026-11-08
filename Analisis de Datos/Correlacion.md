@@ -30,49 +30,49 @@ En esta tabla se listan exclusivamente los pares bimodales **estrictamente TUG**
 
 | # | Archivo IMU | Sujeto | Código | Archivo e-Motion Confirmado (en disco) | $\Delta t$ (s) | Género (IMU / VIMOV) | Diagnóstico | Sensor Cámara |
 |---:|---|:---:|:---:|---|---:|:---:|:---:|---|
-| 1 | `20260625140746_temp_BF.json` | P06 | BF | `SMR_ID1_eMotion_P06_TUG.json` | 122.0 | MALE / MALE | PATIENT | Intel RealSense |
-| 2 | `20260625144044_temp_D.json` | P07 | D | `SMR_ID2_eMotion_P07_TUG.json` | 164.0 | MALE / MALE | PATIENT | Intel RealSense |
-| 3 | `20260625145018_temp_AB.json` | P08 | AB | `SMR_ID3_eMotion_P08_TUG.json` | 302.0 | MALE / MALE | PATIENT | intel |
-| 4 | `20260625150353_temp_AK.json` | P09 | AK | `SMR_ID4_eMotion_P09_TUG.json` | 323.0 | MALE / MALE | PATIENT | intel |
-| 5 | `20260625152019_temp_AA.json` | P10 | AA | `SMR_ID5_eMotion_P10_TUG.json` | 151.0 | MALE / MALE | PATIENT | intel |
-| 6 | `20260625153756_temp_V.json` | P11 | V | `SMR_ID6_eMotion_P11_TUG.json` | 77.0 | MALE / MALE | PATIENT | Intel RealSense |
-| 7 | `20260625171352_temp_BW.json` | P13 | BW | `SMR_ID7_eMotion_P13_TUG.json` | 127.0 | MALE / MALE | PATIENT | intel |
-| 8 | `20260625183434_temp_BK.json` | P15 | BK | `SMR_ID8_eMotion_P15_TUG.json` | 103.0 | MALE / MALE | PATIENT | intel |
-| 9 | `20260625193811_temp_BD.json` | P16 | BD | `SMR_ID9_eMotion_P16_TUG.json` | 70.0 | MALE / MALE | PATIENT | intel |
-| 10 | `20260625204358_temp_BN.json` | P18 | BN | `SMR_ID10_eMotion_P18_TUG.json` | 81.0 | MALE / MALE | PATIENT | intel |
-| 11 | `20260625214518_temp_S.json` | P20 | S | `SMR_ID34_eMotion_P20_GAIT.json` | 106.0 | MALE / M | PATIENT | intel |
-| 12 | `20260625215046_temp_X.json` | P21 | X | `SMR_ID11_eMotion_P21_TUG.json` | 84.0 | MALE / MALE | PATIENT | intel |
-| 13 | `20260626133915_temp_BA.json` | P22 | BA | `SMR_ID12_eMotion_P22_TUG.json` | 77.0 | MALE / MALE | PATIENT | intel |
-| 14 | `20260626133916_temp_BA.json` | P22 | BA | `SMR_ID12_eMotion_P22_TUG.json` | 77.0 | MALE / MALE | PATIENT | intel |
-| 15 | `20260626144433_temp_AV.json` | P24 | AV | `SMR_ID13_eMotion_P24_TUG.json` | 196.0 | MALE / MALE | PATIENT | intel |
-| 16 | `20260626145512_temp_AO.json` | P25 | AO | `SMR_ID14_eMotion_P25_TUG.json` | 282.0 | FEMALE / FEMALE | PATIENT | intel |
-| 17 | `20260626150532_temp_M.json` | P26 | M | `SMR_ID15_eMotion_P26_TUG.json` | 170.0 | FEMALE / FEMALE | PATIENT | intel |
-| 18 | `20260626151711_temp_BQ.json` | P27 | BQ | `SMR_ID16_eMotion_P27_TUG.json` | 91.0 | FEMALE / FEMALE | PATIENT | intel |
-| 19 | `20260626154758_temp_O.json` | P30 | O | `SMR_ID17_eMotion_P30_TUG.json` | 290.0 | FEMALE / FEMALE | PATIENT | intel |
-| 20 | `20260626160554_temp_BU.json` | P31 | BU | `SMR_ID18_eMotion_P31_TUG.json` | 162.0 | FEMALE / FEMALE | PATIENT | intel |
-| 21 | `20260626160620_temp_K.json` | P31 | K | `SMR_ID19_eMotion_P31_TUG.json` | 78.0 | FEMALE / FEMALE | PATIENT | intel |
-| 22 | `20260626170733_temp_AZ.json` | P32 | AZ | `SMR_ID20_eMotion_P32_TUG.json` | 260.0 | MALE / MALE | PATIENT | Intel RealSense |
-| 23 | `20260626170919_temp_J.json` | P32 | J | `SMR_ID21_eMotion_P32_TUG.json` | 141.0 | MALE / MALE | PATIENT | Intel RealSense |
-| 24 | `20260626170956_temp_AQ.json` | P32 | AQ | `SMR_ID22_eMotion_P32_TUG.json` | 109.0 | MALE / MALE | PATIENT | intel |
-| 25 | `20260626194407_temp_BM.json` | P33 | BM | `SMR_ID23_eMotion_P33_TUG.json` | 108.0 | FEMALE / FEMALE | PATIENT | intel |
-| 26 | `20260626202515_temp_BS.json` | P34 | BS | `SMR_ID24_eMotion_P34_TUG.json` | 163.0 | MALE / MALE | PATIENT | intel |
-| 27 | `20260626204728_temp_AW.json` | P35 | AW | `SMR_ID25_eMotion_P35_TUG.json` | 62.0 | MALE / MALE | PATIENT | intel |
-| 28 | `20260626211937_temp_AH.json` | P36 | AH | `SMR_ID26_eMotion_P36_TUG.json` | 129.0 | MALE / MALE | PATIENT | intel |
-| 29 | `20260626213214_temp_AT.json` | P37 | AT | `SMR_ID27_eMotion_P37_TUG.json` | 265.0 | FEMALE / FEMALE | PATIENT | intel |
-| 30 | `20260626215053_temp_AE.json` | P38 | AE | `SMR_ID28_eMotion_P38_TUG.json` | 188.0 | FEMALE / FEMALE | PATIENT | intel |
-| 31 | `20260626222007_temp_BL.json` | P39 | BL | `SMR_ID29_eMotion_P39_TUG.json` | 89.0 | MALE / MALE | PATIENT | intel |
-| 32 | `20260627133637_temp_AS.json` | P40 | AS | `SMR_ID30_eMotion_P40_TUG.json` | 80.0 | MALE / MALE | PATIENT | intel |
-| 33 | `20260627135720_temp_AD.json` | P42 | AD | `SMR_ID31_eMotion_P42_TUG.json` | 174.0 | MALE / MALE | PATIENT | intel |
-| 34 | `20260627143518_temp_BB.json` | P43 | BB | `SMR_ID32_eMotion_P43_TUG.json` | 83.0 | MALE / MALE | PATIENT | intel |
-| 35 | `20260627150939_temp_R.json` | P44 | R | `SMR_ID33_eMotion_P44_TUG.json` | 114.0 | FEMALE / FEMALE | PATIENT | intel |
-| 36 | `20260627155804_temp_I.json` | P46 | I | `SMR_ID34_eMotion_P46_TUG.json` | 57.0 | MALE / MALE | PATIENT | intel |
-| 37 | `20260627161148_temp_Q.json` | P47 | Q | `SMR_ID35_eMotion_P47_TUG.json` | 249.0 | MALE / MALE | PATIENT | intel |
-| 38 | `20260627162118_temp_AU.json` | P48 | AU | `SMR_ID36_eMotion_P48_TUG.json` | 167.0 | MALE / MALE | PATIENT | intel |
-| 39 | `20260627163836_temp_L.json` | P49 | L | `SMR_ID37_eMotion_P49_TUG.json` | 299.0 | MALE / MALE | PATIENT | intel |
-| 40 | `20260627171353_temp_H.json` | P50 | H | `SMR_ID38_eMotion_P50_TUG.json` | 58.0 | MALE / MALE | PATIENT | Intel RealSense |
-| 41 | `20260627180847_temp_AI.json` | P51 | AI | `SMR_ID39_eMotion_P51_TUG.json` | 124.0 | FEMALE / FEMALE | PATIENT | Intel RealSense |
-| 42 | `20260627205326_temp_C.json` | P52 | C | `SMR_ID40_eMotion_P52_TUG.json` | 65.0 | FEMALE / FEMALE | PATIENT | intel |
-| 43 | `20260704155929_temp_BE.json` | P54 | BE | `CST_ID1_eMotion_P54_TUG.json` | 16.0 | MALE / MALE | PATIENT | Intel RealSense |
+| 1 | `SMR_IDI1_BF.json` | P06 | BF | `SMR_IDE1_TUG_P06.json` | 122.0 | MALE / MALE | PATIENT | Intel RealSense |
+| 2 | `SMR_IDI3_D.json` | P07 | D | `SMR_IDE2_TUG_P07.json` | 164.0 | MALE / MALE | PATIENT | Intel RealSense |
+| 3 | `SMR_IDI4_AB.json` | P08 | AB | `SMR_IDE3_TUG_P08.json` | 302.0 | MALE / MALE | PATIENT | intel |
+| 4 | `SMR_IDI5_AK.json` | P09 | AK | `SMR_IDE4_TUG_P09.json` | 323.0 | MALE / MALE | PATIENT | intel |
+| 5 | `SMR_IDI6_AA.json` | P10 | AA | `SMR_IDE5_TUG_P10.json` | 151.0 | MALE / MALE | PATIENT | intel |
+| 6 | `SMR_IDI7_V.json` | P11 | V | `SMR_IDE6_TUG_P11.json` | 77.0 | MALE / MALE | PATIENT | Intel RealSense |
+| 7 | `SMR_IDI9_BW.json` | P13 | BW | `SMR_IDE7_TUG_P13.json` | 127.0 | MALE / MALE | PATIENT | intel |
+| 8 | `SMR_IDI11_BK.json` | P15 | BK | `SMR_IDE8_TUG_P15.json` | 103.0 | MALE / MALE | PATIENT | intel |
+| 9 | `SMR_IDI12_BD.json` | P16 | BD | `SMR_IDE9_TUG_P16.json` | 70.0 | MALE / MALE | PATIENT | intel |
+| 10 | `SMR_IDI15_BN.json` | P18 | BN | `SMR_IDE10_TUG_P18.json` | 81.0 | MALE / MALE | PATIENT | intel |
+| 11 | `SMR_IDI18_S.json` | P20 | S | `SMR_IDE34_GAIT_P20.json` | 106.0 | MALE / M | PATIENT | intel |
+| 12 | `SMR_IDI19_X.json` | P21 | X | `SMR_IDE11_TUG_P21.json` | 84.0 | MALE / MALE | PATIENT | intel |
+| 13 | `SMR_IDI20_BA.json` | P22 | BA | `SMR_IDE12_TUG_P22.json` | 77.0 | MALE / MALE | PATIENT | intel |
+| 14 | `SMR_IDI21_BA.json` | P22 | BA | `SMR_IDE12_TUG_P22.json` | 77.0 | MALE / MALE | PATIENT | intel |
+| 15 | `SMR_IDI23_AV.json` | P24 | AV | `SMR_IDE13_TUG_P24.json` | 196.0 | MALE / MALE | PATIENT | intel |
+| 16 | `SMR_IDI24_AO.json` | P25 | AO | `SMR_IDE14_TUG_P25.json` | 282.0 | FEMALE / FEMALE | PATIENT | intel |
+| 17 | `SMR_IDI25_M.json` | P26 | M | `SMR_IDE15_TUG_P26.json` | 170.0 | FEMALE / FEMALE | PATIENT | intel |
+| 18 | `SMR_IDI26_BQ.json` | P27 | BQ | `SMR_IDE16_TUG_P27.json` | 91.0 | FEMALE / FEMALE | PATIENT | intel |
+| 19 | `SMR_IDI29_O.json` | P30 | O | `SMR_IDE17_TUG_P30.json` | 290.0 | FEMALE / FEMALE | PATIENT | intel |
+| 20 | `SMR_IDI30_BU.json` | P31 | BU | `SMR_IDE18_TUG_P31.json` | 162.0 | FEMALE / FEMALE | PATIENT | intel |
+| 21 | `SMR_IDI31_K.json` | P31 | K | `SMR_IDE19_TUG_P31.json` | 78.0 | FEMALE / FEMALE | PATIENT | intel |
+| 22 | `SMR_IDI33_AZ.json` | P32 | AZ | `SMR_IDE20_TUG_P32.json` | 260.0 | MALE / MALE | PATIENT | Intel RealSense |
+| 23 | `SMR_IDI34_J.json` | P32 | J | `SMR_IDE21_TUG_P32.json` | 141.0 | MALE / MALE | PATIENT | Intel RealSense |
+| 24 | `SMR_IDI35_AQ.json` | P32 | AQ | `SMR_IDE22_TUG_P32.json` | 109.0 | MALE / MALE | PATIENT | intel |
+| 25 | `SMR_IDI36_BM.json` | P33 | BM | `SMR_IDE23_TUG_P33.json` | 108.0 | FEMALE / FEMALE | PATIENT | intel |
+| 26 | `SMR_IDI37_BS.json` | P34 | BS | `SMR_IDE24_TUG_P34.json` | 163.0 | MALE / MALE | PATIENT | intel |
+| 27 | `SMR_IDI38_AW.json` | P35 | AW | `SMR_IDE25_TUG_P35.json` | 62.0 | MALE / MALE | PATIENT | intel |
+| 28 | `SMR_IDI39_AH.json` | P36 | AH | `SMR_IDE26_TUG_P36.json` | 129.0 | MALE / MALE | PATIENT | intel |
+| 29 | `SMR_IDI40_AT.json` | P37 | AT | `SMR_IDE27_TUG_P37.json` | 265.0 | FEMALE / FEMALE | PATIENT | intel |
+| 30 | `SMR_IDI41_AE.json` | P38 | AE | `SMR_IDE28_TUG_P38.json` | 188.0 | FEMALE / FEMALE | PATIENT | intel |
+| 31 | `SMR_IDI42_BL.json` | P39 | BL | `SMR_IDE29_TUG_P39.json` | 89.0 | MALE / MALE | PATIENT | intel |
+| 32 | `SMR_IDI43_AS.json` | P40 | AS | `SMR_IDE30_TUG_P40.json` | 80.0 | MALE / MALE | PATIENT | intel |
+| 33 | `SMR_IDI45_AD.json` | P42 | AD | `SMR_IDE31_TUG_P42.json` | 174.0 | MALE / MALE | PATIENT | intel |
+| 34 | `SMR_IDI46_BB.json` | P43 | BB | `SMR_IDE32_TUG_P43.json` | 83.0 | MALE / MALE | PATIENT | intel |
+| 35 | `SMR_IDI47_R.json` | P44 | R | `SMR_IDE33_TUG_P44.json` | 114.0 | FEMALE / FEMALE | PATIENT | intel |
+| 36 | `SMR_IDI49_I.json` | P46 | I | `SMR_IDE34_TUG_P46.json` | 57.0 | MALE / MALE | PATIENT | intel |
+| 37 | `SMR_IDI50_Q.json` | P47 | Q | `SMR_IDE35_TUG_P47.json` | 249.0 | MALE / MALE | PATIENT | intel |
+| 38 | `SMR_IDI51_AU.json` | P48 | AU | `SMR_IDE36_TUG_P48.json` | 167.0 | MALE / MALE | PATIENT | intel |
+| 39 | `SMR_IDI52_L.json` | P49 | L | `SMR_IDE37_TUG_P49.json` | 299.0 | MALE / MALE | PATIENT | intel |
+| 40 | `SMR_IDI53_H.json` | P50 | H | `SMR_IDE38_TUG_P50.json` | 58.0 | MALE / MALE | PATIENT | Intel RealSense |
+| 41 | `SMR_IDI54_AI.json` | P51 | AI | `SMR_IDE39_TUG_P51.json` | 124.0 | FEMALE / FEMALE | PATIENT | Intel RealSense |
+| 42 | `SMR_IDI55_C.json` | P52 | C | `SMR_IDE40_TUG_P52.json` | 65.0 | FEMALE / FEMALE | PATIENT | intel |
+| 43 | `CST_IDI2_BE.json` | P54 | BE | `CST_IDE1_TUG_P54.json` | 16.0 | MALE / MALE | PATIENT | Intel RealSense |
 
 ---
 
@@ -82,84 +82,84 @@ A continuación se audita el estado de cada una de las 78 grabaciones inerciales
 
 | # | Archivo IMU | Sujeto | Grupo | Fecha UTC | ¿Tiene e-Motion TUG? | Archivo e-Motion Asignado | Observación / Criterio |
 |---:|---|:---:|:---:|:---:|:---:|---|---|
-| 1 | `20260208022404_temp_BV.json` | P01 | SIN_ETIQUETA | 2026-02-08 02:24:03 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
-| 2 | `20260303043120_temp_N.json` | P02 | SIN_ETIQUETA | 2026-03-03 04:31:19 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
-| 3 | `20260303043532_temp_BO.json` | P02 | SIN_ETIQUETA | 2026-03-03 04:35:31 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
-| 4 | `20260303044505_temp_BX.json` | P02 | SIN_ETIQUETA | 2026-03-03 04:45:05 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
-| 5 | `20260303134630_temp_BJ.json` | P02 | SIN_ETIQUETA | 2026-03-03 13:46:28 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
-| 6 | `20260307234249_temp_F.json` | P03 | SIN_ETIQUETA | 2026-03-07 23:42:30 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
-| 7 | `20260308232420_temp_AX.json` | P04 | SIN_ETIQUETA | 2026-03-08 23:23:46 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
-| 8 | `20260611235032_temp_AL.json` | P05 | CONTROL | 2026-06-11 23:50:03 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
-| 9 | `20260618075259_temp_BC.json` | P05 | CONTROL | 2026-06-18 07:52:44 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
-| 10 | `20260625140746_temp_BF.json` | P06 | PATIENT | 2026-06-25 14:06:19 | **SÍ** | `SMR_ID1_eMotion_P06_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 122.0$ s |
-| 11 | `20260625140851_temp_AR.json` | P06 | PATIENT | 2026-06-25 14:07:54 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 12 | `20260625144044_temp_D.json` | P07 | PATIENT | 2026-06-25 14:38:59 | **SÍ** | `SMR_ID2_eMotion_P07_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 164.0$ s |
-| 13 | `20260625145018_temp_AB.json` | P08 | PATIENT | 2026-06-25 14:49:24 | **SÍ** | `SMR_ID3_eMotion_P08_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 302.0$ s |
-| 14 | `20260625150353_temp_AK.json` | P09 | PATIENT | 2026-06-25 15:02:19 | **SÍ** | `SMR_ID4_eMotion_P09_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 323.0$ s |
-| 15 | `20260625152019_temp_AA.json` | P10 | PATIENT | 2026-06-25 15:19:18 | **SÍ** | `SMR_ID5_eMotion_P10_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 151.0$ s |
-| 16 | `20260625153756_temp_V.json` | P11 | PATIENT | 2026-06-25 15:36:33 | **SÍ** | `SMR_ID6_eMotion_P11_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 77.0$ s |
-| 17 | `20260625164351_temp_A.json` | P12 | PATIENT | 2026-06-25 16:42:13 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 18 | `20260625171352_temp_BW.json` | P13 | PATIENT | 2026-06-25 17:11:39 | **SÍ** | `SMR_ID7_eMotion_P13_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 127.0$ s |
-| 19 | `20260625180613_temp_AG.json` | P14 | CONTROL | 2026-06-25 18:04:44 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 20 | `20260625183434_temp_BK.json` | P15 | PATIENT | 2026-06-25 18:32:43 | **SÍ** | `SMR_ID8_eMotion_P15_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 103.0$ s |
-| 21 | `20260625193811_temp_BD.json` | P16 | PATIENT | 2026-06-25 19:36:58 | **SÍ** | `SMR_ID9_eMotion_P16_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 70.0$ s |
-| 22 | `20260625195406_temp_BR.json` | P17 | PATIENT | 2026-06-25 19:51:46 | **NO (DESCARTADO)** | - | Descartado por discrepancia de género (IMU MALE vs VIMOV FEMALE) |
-| 23 | `20260625195426_temp_AP.json` | P17 | PATIENT | 2026-06-25 19:54:10 | **NO (DESCARTADO)** | - | Descartado por discrepancia de género (IMU MALE vs VIMOV FEMALE) |
-| 24 | `20260625204358_temp_BN.json` | P18 | PATIENT | 2026-06-25 20:42:52 | **SÍ** | `SMR_ID10_eMotion_P18_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 81.0$ s |
-| 25 | `20260625212453_temp_G.json` | P19 | PATIENT | 2026-06-25 21:23:38 | **NO (DESCARTADO)** | - | Descartado por discrepancia de género (IMU MALE vs VIMOV FEMALE) |
-| 26 | `20260625214451_temp_BH.json` | P20 | PATIENT | 2026-06-25 20:13:35 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 27 | `20260625214518_temp_S.json` | P20 | PATIENT | 2026-06-25 20:16:06 | **SÍ** | `SMR_ID34_eMotion_P20_GAIT.json` | TUG confirmado: género idéntico y $\Delta t = 106.0$ s |
-| 28 | `20260625215046_temp_X.json` | P21 | PATIENT | 2026-06-25 21:49:31 | **SÍ** | `SMR_ID11_eMotion_P21_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 84.0$ s |
-| 29 | `20260626133915_temp_BA.json` | P22 | PATIENT | 2026-06-25 22:55:59 | **SÍ** | `SMR_ID12_eMotion_P22_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 77.0$ s |
-| 30 | `20260626133916_temp_BA.json` | P22 | PATIENT | 2026-06-25 22:55:59 | **SÍ (DUPLICADO)** | `SMR_ID12_eMotion_P22_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 77.0$ s |
-| 31 | `20260626141246_temp_AC.json` | P23 | PATIENT | 2026-06-26 14:11:42 | **NO (DESCARTADO)** | - | Descartado por discrepancia de género (IMU FEMALE vs VIMOV MALE) |
-| 32 | `20260626144433_temp_AV.json` | P24 | PATIENT | 2026-06-26 14:43:00 | **SÍ** | `SMR_ID13_eMotion_P24_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 196.0$ s |
-| 33 | `20260626145512_temp_AO.json` | P25 | PATIENT | 2026-06-26 14:53:43 | **SÍ** | `SMR_ID14_eMotion_P25_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 282.0$ s |
-| 34 | `20260626150532_temp_M.json` | P26 | PATIENT | 2026-06-26 15:03:48 | **SÍ** | `SMR_ID15_eMotion_P26_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 170.0$ s |
-| 35 | `20260626151711_temp_BQ.json` | P27 | PATIENT | 2026-06-26 15:15:48 | **SÍ** | `SMR_ID16_eMotion_P27_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 91.0$ s |
-| 36 | `20260626152553_temp_U.json` | P28 | PATIENT | 2026-06-26 15:25:04 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 37 | `20260626153637_temp_AJ.json` | P29 | PATIENT | 2026-06-26 15:35:39 | **NO (DESCARTADO)** | - | Descartado por discrepancia de género (IMU FEMALE vs VIMOV MALE) |
-| 38 | `20260626154758_temp_O.json` | P30 | PATIENT | 2026-06-26 15:46:43 | **SÍ** | `SMR_ID17_eMotion_P30_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 290.0$ s |
-| 39 | `20260626160554_temp_BU.json` | P31 | PATIENT | 2026-06-26 16:04:24 | **SÍ** | `SMR_ID18_eMotion_P31_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 162.0$ s |
-| 40 | `20260626160620_temp_K.json` | P31 | PATIENT | 2026-06-26 16:05:55 | **SÍ** | `SMR_ID19_eMotion_P31_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 78.0$ s |
-| 41 | `20260626170623_temp_BT.json` | P32 | PATIENT | 2026-06-26 17:04:37 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 42 | `20260626170733_temp_AZ.json` | P32 | PATIENT | 2026-06-26 17:06:53 | **SÍ** | `SMR_ID20_eMotion_P32_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 260.0$ s |
-| 43 | `20260626170919_temp_J.json` | P32 | PATIENT | 2026-06-26 17:08:58 | **SÍ** | `SMR_ID21_eMotion_P32_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 141.0$ s |
-| 44 | `20260626170956_temp_AQ.json` | P32 | PATIENT | 2026-06-26 17:09:37 | **SÍ** | `SMR_ID22_eMotion_P32_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 109.0$ s |
-| 45 | `20260626194407_temp_BM.json` | P33 | PATIENT | 2026-06-26 19:43:07 | **SÍ** | `SMR_ID23_eMotion_P33_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 108.0$ s |
-| 46 | `20260626202515_temp_BS.json` | P34 | PATIENT | 2026-06-26 20:22:35 | **SÍ** | `SMR_ID24_eMotion_P34_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 163.0$ s |
-| 47 | `20260626204728_temp_AW.json` | P35 | PATIENT | 2026-06-26 20:46:42 | **SÍ** | `SMR_ID25_eMotion_P35_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 62.0$ s |
-| 48 | `20260626211937_temp_AH.json` | P36 | PATIENT | 2026-06-26 21:18:37 | **SÍ** | `SMR_ID26_eMotion_P36_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 129.0$ s |
-| 49 | `20260626213214_temp_AT.json` | P37 | PATIENT | 2026-06-26 21:31:18 | **SÍ** | `SMR_ID27_eMotion_P37_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 265.0$ s |
-| 50 | `20260626215053_temp_AE.json` | P38 | PATIENT | 2026-06-26 21:49:58 | **SÍ** | `SMR_ID28_eMotion_P38_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 188.0$ s |
-| 51 | `20260626222007_temp_BL.json` | P39 | PATIENT | 2026-06-26 22:18:47 | **SÍ** | `SMR_ID29_eMotion_P39_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 89.0$ s |
-| 52 | `20260627133637_temp_AS.json` | P40 | PATIENT | 2026-06-27 13:35:40 | **SÍ** | `SMR_ID30_eMotion_P40_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 80.0$ s |
-| 53 | `20260627135010_temp_BP.json` | P41 | PATIENT | 2026-06-27 13:47:37 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 54 | `20260627135720_temp_AD.json` | P42 | PATIENT | 2026-06-27 13:55:54 | **SÍ** | `SMR_ID31_eMotion_P42_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 174.0$ s |
-| 55 | `20260627143518_temp_BB.json` | P43 | PATIENT | 2026-06-27 14:34:21 | **SÍ** | `SMR_ID32_eMotion_P43_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 83.0$ s |
-| 56 | `20260627150939_temp_R.json` | P44 | PATIENT | 2026-06-27 15:08:47 | **SÍ** | `SMR_ID33_eMotion_P44_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 114.0$ s |
-| 57 | `20260627152358_temp_W.json` | P45 | PATIENT | 2026-06-27 15:23:02 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 58 | `20260627155804_temp_I.json` | P46 | PATIENT | 2026-06-27 15:57:15 | **SÍ** | `SMR_ID34_eMotion_P46_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 57.0$ s |
-| 59 | `20260627161148_temp_Q.json` | P47 | PATIENT | 2026-06-27 16:10:39 | **SÍ** | `SMR_ID35_eMotion_P47_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 249.0$ s |
-| 60 | `20260627162118_temp_AU.json` | P48 | PATIENT | 2026-06-27 16:19:41 | **SÍ** | `SMR_ID36_eMotion_P48_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 167.0$ s |
-| 61 | `20260627163836_temp_L.json` | P49 | PATIENT | 2026-06-27 16:37:29 | **SÍ** | `SMR_ID37_eMotion_P49_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 299.0$ s |
-| 62 | `20260627171353_temp_H.json` | P50 | PATIENT | 2026-06-27 17:13:05 | **SÍ** | `SMR_ID38_eMotion_P50_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 58.0$ s |
-| 63 | `20260627180847_temp_AI.json` | P51 | PATIENT | 2026-06-27 18:06:45 | **SÍ** | `SMR_ID39_eMotion_P51_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 124.0$ s |
-| 64 | `20260627205326_temp_C.json` | P52 | PATIENT | 2026-06-27 20:52:35 | **SÍ** | `SMR_ID40_eMotion_P52_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 65.0$ s |
-| 65 | `20260704154505_temp_AF.json` | P53 | PATIENT | 2026-07-04 15:44:08 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 66 | `20260704155929_temp_BE.json` | P54 | PATIENT | 2026-07-04 15:58:15 | **SÍ** | `CST_ID1_eMotion_P54_TUG.json` | TUG confirmado: género idéntico y $\Delta t = 16.0$ s |
-| 67 | `20260704165749_temp_E.json` | P55 | PATIENT | 2026-07-04 16:56:59 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 68 | `20260704172020_temp_Y.json` | P56 | PATIENT | 2026-07-04 17:19:11 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 69 | `20260704194015_temp_AY.json` | P57 | CONTROL | 2026-07-04 19:00:00 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 70 | `20260704194635_temp_BG.json` | P58 | PATIENT | 2026-07-04 19:44:43 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 71 | `20260715052203_temp_B.json` | P59 | CONTROL | 2026-07-04 14:50:22 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 72 | `20260820141830_temp_AM.json` | P60 | PATIENT | 2026-07-04 15:50:31 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 73 | `20260820141849_temp_P.json` | P61 | CONTROL | 2026-07-04 16:14:25 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 74 | `20260820141919_temp_BI.json` | P62 | PATIENT | 2026-07-04 16:50:45 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 75 | `20260820142005_temp_Z.json` | P63 | PATIENT | 2026-07-04 17:49:13 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 76 | `20260820142006_temp_Z.json` | P63 | PATIENT | 2026-07-04 17:49:13 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 77 | `20260820142037_temp_T.json` | P64 | CONTROL | 2026-07-04 18:08:52 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
-| 78 | `20260820142101_temp_AN.json` | P65 | CONTROL | 2026-07-04 18:49:43 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 1 | `LAB_IDI1_BV.json` | P01 | SIN_ETIQUETA | 2026-02-08 02:24:03 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
+| 2 | `LAB_IDI2_N.json` | P02 | SIN_ETIQUETA | 2026-03-03 04:31:19 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
+| 3 | `LAB_IDI3_BO.json` | P02 | SIN_ETIQUETA | 2026-03-03 04:35:31 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
+| 4 | `LAB_IDI4_BX.json` | P02 | SIN_ETIQUETA | 2026-03-03 04:45:05 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
+| 5 | `LAB_IDI5_BJ.json` | P02 | SIN_ETIQUETA | 2026-03-03 13:46:28 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
+| 6 | `LAB_IDI6_F.json` | P03 | SIN_ETIQUETA | 2026-03-07 23:42:30 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
+| 7 | `LAB_IDI7_AX.json` | P04 | SIN_ETIQUETA | 2026-03-08 23:23:46 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
+| 8 | `LAB_IDI8_AL.json` | P05 | CONTROL | 2026-06-11 23:50:03 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
+| 9 | `LAB_IDI9_BC.json` | P05 | CONTROL | 2026-06-18 07:52:44 | **NO** | - | Prueba piloto previa a brigadas (sin cámara) |
+| 10 | `SMR_IDI1_BF.json` | P06 | PATIENT | 2026-06-25 14:06:19 | **SÍ** | `SMR_IDE1_TUG_P06.json` | TUG confirmado: género idéntico y $\Delta t = 122.0$ s |
+| 11 | `SMR_IDI2_AR.json` | P06 | PATIENT | 2026-06-25 14:07:54 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 12 | `SMR_IDI3_D.json` | P07 | PATIENT | 2026-06-25 14:38:59 | **SÍ** | `SMR_IDE2_TUG_P07.json` | TUG confirmado: género idéntico y $\Delta t = 164.0$ s |
+| 13 | `SMR_IDI4_AB.json` | P08 | PATIENT | 2026-06-25 14:49:24 | **SÍ** | `SMR_IDE3_TUG_P08.json` | TUG confirmado: género idéntico y $\Delta t = 302.0$ s |
+| 14 | `SMR_IDI5_AK.json` | P09 | PATIENT | 2026-06-25 15:02:19 | **SÍ** | `SMR_IDE4_TUG_P09.json` | TUG confirmado: género idéntico y $\Delta t = 323.0$ s |
+| 15 | `SMR_IDI6_AA.json` | P10 | PATIENT | 2026-06-25 15:19:18 | **SÍ** | `SMR_IDE5_TUG_P10.json` | TUG confirmado: género idéntico y $\Delta t = 151.0$ s |
+| 16 | `SMR_IDI7_V.json` | P11 | PATIENT | 2026-06-25 15:36:33 | **SÍ** | `SMR_IDE6_TUG_P11.json` | TUG confirmado: género idéntico y $\Delta t = 77.0$ s |
+| 17 | `SMR_IDI8_A.json` | P12 | PATIENT | 2026-06-25 16:42:13 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 18 | `SMR_IDI9_BW.json` | P13 | PATIENT | 2026-06-25 17:11:39 | **SÍ** | `SMR_IDE7_TUG_P13.json` | TUG confirmado: género idéntico y $\Delta t = 127.0$ s |
+| 19 | `SMR_IDI10_AG.json` | P14 | CONTROL | 2026-06-25 18:04:44 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 20 | `SMR_IDI11_BK.json` | P15 | PATIENT | 2026-06-25 18:32:43 | **SÍ** | `SMR_IDE8_TUG_P15.json` | TUG confirmado: género idéntico y $\Delta t = 103.0$ s |
+| 21 | `SMR_IDI12_BD.json` | P16 | PATIENT | 2026-06-25 19:36:58 | **SÍ** | `SMR_IDE9_TUG_P16.json` | TUG confirmado: género idéntico y $\Delta t = 70.0$ s |
+| 22 | `SMR_IDI13_BR.json` | P17 | PATIENT | 2026-06-25 19:51:46 | **NO (DESCARTADO)** | - | Descartado por discrepancia de género (IMU MALE vs VIMOV FEMALE) |
+| 23 | `SMR_IDI14_AP.json` | P17 | PATIENT | 2026-06-25 19:54:10 | **NO (DESCARTADO)** | - | Descartado por discrepancia de género (IMU MALE vs VIMOV FEMALE) |
+| 24 | `SMR_IDI15_BN.json` | P18 | PATIENT | 2026-06-25 20:42:52 | **SÍ** | `SMR_IDE10_TUG_P18.json` | TUG confirmado: género idéntico y $\Delta t = 81.0$ s |
+| 25 | `SMR_IDI16_G.json` | P19 | PATIENT | 2026-06-25 21:23:38 | **NO (DESCARTADO)** | - | Descartado por discrepancia de género (IMU MALE vs VIMOV FEMALE) |
+| 26 | `SMR_IDI17_BH.json` | P20 | PATIENT | 2026-06-25 20:13:35 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 27 | `SMR_IDI18_S.json` | P20 | PATIENT | 2026-06-25 20:16:06 | **SÍ** | `SMR_IDE34_GAIT_P20.json` | TUG confirmado: género idéntico y $\Delta t = 106.0$ s |
+| 28 | `SMR_IDI19_X.json` | P21 | PATIENT | 2026-06-25 21:49:31 | **SÍ** | `SMR_IDE11_TUG_P21.json` | TUG confirmado: género idéntico y $\Delta t = 84.0$ s |
+| 29 | `SMR_IDI20_BA.json` | P22 | PATIENT | 2026-06-25 22:55:59 | **SÍ** | `SMR_IDE12_TUG_P22.json` | TUG confirmado: género idéntico y $\Delta t = 77.0$ s |
+| 30 | `SMR_IDI21_BA.json` | P22 | PATIENT | 2026-06-25 22:55:59 | **SÍ (DUPLICADO)** | `SMR_IDE12_TUG_P22.json` | TUG confirmado: género idéntico y $\Delta t = 77.0$ s |
+| 31 | `SMR_IDI22_AC.json` | P23 | PATIENT | 2026-06-26 14:11:42 | **NO (DESCARTADO)** | - | Descartado por discrepancia de género (IMU FEMALE vs VIMOV MALE) |
+| 32 | `SMR_IDI23_AV.json` | P24 | PATIENT | 2026-06-26 14:43:00 | **SÍ** | `SMR_IDE13_TUG_P24.json` | TUG confirmado: género idéntico y $\Delta t = 196.0$ s |
+| 33 | `SMR_IDI24_AO.json` | P25 | PATIENT | 2026-06-26 14:53:43 | **SÍ** | `SMR_IDE14_TUG_P25.json` | TUG confirmado: género idéntico y $\Delta t = 282.0$ s |
+| 34 | `SMR_IDI25_M.json` | P26 | PATIENT | 2026-06-26 15:03:48 | **SÍ** | `SMR_IDE15_TUG_P26.json` | TUG confirmado: género idéntico y $\Delta t = 170.0$ s |
+| 35 | `SMR_IDI26_BQ.json` | P27 | PATIENT | 2026-06-26 15:15:48 | **SÍ** | `SMR_IDE16_TUG_P27.json` | TUG confirmado: género idéntico y $\Delta t = 91.0$ s |
+| 36 | `SMR_IDI27_U.json` | P28 | PATIENT | 2026-06-26 15:25:04 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 37 | `SMR_IDI28_AJ.json` | P29 | PATIENT | 2026-06-26 15:35:39 | **NO (DESCARTADO)** | - | Descartado por discrepancia de género (IMU FEMALE vs VIMOV MALE) |
+| 38 | `SMR_IDI29_O.json` | P30 | PATIENT | 2026-06-26 15:46:43 | **SÍ** | `SMR_IDE17_TUG_P30.json` | TUG confirmado: género idéntico y $\Delta t = 290.0$ s |
+| 39 | `SMR_IDI30_BU.json` | P31 | PATIENT | 2026-06-26 16:04:24 | **SÍ** | `SMR_IDE18_TUG_P31.json` | TUG confirmado: género idéntico y $\Delta t = 162.0$ s |
+| 40 | `SMR_IDI31_K.json` | P31 | PATIENT | 2026-06-26 16:05:55 | **SÍ** | `SMR_IDE19_TUG_P31.json` | TUG confirmado: género idéntico y $\Delta t = 78.0$ s |
+| 41 | `SMR_IDI32_BT.json` | P32 | PATIENT | 2026-06-26 17:04:37 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 42 | `SMR_IDI33_AZ.json` | P32 | PATIENT | 2026-06-26 17:06:53 | **SÍ** | `SMR_IDE20_TUG_P32.json` | TUG confirmado: género idéntico y $\Delta t = 260.0$ s |
+| 43 | `SMR_IDI34_J.json` | P32 | PATIENT | 2026-06-26 17:08:58 | **SÍ** | `SMR_IDE21_TUG_P32.json` | TUG confirmado: género idéntico y $\Delta t = 141.0$ s |
+| 44 | `SMR_IDI35_AQ.json` | P32 | PATIENT | 2026-06-26 17:09:37 | **SÍ** | `SMR_IDE22_TUG_P32.json` | TUG confirmado: género idéntico y $\Delta t = 109.0$ s |
+| 45 | `SMR_IDI36_BM.json` | P33 | PATIENT | 2026-06-26 19:43:07 | **SÍ** | `SMR_IDE23_TUG_P33.json` | TUG confirmado: género idéntico y $\Delta t = 108.0$ s |
+| 46 | `SMR_IDI37_BS.json` | P34 | PATIENT | 2026-06-26 20:22:35 | **SÍ** | `SMR_IDE24_TUG_P34.json` | TUG confirmado: género idéntico y $\Delta t = 163.0$ s |
+| 47 | `SMR_IDI38_AW.json` | P35 | PATIENT | 2026-06-26 20:46:42 | **SÍ** | `SMR_IDE25_TUG_P35.json` | TUG confirmado: género idéntico y $\Delta t = 62.0$ s |
+| 48 | `SMR_IDI39_AH.json` | P36 | PATIENT | 2026-06-26 21:18:37 | **SÍ** | `SMR_IDE26_TUG_P36.json` | TUG confirmado: género idéntico y $\Delta t = 129.0$ s |
+| 49 | `SMR_IDI40_AT.json` | P37 | PATIENT | 2026-06-26 21:31:18 | **SÍ** | `SMR_IDE27_TUG_P37.json` | TUG confirmado: género idéntico y $\Delta t = 265.0$ s |
+| 50 | `SMR_IDI41_AE.json` | P38 | PATIENT | 2026-06-26 21:49:58 | **SÍ** | `SMR_IDE28_TUG_P38.json` | TUG confirmado: género idéntico y $\Delta t = 188.0$ s |
+| 51 | `SMR_IDI42_BL.json` | P39 | PATIENT | 2026-06-26 22:18:47 | **SÍ** | `SMR_IDE29_TUG_P39.json` | TUG confirmado: género idéntico y $\Delta t = 89.0$ s |
+| 52 | `SMR_IDI43_AS.json` | P40 | PATIENT | 2026-06-27 13:35:40 | **SÍ** | `SMR_IDE30_TUG_P40.json` | TUG confirmado: género idéntico y $\Delta t = 80.0$ s |
+| 53 | `SMR_IDI44_BP.json` | P41 | PATIENT | 2026-06-27 13:47:37 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 54 | `SMR_IDI45_AD.json` | P42 | PATIENT | 2026-06-27 13:55:54 | **SÍ** | `SMR_IDE31_TUG_P42.json` | TUG confirmado: género idéntico y $\Delta t = 174.0$ s |
+| 55 | `SMR_IDI46_BB.json` | P43 | PATIENT | 2026-06-27 14:34:21 | **SÍ** | `SMR_IDE32_TUG_P43.json` | TUG confirmado: género idéntico y $\Delta t = 83.0$ s |
+| 56 | `SMR_IDI47_R.json` | P44 | PATIENT | 2026-06-27 15:08:47 | **SÍ** | `SMR_IDE33_TUG_P44.json` | TUG confirmado: género idéntico y $\Delta t = 114.0$ s |
+| 57 | `SMR_IDI48_W.json` | P45 | PATIENT | 2026-06-27 15:23:02 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 58 | `SMR_IDI49_I.json` | P46 | PATIENT | 2026-06-27 15:57:15 | **SÍ** | `SMR_IDE34_TUG_P46.json` | TUG confirmado: género idéntico y $\Delta t = 57.0$ s |
+| 59 | `SMR_IDI50_Q.json` | P47 | PATIENT | 2026-06-27 16:10:39 | **SÍ** | `SMR_IDE35_TUG_P47.json` | TUG confirmado: género idéntico y $\Delta t = 249.0$ s |
+| 60 | `SMR_IDI51_AU.json` | P48 | PATIENT | 2026-06-27 16:19:41 | **SÍ** | `SMR_IDE36_TUG_P48.json` | TUG confirmado: género idéntico y $\Delta t = 167.0$ s |
+| 61 | `SMR_IDI52_L.json` | P49 | PATIENT | 2026-06-27 16:37:29 | **SÍ** | `SMR_IDE37_TUG_P49.json` | TUG confirmado: género idéntico y $\Delta t = 299.0$ s |
+| 62 | `SMR_IDI53_H.json` | P50 | PATIENT | 2026-06-27 17:13:05 | **SÍ** | `SMR_IDE38_TUG_P50.json` | TUG confirmado: género idéntico y $\Delta t = 58.0$ s |
+| 63 | `SMR_IDI54_AI.json` | P51 | PATIENT | 2026-06-27 18:06:45 | **SÍ** | `SMR_IDE39_TUG_P51.json` | TUG confirmado: género idéntico y $\Delta t = 124.0$ s |
+| 64 | `SMR_IDI55_C.json` | P52 | PATIENT | 2026-06-27 20:52:35 | **SÍ** | `SMR_IDE40_TUG_P52.json` | TUG confirmado: género idéntico y $\Delta t = 65.0$ s |
+| 65 | `CST_IDI1_AF.json` | P53 | PATIENT | 2026-07-04 15:44:08 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 66 | `CST_IDI2_BE.json` | P54 | PATIENT | 2026-07-04 15:58:15 | **SÍ** | `CST_IDE1_TUG_P54.json` | TUG confirmado: género idéntico y $\Delta t = 16.0$ s |
+| 67 | `CST_IDI3_E.json` | P55 | PATIENT | 2026-07-04 16:56:59 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 68 | `CST_IDI4_Y.json` | P56 | PATIENT | 2026-07-04 17:19:11 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 69 | `CST_IDI5_AY.json` | P57 | CONTROL | 2026-07-04 19:00:00 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 70 | `CST_IDI6_BG.json` | P58 | PATIENT | 2026-07-04 19:44:43 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 71 | `CST_IDI7_B.json` | P59 | CONTROL | 2026-07-04 14:50:22 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 72 | `CST_IDI8_AM.json` | P60 | PATIENT | 2026-07-04 15:50:31 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 73 | `CST_IDI9_P.json` | P61 | CONTROL | 2026-07-04 16:14:25 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 74 | `CST_IDI10_BI.json` | P62 | PATIENT | 2026-07-04 16:50:45 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 75 | `CST_IDI11_Z.json` | P63 | PATIENT | 2026-07-04 17:49:13 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 76 | `CST_IDI12_Z.json` | P63 | PATIENT | 2026-07-04 17:49:13 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 77 | `CST_IDI13_T.json` | P64 | CONTROL | 2026-07-04 18:08:52 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
+| 78 | `CST_IDI14_AN.json` | P65 | CONTROL | 2026-07-04 18:49:43 | **NO** | - | Sin captura TUG de cámara en esta ventana horaria (evaluado en marcha continua o solo IMU) |
 
 ---
 

@@ -76,3 +76,18 @@ El análisis conjunto confirma la hipótesis planteada en el proyecto:
 - **Cámara e-Motion:** Aporta las métricas espaciales absolutas imposibles de medir sin deriva por IMU simple (longitud de zancada en metros, longitud de paso, velocidad lineal real y amplitud de braceo).
 - **Sensores IMU:** Aportan la robustez inercial en zonas críticas donde la cámara sufre oclusión transitoria (conteo exacto de pasos en giro a corta distancia, dinámica angular del tronco y micro-eventos de contacto de tobillo).
 - **Dataset Bimodal:** Los 53 pares consolidados constituyen el núcleo experimental validado para el entrenamiento de modelos clasificadores y algoritmos de fusión sensorial del Proyecto de Grado.
+
+---
+
+## 5. Auditoría de Casos Atípicos y Análisis de Variabilidad Operacional
+
+Al evaluar las señales continuas de los 53 pares bimodales, se documentaron casos con variabilidad cinemática derivada de la dinámica real de brigada y del cuadro patológico de los participantes:
+
+### A. Grabaciones con Doble Intento o Ensayos Previos (Pausas Estáticas Prolongadas)
+- En grabaciones inerciales como `IDB1`, `IDB2`, `IDB3`, `IDB8`, `IDB9`, `IDB11`, `IDB16`, `IDB18`, `IDB22`, `IDB24`, `IDB29`, `IDB34`, `IDB37` e `IDB43`, el sensor IMU fue encendido con anticipación, registrando un movimiento preliminar de preparación o ensayo previo, seguido por una **pausa estática prolongada de reposo en la silla ($10\text{ a }40\text{ s}$)** donde el giroscopio lumbar decae a $0^\circ/\text{s}$ y la aceleración es puramente gravitatoria ($1.0\text{ g}$).
+- El test TUG real y sincronizado con la cámara e-Motion tiene lugar inmediatamente después de dicha pausa.
+- **Caso ilustrativo `IDB3`:** La prueba óptica e-Motion duró $18.14\text{ s}$ y capturó el TUG de forma limpia (levantamiento, giro en cono a los $9.92\text{ s}$ y sentado a los $18.10\text{ s}$). En cambio, la grabación inercial duró $44.94\text{ s}$, conteniendo un intento preparatorio ($0\text{--}13\text{ s}$), una pausa estática total de $15.1\text{ s}$ ($14\text{--}28\text{ s}$) y el TUG sincronizado final ($29\text{--}43\text{ s}$).
+
+### B. Pruebas con Múltiples Giros Detectados
+- En participantes como `IDB5`, `IDB7`, `IDB10`, `IDB20` y `IDB30`, el algoritmo inercial detecta más de un pico prominente de rotación angular en yaw ($>40^\circ/\text{s}$), producto de giros exploratorios preliminares o de una rotación fragmentada en múltiples semicírculos en el cono propia de la rigidez axial parkinsoniana.
+- La tabla completa con el diagnóstico individual de los 53 pares se encuentra en [`Datos IMU&eMotion/Auditoria_Anomalias_Bimodales.csv`](file:///home/guarinve/Documentos/PDG-TUG/Datos%20IMU&eMotion/Auditoria_Anomalias_Bimodales.csv).
