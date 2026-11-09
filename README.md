@@ -29,6 +29,8 @@ PDG-TUG/
 │   ├── Correlacion.md                        # Auditoría de correspondencia temporal entre registros IMU y cámara
 │   ├── Matriz_Analisis_Riesgos.md            # Tabla oficial de análisis de riesgos del proyecto (vista web)
 │   ├── Matriz_Analisis_Riesgos.csv           # Matriz de análisis de riesgos exportable a Excel / hojas de cálculo
+│   ├── Presentacion_Avances_PDG_TUG.pptx     # Presentación de avances técnicos y matriz de riesgos (9 diapositivas)
+│   ├── Guion_Exposicion_PDG.md               # Guion de apoyo por diapositiva para la sustentación de avances
 │   └── Script/                               # Scripts auxiliares para cruce bimodal y generación de fichas técnicas
 │       ├── generar_cruce_imu_emotion.py
 │       ├── generar_ficha_tecnica_camara.py
