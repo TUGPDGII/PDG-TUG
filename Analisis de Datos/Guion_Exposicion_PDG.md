@@ -1,118 +1,139 @@
-# Guion de Exposición de Avances y Matriz de Riesgos — Proyecto PDG-TUG
+# Guion de Exposición de Avances, Estado del Arte y Matriz de Riesgos — Proyecto PDG-TUG
 
-Este documento sirve como guía de apoyo para presentar las 10 diapositivas de [`Presentacion_Avances_PDG_TUG.html`](file:///home/jjarias/Documents/UNIVERSIDAD/8vo%20semestre/PDG/PDG-TUG/Analisis%20de%20Datos/Presentacion_Avances_PDG_TUG.html) (también disponible en [`Presentacion_Avances_PDG_TUG.pptx`](file:///home/jjarias/Documents/UNIVERSIDAD/8vo%20semestre/PDG/PDG-TUG/Analisis%20de%20Datos/Presentacion_Avances_PDG_TUG.pptx)). Está redactado en un tono natural para que cualquiera del grupo pueda explicarlo con sus propias palabras durante la reunión con el profesor.
+Este documento sirve como guía de apoyo para presentar las 12 láminas de [`Presentacion_Avances_PDG_TUG.html`](file:///home/jjarias/Documents/UNIVERSIDAD/8vo%20semestre/PDG/PDG-TUG/Analisis%20de%20Datos/Presentacion_Avances_PDG_TUG.html). Está redactado en un tono natural para que cualquiera del grupo pueda explicarlo con sus propias palabras durante la sustentación con los profesores.
 
 ---
 
-## Diapositiva 1 — Portada
-* **Título:** Análisis Cinemático y Biomecánico Bimodal de la Prueba Timed Up and Go (PDG-TUG)
+## Lámina 01 — Portada Editorial
+* **Título:** Análisis Cinemático y Biomecánico Bimodal de la Prueba *Timed Up and Go* en Enfermedad de Parkinson
 * **Qué decir:**
-  > "Buenos días, profe. En esta presentación vamos a mostrar el consolidado de los avances que ya quedaron unificados en la rama `main` del repositorio: la depuración de los conjuntos de datos de IMUs y cámaras, la validación del algoritmo de segmentación del PDG anterior, los primeros resultados estadísticos comparando pacientes y controles, y la matriz oficial de análisis de riesgos que nos solicitó incorporar."
+  > "Buenos días, profesores. En esta presentación vamos a mostrar el consolidado de nuestros avances en `main`: la búsqueda en anchura y priorización de variables que guía nuestro modelo, la curaduría de los tres conjuntos de datos del repositorio (`Datos IMUs/`, `Datos e-Motion/` y `Datos IMU&eMotion/`), los tres pipelines de procesamiento y fusión bimodal (15 módulos en total), los resultados estadísticos donde ya encontramos diferencias significativas entre pacientes y controles, y la matriz oficial de análisis de riesgos."
 
 ---
 
-## Diapositiva 2 — Contexto, Objetivos Ajustados y Delimitación Bimodal
+## Lámina 02 — Tesis Central, Objetivos y Complementariedad Bimodal
 * **Puntos clave en pantalla:**
-  * Objetivo General y los 4 Objetivos Específicos (con el `OE4` ajustado sin prometer un porcentaje fijo).
-  * División funcional entre IMUs (50 Hz) y Cámaras RGB-D (30 Hz).
+  * Tesis central: el tiempo total del TUG oculta déficits tempranos; descomponer la prueba en sus 5 fases con sensores complementarios revela las alteraciones reales.
+  * Ajuste formal del `OE4` en Overleaf (evaluar discriminación grupal con exactitud y sensibilidad sin fijar un umbral arbitrario del 80 %).
+  * División funcional: **IMUs (50 Hz)** vs. **Cámaras RGB-D (30 Hz)**.
 * **Qué decir:**
-  > "Primero, dejamos formalizado en el documento de Overleaf el ajuste del cuarto objetivo específico (`OE4`) para evaluar la capacidad de discriminación mediante exactitud y sensibilidad a nivel de grupos, sin fijar un umbral arbitrario como el 80 %.
+  > "El punto de partida de nuestro trabajo es que medir únicamente el tiempo total del TUG no basta para detectar alteraciones sutiles en etapas tempranas. Por eso combinamos dos tecnologías que se complementan físicamente:
+  > 1. Los **sensores inerciales IMU a 50 Hz**, fijos a la espalda lumbar, tobillos y muñecas, no sufren oclusión visual. Se encargan de segmentar las 5 fases temporales del TUG, medir las velocidades angulares de inclinación (*pitch*) y giro (*yaw*), y contar los pasos dentro del giro de 180°.
+  > 2. Las **cámaras de profundidad RGB-D a 30 Hz**, en los tramos rectos de caminata donde tienen 100 % de visibilidad, entregan medidas espaciales directas en metros sin la deriva que tendría integrar un acelerómetro: longitud de zancada, longitud de paso, velocidad lineal de la pelvis (`SpineBase`), porcentaje de doble apoyo y amplitud/asimetría de braceo."
+
+---
+
+## Lámina 03 — Búsqueda en Anchura v2: De la Literatura al Pipeline (`Búsqueda en anchura v2.pdf`)
+* **Puntos clave en pantalla:**
+  * **`R₁` — Molero-Mateo et al. (2026, *Sensors*):** 79 participantes (38 EP temprana `mH&Y 1–1.5` y `2` en estado *OFF* vs. 41 controles, 316 ensayos).
+  * **`R₂` — Vervoort et al. (2016, *PLOS ONE*):** Segmentación con IMU lumbar (*pitch*, *yaw*, aceleración AP + wavelets) y reducción multivariada PLS (`VIP > 0.8`) + PLS-DA (AUC 94.7 %).
+  * Tabla de priorización de variables para `TUG 2` (**Alta**, **Media** y **Baja**).
+* **Qué decir:**
+  > "Antes de extraer variables a ciegas, documentamos en nuestra *Búsqueda en anchura v2* dos estudios clave que fundamentan nuestras decisiones técnicas:
+  > * El primero es **Molero-Mateo et al. (2026)** en *Sensors*, con 316 ensayos en pacientes con Parkinson temprano (`mH&Y 1 a 2`). Ellos demuestran que el tiempo total del TUG no separa controles de estadios `1–1.5`, mientras que la **duración del primer giro** sí lo logra. Además, identifican como marcadores de **Prioridad Alta** en marcha el **mayor porcentaje de doble apoyo**, la **menor longitud de zancada**, la **velocidad de marcha** y el **ROM sagital del tronco**, junto con la **asimetría de brazo/codo** como marcador temprano. También demuestran que los coeficientes de variación (*CV*) paso a paso y el ancho de paso no discriminan en un recorrido corto de 3 metros, por lo que los dejamos en prioridad baja.
+  > * El segundo es **Vervoort et al. (2016)**, que valida el flujo sobre IMU lumbar usando *pitch* para levantarse/sentarse, *yaw* para giros y wavelets para contactos de pie, seleccionando las mejores variables con PLS (`VIP > 0.8`) antes de clasificar. Un detalle clave que señalan es que el *doble apoyo* no debe inferirse con una sola IMU lumbar sin tener contacto y despegue de ambos pies; por eso en nuestro proyecto lo calculamos directamente con ambos tobillos en la cámara RGB-D y en las IMUs distales."
+
+---
+
+## Lámina 04 — Auditoría de Brigadas, Homologación de Hardware y Cruce Bimodal
+* **Puntos clave en pantalla:**
+  * **`Datos IMUs/`:** 78 archivos $\rightarrow$ 12 descartados $\rightarrow$ **66 muestras válidas** (61 sujetos únicos: 54 EP y 7 controles). Homologación `Kit Base` vs. `Kit K1`.
+  * **`Datos e-Motion/`:** **225 capturas 3D** en disco (130 TUG y 95 de marcha continua de 10 m). Cohortes `LARGE_PD` y `GEOREF` (48 pacientes con TUG + Marcha Continua). Unificación de esqueletos `v1.2.0` (19 nodos) y `v1.3.0` (15 nodos) en `SpineBase`.
+  * **`Datos IMU&eMotion/`:** **53 pares bimodales 1 a 1** (`IDB1` a `IDB53`).
+* **Qué decir:**
+  > "En cuanto a ingeniería de datos, estructuramos el repositorio en tres carpetas auditadas:
+  > 1. En **`Datos IMUs/`**, de 78 archivos descartamos 12 (7 pruebas internas sin paciente, 2 duplicados exactos por red verificados con MD5 y 3 ensayos de doble tarea cognitiva), quedando con **66 grabaciones válidas** de 61 personas únicas. Reconstruimos la identidad de los pacientes con tomas múltiples (como pacientes con estimulación cerebral profunda DBS o pausas en la prueba) y normalizamos las dos generaciones de hardware (`Kit Base` y `Kit K1`) para que el código procese el 100 % del conjunto.
+  > 2. En **`Datos e-Motion/`**, depuramos 269 capturas iniciales dejando **225 grabaciones 3D en disco**: 130 de TUG y 95 de marcha continua de 10 metros, vinculadas a las cohortes `LARGE_PD` y `GEOREF` (donde 48 pacientes tienen tanto TUG como marcha continua). También resolvimos el cambio de versión del software de cámara unificando los esqueletos de 19 y 15 articulaciones sobre el nodo pélvico `SpineBase`.
+  > 3. Y en **`Datos IMU&eMotion/`**, cruzamos fecha, hora UTC y datos demográficos de las brigadas de Santa Marta y CST para consolidar **53 pares bimodales 1 a 1** capturados simultáneamente por ambos equipos."
+
+---
+
+## Lámina 05 — Pipeline 1 (IMUs): Segmentación de 5 Fases y Eventos de Paso por Fase
+* **Puntos clave en pantalla:**
+  * Módulos 5 al 8 de `PDGI_Colab.ipynb`: interpolación a 50 Hz, filtro Butterworth a 3 Hz, energía lumbar en ventana deslizante + velocidad angular de giro (*yaw*).
+  * Etiquetado `SWING` / `STANCE` por `fase_tug` y conteo de pasos en el giro.
+  * **63 de 66 muestras válidas (95.5 %)** segmentadas en sus 5 fases.
+* **Qué decir:**
+  > "En el **Pipeline 1 (Módulos 5 al 8)** procesamos las 66 muestras inerciales: primero alineamos los relojes de los 5 sensores a una rejilla uniforme de 50 Hz y filtramos a 3 Hz sin desfase.
   >
-  > Además, definimos formalmente qué aporta cada sensor según lo que vimos en las pruebas:
-  > 1. Los **sensores IMU a 50 Hz** se encargan de segmentar las 5 fases temporales del TUG (levantarse, marcha de ida, giro de 180°, marcha de regreso y sentarse) y de medir los pasos dentro del giro, porque van fijos al cuerpo y no sufren oclusión.
-  > 2. Las **cámaras RGB-D a 30 Hz** se utilizan en los tramos rectos de marcha para estimar variables espaciales como longitud de paso, longitud de zancada, velocidad lineal de la cadera (`SpineBase`) y amplitud de braceo, que en IMU pura son difíciles de medir sin deriva por integración."
+  > Luego, como se ve en la **Figura 1.1**, superponemos la energía de flexo-extensión del tronco con la energía rotacional de guiñada para delimitar de forma contigua las 5 fases del TUG, logrando segmentar **63 de las 66 muestras válidas (95.5 %)**. En la **Figura 1.2** mostramos el Módulo 8, donde detectamos cada apoyo y balanceo (`STANCE` y `SWING`) en los tobillos y le asignamos automáticamente en qué fase del TUG ocurrió, lo que nos permite contar con exactitud cuántos pasos emplea el paciente para girar 180°."
 
 ---
 
-## Diapositiva 3 — Consolidación y Depuración de los Conjuntos de Datos
+## Lámina 06 — Pipeline 2 (Cámaras e-Motion): PCHIP, “Escalerita” de Tobillos y Wavelet Ricker
 * **Puntos clave en pantalla:**
-  * **Datos IMU (`Datos IMUs/`):** 78 archivos $\rightarrow$ 12 descartados $\rightarrow$ **66 muestras válidas** (58 de pacientes con EP y 8 de controles).
-  * **Datos Cámara (`Datos e-Motion/`):** 269 capturas $\rightarrow$ 44 descartadas $\rightarrow$ **225 grabaciones en disco** (130 TUG y 95 de marcha continua de 10 m).
-  * **Cruce Bimodal 1 a 1 (`Datos IMU&eMotion/`):** **53 pares simultáneos** en brigadas (42 estrictamente TUG con género verificado).
+  * Auditoría de cobertura en las 130 pruebas TUG: 100 % en marcha de ida y regreso vs. 84.8 % de oclusión distal en el giro.
+  * Módulos 11 y 12: interpolación monótona **PCHIP a 30 Hz**, filtro a 3 Hz, velocidad sagital $v_z(t)$ y **Wavelet Ricker (*Mexican Hat*, 1.0–2.5 Hz)** sobre la "escalerita" de tobillos para medir contacto de talón y **Doble Apoyo**.
 * **Qué decir:**
-  > "En cuanto a la organización de los datos, dividimos el repositorio en tres carpetas principales, cada una con su inventario, su ficha técnica, su tabla de variables y su documento de análisis:
-  > * En **IMUs**, de los 78 archivos crudos descartamos 12 (7 pruebas técnicas sin etiqueta clínica, 2 duplicados exactos por red verificados con MD5 y 3 pruebas de doble tarea cognitiva), quedando con **66 grabaciones válidas** (58 de pacientes y 8 de controles) que exigen mínimo la espina base y ambos tobillos.
-  > * En **cámaras e-Motion**, de 269 registros iniciales depuramos 44 réplicas de sincronización y pruebas de soporte, dejando **225 archivos en disco**: 130 de TUG y 95 de marcha continua de 10 metros.
-  > * Y al cruzar las marcas de tiempo y datos demográficos de las brigadas, consolidamos **53 pares bimodales 1 a 1** (42 de ellos estrictamente TUG con coincidencia total de género)."
-
----
-
-## Diapositiva 4 — Validación del Algoritmo de Segmentación IMU (Proyecto Anterior)
-* **Puntos clave en pantalla:**
-  * Adecuación de lectura JSON y remuestreo uniforme a 50 Hz.
-  * Flujo del algoritmo predecesor: Butterworth pasabajas (3 Hz), energía en ventana deslizante + FFT en tronco y velocidad angular para giros.
-  * **Resultado:** **63 de las 66 muestras válidas (95.5 %)** segmentadas en las 5 fases.
-* **Qué decir:**
-  > "Para cumplir con el segundo objetivo específico (`OE2`), pusimos a prueba el algoritmo de segmentación que habían desarrollado los compañeros del PDG anterior sobre nuestras 66 muestras válidas, haciendo únicamente la adaptación del formato JSON y el remuestreo a 50 Hz para evitar errores de ejecución.
+  > "En el **Pipeline 2 (Módulos 11 y 12)** primero medimos programáticamente la visibilidad de las 5 fases en las 130 grabaciones TUG de cámara: comprobamos que las fases de marcha de ida y regreso tienen **100 % de captura limpia**, mientras que en el giro de 180°, aunque el intervalo temporal se delimita al 100 % cuando la velocidad $v_z$ invierte su signo, los tobillos sufren oclusión parcial o total en el **84.8 %** de los casos por cercanía al lente.
   >
-  > El método filtra las señales a 3 Hz, calcula la energía por ventana deslizante con FFT en la espina base para encontrar los pulsos de levantarse y sentarse, e integra la velocidad angular del tronco para delimitar los dos giros de 180°.
+  > Para extraer las variables espaciales en la caminata, aplicamos interpolación **PCHIP a 30 Hz** (que evita oscilaciones falsas en las mesetas de apoyo) y analizamos la morfología en **'escalerita'** que describen los tobillos al acercarse o alejarse de la cámara (**Figura 2.2**). Usando la transformada **Wavelet Ricker (*Mexican Hat*)**, detectamos con precisión los 'codos' de contacto de talón y calculamos el **Doble Apoyo** como los instantes en que ambos pies están simultáneamente en fase `STANCE`."
+
+---
+
+## Lámina 07 — Pipeline 3 (Bimodal 1:1): Concordancia Física y Energía Espectral por Fase
+* **Puntos clave en pantalla:**
+  * Módulos 14 y 15 sobre los **53 pares simultáneos**: correlación de Pearson $r = 0.7458$ ($p = 4.13 \times 10^{-9}$) en duración activa TUG; correlaciones significativas en levantamiento ($r = 0.6841$), sentado ($r = 0.6519$) y giro ($r = 0.6120$).
+  * Distribución de energía espectral consumida por fase y auditoría de anomalías operacionales (`Auditoria_Anomalias_Bimodales.csv`).
+* **Qué decir:**
+  > "En el **Pipeline 3 (Módulos 14 y 15)** enfrentamos cara a cara las señales de los 53 pares bimodales:
+  > * Encontramos una correlación altamente significativa entre la duración activa medida por el IMU y por la cámara ($r = 0.7458$, $p = 4.13 \times 10^{-9}$). En la **Figura 3.1** se observa cómo el pico de velocidad angular de guiñada en el IMU lumbar coincide en el tiempo con el mínimo de profundidad $Z_{\min}$ y el cruce por cero de la velocidad en la cámara.
+  > * En el **Módulo 15 (Figura 3.2)** comparamos la distribución de energía espectral por fase entre ambas modalidades, y documentamos en `Auditoria_Anomalias_Bimodales.csv` los casos de brigada donde el sensor IMU se encendió durante un intento preparatorio seguido de una pausa estática de 10 a 40 segundos en la silla antes del TUG real."
+
+---
+
+## Lámina 08 — Hallazgos Estadísticos Basales (`p < 0.05`) y Contraste con Literatura (`R₁`)
+* **Puntos clave en pantalla:**
+  * Pruebas *t* de Welch y *U* de Mann-Whitney (Módulos 9 y 13) comparadas directamente con Molero-Mateo et al. (2026):
+    * **Longitud de zancada (TUG):** $0.839\text{ m}$ en EP vs. $0.949\text{ m}$ en controles ($p = 0.0032$).
+    * **Longitud de paso (TUG en brigada):** $0.353\text{ m}$ vs. $0.422\text{ m}$ ($p = 0.0034$).
+    * **Amplitud y asimetría de braceo (TUG):** menor amplitud ($0.270\text{ m}$ vs. $0.315\text{ m}$, $p = 0.0065$) y mayor asimetría ($22.74\%$ vs. $16.71\%$, $p = 0.0347$).
+    * **Duración activa TUG:** $15.91\text{ s}$ vs. $13.26\text{ s}$ en cámara ($p = 0.0082$) y $+36.2\%$ en IMU ($18.20\text{ s}$ vs. $13.37\text{ s}$).
+    * **Porcentaje de Doble Apoyo (Marcha Continua 10 m):** $25.07\%$ en EP vs. $18.23\%$ en controles ($p = 0.0206$, $+37.5\%$ relativo).
+* **Qué decir:**
+  > "Al aplicar las pruebas *t* de Welch y *U* de Mann-Whitney sobre nuestras tablas de variables, cumplimos la meta de obtener hallazgos estadísticamente significativos ($p < 0.05$) antes del cierre de PDG I, y lo más valioso es que **nuestros resultados reproducen en nuestra cohorte lo reportado por Molero-Mateo et al. (2026)**:
+  > * En TUG, los pacientes presentan un **acortamiento significativo de la zancada** de 11 centímetros ($0.84\text{ m}$ frente a $0.95\text{ m}$, $p = 0.0032$), **menor amplitud de braceo** ($p = 0.0065$), **mayor asimetría de braceo** ($22.7\%$ frente a $16.7\%$, $p = 0.0347$) y un retorno más lento a la silla tras el giro ($p = 0.0378$).
+  > * Y en marcha continua de 10 metros, mientras la cadencia se mantiene casi idéntica ($\sim 91.5$ pasos por minuto), el **porcentaje de doble apoyo sube de $18.2\%$ en controles a $25.1\%$ en pacientes ($p = 0.0206$)**, confirmando que la lentitud del paciente responde a pasos más cortos y mayor tiempo con ambos pies en tierra para proteger su estabilidad."
+
+---
+
+## Lámina 09 — Matriz Oficial de Análisis de Riesgos (I. Objetivo General)
+* **Puntos clave en pantalla:**
+  * Formato oficial de 7 columnas intégré en la Sección 7 de `OverLeaf/PDG-II TUG.tex`.
+  * Los 4 riesgos transversales del **Objetivo General** (desbalance de controles, sincronización bimodal, costos de brigadas y consentimientos informados).
+* **Qué decir:**
+  > "Pasando a la matriz oficial de análisis de riesgos que incorporamos en el documento de Overleaf siguiendo el formato de referencia, la dividimos en tres láminas para que se lea con total claridad:
   >
-  > Al correrlo sobre las 66 grabaciones, el algoritmo identificó las 5 fases en **63 muestras (95.5 %)**. También nos permitió diagnosticar por qué falla en casos puntuales: en dos controles previos a brigada cambia el eje donde cae la gravedad en el sensor lumbar, y en algunas grabaciones donde el paciente da un giro o se sienta antes de iniciar formalmente la prueba, tomar siempre el primer pulso desacomoda el inicio de la caminata de ida."
+  > En el **Objetivo General**, el riesgo operacional principal es el **desbalance entre pacientes y controles** en las jornadas de captura (probabilidad *Probable*, impacto *Mayor*), que mitigamos con nuevas jornadas de captura de voluntarios sanos y estadística adaptada a grupos desbalanceados. También contemplamos la sincronización entre equipos, los costos de desplazamiento a brigadas y la verificación de consentimientos informados y anonimización."
 
 ---
 
-## Diapositiva 5 — Gráfica Compuesta de Fases, Pasos y Pipeline de Cámara
+## Lámina 10 — Matriz Oficial de Análisis de Riesgos (II. Productos 1 al 5)
 * **Puntos clave en pantalla:**
-  * Gráfica superpuesta de energía de flexo-extensión de tronco + energía de giro con las 5 fases delimitadas.
-  * Etiquetado de cada paso (`Stance` / `Swing`) según la fase TUG y conteo de pasos en el giro.
-  * Procesamiento en cámara: interpolación PCHIP a 30 Hz, filtro a 3 Hz y detección de apoyos con wavelets.
+  * Riesgos asociados a los **5 Productos entregables** (Conjunto de datos bimodal, Algoritmo de segmentación, Modelo de clasificación, Módulo en VIMOV e Informe final).
 * **Qué decir:**
-  > "Siguiendo la recomendación de la última reunión, implementamos la gráfica compuesta donde se superponen la energía de flexo-extensión del tronco y la energía de guiñada del giro, marcando con franjas de color y líneas verticales dónde empieza y termina cada una de las 5 fases.
-  >
-  > Además, en la detección de apoyos y balanceos (`Stance` y `Swing`) de los tobillos agregamos la columna `fase_tug` para saber exactamente qué pasos ocurren durante la marcha de ida, cuáles ocurren dentro del giro de 180° y cuáles en el regreso. En paralelo, para las cámaras aplicamos interpolación PCHIP a 30 Hz y transformada wavelet sobre las trayectorias de los tobillos para medir longitud de paso y doble apoyo."
+  > "En la segunda lámina desglosamos los **5 Productos entregables**:
+  > * En los **Productos 1 y 2**, abordamos los riesgos tecnológicos por desconexión de sensores, duplicados de red, oclusión de tobillos al girar frente a la cámara y cambios en la orientación de los sensores o pausas del paciente, mitigados con nuestras reglas de control de calidad, la homologación de kits y el reparto funcional entre cámara e IMU.
+  > * En los **Productos 3, 4 y 5**, contemplamos la similitud motora entre pacientes leves y adultos mayores sanos, los tiempos de integración con la plataforma VIMOV y el cronograma de entregas parciales del documento escrito."
 
 ---
 
-## Diapositiva 6 — Avance en Extracción de Variables y Contraste Estadístico Basal
-* **Puntos clave en pantalla:**
-  * Comparación preliminar entre Pacientes con EP y Controles (pruebas *t* de Welch y *U* de Mann-Whitney):
-    * **IMUs:** Duración efectiva TUG ($18.20\text{ s}$ vs. $13.37\text{ s}$, $+36.2\%$), tiempo total de marcha ($10.44\text{ s}$ vs. $7.10\text{ s}$, $+47.0\%$) y duración de balanceo ($0.50\text{ s}$ vs. $0.36\text{ s}$).
-    * **Cámaras RGB-D:** Longitud de zancada en TUG ($0.84\text{ m}$ vs. $0.95\text{ m}$, $p = 0.0032$), amplitud de braceo ($0.27\text{ m}$ vs. $0.32\text{ m}$, $p = 0.0065$) y porcentaje de doble apoyo en marcha continua ($25.07\%$ vs. $18.23\%$, $p = 0.0206$).
-* **Qué decir:**
-  > "Con las tablas de variables ya generadas, hicimos el primer contraste estadístico usando la prueba *t* de Welch y *U* de Mann-Whitney por el desbalance entre grupos:
-  > * En **IMUs**, vemos que los pacientes con Parkinson tardan en promedio un 36 % más en la duración efectiva del TUG ($18.20\text{ s}$ frente a $13.37\text{ s}$ en controles) y un 47 % más en el tiempo total de marcha.
-  > * En **cámaras**, encontramos diferencias estadísticamente significativas ($p < 0.05$) en variables clínicas clave de la enfermedad: los pacientes tienen menor longitud de zancada ($0.84\text{ m}$ frente a $0.95\text{ m}$, $p = 0.0032$), menor amplitud de braceo ($p = 0.0065$) y, en marcha continua, un mayor porcentaje de tiempo en doble apoyo ($25.1\%$ frente a $18.2\%$, $p = 0.0206$), lo que refleja la postura más cautelosa y la bradicinesia."
-
----
-
-## Diapositiva 7 — Matriz Oficial de Análisis de Riesgos (I. Objetivo General)
-* **Puntos clave en pantalla:**
-  * Tabla con las 7 columnas oficiales (*Tipo de riesgo, Descripción, Probabilidad, Impacto, Efecto, Medidas de mitigación, Supuestos*).
-  * Los 4 riesgos transversales del **Objetivo General**.
-* **Qué decir:**
-  > "Pasando a la matriz de análisis de riesgos que construimos siguiendo el formato de referencia y que ya dejamos integrada tanto en el documento de Overleaf como en el repositorio, la dividimos en tres láminas para que se pueda leer con claridad:
-  >
-  > En el **Objetivo General**, el riesgo operacional más importante es el **desbalance entre pacientes y controles** en las muestras de brigada (probabilidad *Probable*, impacto *Mayor*), que mitigamos programando tomas adicionales de controles en laboratorio y brigadas y aplicando pruebas no paramétricas y validación estratificada. También contemplamos las fallas de sincronización entre equipos, los costos de desplazamiento a brigadas y el cumplimiento de consentimientos informados."
-
----
-
-## Diapositiva 8 — Matriz Oficial de Análisis de Riesgos (II. Productos 1 al 5)
-* **Puntos clave en pantalla:**
-  * Riesgos asociados a los **5 Productos entregables** (Conjunto de datos bimodal, Algoritmo de segmentación, Modelo de clasificación, Módulo en VIMOV y Monografía final).
-* **Qué decir:**
-  > "En la segunda lámina de la matriz agrupamos los riesgos de los **5 Productos entregables**:
-  > * En el **Producto 1** (conjunto de datos bimodal) y **Producto 2** (algoritmo de segmentación), contemplamos los riesgos tecnológicos por cortes de conexión en campo, desconexión de sensores o cambios en la orientación de los ejes respecto al proyecto anterior, mitigados con la validación de los 3 sensores mínimos y la revisión de ejes antes de segmentar.
-  > * Y en los **Productos 3, 4 y 5**, incluimos el riesgo de solapamiento de variables en pacientes leves, posibles demoras en la integración con los servicios de VIMOV y el control de tiempos de redacción de la monografía con entregas parciales."
-
----
-
-## Diapositiva 9 — Matriz Oficial de Análisis de Riesgos (III. Actividades `OE1` a `OE4`)
+## Lámina 11 — Matriz Oficial de Análisis de Riesgos (III. Actividades `OE1` a `OE4`)
 * **Puntos clave en pantalla:**
   * Desglose por actividades `OE1.A1`, `OE1.A2`, `OE2.A1`, `OE3.A1`, `OE3.A2` y `OE4.A1`.
 * **Qué decir:**
-  > "En la tercera lámina de la matriz desglosamos los riesgos por actividad de cada objetivo específico (`OE1` a `OE4`):
-  > * En **`OE1.A1` y `OE1.A2`**, abordamos el riesgo de mezclar pruebas de calibración técnica con pruebas clínicas —lo cual resolvimos con las fichas técnicas de descarte— y la logística para convocar voluntarios de control adicionales.
-  > * En **`OE2.A1`**, el riesgo de tasas de muestreo variables entre equipos y movimientos previos del paciente antes de la orden de inicio, que mitigamos interpolando a frecuencias fijas (50 Hz y 30 Hz) y verificando con las gráficas superpuestas.
-  > * En **`OE3.A1` y `OE3.A2`**, el riesgo de sobreajuste (*overfitting*) al entrenar los clasificadores y los permisos técnicos para conectar con MinIO y PostgreSQL en VIMOV.
-  > * Finalmente, en **`OE4.A1`**, un riesgo metodológico clave: como varios participantes tienen más de una repetición del TUG, si partiéramos los archivos al azar habría fuga de información entre entrenamiento y prueba. La mitigación es agrupar siempre por participante para que todas las tomas de una misma persona queden en el mismo subconjunto."
+  > "En la tercera lámina de la matriz cubrimos las actividades de los cuatro objetivos específicos (`OE1` a `OE4`):
+  > * Destacamos en **`OE1.A1` y `OE1.A2`** el aislamiento de pruebas de calibración o doble tarea y la convocatoria de voluntarios sanos del mismo rango de edad;
+  > * En **`OE2.A1`**, la interpolación a frecuencias fijas (50 Hz y 30 Hz) y la validación visual con gráficas superpuestas frente a ensayos con movimientos previos;
+  > * Y en **`OE3.A1` y `OE4.A1`**, dos riesgos metodológicos críticos para el clasificador: evitar el sobreajuste (*overfitting*) reduciendo antes el número de variables, y evitar la fuga de datos agrupando siempre por participante (`GroupKFold`) para que distintas repeticiones de una misma persona nunca queden repartidas entre entrenamiento y prueba."
 
 ---
 
-## Diapositiva 10 — Estado frente al Cronograma y Próximos Pasos
+## Lámina 12 — Cumplimiento del Cronograma y Siguientes Pasos
 * **Puntos clave en pantalla:**
-  * Actividades completadas en Fase I (Inventario, fichas técnicas, validación del algoritmo anterior, cruce bimodal 1 a 1, primeros contrastes estadísticos y matriz de riesgos).
-  * Próximos pasos inmediatos: ampliación de muestras de control (laboratorio y brigada de La Victoria del 22 al 26 de noviembre), ajuste fino de segmentación en casos atípicos y consolidación del documento de cierre de PDG I.
+  * Hitos completados al 100 % en `main` (Búsqueda en anchura v2, curaduría de los 3 datasets, 15 módulos de procesamiento, hallazgos estadísticos con $p < 0.05$ y Matriz Oficial de Riesgos).
+  * Hoja de ruta: toma de controles adicionales en Laboratorio y **Brigada de La Victoria (22 al 26 de noviembre)**, y selección multivariada PLS (`VIP > 0.8`) + validación `GroupKFold`.
 * **Qué decir:**
-  > "Para cerrar, frente al cronograma de Fase I ya tenemos completada la depuración de los dos conjuntos de datos, las fichas técnicas, el cruce bimodal 1 a 1, la validación del algoritmo del PDG anterior, las primeras pruebas estadísticas y la matriz de riesgos dentro del documento en Overleaf.
+  > "Para concluir, frente al cronograma de Fase I ya tenemos completados y subidos a la rama `main` la búsqueda en anchura, los tres conjuntos de datos depurados con sus fichas técnicas, los 15 módulos de procesamiento inercial, óptico y bimodal, los primeros hallazgos estadísticos significativos y la matriz de riesgos en Overleaf.
   >
-  > Nuestros siguientes pasos se concentran en recolectar las muestras adicionales de sujetos de control —aprovechando las sesiones en laboratorio y la brigada de finales de noviembre en La Victoria—, afinar la selección de variables en los casos atípicos de segmentación y dejar listo el documento final de PDG I."
+  > Nuestros siguientes pasos inmediatos son ampliar la muestra de sujetos de control en el laboratorio y en la brigada de La Victoria del 22 al 26 de noviembre, y aplicar la selección multivariada de variables con validación agrupada por sujeto para cerrar el documento de PDG I."
