@@ -1,20 +1,20 @@
-# Análisis Cinemático y Biomecánico Bimodal del Test Timed Up and Go (PDG-TUG)
+# Análisis Cinemático y Biomecánico Bimodal de la Prueba Timed Up and Go (PDG-TUG)
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-1.24%2B-013243?style=flat&logo=numpy&logoColor=white) ![SciPy](https://img.shields.io/badge/SciPy-1.10%2B-8CAAE6?style=flat&logo=scipy&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-2.0%2B-150458?style=flat&logo=pandas&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-3.7%2B-11557c?style=flat) ![Google Colab](https://img.shields.io/badge/Google%20Colab-F9AB00?style=flat&logo=googlecolab&logoColor=white) ![LaTeX](https://img.shields.io/badge/LaTeX-Overleaf-47A141?style=flat&logo=overleaf&logoColor=white)
 
-Proyecto de Grado en Ingeniería Telemática e Ingeniería de Sistemas de la Universidad ICESI, orientado al procesamiento de señales, análisis cinemático y fusión sensorial bimodal de la prueba motora *Timed Up and Go* (TUG) y marcha continua para la caracterización biomecánica en personas mayores y pacientes con Enfermedad de Parkinson frente a controles sanos.
+Proyecto de Grado en Ingeniería Telemática e Ingeniería de Sistemas de la Universidad Icesi, enfocado en el procesamiento de señales, segmentación por fases y análisis biomecánico de la prueba *Timed Up and Go* (TUG) y de marcha continua para caracterizar patrones motores en pacientes con enfermedad de Parkinson frente a sujetos de control.
 
-El sistema procesa y contrasta dos modalidades complementarias: sensores inerciales corporales (IMUs triaxiales en columna lumbar y extremidades a 50 Hz) especializados en transiciones posturales y giros, y cámaras ópticas de profundidad RGB-D (Intel RealSense y Orbbec Astra 2 a 30 Hz procesadas en VIMOV) para la estimación de longitudes de zancada, velocidades lineales y cadencia espacial.
+El trabajo combina dos fuentes de captura recolectadas en brigadas médicas: sensores inerciales (IMUs triaxiales ubicadas en columna lumbar, tobillos y muñecas a 50 Hz) para identificar las transiciones posturales y la dinámica de los giros, y cámaras de profundidad RGB-D (Intel RealSense y Orbbec Astra 2 a 30 Hz en la plataforma VIMOV) para estimar longitud de zancada, velocidad lineal y variables espaciales de marcha.
 
 ---
 
 ## Tabla de Contenidos
 - [Estructura del Proyecto](#estructura-del-proyecto)
 - [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Arquitectura del Sistema](#arquitectura-del-sistema)
+- [Flujo de Procesamiento](#flujo-de-procesamiento)
 - [Requisitos Previos](#requisitos-previos)
 - [Inicialización Rápida](#inicialización-rápida)
-- [Cómo Contribuir](#cómo-contribuir)
+- [Guía de Trabajo en el Repositorio](#guía-de-trabajo-en-el-repositorio)
 - [Equipo](#equipo)
 
 ---
@@ -23,82 +23,96 @@ El sistema procesa y contrasta dos modalidades complementarias: sensores inercia
 
 ```text
 PDG-TUG/
-├── Analisis de Datos/            # Entorno analítico interactivo y scripts de procesamiento
-│   ├── PDG_I_Int.ipynb           # Cuaderno interactivo con vista de formularios y filtros configurables
-│   ├── PDGI_Colab.ipynb          # Cuaderno analítico principal con código completo (Pipelines 1, 2 y 3)
-│   ├── PDG_II_Predecesor.ipynb   # Cuaderno de referencia con algoritmos del proyecto previo
-│   └── Script/                   # Utilidades de cruce bimodal y fichas técnicas
-├── Datos IMUs/                   # Repositorio inercial estructurado (78 grabaciones)
-│   ├── README.md                 # Guía del repositorio inercial y nomenclatura JSON
-│   ├── IMUS/                     # Archivos JSON crudos adquiridos con sensores inerciales
-│   ├── Inventario_IMUs.csv       # Catálogo unificado con metadatos clínicos esenciales
-│   ├── SegmentacionFases_IMUs.csv# Intervalos y duraciones de las 5 fases y pasos
-│   ├── df_variables_IMUs.csv     # Matriz de variables técnicas y biomarcadores inerciales
-│   ├── FichaTecnica_IMUs.md      # Protocolo técnico y criterios determinísticos de descarte
-│   └── Analisis_IMUs.md          # Reporte técnico e inferencial del conjunto inercial
-├── Datos e-Motion/               # Repositorio óptico RGB-D VIMOV (225 grabaciones)
-│   ├── README.md                 # Guía del repositorio óptico y nomenclatura JSON
-│   ├── TUG/                      # 130 capturas articulares de la prueba Timed Up and Go
-│   ├── GAIT/                     # 95 capturas articulares de marcha continua de 10 metros
-│   ├── Inventario_eMotion.csv    # Catálogo de 225 registros ópticos normalizados
-│   ├── df_variables_emotion.csv  # Matriz de 53 biomarcadores espaciotemporales
-│   ├── FichaTecnica_eMotion.md   # Especificación de esquemas articulares y cámaras
-│   ├── Analisis_eMotion.md       # Evaluación de calidad y hallazgos estadísticos
-│   └── Guia_Pipeline_eMotion.md  # Fundamentación matemática y metodológica 3D
-├── Datos IMU&eMotion/            # Dataset bimodal sincronizado 1:1 de brigadas
-│   ├── README.md                 # Guía del dataset bimodal 1:1 y nomenclatura JSON
-│   ├── IMU&eMotion/              # 53 pares emparejados (106 archivos JSON simultáneos)
-│   ├── Inventario_1a1.csv        # Catálogo de pares bimodales con desfases temporales
-│   ├── df_variables_1a1.csv      # Matriz comparativa con 39 variables cruzadas
-│   ├── FichaTecnica_1a1.md       # Criterios de correspondencia simultánea estricta
-│   ├── Analisis_1a1.md           # Correlación lineal de Pearson y concordancia física
-│   └── Inventario_Brigada_1a1.json # Manifiesto estructurado exportado desde VIMOV
-├── Notas_Reuniones/              # Minutas formales de seguimiento técnico y clínico
-├── OverLeaf/                     # Manuscrito formal de grado en LaTeX
-└── README.md                     # Carta de presentación pública del repositorio
+├── Analisis de Datos/                        # Cuadernos de procesamiento, cruce bimodal y gestión de riesgos
+│   ├── PDGI_Colab.ipynb                      # Cuaderno principal con el pipeline inercial, óptico y bimodal
+│   ├── PDG_II_Predecesor.ipynb               # Cuaderno base con el algoritmo de segmentación del proyecto anterior
+│   ├── Correlacion.md                        # Auditoría de correspondencia temporal entre registros IMU y cámara
+│   ├── Matriz_Analisis_Riesgos.md            # Tabla oficial de análisis de riesgos del proyecto (vista web)
+│   ├── Matriz_Analisis_Riesgos.csv           # Matriz de análisis de riesgos exportable a Excel / hojas de cálculo
+│   └── Script/                               # Scripts auxiliares para cruce bimodal y generación de fichas técnicas
+│       ├── generar_cruce_imu_emotion.py
+│       ├── generar_ficha_tecnica_camara.py
+│       ├── emotion_summary.json
+│       ├── mapeo_renombramiento_emotion.json
+│       └── records_summary.json
+├── Datos IMUs/                               # Conjunto de datos de sensores inerciales (78 grabaciones)
+│   ├── README.md                             # Descripción de la estructura y nomenclatura de los archivos IMU
+│   ├── IMUS/                                 # Archivos JSON crudos capturados a ~50 Hz
+│   ├── Inventario_IMUs.csv                   # Catálogo de grabaciones inerciales y datos demográficos
+│   ├── Cruce_VIMOV_IMUs.csv                  # Relación de emparejamiento entre capturas IMU y registros VIMOV
+│   ├── SegmentacionFases_IMUs.csv            # Tiempos de inicio, fin y duración de las 5 fases TUG y pasos
+│   ├── df_variables_IMUs.csv                 # Matriz de variables biomecánicas extraídas de los sensores IMU
+│   ├── FichaTecnica_IMUs.md                  # Criterios de control de calidad y descarte de muestras inerciales
+│   └── Analisis_IMUs.md                      # Resultados descriptivos y pruebas estadísticas del bloque IMU
+├── Datos e-Motion/                           # Conjunto de datos de cámaras RGB-D en VIMOV (225 grabaciones)
+│   ├── README.md                             # Descripción de la estructura y nomenclatura de los archivos ópticos
+│   ├── TUG/                                  # 130 grabaciones del protocolo Timed Up and Go (SMR, CST y LAB)
+│   ├── GAIT/                                 # 95 grabaciones del protocolo de marcha continua de 10 m
+│   ├── Inventario_eMotion.csv                # Catálogo general de las 225 capturas de cámara
+│   ├── df_variables_emotion.csv              # Matriz de variables espaciotemporales extraídas en cámara
+│   ├── FichaTecnica_eMotion.md               # Especificación de cámaras, versiones de esqueleto y descartes
+│   ├── Analisis_eMotion.md                   # Evaluación de cobertura por fase y resultados estadísticos ópticos
+│   └── Guia_Pipeline_eMotion.md              # Explicación del preprocesamiento y segmentación sobre datos 3D
+├── Datos IMU&eMotion/                        # Subconjunto bimodal emparejado 1 a 1 de brigadas (53 pares)
+│   ├── README.md                             # Guía del conjunto bimodal sincronizado
+│   ├── IMU&eMotion/                          # 106 archivos JSON emparejados (53 tomas IMU + 53 tomas e-Motion)
+│   ├── Inventario_1a1.csv                    # Tabla de pares confirmados con sus diferencias de tiempo
+│   ├── Inventario_Brigada_1a1.json           # Resumen estructurado de los pares bimodales de brigada
+│   ├── Auditoria_Anomalias_Bimodales.csv     # Registro de casos con diferencias de duración o cobertura entre equipos
+│   ├── df_variables_1a1.csv                  # Matriz consolidada con variables inerciales y ópticas por par
+│   ├── FichaTecnica_1a1.md                   # Criterios de validación del cruce simultáneo 1 a 1
+│   └── Analisis_1a1.md                       # Comparación de tiempos y correlaciones entre IMU y cámara
+├── Notas_Reuniones/                          # Actas y notas de seguimiento semanal con los tutores (Reuniones 3 a 8)
+├── OverLeaf/                                 # Documento escrito de Proyecto de Grado en LaTeX
+│   ├── PDG-II TUG.tex                        # Manuscrito principal (con tablas anchas en orientación horizontal)
+│   ├── PDG-II TUG Vertical.tex               # Versión alternativa del manuscrito en formato vertical
+│   ├── PDG-II TUG.pdf                        # Documento compilado en PDF
+│   └── Imagenes/                             # Diagrama metodológico CRISP-DM y cronograma del proyecto
+├── PDG_BACKLOG_PENDIENTES.md                 # Control de tareas e hitos semanales del equipo
+└── README.md                                 # Documentación general del repositorio
 ```
 
 ---
 
 ## Tecnologías Utilizadas
 
-| Tecnología / Herramienta | Tipo / Rol en el Proyecto | Versión / Estándar |
+| Herramienta | Uso en el proyecto | Versión |
 | :--- | :--- | :--- |
-| **Python** | Lenguaje de programación base | 3.10+ |
-| **NumPy** | Computación numérica y álgebra lineal vectorial | 1.24+ |
-| **SciPy** | Procesamiento de señales (`butter`, `filtfilt`, `PchipInterpolator`, CWT) | 1.10+ |
-| **Pandas** | Ingesta, consolidación de matrices tabulares y depuración | 2.0+ |
-| **Matplotlib** | Visualización cinemática, gráficas superpuestas y diagramas | 3.7+ |
-| **Google Colab** | Entorno interactivo de experimentación y validación bimodal | Cloud / Jupyter Notebook |
-| **VIMOV Platform** | Ecosistema de telemetría médica (sensores LPMS B2, cámaras RGB-D) | Auth0 API / JSON Schema |
-| **LaTeX / Overleaf** | Composición tipográfica del documento de tesis | TeX Live / Overleaf |
+| **Python** | Lenguaje base para los scripts y cuadernos de análisis | 3.10+ |
+| **NumPy** | Manejo de arreglos y operaciones sobre series de tiempo | 1.24+ |
+| **SciPy** | Filtrado Butterworth (`butter`, `filtfilt`), interpolación (`PchipInterpolator`), FFT y wavelets | 1.10+ |
+| **Pandas** | Organización de catálogos, tablas de variables y limpieza de datos | 2.0+ |
+| **Matplotlib** | Gráficas de señales, fases del TUG y comparaciones entre grupos | 3.7+ |
+| **Google Colab** | Ejecución compartida de los cuadernos de experimentación | Jupyter Notebook |
+| **VIMOV** | Plataforma de captura y almacenamiento de datos inerciales y de cámara | JSON / MinIO |
+| **LaTeX / Overleaf** | Redacción del documento de Proyecto de Grado | TeX Live |
 
 ---
 
-## Arquitectura del Sistema
+## Flujo de Procesamiento
 
 ```mermaid
 flowchart TD
-    subgraph INGESTA["1. Ingesta y Estandarización de Datos"]
-        D1["Datos IMUs<br/>(Columna L5, Tobillos, Muñecas @ 50 Hz)"] --> P1["Acondicionamiento Inercial<br/>Filtro Butterworth Paso Bajas 3 Hz"]
-        D2["Datos e-Motion RGB-D<br/>(Intel RealSense / Orbbec @ 30 Hz)"] --> P2["Acondicionamiento Óptico<br/>Interpolación Hermítica PCHIP a 30 Hz"]
+    subgraph INGESTA["1. Lectura y Acondicionamiento"]
+        D1["Datos IMUs<br/>(Columna L5, Tobillos y Muñecas a 50 Hz)"] --> P1["Remuestreo a 50 Hz<br/>Filtro Butterworth Paso Bajas (3 Hz)"]
+        D2["Datos e-Motion RGB-D<br/>(RealSense / Orbbec a 30 Hz)"] --> P2["Interpolación PCHIP a 30 Hz<br/>Filtro Paso Bajas (3 Hz)"]
     end
 
-    subgraph PROCESAMIENTO["2. Extracción Cinemática y Segmentación"]
-        P1 --> F1["Detección de Fases Inerciales<br/>Levantamiento, Marcha, Giro 180°, Sentado"]
-        P2 --> F2["Macro y Micro-Segmentación Óptica<br/>Energías Ez/Ey, Cruce por Cero vz, CWT Tobillos"]
+    subgraph SEGMENTACION["2. Segmentación y Extracción de Variables"]
+        P1 --> F1["Segmentación de las 5 Fases TUG<br/>Levantamiento, Marcha, Giro 180° y Sentado"]
+        P2 --> F2["Estimación Espacial en Cámara<br/>Longitud de Zancada, Velocidad y Braceo"]
     end
 
-    subgraph FUSION["3. Fusión y Validación Bimodal 1:1"]
-        F1 --> VAL["Módulo 14: Validación Simultánea 1:1<br/>Alineación en Despegue t=0, Giro y Duración Activa"]
+    subgraph CRUCE["3. Cruce Bimodal y Tablas de Resultados"]
+        F1 --> VAL["Validación Bimodal 1 a 1<br/>Cruce por Fecha, Hora y Datos Demográficos"]
         F2 --> VAL
-        VAL --> MAT["Matrices de Variables Consolidadas<br/>(df_variables_IMUs, df_variables_emotion, df_variables_1a1)"]
+        VAL --> MAT["Tablas de Variables<br/>(df_variables_IMUs, df_variables_emotion, df_variables_1a1)"]
     end
 
-    subgraph ANALISIS["4. Evaluación Clínica y Salidas"]
-        MAT --> EST["Contraste Estadístico Inferencial<br/>Prueba t de Welch y U de Mann-Whitney"]
-        MAT --> VIS["Visualizaciones Bimodales<br/>Lado a Lado y Superposición Normalizada"]
-        EST --> DOC["Documento de Grado LaTeX<br/>(OverLeaf)"]
+    subgraph SALIDAS["4. Análisis Estadístico y Documentación"]
+        MAT --> EST["Pruebas Estadísticas<br/>Welch y Mann-Whitney (Pacientes vs. Controles)"]
+        MAT --> VIS["Gráficas de Fases y Comparación Bimodal"]
+        EST --> DOC["Documento de Grado en OverLeaf"]
         VIS --> DOC
     end
 ```
@@ -107,12 +121,12 @@ flowchart TD
 
 ## Requisitos Previos
 
-| Componente / Herramienta | Versión Mínima | Configuración Mínima Requerida |
+| Componente | Versión mínima | Descripción |
 | :--- | :--- | :--- |
-| **Python** | 3.10 | Intérprete disponible en entorno local o virtual (`venv`) |
-| **Pip** | 23.0 | Gestor de paquetes configurado con acceso a repositorio estándar |
-| **Google Chrome / Navegador Web** | Moderno | Compatible con ejecución de widgets interactivos en Google Colab |
-| **Git** | 2.34 | Cliente configurado con acceso al repositorio remoto de GitHub |
+| **Python** | 3.10 | Intérprete local o entorno virtual (`venv`) |
+| **Pip** | 23.0 | Instalación de librerías científicas de Python |
+| **Navegador Web / Jupyter** | Actualizado | Para abrir los cuadernos localmente o en Google Colab |
+| **Git** | 2.34 | Control de versiones y sincronización con el repositorio |
 
 ---
 
@@ -130,25 +144,22 @@ flowchart TD
    source .venv/bin/activate
    ```
 
-3. **Instalar dependencias del proyecto:**
+3. **Instalar dependencias:**
    ```bash
    pip install numpy scipy pandas matplotlib
    ```
 
-4. **Abrir el cuaderno principal de análisis:**
-   * En entorno local con Jupyter Notebook o VS Code:
-     Abrir `PDG-TUG/Analisis de Datos/PDGI_Colab.ipynb`.
-   * En Google Colab:
-     Subir o vincular `PDG-TUG/Analisis de Datos/PDGI_Colab.ipynb` y ejecutar las celdas en orden secuencial.
+4. **Ejecutar los cuadernos de análisis:**
+   * En local (VS Code o Jupyter): abrir `Analisis de Datos/PDGI_Colab.ipynb` o `Analisis de Datos/PDG_II_Predecesor.ipynb`.
+   * En Google Colab: cargar el cuaderno correspondiente desde el repositorio y ejecutar las celdas en orden.
 
 ---
 
-## Cómo Contribuir
+## Guía de Trabajo en el Repositorio
 
-1. Clonar el repositorio y crear una rama de trabajo a partir de `main` con nombre descriptivo (`feature/nueva-variable` o `fix/correccion-segmentacion`).
-2. Mantener la estructura cerrada de 4 documentos (`Analisis`, `df_variables`, `FichaTecnica`, `Inventario`) por cada repositorio de datos.
-3. Asegurar que las referencias a rutas de archivos se originen siempre en `PDG-TUG/...` para preservar portabilidad.
-4. Enviar un Pull Request documentando los cambios implementados y las verificaciones ejecutadas.
+1. Crear una rama descriptiva a partir de `main` antes de realizar cambios (`feature/...` o `fix/...`).
+2. Conservar los cuatro archivos base en cada carpeta de datos (`Inventario`, `FichaTecnica`, `Analisis` y `df_variables`).
+3. Mantener las rutas relativas desde la raíz `PDG-TUG/` para que los scripts y cuadernos corran sin ajustes manuales.
 
 ---
 
@@ -161,5 +172,5 @@ flowchart TD
 * Heiner Danit Rincón Carrillo
 
 ### Tutores
-* Prof. Domiciano Rincón (Director — Track Clínico y Técnico)
-* Prof. Andrés Navarro (Codirector — Track Académico y Metodológico)
+* Prof. Domiciano Rincón (Director — Seguimiento Técnico y Clínico)
+* Prof. Andrés Navarro (Codirector — Seguimiento Académico y Metodológico)
