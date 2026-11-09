@@ -1,6 +1,6 @@
 # Guion de Exposición de Avances, Estado del Arte y Matriz de Riesgos — Proyecto PDG-TUG
 
-Este documento sirve como guía de apoyo para presentar las **16 láminas** de [`Presentacion_Avances_PDG_TUG.html`](file:///home/jjarias/Documents/UNIVERSIDAD/8vo%20semestre/PDG/PDG-TUG/Analisis%20de%20Datos/Presentacion_Avances_PDG_TUG.html). Está redactado en un tono natural para que cualquiera del grupo pueda explicarlo con sus propias palabras durante la sustentación.
+Este documento sirve como guía de apoyo para presentar las **17 láminas** de [`Presentacion_Avances_PDG_TUG.html`](file:///home/jjarias/Documents/UNIVERSIDAD/8vo%20semestre/PDG/PDG-TUG/Analisis%20de%20Datos/Presentacion_Avances_PDG_TUG.html). Está redactado en un tono natural para que cualquiera del grupo pueda explicarlo con sus propias palabras durante la sustentación.
 
 * **Controles de teclado en la presentación:**
   * Avanzar / Retroceder: `Flecha Derecha (→)` / `Flecha Izquierda (←)` o `Barra Espaciadora`.
@@ -186,11 +186,22 @@ Este documento sirve como guía de apoyo para presentar las **16 láminas** de [
 
 ---
 
-## Lámina 16 — Cumplimiento del Cronograma y Siguientes Pasos
+## Lámina 16 — Cronograma Especificado por Actividad, Fechas Exactas y Entregables (`OverLeaf/PDG-II TUG.tex`, Tabla 3)
 * **Puntos clave en pantalla:**
-  * Hitos completados en Fase I (Búsqueda en anchura v2, curaduría de los 3 repositorios, 15 módulos de procesamiento, hallazgos estadísticos con $p < 0.05$ y Matriz Oficial de Riesgos).
-  * Hoja de ruta: captura de controles en Laboratorio y **Brigada de La Victoria (22 al 26 de noviembre)**, y selección multivariada PLS (`VIP > 0.8`) + validación `GroupKFold`.
+  * Tabla detallada de las **15 Actividades** (10 meses continuos: `01/08/2026` al `25/05/2027`, con cierres en martes de reunión con el tutor).
+  * **Fase I (`Act. 01` a `Act. 09`):** Actividades `01` a `05` **Completadas**, `06` (Recolección de controles) **En curso**, y `07` y `08` (Preprocesamiento e inferencia estadística basal) **Adelantadas** respecto al cronograma original.
+  * **Fase II (`Act. 10` a `Act. 15`):** Modelado supervisado, validación `GroupKFold`, Sprints 1 y 2 en VIMOV (MinIO + PostgreSQL) y sustentación final (`25/05/2027`).
 * **Qué decir:**
-  > "Para cerrar, frente al cronograma de Fase I ya completamos y dejamos en `main` la búsqueda en anchura, la depuración de los tres conjuntos de datos con sus fichas técnicas, los 15 módulos de los tres pipelines, los hallazgos estadísticos significativos y la matriz oficial de riesgos en Overleaf.
-  >
-  > Nuestros próximos pasos inmediatos son ejecutar las tomas adicionales de sujetos de control en el laboratorio de la universidad y en la brigada de La Victoria del 22 al 26 de noviembre, y aplicar la selección multivariada con validación agrupada por participante para el cierre de PDG I."
+  > "En cuanto al cronograma especificado que tenemos en la Tabla 3 del documento de Overleaf, está estructurado en 15 actividades continuas entre agosto de 2026 y mayo de 2027, donde cada hito cierra en martes:
+  > * En la **Fase I**, las actividades **01 a 05** (búsqueda en anchura, propuesta, inventario de datos, fichas técnicas y adaptación del algoritmo de segmentación) ya están **100 % completadas**.
+  > * Además, llevamos **adelantadas** las actividades **07 y 08** (preprocesamiento bimodal e inferencia estadística basal con diferencias significativas $p < 0.05$), que estaban previstas para diciembre y enero.
+  > * Actualmente estamos concentrados en la **Actividad 06**, que es la recolección de aproximadamente 20 sujetos de control sanos entre noviembre y mediados de diciembre."
+
+---
+
+## Lámina 17 — Diagrama de Gantt General y Siguientes Pasos Inmediatos
+* **Puntos clave en pantalla:**
+  * Figura del Diagrama de Gantt ([`OverLeaf/Imagenes/Cronograma.png`](file:///home/jjarias/Documents/UNIVERSIDAD/8vo%20semestre/PDG/PDG-TUG/OverLeaf/Imagenes/Cronograma.png)) vinculada a las Actividades 1 a 15.
+  * Hoja de ruta de cierre de semestre: captura de controles en Laboratorio y **Brigada de La Victoria (22 al 26 de noviembre)**, recálculo estadístico y selección multivariada PLS (`VIP > 0.8`) + `GroupKFold`.
+* **Qué decir:**
+  > "Finalmente, aquí vemos la distribución visual en el diagrama de Gantt de las 15 actividades. Nuestros siguientes pasos inmediatos son completar las tomas adicionales de sujetos de control en el laboratorio de la universidad y en la brigada de La Victoria del 22 al 26 de noviembre, recalcular los contrastes estadísticos con la cohorte ampliada y dejar listo el documento de cierre de Proyecto de Grado I."
