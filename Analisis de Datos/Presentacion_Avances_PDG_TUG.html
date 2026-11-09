@@ -461,20 +461,20 @@
   .bento-grid-4 {
     display: grid;
     grid-template-columns: 34% 33% 33%;
-    grid-template-rows: 1fr auto;
-    height: 100%;
+    grid-template-rows: auto auto;
+    height: auto;
     border: 1px solid var(--rule-strong);
     background-color: var(--bg-paper-elevated);
   }
 
   .bento-cell {
-    padding: 1.6vh 1.5vw;
+    padding: 2.1vh 1.6vw;
     border-right: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 1.2vh;
+    gap: 1.5vh;
   }
 
   .bento-cell:nth-child(3) {
@@ -483,7 +483,7 @@
 
   .bento-footer-span {
     grid-column: 1 / 4;
-    padding: 1.3vh 1.5vw;
+    padding: 1.5vh 1.6vw;
     background-color: var(--bg-paper);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -493,12 +493,12 @@
 
   .bento-big-stat {
     font-family: var(--font-serif);
-    font-size: clamp(1.65rem, 2.35vw, 2.55rem);
+    font-size: clamp(1.85rem, 2.55vw, 2.75rem);
     font-weight: 500;
     letter-spacing: -0.03em;
     color: var(--ink);
     line-height: 1;
-    margin: 0.35vh 0;
+    margin: 0.45vh 0;
   }
 
   .bento-big-stat span {
@@ -513,7 +513,7 @@
   .mini-spec-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: clamp(0.63rem, 0.72vw, 0.76rem);
+    font-size: clamp(0.68rem, 0.78vw, 0.82rem);
     background-color: #FFFFFF;
     border: 1px solid var(--rule);
   }
@@ -521,20 +521,20 @@
   .mini-spec-table th {
     background-color: #EDEAE2;
     font-family: var(--font-mono);
-    font-size: clamp(0.54rem, 0.62vw, 0.65rem);
+    font-size: clamp(0.57rem, 0.66vw, 0.69rem);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    padding: 0.45vh 0.5vw;
+    padding: 0.65vh 0.6vw;
     text-align: left;
     border-bottom: 1px solid var(--rule-strong);
     color: var(--ink);
   }
 
   .mini-spec-table td {
-    padding: 0.42vh 0.5vw;
+    padding: 0.62vh 0.6vw;
     border-bottom: 1px solid var(--rule);
     color: var(--ink-secondary);
-    line-height: 1.28;
+    line-height: 1.32;
   }
 
   /* Editorial Data Tables */
@@ -771,11 +771,18 @@
       size: 16in 9in;
       margin: 0;
     }
+    *, *::before, *::after {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
     html, body {
+      width: 16in;
       height: auto;
       overflow: visible;
+      background-color: var(--bg-paper);
     }
     .deck {
+      width: 16in;
       height: auto;
       overflow: visible;
     }
@@ -785,10 +792,18 @@
       visibility: visible !important;
       transform: none !important;
       page-break-after: always;
-      width: 100vw;
-      height: 100vh;
+      break-after: page;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      width: 16in;
+      height: 9in;
+      overflow: hidden;
     }
-    .deck-footer {
+    .slide:last-of-type {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    .deck-footer, .lightbox {
       display: none !important;
     }
   }
@@ -1224,7 +1239,7 @@
           <table class="mini-spec-table">
             <thead>
               <tr>
-                <th>Categoría en Dataset</th>
+                <th>Categoría / Motivo en Dataset</th>
                 <th>Bruto</th>
                 <th>Válido</th>
                 <th>Descarte</th>
@@ -1232,10 +1247,10 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>Pacientes Parkinson (EP)</strong></td>
-                <td>63</td>
+                <td><strong>Pacientes Parkinson (EP Estándar)</strong></td>
+                <td>58</td>
                 <td><strong>58</strong></td>
-                <td>5 (2 MD5 + 3 Dual)</td>
+                <td>0 (5 sensores OK)</td>
               </tr>
               <tr>
                 <td><strong>Controles Sanos (CTRL)</strong></td>
@@ -1244,22 +1259,34 @@
                 <td>0 (100% retención)</td>
               </tr>
               <tr>
-                <td><strong>Pruebas Técnicas (Sin etiq.)</strong></td>
-                <td>7</td>
+                <td><strong>Duplicados Exactos MD5 (EP)</strong></td>
+                <td>2</td>
                 <td><strong>0</strong></td>
-                <td>7 (Feb–Mar 2026)</td>
+                <td>2 (<code>SMR_IDI21</code>, <code>CST_IDI12</code>)</td>
               </tr>
               <tr>
-                <td><strong>Total Grabaciones JSON</strong></td>
+                <td><strong>Pruebas Cognitivas Dual Task (P26)</strong></td>
+                <td>3</td>
+                <td><strong>0</strong></td>
+                <td>3 (Resta 30/3, ciudades)</td>
+              </tr>
+              <tr>
+                <td><strong>Pruebas Internas de Laboratorio</strong></td>
+                <td>7</td>
+                <td><strong>0</strong></td>
+                <td>7 (Feb–Mar, sin etiq.)</td>
+              </tr>
+              <tr>
+                <td><strong>Total Grabaciones JSON Auditadas</strong></td>
                 <td><strong>78</strong></td>
                 <td><strong>66</strong></td>
-                <td><strong>12 (15.4%)</strong></td>
+                <td><strong>12 (15.4% filtradas)</strong></td>
               </tr>
             </tbody>
           </table>
 
-          <div style="font-size:clamp(0.66rem, 0.76vw, 0.80rem); color:var(--ink-secondary); line-height:1.35; margin-top:auto;">
-            <strong>Detalle de descartes:</strong> 2 duplicados exactos byte a byte por reintento WiFi (<code>SMR_IDI21_BA</code> y <code>CST_IDI12_Z</code>, verificados con MD5) y 3 ensayos cognitivos <em>Dual Task</em> del sujeto <code>P26</code>.
+          <div class="callout-box" style="padding:0.85vh 0.8vw; font-size:clamp(0.66rem, 0.75vw, 0.79rem);">
+            <strong>Criterio de integridad (Regla 3):</strong> Toda captura válida exige al menos <code>BASE-SPINE</code> + ambos tobillos sin corte prematuro de transmisión (<code>hasWarning=False</code>).
           </div>
         </div>
 
@@ -1303,6 +1330,11 @@
                 <td>DBS + Levodopa 9am: titubeo inicial (62.5 s &rarr; 19.6 s).</td>
               </tr>
               <tr>
+                <td><strong>P26 (EP)</strong></td>
+                <td>1 + 3 DT</td>
+                <td>1 basal válida (11.1 s) + 3 ensayos Dual Task aislados.</td>
+              </tr>
+              <tr>
                 <td><strong>C01 (CTRL)</strong></td>
                 <td>2 vál.</td>
                 <td>Control evaluada con 7 días de diferencia (Kit Base y Kit K1).</td>
@@ -1310,7 +1342,7 @@
             </tbody>
           </table>
 
-          <div style="font-size:clamp(0.66rem, 0.76vw, 0.80rem); color:var(--ink-secondary); line-height:1.35; margin-top:auto;">
+          <div class="callout-box" style="padding:0.85vh 0.8vw; font-size:clamp(0.66rem, 0.75vw, 0.79rem);">
             <strong>Impacto en validación:</strong> Todos los archivos de un mismo sujeto quedan vinculados a su <code>persona_id</code> para impedir fuga de datos en <code>GroupKFold</code>.
           </div>
         </div>
@@ -1335,7 +1367,7 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>Archivos Asociados</strong></td>
+                <td><strong>Archivos Brut. / Vál.</strong></td>
                 <td>41 grabaciones (52.6%)</td>
                 <td>37 grabaciones (47.4%)</td>
               </tr>
@@ -1350,15 +1382,25 @@
                 <td>20.35 &plusmn; 4.8 ms (49.1 Hz)</td>
               </tr>
               <tr>
-                <td><strong>Ejes Transversales</strong></td>
-                <td>Convención original</td>
+                <td><strong>Desfase Reloj Inicial</strong></td>
+                <td>0 a 340 ms entre nodos</td>
+                <td>Hasta 1000 ms al inicio</td>
+              </tr>
+              <tr>
+                <td><strong>Ejes en Tobillos / Muñ.</strong></td>
+                <td>Convención anatómica</td>
                 <td>Rotación 90° en carcasa</td>
+              </tr>
+              <tr>
+                <td><strong>Grilla Post-Módulo 4</strong></td>
+                <td><strong>50.0 Hz (&Delta;t = 20.0 ms)</strong></td>
+                <td><strong>50.0 Hz (&Delta;t = 20.0 ms)</strong></td>
               </tr>
             </tbody>
           </table>
 
-          <div style="font-size:clamp(0.66rem, 0.76vw, 0.80rem); color:var(--ink-secondary); line-height:1.35; margin-top:auto;">
-            <strong>Solución en Módulo 4:</strong> Limpieza de prefijo (<code>replace('K1-','')</code>) y remuestreo lineal sobre grilla común de <strong>50.0 Hz</strong> corrigiendo desfases iniciales de hasta 1000 ms.
+          <div class="callout-box" style="padding:0.85vh 0.8vw; font-size:clamp(0.66rem, 0.75vw, 0.79rem);">
+            <strong>Solución en Módulo 4:</strong> Limpieza de prefijo (<code>replace('K1-','')</code>) y remuestreo lineal sobre grilla común de <strong>50.0 Hz</strong> tras recortar el desfase inicial.
           </div>
         </div>
 
