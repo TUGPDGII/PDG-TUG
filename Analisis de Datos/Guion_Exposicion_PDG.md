@@ -1,6 +1,6 @@
 # Guion de Exposición de Avances y Matriz de Riesgos — Proyecto PDG-TUG
 
-Este documento sirve como guía de apoyo para presentar las 9 diapositivas de [`Presentacion_Avances_PDG_TUG.pptx`](file:///home/jjarias/Documents/UNIVERSIDAD/8vo%20semestre/PDG/PDG-TUG/Analisis%20de%20Datos/Presentacion_Avances_PDG_TUG.pptx). Está redactado en un tono natural para que cualquiera del grupo pueda explicarlo con sus propias palabras durante la reunión con el profesor.
+Este documento sirve como guía de apoyo para presentar las 10 diapositivas de [`Presentacion_Avances_PDG_TUG.html`](file:///home/jjarias/Documents/UNIVERSIDAD/8vo%20semestre/PDG/PDG-TUG/Analisis%20de%20Datos/Presentacion_Avances_PDG_TUG.html) (también disponible en [`Presentacion_Avances_PDG_TUG.pptx`](file:///home/jjarias/Documents/UNIVERSIDAD/8vo%20semestre/PDG/PDG-TUG/Analisis%20de%20Datos/Presentacion_Avances_PDG_TUG.pptx)). Está redactado en un tono natural para que cualquiera del grupo pueda explicarlo con sus propias palabras durante la reunión con el profesor.
 
 ---
 
@@ -75,25 +75,32 @@ Este documento sirve como guía de apoyo para presentar las 9 diapositivas de [`
 
 ---
 
-## Diapositiva 7 — Matriz Oficial de Análisis de Riesgos (Parte 1: Objetivo General y Productos)
+## Diapositiva 7 — Matriz Oficial de Análisis de Riesgos (I. Objetivo General)
 * **Puntos clave en pantalla:**
   * Tabla con las 7 columnas oficiales (*Tipo de riesgo, Descripción, Probabilidad, Impacto, Efecto, Medidas de mitigación, Supuestos*).
-  * Bloques de **Objetivo General** y **Productos 1 al 5**.
+  * Los 4 riesgos transversales del **Objetivo General**.
 * **Qué decir:**
-  > "Pasando a la matriz de análisis de riesgos que construimos siguiendo el formato de referencia y que ya dejamos integrada tanto en el documento de Overleaf como en el repositorio:
+  > "Pasando a la matriz de análisis de riesgos que construimos siguiendo el formato de referencia y que ya dejamos integrada tanto en el documento de Overleaf como en el repositorio, la dividimos en tres láminas para que se pueda leer con claridad:
   >
-  > En la primera parte agrupamos los riesgos del **Objetivo General** y de los **5 Productos entregables**:
-  > * El riesgo operacional más importante del objetivo general es el **desbalance entre pacientes y controles** en las muestras de brigada (probabilidad *Probable*, impacto *Mayor*), que mitigamos programando tomas adicionales de controles en laboratorio/brigadas y aplicando estadística robusta al desbalance.
-  > * En el **Producto 1** (conjunto de datos bimodal) y **Producto 2** (algoritmo de segmentación), contemplamos los riesgos tecnológicos por cortes de conexión en campo, desconexión de sensores o cambios en la orientación de los ejes respecto al proyecto anterior, mitigados con la validación de los 3 sensores mínimos y la revisión de ejes antes de segmentar.
-  > * Y en los **Productos 3, 4 y 5**, incluimos los riesgos de solapamiento de variables en pacientes leves, posibles demoras en la integración con los servicios de VIMOV y el control de tiempos de redacción de la monografía."
+  > En el **Objetivo General**, el riesgo operacional más importante es el **desbalance entre pacientes y controles** en las muestras de brigada (probabilidad *Probable*, impacto *Mayor*), que mitigamos programando tomas adicionales de controles en laboratorio y brigadas y aplicando pruebas no paramétricas y validación estratificada. También contemplamos las fallas de sincronización entre equipos, los costos de desplazamiento a brigadas y el cumplimiento de consentimientos informados."
 
 ---
 
-## Diapositiva 8 — Matriz Oficial de Análisis de Riesgos (Parte 2: Actividades `OE1` a `OE4`)
+## Diapositiva 8 — Matriz Oficial de Análisis de Riesgos (II. Productos 1 al 5)
 * **Puntos clave en pantalla:**
-  * Continuación de la tabla para `OE1.A1`, `OE1.A2`, `OE2.A1`, `OE3.A1`, `OE3.A2` y `OE4.A1`.
+  * Riesgos asociados a los **5 Productos entregables** (Conjunto de datos bimodal, Algoritmo de segmentación, Modelo de clasificación, Módulo en VIMOV y Monografía final).
 * **Qué decir:**
-  > "En la segunda parte de la matriz desglosamos los riesgos por actividad de cada objetivo específico (`OE1` a `OE4`):
+  > "En la segunda lámina de la matriz agrupamos los riesgos de los **5 Productos entregables**:
+  > * En el **Producto 1** (conjunto de datos bimodal) y **Producto 2** (algoritmo de segmentación), contemplamos los riesgos tecnológicos por cortes de conexión en campo, desconexión de sensores o cambios en la orientación de los ejes respecto al proyecto anterior, mitigados con la validación de los 3 sensores mínimos y la revisión de ejes antes de segmentar.
+  > * Y en los **Productos 3, 4 y 5**, incluimos el riesgo de solapamiento de variables en pacientes leves, posibles demoras en la integración con los servicios de VIMOV y el control de tiempos de redacción de la monografía con entregas parciales."
+
+---
+
+## Diapositiva 9 — Matriz Oficial de Análisis de Riesgos (III. Actividades `OE1` a `OE4`)
+* **Puntos clave en pantalla:**
+  * Desglose por actividades `OE1.A1`, `OE1.A2`, `OE2.A1`, `OE3.A1`, `OE3.A2` y `OE4.A1`.
+* **Qué decir:**
+  > "En la tercera lámina de la matriz desglosamos los riesgos por actividad de cada objetivo específico (`OE1` a `OE4`):
   > * En **`OE1.A1` y `OE1.A2`**, abordamos el riesgo de mezclar pruebas de calibración técnica con pruebas clínicas —lo cual resolvimos con las fichas técnicas de descarte— y la logística para convocar voluntarios de control adicionales.
   > * En **`OE2.A1`**, el riesgo de tasas de muestreo variables entre equipos y movimientos previos del paciente antes de la orden de inicio, que mitigamos interpolando a frecuencias fijas (50 Hz y 30 Hz) y verificando con las gráficas superpuestas.
   > * En **`OE3.A1` y `OE3.A2`**, el riesgo de sobreajuste (*overfitting*) al entrenar los clasificadores y los permisos técnicos para conectar con MinIO y PostgreSQL en VIMOV.
@@ -101,7 +108,7 @@ Este documento sirve como guía de apoyo para presentar las 9 diapositivas de [`
 
 ---
 
-## Diapositiva 9 — Estado frente al Cronograma y Próximos Pasos
+## Diapositiva 10 — Estado frente al Cronograma y Próximos Pasos
 * **Puntos clave en pantalla:**
   * Actividades completadas en Fase I (Inventario, fichas técnicas, validación del algoritmo anterior, cruce bimodal 1 a 1, primeros contrastes estadísticos y matriz de riesgos).
   * Próximos pasos inmediatos: ampliación de muestras de control (laboratorio y brigada de La Victoria del 22 al 26 de noviembre), ajuste fino de segmentación en casos atípicos y consolidación del documento de cierre de PDG I.
