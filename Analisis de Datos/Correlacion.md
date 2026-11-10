@@ -10,6 +10,12 @@
 
 ## 1. Resumen Ejecutivo del Cruce Bimodal Estrictamente TUG
 
+### 1.1 Metodología de Sincronización y Formato Estándar de Estampas de Tiempo (Timestamps)
+Para cruzar con exactitud las grabaciones inerciales y ópticas, se caracterizó el formato informático de tiempo de cada fuente:
+- **Sensores IMU (`timestamp` raíz):** Almacenado como entero en milisegundos bajo convención **Unix Epoch UTC** (tiempo transcurrido desde 1970-01-01 00:00:00 UTC sin zona horaria). Por ejemplo, el valor `1782398964864` corresponde exactamente a `2026-06-25 14:49:24.864 UTC`.
+- **Cámara e-Motion (`Date`):** Almacenado como texto en la aplicación de escritorio Windows (`"25-06-2026 09:49:20.197"`), tomando directamente el reloj del sistema operativo en **hora local de Colombia (UTC-5)**.
+- **Transformación de Sincronía:** Al restar 5 horas al timestamp UTC del IMU ($14:49:24 - 5\text{h} = 09:49:24$), se obtiene la hora local de la brigada, evidenciando que ambos dispositivos se iniciaron con un desfase de apenas **4.6 segundos**.
+
 | Métrica | Valor | Observación Metodológica |
 |---|---:|---|
 | Total grabaciones IMU en dataset | **78** | Totalidad de archivos `.json` en `Datos IMUs/` |

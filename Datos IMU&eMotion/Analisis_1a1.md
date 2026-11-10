@@ -91,3 +91,73 @@ Al evaluar las señales continuas de los 53 pares bimodales, se documentaron cas
 ### B. Pruebas con Múltiples Giros Detectados
 - En participantes como `IDB5`, `IDB7`, `IDB10`, `IDB20` y `IDB30`, el algoritmo inercial detecta más de un pico prominente de rotación angular en yaw ($>40^\circ/\text{s}$), producto de giros exploratorios preliminares o de una rotación fragmentada en múltiples semicírculos en el cono propia de la rigidez axial parkinsoniana.
 - La tabla completa con el diagnóstico individual de los 53 pares se encuentra en [`Datos IMU&eMotion/Auditoria_Anomalias_Bimodales.csv`](file:///home/guarinve/Documentos/PDG-TUG/Datos%20IMU&eMotion/Auditoria_Anomalias_Bimodales.csv).
+
+---
+
+## 6. Sincronización Temporal y Formato Estándar de Timestamps
+
+Para lograr el alineamiento cronológico absoluto de los ensayos capturados durante las brigadas clínicas, se identificaron y estandarizaron las dos convenciones de estampado de tiempo utilizadas por cada plataforma:
+
+### A. Sensores Inerciales (IMUs)
+- **Campo de registro:** `"timestamp": 1782398964864` (entero de 13 dígitos en milisegundos).
+- **Convención técnica:** Formato universal **Unix Epoch Time**, que por definición de computación estándar contabiliza los milisegundos transcurridos desde el 1 de enero de 1970 a las 00:00:00 UTC (Tiempo Universal Coordinado / Meridiano de Greenwich), sin incorporar desplazamiento por zona horaria local.
+- **Conversión estándar:** Al convertir la marca $1782398964864\text{ ms}$ a fecha y hora UTC internacional se obtiene:
+  $$\text{Fecha y Hora UTC} = \text{25-06-2026 14:49:24.864 UTC}$$
+
+### B. Sistema Óptico de Cámara (e-Motion / VIMOV)
+- **Campo de registro:** `"Date": "25-06-2026 09:49:20.197"` (cadena de texto formateada).
+- **Convención técnica:** La aplicación de escritorio de e-Motion bajo Windows toma directamente la hora del reloj del sistema operativo del computador donde corre la prueba clínica, registrando la hora local de Colombia (**UTC-5**).
+
+### C. Alineamiento y Demostración de Sincronía Multimodal
+Al contrastar directamente la estampa UTC del IMU con la hora local de Colombia registrada por la cámara, se observa una aparente discrepancia de 5 horas. Al aplicar la corrección de huso horario ($\text{UTC} - 5\text{ h}$):
+
+$$\text{Hora Local IMU (Colombia)} = 14:49:24.864 - 5\text{ horas} = \mathbf{09:49:24.864}$$
+$$\text{Hora Local e-Motion (Colombia)} = \mathbf{09:49:20.197}$$
+$$\Delta t_{\text{desfase inicial}} = 09:49:24.864 - 09:49:20.197 = \mathbf{4.667\text{ segundos}}$$
+
+Esta concordancia milimétrica (diferencia inferior a 5 segundos) demuestra que ambos dispositivos fueron activados casi de forma simultánea por el equipo de evaluadores clínicos en campo, validando matemáticamente la correspondencia bimodal 1:1.
+
+---
+
+## 7. Dinámica Cinemática del Giro en Cono vs. Inicio del Alejamiento en e-Motion
+
+En protocolos TUG estandarizados sobre sujetos sanos, la fase de giro de $180^\circ$ se comporta como una rotación fluida y cuasi-simétrica con duración promedio de $2.0\text{ a }2.5\text{ s}$. Sin embargo, en pacientes con Enfermedad de Parkinson con rigidez axial, festinación o episodios de bloqueo (*freezing*), la maniobra frente a la cámara en la zona del cono exhibe una dinámica desacoplada:
+
+1. **Llegada al Cono ($t_{\text{ini\_giro}}$ / Fin de Marcha de Ida):**
+   - La velocidad longitudinal de avance cesa ($v_z < -v_{\text{thr}}$ finaliza) y la coordenada de profundidad $Z$ ingresa al umbral proximal frente al lente ($Z \le Z_{\min} + 0.20 \cdot \Delta Z$).
+2. **Permanencia y Maniobra de Pivote en Cono ($v_z \approx 0$):**
+   - El paciente detiene su traslación longitudinal para realizar giros fraccionados de múltiples pasos en bloque. Durante este lapso, la velocidad sagital en la cámara oscila alrededor de cero ($|v_z| < 0.15\text{ m/s}$), mientras que el giróscopo lumbar del IMU registra la ráfaga continua de velocidad angular de guiñada (*yaw*).
+3. **Ápex de Giro ($t_{\text{ápex}}$):**
+   - Punto de máxima proximidad geométrica al lente de la cámara ($Z_{\min}$).
+4. **Inicio del Alejamiento ($t_{\text{fin\_giro}}$ / Inicio de Marcha de Vuelta):**
+   - Se detecta el instante cinemático en el que la velocidad sagital invierte de forma sostenida su signo hacia valores positivos ($v_z > +0.20\text{ m/s}$ continuo), indicando que el paciente ha completado su reorientación espacial y retoma la marcha hacia la silla.
+
+### Caso de Estudio: Ensayo Bimodal `SMR_IDB8`
+- **Llegada al cono (Fin Ida):** IMU a los $6.56\text{ s}$ vs. e-Motion a los $7.27\text{ s}$ ($\Delta = 0.71\text{ s}$, **alta coincidencia de arribo**).
+- **Permanencia en cono:** El paciente tarda **$8.40\text{ s}$** maniobrando frente a la cámara ($7.27\text{ s}$ a $15.67\text{ s}$ relativos al levantamiento).
+- **Inicio del alejamiento:** Ocurre a los **$15.67\text{ s}$** en e-Motion.
+- **Explicación de la discrepancia inicial:** El algoritmo inercial del Módulo 6 identificó el primer pico prominente de rotación angular ($1.22\text{ s}$ de duración) concluyendo a los $7.78\text{ s}$, mientras que la cámara evidenció la totalidad de la maniobra de giro extendido hasta los $15.67\text{ s}$. La incorporación de la detección explícita del inicio del alejamiento desacopla la cinemática de avance de la cinemática rotacional, aportando una caracterización clínica fidedigna del compromiso axial.
+
+---
+
+## 8. Análisis y Comparación de Energía Espectral Bimodal (Módulo 15)
+
+El Módulo 15 del pipeline implementa la evaluación de gasto espectral dinámico mediante la formulación canónica del proyecto predecesor (`PDG_II_Colab.ipynb` / `PDG_II_Predecesor.ipynb`):
+
+### A. Formulación Matemática (Teorema de Parseval)
+Dada una señal temporal discreta $x[n]$ (velocidad angular de guiñada del IMU lumbar o velocidad longitudinal $v_z$ de e-Motion), se aplica una ventana deslizante de Hann $w[n]$ de duración $T_{\text{win}} = 1.0\text{ s}$ con paso de avance $\Delta t = 0.1\text{ s}$. Por el Teorema de Parseval, la energía espectral consumida equivale a la suma cuadrática en el dominio temporal de la señal enventanada:
+
+$$E_{\text{espectral}}(t) = \sum_{n=0}^{N-1} \left( x[n] \cdot w_{\text{Hann}}[n] \right)^2 = \frac{1}{N} \sum_{k=0}^{N-1} |X[k]|^2$$
+
+### B. Integración Multimodal por Fases Biomecánicas Propias
+Para evitar sesgos al superponer señales con naturalezas físicas distintas:
+1. **IMU Lumbar:** La energía se integra sobre los intervalos de flexo-extensión y rotación inercial propios del sensor inercial.
+2. **Cámara e-Motion:** La energía se cuantifica sobre los intervalos cinemáticos ópticos independientes:
+   - Levantamiento ($E_z \approx 0$).
+   - Marcha de Ida (alta concentración de energía cinética longitudinal).
+   - Giro en Cono (energía longitudinal mínima debido a $v_z \approx 0$, delimitada por el sombreado tramado entre $t_{\text{ini\_giro}}$ y $t_{\text{fin\_giro}}$).
+   - Marcha de Regreso (segundo lóbulo de alta energía cinética).
+   - Sentado (desaceleración y estabilización final).
+
+Esta cuantificación demuestra empíricamente la **complementariedad energética sensorial**: el sensor IMU captura el esfuerzo motor en las fases de reorientación y transición postural (Fases 1, 3 y 5), mientras que la cámara RGB-D cuantifica con precisión el flujo de potencia cinética traslacional durante la locomoción lineal (Fases 2 y 4).
+

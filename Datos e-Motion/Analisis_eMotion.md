@@ -135,7 +135,14 @@ Se construye el interpolador hermítico cúbico por tramos (**PCHIP**) sobre una
 3. **Filtro Butterworth Paso Bajas a $3.0\text{ Hz}$ (`filtfilt`):** Orden 4 con fase cero para eliminar el ruido instrumental del sensor sin retraso temporal.
 
 ### 5.3 Etapa 3: Macro-Segmentación de las 5 Fases TUG
-* **Velocidad sagital $v_z(t)$ y energía de avance $E_z(t)$:** Delimitan Marcha 1 (acercamiento con $v_z < -v_{\text{thr}}$), Zona de Giro de $180^\circ$ (inversión de avance en $Z_{\min}$) y Marcha 2 (alejamiento con $v_z > +v_{\text{thr}}$).
+
+* **Formato de Estampas de Tiempo en e-Motion:** La plataforma registra la estampa en el campo `"Date": "25-06-2026 09:49:20.197"`, tomando el reloj del sistema operativo Windows en hora local de Colombia (**UTC-5**). Para sincronizarlo con los timestamps en milisegundos Unix Epoch de los IMUs (que operan en **UTC** sin zona horaria), se deben restar 5 horas al tiempo UTC de los sensores inerciales.
+* **Velocidad sagital $v_z(t)$ y energía de avance $E_z(t)$:** Delimitan Marcha 1 (acercamiento con $v_z < -v_{\text{thr}}$), Zona de Giro de $180^\circ$ e inicio de Marcha 2 (alejamiento con $v_z > +v_{\text{thr}}$).
+* **Segmentación Desacoplada de la Fase de Giro (Permanencia en Cono vs. Inicio del Alejamiento):**
+  - **Llegada al Cono ($t_{\text{ini\_giro}}$):** Punto donde cesa el avance longitudinal de ida ($v_z < -v_{\text{thr}}$) y la trayectoria ingresa a la zona de proximidad $Z \le Z_{\min} + 0.20 (Z_{\max} - Z_{\min})$.
+  - **Ápex de Giro ($t_{\text{ápex}}$):** Instante de distancia euclidiana mínima al sensor ($Z_{\min}$).
+  - **Permanencia en Cono ($v_z \approx 0$):** Periodo donde el paciente pivota frente a la cámara con escaso avance longitudinal pero alta actividad angular.
+  - **Inicio del Alejamiento ($t_{\text{fin\_giro}}$):** Punto cinemático exacto en el que el paciente invierte de manera continua su desplazamiento longitudinal alejándose de la cámara ($v_z > +0.20\text{ m/s}$ sostenido), dando inicio formal a la marcha de retorno.
 * **Energía cinética vertical $E_y(t)$ en silla:** Delimita el levantamiento al inicio y el sentado al final mediante la excursión vertical combinada de la pelvis y la cabeza.
 
 ### 5.4 Etapa 4: Micro-Segmentación de Pasos ("Escalerita", Wavelet CWT, `SWING`/`STANCE` y Doble Apoyo)

@@ -173,9 +173,14 @@ El protocolo biomecánico original contemplaba 3 sensores indispensables (espald
   - `temp_AX` (4 sensores): Registró `BASE-SPINE`, `LEFT-HAND`, `RIGHT-ANKLE` y `RIGHT-HAND`. Falta tobillo izquierdo.
   *(Nótese que estos 4 archivos corresponden a pruebas técnicas sin etiqueta diagnóstica).*
 
-### 3.4 Frecuencia de Muestreo, Sincronización y Latencias
+### 3.4 Formato Estándar de Timestamps, Frecuencia de Muestreo y Sincronización
 
-* **Naturaleza de los Timestamps:** Dentro de la lista `imuData`, el campo `timestamp` es **relativo en milisegundos** respecto al encendido o conexión individual de cada sensor.
+* **Formato Estándar del Timestamp Global (`timestamp` raíz):**
+  - El campo raíz `"timestamp": 1782398964864` está almacenado como un entero de 13 dígitos correspondiente al formato universal **Unix Epoch Time (milisegundos)**.
+  - Por convención informática estándar (POSIX/IEEE), la marca Unix Epoch cuenta de forma absoluta los milisegundos transcurridos desde el 1 de enero de 1970 a las 00:00:00 UTC (Tiempo Universal Coordinado, Meridiano de Greenwich), **sin incorporar zonas horarias locales**.
+  - Al convertir este valor a fecha y hora estándar UTC se obtiene, por ejemplo: `25-06-2026 14:49:24.864 UTC`.
+  - **Conversión a Hora Local de Colombia (UTC-5):** Dado que las brigadas clínicas en Santa Marta y Cali se realizaron en la zona horaria de Colombia (UTC-5), para cotejar las grabaciones con las cámaras de video externas, el reloj del sistema operativo de e-Motion o las notas médicas en papel, **se deben restar 5 horas** ($14:49:24 - 5\text{h} = 09:49:24$ hora local). Esta conversión es mandatoria para el cruce y sincronización multimodal con el sistema óptico e-Motion.
+* **Naturaleza de los Timestamps Internos (`imuData`):** Dentro de la lista `imuData`, el campo `timestamp` es **relativo en milisegundos** respecto al encendido o conexión individual de cada sensor.
 * **Frecuencia Efectiva:** La diferencia media entre muestras consecutivas del mismo sensor es $\Delta t = 20.04 \pm 3.9\text{ ms}$ en Kit Base y $\Delta t = 20.35 \pm 4.8\text{ ms}$ en Kit K1, correspondiendo a una frecuencia efectiva de **$49.4 \text{ Hz}$**.
 * **Desfase Relativo Inicial:** Los relojes locales de los sensores presentan desfases iniciales de hasta $1000\text{ ms}$. Esto exige que la segmentación de fases y la correlación entre sensores se realice tras un remuestreo a cuadrícula temporal común (50.0 Hz uniforme por interpolación lineal).
 
